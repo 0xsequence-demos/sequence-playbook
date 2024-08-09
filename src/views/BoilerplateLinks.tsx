@@ -11,7 +11,7 @@ export const BoilerplateLinks = (props: { demos?: Demo[] }) => {
         </p>
         <ul>
           {demos.map((demoName) => (
-            <li>
+            <li key={demoName}>
               <a href={`http://github.com/0xsequence/${demoName}`}>
                 {demoName}
               </a>

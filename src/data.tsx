@@ -1,14 +1,14 @@
-import { PageAuthenticate } from "./pages/PageAuthenticate";
-import { PageChainEventWebhooks } from "./pages/PageChainEventWebhooks";
-import { PageCryptoOnramp } from "./pages/PageCryptoOnramp";
-import { PageDisplayWalletInventory } from "./pages/PageDisplayWalletInventory";
-import { PageDisplayWalletSubInventory } from "./pages/PageDisplayWalletSubInventory";
-import { PageInGameMarketplace } from "./pages/PageInGameMarketplace";
-import { PageLinkWallets } from "./pages/PageLinkWallets";
-import { PageMintTokens } from "./pages/PageMintTokens";
-import { PageNothingHere } from "./pages/PageNothingHere";
-import { PagePrimaryOffChainSales } from "./pages/PagePrimaryOffChainSales";
-import { PagePrimaryOnChainSales } from "./pages/PagePrimaryOnChainSales";
+import { PageAuthenticate } from "./views/pages/PageAuthenticate";
+import { PageChainEventWebhooks } from "./views/pages/PageChainEventWebhooks";
+import { PageCryptoOnramp } from "./views/pages/PageCryptoOnramp";
+import { PageDisplayWalletInventory } from "./views/pages/PageDisplayWalletInventory";
+import { PageDisplayWalletSubInventory } from "./views/pages/PageDisplayWalletSubInventory";
+import { PageInGameMarketplace } from "./views/pages/PageInGameMarketplace";
+import { PageLinkWallets } from "./views/pages/PageLinkWallets";
+import { PageMintTokens } from "./views/pages/PageMintTokens";
+import { PageNothingHere } from "./views/pages/PageNothingHere";
+import { PagePrimaryOffChainSales } from "./views/pages/PagePrimaryOffChainSales";
+import { PagePrimaryOnChainSales } from "./views/pages/PagePrimaryOnChainSales";
 
 export const categories = ["Onboard", "Monetize", "Power"] as const;
 export type Category = (typeof categories)[number];

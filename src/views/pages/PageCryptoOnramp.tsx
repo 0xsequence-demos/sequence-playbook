@@ -1,7 +1,8 @@
 export const PageCryptoOnramp: JSX.Element = (
   <div>
     <h2>
-      Implementing an Onramp Solution for Cryptocurrency with Credit Card Payments
+      Implementing an Onramp Solution for Cryptocurrency with Credit Card
+      Payments
     </h2>
     <h3>The following text is a placeholder.</h3>
     <p>
