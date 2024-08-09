@@ -1,6 +1,6 @@
 {
-  "name": "kit-embedded-wallet-react-boilerplate",
-  "private": false,
+  "name": "sequence-sandbox",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
