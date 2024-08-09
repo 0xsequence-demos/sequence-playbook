@@ -1,18 +1,46 @@
-import { useAccount } from "wagmi";
-
 import "./Home.css";
-import NotConnected from "./components/blockchain/NotConnected";
-import { Text } from "@0xsequence/design-system";
-import Connected from "./components/blockchain/Connected";
+import { Tabs, Text } from "@0xsequence/design-system";
+import { categories, categoryIcons, userStories } from "../data";
+import { BoilerplateLinks } from "./BoilerplateLinks";
 
 const Home = () => {
-  const { isConnected } = useAccount();
-
   return (
     <div>
-      <h1>Sequence Kit Starter - React</h1>
-      <h2 className="homepage__marginBtNormal">Embedded Wallet</h2>
-      {isConnected ? <Connected /> : <NotConnected />}
+      <Tabs
+        className="navBar major"
+        defaultValue="Onboard"
+        tabs={categories.map((category) => {
+          return {
+            label: `${categoryIcons[category]} ${category}`,
+            value: category,
+            content: (
+              <>
+                <Tabs
+                  className="navBar minor"
+                  defaultValue={
+                    userStories.filter((us) => us.category === category)[0]
+                      .label
+                  }
+                  tabs={userStories
+                    .filter((us) => us.category === category)
+                    .map((us) => {
+                      return {
+                        label: us.label,
+                        value: us.label,
+                        content: (
+                          <>
+                            {us.page}
+                            <BoilerplateLinks demos={us.demos} />
+                          </>
+                        ),
+                      };
+                    })}
+                ></Tabs>
+              </>
+            ),
+          };
+        })}
+      ></Tabs>
       <footer className="homepage__footer">
         <Text>
           Want to learn more? Read the{" "}
