@@ -1,7 +1,7 @@
 # Sequence Sandbox
 ## Interactive textbook
 
-This is a collection of interactive development guides for sequence features. It's a great starting point before moving onto the sequence project boilerplates.
+A collection of interactive development guides using sequence features. It's a great starting point before moving onto the sequence project boilerplates.
 
 ## Quickstart
 
