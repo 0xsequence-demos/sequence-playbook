@@ -1,6 +1,7 @@
-# Sequence Kit Embedded Wallet React Starter Boilerplate
+# Sequence Sandbox
+## Interactive textbook
 
-Starter Sequence Embedded Wallet boilerplate that uses [Sequence Kit](https://github.com/0xsequence/kit) with React.
+This is a collection of interactive development guides for sequence features. It's a great starting point before moving onto the sequence project boilerplates.
 
 ## Quickstart
 
