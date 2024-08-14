@@ -39,7 +39,7 @@ class UserStory {
     public category: Category,
     public label: string,
     public summary: string,
-    public page: JSX.Element = PageNothingHere,
+    public page: () => JSX.Element = PageNothingHere,
     public demos?: Demo[],
   ) {
     //

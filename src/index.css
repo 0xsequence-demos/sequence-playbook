@@ -80,3 +80,33 @@ button:focus-visible {
 .break-word {
   word-break: break-word;
 }
+
+.row {
+  display: flex;
+  border-width: 2px;
+  border-radius: 20px;
+  margin: 10px;
+  background: linear-gradient(90deg, #121212 50%, #3b3b3b 50%);
+}
+
+.column {
+  flex: 50%;
+  margin: 20px 20px;
+}
+
+.code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.full {
+  display: flex;
+  border-width: 2px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #121212;
+}
+
+.ghost {
+  opacity: 40%;
+}

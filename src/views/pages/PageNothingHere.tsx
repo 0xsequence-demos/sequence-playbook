@@ -1,1 +1,3 @@
-export const PageNothingHere: JSX.Element = <div>Nothing Here</div>;
+export const PageNothingHere = () => {
+  return <div>Nothing Here</div>;
+};

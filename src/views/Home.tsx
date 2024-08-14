@@ -29,7 +29,7 @@ const Home = () => {
                         value: us.label,
                         content: (
                           <>
-                            {us.page}
+                            {us.page()}
                             <BoilerplateLinks demos={us.demos} />
                           </>
                         ),
