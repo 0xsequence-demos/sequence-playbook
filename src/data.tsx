@@ -29,7 +29,8 @@ export const demos = [
   "gift-wallet-inventory-boilerplate",
   "offchain-sales-boilerplate",
   "crypto-onramp-boilerplate",
-  "purchased-minting-api-boilerplate",
+  "nft-checkout-boilerplate",
+  "primary-drop-sale-boilerplate",
 ] as const;
 
 export type Demo = (typeof demos)[number];
@@ -85,7 +86,7 @@ export const userStories: UserStory[] = [
     "Primary On-Chain Sales",
     "Sell on-chain items, accept payments in credit/debit card or any cryptocurrency on any EVM chain",
     PagePrimaryOnChainSales,
-    ["purchased-minting-api-boilerplate"],
+    ["nft-checkout-boilerplate", "primary-drop-sale-boilerplate"],
   ),
   us(
     "Monetize",
