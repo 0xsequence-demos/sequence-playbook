@@ -45,3 +45,20 @@ h2 {
 ul li {
   margin-left: 1em;
 }
+
+.custom-counter {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  word-wrap: break-word;
+}
+.custom-counter li {
+  counter-increment: step-counter;
+}
+.custom-counter li::before {
+  content: counter(step-counter);
+  margin-right: 20px;
+  font-size: 80%;
+  opacity: 50%;
+  font-weight: bold;
+}

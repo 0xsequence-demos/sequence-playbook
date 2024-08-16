@@ -1,6 +1,6 @@
 export function formatAsCode(str: string) {
   return (
-    <ol>
+    <ol className="custom-counter">
       {str
         .replace(/ /g, "\u00A0")
         .split("\n")
