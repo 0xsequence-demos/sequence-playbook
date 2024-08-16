@@ -1,11 +1,12 @@
 export function formatAsCode(str: string) {
-  return str
-    .replace(/ /g, "\u00A0")
-    .split("\n")
-    .map((v) => (
-      <>
-        {v}
-        <br />
-      </>
-    ));
+  return (
+    <ol>
+      {str
+        .replace(/ /g, "\u00A0")
+        .split("\n")
+        .map((v) => (
+          <li>{v}</li>
+        ))}
+    </ol>
+  );
 }

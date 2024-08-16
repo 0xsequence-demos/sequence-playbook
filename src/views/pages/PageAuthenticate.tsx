@@ -1,9 +1,11 @@
 import { useAccount } from "wagmi";
 import { AuthenticationWidget } from "../components/AuthenticationWidget";
 import AuthenticationWidgetSource from "../components/AuthenticationWidget?raw";
-import ExampleWidgetSource from "../components/ExampleWidget?raw";
 import { formatAsCode } from "../components/formatAsCode";
-import { ExampleWidget } from "../components/ExampleWidget";
+import { SignMessageWidget } from "../components/SignMessageWidget";
+import SignMessageWidgetSource from "../components/SignMessageWidget?raw";
+import { SendTestTransactionWidget } from "../components/SendTestTransactionWidget";
+import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
 
 export const PageAuthenticate = () => {
   const { address } = useAccount();
@@ -53,16 +55,18 @@ export const PageAuthenticate = () => {
       <div className={address ? "" : "ghost"}>
         <h3>Sign a message</h3>
         <div className="row">
-          <p className="column code">{formatAsCode(ExampleWidgetSource)}</p>
+          <p className="column code">{formatAsCode(SignMessageWidgetSource)}</p>
           <div className="column">
-            <ExampleWidget />
+            <SignMessageWidget />
           </div>
         </div>
         <h3>Send a test transaction</h3>
         <div className="row">
-          <p className="column code">{formatAsCode(ExampleWidgetSource)}</p>
+          <p className="column code">
+            {formatAsCode(SendTestTransactionWidgetSource)}
+          </p>
           <div className="column">
-            <ExampleWidget />
+            <SendTestTransactionWidget />
           </div>
         </div>
       </div>

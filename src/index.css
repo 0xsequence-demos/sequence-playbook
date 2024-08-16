@@ -92,6 +92,7 @@ button:focus-visible {
 .column {
   flex: 50%;
   margin: 20px 20px;
+  width: 46%;
 }
 
 .code {
@@ -109,4 +110,18 @@ button:focus-visible {
 
 .ghost {
   opacity: 40%;
+}
+
+.breakword {
+  word-wrap: break-word;
+}
+
+@counter-style empty-style {
+  system: extends decimal-leading-zero;
+  suffix: " ";
+}
+
+ol {
+  margin-left: 20px;
+  list-style: empty-style;
 }
