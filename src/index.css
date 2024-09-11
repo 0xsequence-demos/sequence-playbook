@@ -86,13 +86,19 @@ button:focus-visible {
   border-width: 2px;
   border-radius: 20px;
   margin: 10px;
-  background: linear-gradient(90deg, #121212 50%, #3b3b3b 50%);
+  background: linear-gradient(90deg, #121212 50%, #1c1c1c 50%);
 }
 
 .column {
   flex: 50%;
   margin: 20px 20px;
   width: 46%;
+}
+
+.column.widget {
+  align-content: center;
+  text-align: center;
+  margin: auto 0;
 }
 
 .code {
@@ -116,6 +122,27 @@ button:focus-visible {
   word-wrap: break-word;
 }
 
+ul li {
+  margin-left: 1em;
+}
+
+.custom-counter {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  word-wrap: break-word;
+}
+.custom-counter li {
+  counter-increment: step-counter;
+}
+.custom-counter li::before {
+  content: counter(step-counter);
+  margin-right: 20px;
+  font-size: 80%;
+  opacity: 50%;
+  font-weight: bold;
+}
+
 @counter-style empty-style {
   system: extends decimal-leading-zero;
   suffix: " ";
@@ -124,4 +151,48 @@ button:focus-visible {
 ol {
   margin-left: 20px;
   list-style: empty-style;
+}
+
+.little-window {
+  box-shadow: 5px 10px 16px #0000007f;
+  margin: auto;
+  background-color: #262626;
+  max-width: 600px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 12px;
+}
+.little-window .header {
+  background-color: rgb(69, 69, 69);
+  height: 38px;
+  position: relative;
+  border-radius: 12px 12px 0px 0px;
+}
+.header .decor-tl {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+.decor-tl .dot {
+  background-color: #767676;
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  top: 8px;
+  left: 8px;
+  position: absolute;
+}
+.decor-tl .dash {
+  background-color: #767676;
+  width: 66px;
+  height: 12px;
+  border-radius: 6px;
+  top: 13px;
+  left: 38px;
+  position: absolute;
+}
+
+.little-window .content {
+  margin: 20px;
 }
