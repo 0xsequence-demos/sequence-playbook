@@ -6,6 +6,7 @@ import { SignMessageWidget } from "../components/SignMessageWidget";
 import SignMessageWidgetSource from "../components/SignMessageWidget?raw";
 import { SendTestTransactionWidget } from "../components/SendTestTransactionWidget";
 import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
+import { LittleWindow } from "../components/LittleWindow";
 
 export const PageAuthenticate = () => {
   const { address } = useAccount();
@@ -38,8 +39,10 @@ export const PageAuthenticate = () => {
         <p className="column code">
           {formatAsCode(AuthenticationWidgetSource)}
         </p>
-        <div className="column">
-          <AuthenticationWidget />
+        <div className="column widget">
+          <LittleWindow>
+            <AuthenticationWidget />
+          </LittleWindow>
         </div>
       </div>
       {!address ? (
@@ -56,8 +59,10 @@ export const PageAuthenticate = () => {
         <h3>Sign a message</h3>
         <div className="row">
           <p className="column code">{formatAsCode(SignMessageWidgetSource)}</p>
-          <div className="column">
-            <SignMessageWidget />
+          <div className="column widget">
+            <LittleWindow>
+              <SignMessageWidget />
+            </LittleWindow>
           </div>
         </div>
         <h3>Send a test transaction</h3>
@@ -65,8 +70,10 @@ export const PageAuthenticate = () => {
           <p className="column code">
             {formatAsCode(SendTestTransactionWidgetSource)}
           </p>
-          <div className="column">
-            <SendTestTransactionWidget />
+          <div className="column widget">
+            <LittleWindow>
+              <SendTestTransactionWidget />
+            </LittleWindow>
           </div>
         </div>
       </div>
