@@ -1,5 +1,6 @@
 .bot-svg {
   margin-right: calc(100% - 60px);
+  transform: translateY(20px);
 }
 
 svg #buddy #head-group {

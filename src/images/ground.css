@@ -1,0 +1,11 @@
+.ground-svg {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+.ground-svg #ground {
+  width: 1000px;
+  transform: translateX(-400px);
+}

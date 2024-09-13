@@ -86,7 +86,7 @@ button:focus-visible {
   border-width: 2px;
   border-radius: 20px;
   margin: 10px;
-  background: linear-gradient(90deg, #121212 50%, #1c1c1c 50%);
+  background: linear-gradient(90deg, #121212 52%, #1c1c1c 52%);
 }
 
 .column {
@@ -99,6 +99,7 @@ button:focus-visible {
   align-content: center;
   text-align: center;
   margin: auto 0;
+  padding: 20px;
 }
 
 .code {
@@ -156,12 +157,15 @@ ol {
 .little-window {
   box-shadow: 5px 10px 16px #0000007f;
   margin: auto;
-  background-color: #262626;
+  background-image: url("/checkerboard.png");
+  background-repeat: repeat;
   max-width: 600px;
   text-align: center;
   align-items: center;
   align-content: center;
   border-radius: 12px;
+  overflow: hidden;
+  position: relative;
 }
 .little-window .header {
   background-color: rgb(69, 69, 69);
@@ -195,4 +199,31 @@ ol {
 
 .little-window .content {
   margin: 20px;
+  z-index: 1;
+}
+
+.little-window button {
+  background: linear-gradient(270deg, #7537f9 0%, #5826ff 100%);
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.clouds {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("/clouds.svg");
+  background-repeat: repeat-x;
+  background-position: 0px 50px;
+  animation: slide 6s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0px 50px;
+  }
+  100% {
+    background-position: -480px 50px;
+  }
 }
