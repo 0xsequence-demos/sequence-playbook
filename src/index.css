@@ -83,27 +83,33 @@ button:focus-visible {
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   border-width: 2px;
   border-radius: 20px;
   margin: 10px;
-  background: linear-gradient(90deg, #121212 52%, #1c1c1c 52%);
+  overflow: hidden;
 }
 
 .column {
-  flex: 50%;
-  margin: 20px 20px;
+  flex: auto;
+  min-width: 500px;
   width: 46%;
 }
 
 .column.widget {
   align-content: center;
   text-align: center;
-  margin: auto 0;
+  min-width: 500px;
   padding: 20px;
+  background-image: url("/checkerboard.png");
+  background-repeat: repeat;
 }
 
 .code {
+  padding: 20px;
+  margin-top: 0px;
   font-family: "Courier New", Courier, monospace;
+  background-color: #000000;
 }
 
 .full {
@@ -157,8 +163,7 @@ ol {
 .little-window {
   box-shadow: 5px 10px 16px #0000007f;
   margin: auto;
-  background-image: url("/checkerboard.png");
-  background-repeat: repeat;
+  background-color: #1a1a1a;
   max-width: 600px;
   text-align: center;
   align-items: center;
