@@ -12,6 +12,7 @@ export const LittleWindow = (props: Props) => {
   return (
     <div className="little-window">
       <div className="clouds"></div>
+      <div className="clouds2"></div>
       <div className="header">
         <div className="decor-tl">
           <span className="dot" />

@@ -6,7 +6,7 @@
    fill="none"
    version="1.1"
    id="svg1"
-   sodipodi:docname="clouds.svg"
+   sodipodi:docname="clouds2.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -35,57 +35,33 @@
   <g
      id="clouds">
     <rect
-       id="cloud-medium"
-       y="88"
+       id="cloud-small"
+       x="61"
+       y="56"
+       width="26"
+       height="8"
+       rx="4"
+       fill="#2A2A2A" />
+    <rect
+       id="cloud-small_2"
+       x="471"
+       y="80"
+       width="26"
+       height="8"
+       rx="4"
+       fill="#2A2A2A" />
+    <rect
+       id="cloud-small_3"
+       width="26"
+       height="8"
+       rx="4"
+       fill="#2A2A2A" />
+    <rect
+       id="cloud-medium_2"
+       x="414"
        width="51"
        height="16"
        rx="8"
        fill="#2A2A2A" />
-    <g
-       id="cloud-big">
-      <rect
-         id="cloud-piece"
-         x="393"
-         y="40"
-         width="104"
-         height="8"
-         rx="4"
-         fill="#2A2A2A" />
-      <rect
-         id="cloud-piece_2"
-         x="407"
-         y="32"
-         width="77"
-         height="16"
-         rx="8"
-         fill="#2A2A2A" />
-    </g>
-    <g
-       id="cloud-x-big">
-      <rect
-         id="cloud-piece_3"
-         x="125"
-         y="40"
-         width="104"
-         height="8"
-         rx="4"
-         fill="#2A2A2A" />
-      <rect
-         id="cloud-piece_4"
-         x="139"
-         y="32"
-         width="77"
-         height="16"
-         rx="8"
-         fill="#2A2A2A" />
-      <rect
-         id="cloud-piece_5"
-         x="155"
-         y="24"
-         width="45"
-         height="16"
-         rx="8"
-         fill="#2A2A2A" />
-    </g>
   </g>
 </svg>
