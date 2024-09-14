@@ -99,7 +99,7 @@ button:focus-visible {
 .column.widget {
   align-content: center;
   text-align: center;
-  min-width: 500px;
+  min-width: 300px;
   padding: 20px;
   background-image: url("/checkerboard.png");
   background-repeat: repeat;
@@ -251,4 +251,63 @@ ol {
   100% {
     background-position: -497px 50px;
   }
+}
+.footer-cta-boilerplates {
+  background-image: url("/checkerboard.png");
+  background-repeat: repeat;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.footer-cta-boilerplates p {
+  margin-top: 0px;
+  color: #888888;
+  font-weight: bold;
+}
+
+.footer-cta-boilerplates span {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.footer-cta-boilerplates div {
+  font-weight: bold;
+  max-width: max-content;
+  background-color: #2e2e2e;
+  margin: 10px auto 0px auto;
+  padding: 0px 0px 0px 16px;
+  border-radius: 24px;
+}
+
+.footer-cta-boilerplates button {
+  width: max-content;
+  background: linear-gradient(270deg, #7537f9 0%, #5826ff 100%);
+  padding: 3px;
+  margin: 6px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.footer-cta-boilerplates button span {
+  font-size: 10px !important;
+  font-weight: bold;
+  transform: translateY(-5px);
+}
+
+.footer-cta-boilerplates .icon {
+  width: 22px;
+  height: 22px;
+  /* transform: scale(0.2) !important; */
+  /* height: 16px; */
+  margin-left: 1px;
+  margin-right: 4px;
+  transform: translateY(1px);
+  fill: #ffffff;
+}
+
+.footer-cta-boilerplates .icon path {
+  fill: #ffffff;
 }

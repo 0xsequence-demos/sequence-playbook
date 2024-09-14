@@ -4,8 +4,8 @@ export function formatAsCode(str: string) {
       {str
         .replace(/ /g, "\u00A0")
         .split("\n")
-        .map((v) => (
-          <li>{v}</li>
+        .map((v, i) => (
+          <li key={i}>{v}</li>
         ))}
     </ol>
   );

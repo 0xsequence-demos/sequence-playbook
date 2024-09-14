@@ -42,3 +42,10 @@ p {
 h2 {
   margin-top: 20px;
 }
+
+.divider {
+  background-color: #444444;
+  height: 1px;
+  margin: 20px 10px;
+  display: block;
+}

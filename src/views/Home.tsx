@@ -28,10 +28,10 @@ const Home = () => {
                         label: us.label,
                         value: us.label,
                         content: (
-                          <>
+                          <div>
                             {us.page()}
                             <BoilerplateLinks demos={us.demos} />
-                          </>
+                          </div>
                         ),
                       };
                     })}

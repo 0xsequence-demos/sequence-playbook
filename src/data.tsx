@@ -35,6 +35,20 @@ export const demos = [
 
 export type Demo = (typeof demos)[number];
 
+export const niceDemoNames: { [K in Demo]: string } = {
+  "kit-embedded-wallet-react-boilerplate": "Embedded Wallet for React",
+  "kit-embedded-wallet-nextjs-boilerplate": "Embedded Wallet for Next.js",
+  "kit-universal-wallet-nextjs-boilerplate": "Universal Wallet for Next.js",
+  "kit-universal-wallet-react-boilerplate": "Universal Wallet for React",
+  "marketplace-boilerplate": "White-label Marketplace",
+  "ingame-marketplace-boilerplate": "In-Game Marketplace",
+  "gift-wallet-inventory-boilerplate": "Inventory and Gifting",
+  "offchain-sales-boilerplate": "Offchain Sales",
+  "crypto-onramp-boilerplate": "Crypto Onramp",
+  "nft-checkout-boilerplate": "NFT Checkout",
+  "primary-drop-sale-boilerplate": "Primary Drop Sale",
+};
+
 class UserStory {
   constructor(
     public category: Category,
