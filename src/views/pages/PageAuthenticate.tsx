@@ -7,9 +7,13 @@ import SignMessageWidgetSource from "../components/SignMessageWidget?raw";
 import { SendTestTransactionWidget } from "../components/SendTestTransactionWidget";
 import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
 import { LittleWindow } from "../components/LittleWindow";
+import { useState } from "react";
 
 export const PageAuthenticate = () => {
   const { address } = useAccount();
+
+  const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
+  const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
 
   return (
     <div>
@@ -40,7 +44,7 @@ export const PageAuthenticate = () => {
           {formatAsCode(AuthenticationWidgetSource)}
         </div>
         <div className="column widget">
-          <LittleWindow>
+          <LittleWindow botStatus={!address ? "dead" : "happy"}>
             <AuthenticationWidget />
           </LittleWindow>
         </div>
@@ -62,8 +66,10 @@ export const PageAuthenticate = () => {
             {formatAsCode(SignMessageWidgetSource)}
           </div>
           <div className="column widget">
-            <LittleWindow>
-              <SignMessageWidget />
+            <LittleWindow
+              botStatus={!address ? "dead" : signedData ? "happy" : "alive"}
+            >
+              <SignMessageWidget setData={setSignedData} />
             </LittleWindow>
           </div>
         </div>
@@ -73,8 +79,10 @@ export const PageAuthenticate = () => {
             {formatAsCode(SendTestTransactionWidgetSource)}
           </div>
           <div className="column widget">
-            <LittleWindow>
-              <SendTestTransactionWidget />
+            <LittleWindow
+              botStatus={!address ? "dead" : transaction ? "happy" : "alive"}
+            >
+              <SendTestTransactionWidget setData={setTransaction} />
             </LittleWindow>
           </div>
         </div>

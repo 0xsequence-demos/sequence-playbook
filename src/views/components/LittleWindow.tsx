@@ -6,9 +6,10 @@ import "../../images/ground.css";
 
 type Props = {
   children: ReactNode;
+  botStatus: "alive" | "happy" | "dead";
 };
 export const LittleWindow = (props: Props) => {
-  const { children } = props;
+  const { botStatus, children } = props;
   return (
     <div className="little-window">
       <div className="clouds"></div>
@@ -22,7 +23,7 @@ export const LittleWindow = (props: Props) => {
       <div className="content">
         <Ground className="ground-svg" />
         <div style={{ zIndex: 1, position: "relative" }}>{children}</div>
-        <BuddyBot className="bot-svg" />
+        <BuddyBot className={`bot-svg ${botStatus}`} />
       </div>
     </div>
   );
