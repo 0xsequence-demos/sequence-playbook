@@ -56,8 +56,8 @@ svg #buddy #head-group #face-group #eye-left {
 
 svg #buddy #arm-left-group {
   animation: arm-wave 2.36s;
-  transform-origin: 22px 30px;
-  transform: translateX(22px) rotate(-45deg);
+  transform-origin: 14px 30px;
+  transform: translateX(30px) rotate(-45deg);
   animation-iteration-count: infinite;
   animation-timing-function: linear(0 0%, 0 75%, 1 100%);
   animation-direction: alternate-reverse;
@@ -65,7 +65,6 @@ svg #buddy #arm-left-group {
 
 @keyframes arm-wave {
   to {
-    transform-origin: 28px 36px;
-    transform: translateX(18px) rotate(-80deg);
+    transform: translateX(26px) rotate(-80deg);
   }
 }
