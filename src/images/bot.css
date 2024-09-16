@@ -209,3 +209,8 @@ svg.down #buddy #arm-right-group {
     transform: translateX(12px) rotate(60deg);
   }
 }
+
+.lottie-bot {
+  width: calc(100%+0px);
+  margin: -20px;
+}

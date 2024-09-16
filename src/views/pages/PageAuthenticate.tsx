@@ -25,11 +25,11 @@ export const PageAuthenticate = () => {
     }
   }, [address, wasConnected, died]);
   useEffect(() => {
-    if (died) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (died) {
         setDied(false);
-      }, 1000);
-    }
+      }
+    }, 1000);
   }, [died]);
 
   return (
