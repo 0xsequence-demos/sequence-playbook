@@ -7,13 +7,30 @@ import SignMessageWidgetSource from "../components/SignMessageWidget?raw";
 import { SendTestTransactionWidget } from "../components/SendTestTransactionWidget";
 import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
 import { LittleWindow } from "../components/LittleWindow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const PageAuthenticate = () => {
   const { address } = useAccount();
 
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
+  const [wasConnected, setWasConnected] = useState(false);
+  const [died, setDied] = useState(false);
+  useEffect(() => {
+    if (address && !wasConnected) {
+      setWasConnected(true);
+    } else if (wasConnected && !died) {
+      setDied(true);
+      setWasConnected(false);
+    }
+  }, [address, wasConnected, died]);
+  useEffect(() => {
+    if (died) {
+      setTimeout(() => {
+        setDied(false);
+      }, 1000);
+    }
+  }, [died]);
 
   return (
     <div>
@@ -44,7 +61,10 @@ export const PageAuthenticate = () => {
           {formatAsCode(AuthenticationWidgetSource)}
         </div>
         <div className="column widget">
-          <LittleWindow botStatus={!address ? "dead" : "happy"}>
+          <LittleWindow
+            botPosture={!address ? "down" : "excited"}
+            botMood={!address ? (died ? "dead" : "sleeping") : "happy"}
+          >
             <AuthenticationWidget />
           </LittleWindow>
         </div>
@@ -67,7 +87,18 @@ export const PageAuthenticate = () => {
           </div>
           <div className="column widget">
             <LittleWindow
-              botStatus={!address ? "dead" : signedData ? "happy" : "alive"}
+              botPosture={
+                !address ? "down" : signedData ? "excited" : "inviting"
+              }
+              botMood={
+                !address
+                  ? died
+                    ? "dead"
+                    : "sleeping"
+                  : signedData
+                    ? "happy"
+                    : "neutral"
+              }
             >
               <SignMessageWidget setData={setSignedData} />
             </LittleWindow>
@@ -80,7 +111,18 @@ export const PageAuthenticate = () => {
           </div>
           <div className="column widget">
             <LittleWindow
-              botStatus={!address ? "dead" : transaction ? "happy" : "alive"}
+              botPosture={
+                !address ? "down" : transaction ? "excited" : "inviting"
+              }
+              botMood={
+                !address
+                  ? died
+                    ? "dead"
+                    : "sleeping"
+                  : transaction
+                    ? "happy"
+                    : "neutral"
+              }
             >
               <SendTestTransactionWidget setData={setTransaction} />
             </LittleWindow>

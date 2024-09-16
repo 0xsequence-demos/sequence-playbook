@@ -8,18 +8,23 @@ svg #buddy g {
   transition-property: transform;
 }
 
-svg.dead #buddy #head-group {
+svg #buddy #head-group {
+  transition-duration: 0.5s;
+  transition-property: transform;
+}
+
+svg.down #buddy #head-group {
   transform: translate(6px, 35px);
 }
 
-svg.alive #buddy #head-group {
+svg.inviting #buddy #head-group {
   transform: translate(6px, 10px);
   animation: head-bob 0.5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
 }
-svg.happy #buddy #head-group {
+svg.excited #buddy #head-group {
   transform: translate(6px, 10px);
   transform-origin: 20px 20px;
   animation: head-bob-happy 0.4s;
@@ -44,14 +49,14 @@ svg.happy #buddy #head-group {
   }
 }
 
-svg.alive #buddy #head-group #face-group {
+svg.neutral #buddy #head-group #face-group {
   animation: face-turn 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear(0 0%, 0 50%, 1 60%, 1 100%);
   animation-direction: alternate;
 }
 
-svg.happy #buddy #head-group #face-group {
+svg.excited #buddy #head-group #face-group {
   animation: face-turn 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear(0 0%, 0 50%, 1 60%, 1 100%);
@@ -64,11 +69,22 @@ svg.happy #buddy #head-group #face-group {
   }
 }
 
-svg.alive #buddy #head-group #face-group #eye-right {
+svg.neutral #buddy #head-group #face-group #eye-right {
   animation: eye-blink 1.36s;
   animation-iteration-count: infinite;
   animation-timing-function: linear(0 0%, 0 95%, 1 100%);
   animation-direction: alternate;
+}
+
+svg.sleeping #buddy #head-group #face-group #eye-right {
+  width: 10px;
+  height: 1px;
+  transform: translate(-4px, 6px);
+}
+svg.sleeping #buddy #head-group #face-group #eye-left {
+  width: 10px;
+  height: 1px;
+  transform: translate(-4px, 6px);
 }
 
 svg #buddy #head-group #face-group #eye-right-dead {
@@ -127,7 +143,7 @@ svg.happy #buddy #head-group #face-group #eye-left-happy {
   visibility: visible;
 }
 
-svg.alive #buddy #head-group #face-group #eye-left {
+svg.neutral #buddy #head-group #face-group #eye-left {
   animation: eye-blink 1.36s;
   animation-iteration-count: infinite;
   animation-timing-function: linear(0 0%, 0 95%, 1 100%);
@@ -141,7 +157,7 @@ svg.alive #buddy #head-group #face-group #eye-left {
   }
 }
 
-svg.alive #buddy #arm-left-group {
+svg.neutral #buddy #arm-left-group {
   animation: arm-wave-left 2.36s;
   transform-origin: 14px 30px;
   transform: translateX(30px) rotate(-45deg);
@@ -150,7 +166,7 @@ svg.alive #buddy #arm-left-group {
   animation-direction: alternate-reverse;
 }
 
-svg.happy #buddy #arm-left-group {
+svg.excited #buddy #arm-left-group {
   animation: arm-wave-left 0.14s;
   transform-origin: 14px 30px;
   transform: translateX(30px) rotate(-45deg);
@@ -159,7 +175,7 @@ svg.happy #buddy #arm-left-group {
   animation-direction: alternate-reverse;
 }
 
-svg.dead #buddy #arm-left-group {
+svg.down #buddy #arm-left-group {
   transform-origin: 14px 30px;
   transform: translateX(30px) rotate(0deg);
 }
@@ -170,11 +186,11 @@ svg.dead #buddy #arm-left-group {
   }
 }
 
-svg.alive #buddy #arm-right-group {
+svg.neutral #buddy #arm-right-group {
   transform: translateX(0px) rotate(0deg);
 }
 
-svg.happy #buddy #arm-right-group {
+svg.excited #buddy #arm-right-group {
   animation: arm-wave-right 0.14s;
   transform-origin: 4px 30px;
   transform: translateX(10px) rotate(45deg);
@@ -183,7 +199,7 @@ svg.happy #buddy #arm-right-group {
   animation-direction: alternate-reverse;
 }
 
-svg.dead #buddy #arm-right-group {
+svg.down #buddy #arm-right-group {
   /* transform-origin: 14px 30px; */
   transform: translateX(0px) rotate(0deg);
 }
