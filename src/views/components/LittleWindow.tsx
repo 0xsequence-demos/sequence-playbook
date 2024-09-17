@@ -1,16 +1,12 @@
 import { ReactNode } from "react";
-import Ground from "../../images/ground.svg?react";
-import "../../images/bot.css";
-import "../../images/ground.css";
-import AnimTest from "./animations/bot/AnimTest";
+import AnimTestRive from "./animations/bot/AnimTestRive";
 
 type Props = {
   children: ReactNode;
-  botMood: "neutral" | "happy" | "dead" | "sleeping";
-  botPosture: "down" | "inviting" | "excited";
+  botMood: "neutral" | "happy" | "dead";
 };
 export const LittleWindow = (props: Props) => {
-  const { children } = props;
+  const { botMood, children } = props;
   return (
     <div className="little-window">
       <div className="clouds"></div>
@@ -22,10 +18,9 @@ export const LittleWindow = (props: Props) => {
         </div>
       </div>
       <div className="content">
-        <Ground className="ground-svg" />
         <div style={{ zIndex: 1, position: "relative" }}>{children}</div>
-        <AnimTest />
       </div>
+      <AnimTestRive botMood={botMood} />
     </div>
   );
 };

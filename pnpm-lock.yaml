@@ -26,6 +26,9 @@ importers:
       '@0xsequence/network':
         specifier: ^2.0.6
         version: 2.0.8(ethers@6.13.2(bufferutil@4.0.8)(utf-8-validate@5.0.10))
+      '@rive-app/react-canvas':
+        specifier: ^4.14.0
+        version: 4.14.1(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.51.23
         version: 5.56.2(react@18.3.1)
@@ -2241,6 +2244,14 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
+
+  '@rive-app/canvas@2.21.1':
+    resolution: {integrity: sha512-Gdf9nsfnByeBqqUSHqgC/Gz2j72LgO8ZykT9tANIXHnjMCrKlgpP7B/C/+dPFP2d8mcj6gUKKuhBF6i7OKqYvQ==}
+
+  '@rive-app/react-canvas@4.14.1':
+    resolution: {integrity: sha512-52sk/TtU35hrm8xWOpDvxvTQ/j3D6I3Ztagj83q1VlDtx3g5mPo4bkGBEvnkf4hxztztIXGaPAtfbVqKEj4RFg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   '@rollup/pluginutils@5.1.0':
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
@@ -8669,6 +8680,13 @@ snapshots:
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@rive-app/canvas@2.21.1': {}
+
+  '@rive-app/react-canvas@4.14.1(react@18.3.1)':
+    dependencies:
+      '@rive-app/canvas': 2.21.1
+      react: 18.3.1
 
   '@rollup/pluginutils@5.1.0(rollup@4.22.4)':
     dependencies:

@@ -311,3 +311,8 @@ ol {
 .footer-cta-boilerplates .icon path {
   fill: #ffffff;
 }
+
+.base-canvas-size {
+  margin-top: -30px;
+  aspect-ratio: 4;
+}
