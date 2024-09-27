@@ -6,7 +6,7 @@ type Props = {
 };
 const AnimTestRive = (props: Props) => {
   const { botMood } = props;
-  const { rive, RiveComponent: RiveComponentPlayback } = useRive({
+  const { rive, RiveComponent } = useRive({
     src: "bot.riv",
     stateMachines: "main-sm",
     artboard: "main",
@@ -34,6 +34,6 @@ const AnimTestRive = (props: Props) => {
       vHappy.value = botMood === "happy";
     }
   });
-  return <RiveComponentPlayback className="base-canvas-size" />;
+  return <RiveComponent className="base-canvas-size" />;
 };
 export default AnimTestRive;
