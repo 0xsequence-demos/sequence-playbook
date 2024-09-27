@@ -1,4 +1,8 @@
-export const PageInGameMarketplace = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PageInGameMarketplace = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>Implementing an In-Game Web3 Marketplace</h2>

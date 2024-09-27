@@ -1,7 +1,10 @@
 import { useAccount } from "wagmi";
 import { useOpenConnectModal } from "@0xsequence/kit";
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
 
-export const PageMintTokens = () => {
+export const PageMintTokens = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   const { address } = useAccount();
 
   const { setOpenConnectModal } = useOpenConnectModal();

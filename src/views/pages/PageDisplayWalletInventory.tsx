@@ -1,4 +1,8 @@
-export const PageDisplayWalletInventory = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PageDisplayWalletInventory = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>Displaying the Inventory of a Web3 Wallet</h2>

@@ -8,8 +8,11 @@ import { SendTestTransactionWidget } from "../components/SendTestTransactionWidg
 import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
 import { LittleWindow } from "../components/LittleWindow";
 import { useState } from "react";
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
 
-export const PageAuthenticate = () => {
+export const PageAuthenticate = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   const { address } = useAccount();
 
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();

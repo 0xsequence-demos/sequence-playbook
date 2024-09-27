@@ -1,3 +1,4 @@
+import { CommonPageProps } from "./views/pages/common/Props";
 import { PageAuthenticate } from "./views/pages/PageAuthenticate";
 import { PageChainEventWebhooks } from "./views/pages/PageChainEventWebhooks";
 import { PageCryptoOnramp } from "./views/pages/PageCryptoOnramp";
@@ -54,7 +55,7 @@ class UserStory {
     public category: Category,
     public label: string,
     public summary: string,
-    public page: () => JSX.Element = PageNothingHere,
+    public page: (props: CommonPageProps) => JSX.Element = PageNothingHere,
     public demos?: Demo[],
   ) {
     //

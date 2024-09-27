@@ -1,4 +1,8 @@
-export const PagePrimaryOffChainSales = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PagePrimaryOffChainSales = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>Implementing a Primary Sale Mechanism for Off-Chain Digital Goods</h2>

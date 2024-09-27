@@ -7,7 +7,7 @@ type Props = {
 const AnimTestRive = (props: Props) => {
   const { botMood } = props;
   const { rive, RiveComponent } = useRive({
-    src: "bot.riv",
+    src: "/bot.riv",
     stateMachines: "main-sm",
     artboard: "main",
     autoplay: true,
