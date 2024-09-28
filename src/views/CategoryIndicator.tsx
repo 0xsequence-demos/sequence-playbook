@@ -1,8 +1,21 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, NavLinkRenderProps } from "react-router-dom";
 
-function bannerExpandRule(actual: string, target: string) {
-  return actual === target ? "banner-full" : actual !== "" ? "banner-hide" : "";
+function makeNavlinkStyleMaker(thisCategory: string, activeCategory: string) {
+  return (props: NavLinkRenderProps) => {
+    const navLinkStatus = props.isPending
+      ? "pending"
+      : props.isActive
+        ? "active"
+        : "";
+    const expandStyle =
+      activeCategory === thisCategory
+        ? "banner-full"
+        : activeCategory !== ""
+          ? "banner-hide"
+          : "";
+    return `big-nav-link ${navLinkStatus} ${expandStyle}`;
+  };
 }
 
 const CategoryIndicator = (props: {
@@ -14,36 +27,17 @@ const CategoryIndicator = (props: {
   useEffect(() => {
     setHideBigNav(category !== "" && currentPageName !== "");
   }, [category, currentPageName]);
-  // if (hideBigNav) {
-  //   return <div>big nav hidden</div>;
-  // }
   return (
     <div>
       <div className={`big-nav ${hideBigNav ? "closed" : ""}`}>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} big-nav-link ${bannerExpandRule(category, "onboard")}`
-          }
-          to={`onboard`}
-        >
-          Onboard
-        </NavLink>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} big-nav-link ${bannerExpandRule(category, "monetize")}`
-          }
-          to={`monetize`}
-        >
-          Monetize
-        </NavLink>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} big-nav-link ${bannerExpandRule(category, "power")}`
-          }
-          to={`power`}
-        >
-          Power
-        </NavLink>
+        {["Onboard", "Monetize", "Power"].map((catName) => (
+          <NavLink
+            className={makeNavlinkStyleMaker(catName.toLowerCase(), category)}
+            to={catName.toLowerCase()}
+          >
+            {catName}
+          </NavLink>
+        ))}
       </div>
     </div>
   );
