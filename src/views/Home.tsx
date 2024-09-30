@@ -2,7 +2,7 @@ import "./Home.css";
 import { Text } from "@0xsequence/design-system";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { useState } from "react";
-import CategoryIndicator from "./CategoryIndicator";
+import BigNav from "./components/BigNav";
 import PlaybooksGroup from "./PlaybooksGroup";
 import { PageAuthenticate } from "./pages/PageAuthenticate";
 import { PageLinkWallets } from "./pages/PageLinkWallets";
@@ -15,13 +15,16 @@ import { PageDisplayWalletSubInventory } from "./pages/PageDisplayWalletSubInven
 import { PageMintTokens } from "./pages/PageMintTokens";
 import { PageChainEventWebhooks } from "./pages/PageChainEventWebhooks";
 import SharedPageHeader from "./SharedPageHeader";
+import { Categories } from "../data/Categories";
+import { getIcon } from "./utils/getIcon";
 const Home = () => {
   const [category, setCategory] = useState("");
   const [currentPageDescription, setCurrentPageDescription] = useState("");
   const [currentPageName, setCurrentPageName] = useState("");
+  console.log("category: ", category);
   return (
     <div>
-      <div className="top-nav">
+      <div className={`top-nav`}>
         <NavLink
           className={({ isActive, isPending }) =>
             `${isPending ? "pending" : isActive ? "active" : ""} top-nav-link`
@@ -31,36 +34,21 @@ const Home = () => {
           Sequence Playbooks
         </NavLink>
         <div className="spacer" />
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} top-nav-link`
-          }
-          to={`onboard`}
-        >
-          Onboard
-        </NavLink>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} top-nav-link`
-          }
-          to={`monetize`}
-        >
-          Monetize
-        </NavLink>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            `${isPending ? "pending" : isActive ? "active" : ""} top-nav-link`
-          }
-          to={`power`}
-        >
-          Power
-        </NavLink>
+        {Categories.map((catName) => (
+          <NavLink
+            key={`top-nav-${catName.toLowerCase()}`}
+            className={({ isActive, isPending }) =>
+              `${isPending ? "pending" : isActive ? "active" : ""} top-nav-link`
+            }
+            to={catName.toLowerCase()}
+          >
+            {getIcon(catName.toLowerCase())}
+            {catName}
+          </NavLink>
+        ))}
       </div>
       <div className="main-content">
-        <CategoryIndicator
-          category={category}
-          currentPageName={currentPageName}
-        />
+        <BigNav category={category} currentPageName={currentPageName} />
         <SharedPageHeader
           category={category}
           currentPageName={currentPageName}

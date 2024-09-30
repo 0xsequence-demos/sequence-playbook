@@ -84,71 +84,6 @@ h2 {
   color: rgb(173, 173, 173) !important;
 }
 
-.big-nav {
-  display: flex;
-  width: 100%;
-  flex-wrap: nowrap;
-  text-align: center;
-  align-items: center;
-  font-size: 40px;
-  margin-right: 50px;
-  height: 200px;
-  margin-bottom: 20px;
-  transition: all 0.25s ease;
-  transition-property: height, padding, margin;
-}
-
-.big-nav-link {
-  flex: auto;
-  color: rgb(127, 127, 127) !important;
-  margin: 10px;
-  transition: color 0.25s ease;
-  display: inline-block;
-  text-align: center;
-  background-color: black;
-  padding: 30px;
-  width: 30%;
-  height: 100%;
-  line-height: 140px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.25s ease;
-  transition-property: width, padding, margin;
-}
-.big-nav-link.active {
-  color: white !important;
-  text-decoration: underline;
-}
-.big-nav-link.pending {
-  color: rgb(173, 173, 173) !important;
-}
-
-.banner-hide {
-  width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.banner-full {
-  width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.big-nav.closed {
-  height: 0px;
-}
-.big-nav.closed .big-nav-link {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 .page-nav {
   display: flex;
   width: 100%;
@@ -160,12 +95,12 @@ h2 {
   height: auto;
   margin-bottom: 20px;
 }
+
 .page-nav-link {
   flex: auto;
   display: flex;
   min-width: 300px;
   color: rgb(127, 127, 127) !important;
-  margin: 10px;
   transition: color 0.25s ease;
   display: block;
   text-align: center;
@@ -177,6 +112,21 @@ h2 {
   overflow: hidden;
   position: relative;
 }
+
+/* landscape, aka desktop */
+@media (min-aspect-ratio: 3/5) {
+  .page-nav-link {
+    margin: 10px;
+  }
+}
+/* portrait, aka mobile one-handed */
+@media not (min-aspect-ratio: 3/5) {
+  .page-nav-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
 .page-nav-link .child {
   display: inline-block;
   position: absolute;
@@ -204,8 +154,6 @@ h2 {
   font-weight: bold;
   line-height: 150px;
   height: 150px;
-  margin-left: 10px;
-  margin-right: 10px;
   margin-bottom: 20px;
   transition: all 0.25s ease;
   transition-property: height, padding, margin;
@@ -220,6 +168,7 @@ h2 {
 
 .page-header.closed {
   height: 0px;
+  margin-bottom: 0px;
 }
 
 .back-to-category {
