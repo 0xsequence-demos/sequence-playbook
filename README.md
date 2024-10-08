@@ -1,4 +1,4 @@
-# Sequence Sandbox
+# Sequence Playbook
 
 ## Interactive textbook
 
