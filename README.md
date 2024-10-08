@@ -1,6 +1,6 @@
 # Sequence Playbook
 
-## Interactive textbook
+## Interactive guides
 
 A collection of interactive development guides using sequence features. It's a great starting point before moving onto the sequence project boilerplates.
 
