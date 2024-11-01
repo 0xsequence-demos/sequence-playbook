@@ -19,7 +19,7 @@ export const PageMintTokens = (props: CommonPageProps) => {
             <p>Connected as {address}</p>
             <button
               onClick={() => {
-                fetch("api/mint", {
+                fetch("/api/mint", {
                   method: "POST",
                   body: JSON.stringify({
                     address,
