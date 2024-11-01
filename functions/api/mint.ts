@@ -68,10 +68,7 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
 
   const nodeUrl = `https://nodes.sequence.app/${ctx.env.CHAIN_HANDLE}`;
   const relayerUrl = `https://${ctx.env.CHAIN_HANDLE}-relayer.sequence.app`;
-  const provider = new ethers.providers.JsonRpcProvider({
-    url: nodeUrl,
-    skipFetchSetup: true,
-  });
+  const provider = new ethers.JsonRpcProvider(nodeUrl);
 
   // create EOA from private key
   const walletEOA = new ethers.Wallet(ctx.env.PKEY, provider);
@@ -82,7 +79,7 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
       {
         ...networks[network.chainId],
         rpcUrl: network.rpcUrl,
-        provider: provider,
+        // provider: provider,
         relayer: {
           url: relayerUrl,
           provider: {
@@ -96,14 +93,14 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
   // create a single signer sequence wallet session
   const session = await Session.singleSigner({
     settings: settings,
-    signer: walletEOA,
+    signer: walletEOA.privateKey,
     projectAccessKey: ctx.env.PROJECT_ACCESS_KEY,
   });
 
   // get signer
   const signer = session.account.getSigner(network.chainId);
   // create interface from partial abi
-  const collectibleInterface = new ethers.utils.Interface([
+  const collectibleInterface = new ethers.Interface([
     "function mint(address to, uint256 tokenId, uint256 amount, bytes data)",
   ]);
   const data = collectibleInterface.encodeFunctionData("mint", dataRaw);
