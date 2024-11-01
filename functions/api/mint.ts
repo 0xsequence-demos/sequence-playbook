@@ -66,12 +66,7 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
   const dataRaw = [address, tokenId, "1", "0x00"];
   const contractAddress = ctx.env.CONTRACT_ADDRESS;
 
-  const nodeUrl = `https://nodes.sequence.app/${ctx.env.CHAIN_HANDLE}`;
   const relayerUrl = `https://${ctx.env.CHAIN_HANDLE}-relayer.sequence.app`;
-  const provider = new ethers.JsonRpcProvider(nodeUrl);
-
-  // create EOA from private key
-  const walletEOA = new ethers.Wallet(ctx.env.PKEY, provider);
 
   // instantiate settings
   const settings: Partial<SessionSettings> = {
@@ -79,7 +74,6 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
       {
         ...networks[network.chainId],
         rpcUrl: network.rpcUrl,
-        // provider: provider,
         relayer: {
           url: relayerUrl,
           provider: {
@@ -93,7 +87,7 @@ export const onRequest: PagesFunction<IEnv> = async (ctx) => {
   // create a single signer sequence wallet session
   const session = await Session.singleSigner({
     settings: settings,
-    signer: walletEOA.privateKey,
+    signer: ctx.env.PKEY,
     projectAccessKey: ctx.env.PROJECT_ACCESS_KEY,
   });
 
