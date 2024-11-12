@@ -1,0 +1,19 @@
+/** Cover entire card with a clickable region
+  * https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html
+  */
+[data-link="inherit"] {
+  position: relative;
+}
+[data-link="inherit"] a[href]:not(:first-of-type) {
+  position: relative;
+  z-index: 200;
+}
+
+[data-link="inherit"] a:first-of-type[href]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
