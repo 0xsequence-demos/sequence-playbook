@@ -31,6 +31,7 @@ const Home = () => {
           }
           to={`/`}
         >
+          {getIcon("playbook")}
           Sequence Playbooks
         </NavLink>
         <div className="spacer" />
