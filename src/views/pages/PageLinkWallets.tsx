@@ -1,4 +1,8 @@
-export const PageLinkWallets = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PageLinkWallets = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>Linking Web3 Wallets to an Application</h2>

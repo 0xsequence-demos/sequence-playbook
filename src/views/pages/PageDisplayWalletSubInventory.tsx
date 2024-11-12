@@ -1,4 +1,8 @@
-export const PageDisplayWalletSubInventory = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PageDisplayWalletSubInventory = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>Displaying Inventory for a Specific Contract in a User's Wallet</h2>

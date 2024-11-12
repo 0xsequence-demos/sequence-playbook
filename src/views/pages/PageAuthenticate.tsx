@@ -7,9 +7,16 @@ import SignMessageWidgetSource from "../components/SignMessageWidget?raw";
 import { SendTestTransactionWidget } from "../components/SendTestTransactionWidget";
 import SendTestTransactionWidgetSource from "../components/SendTestTransactionWidget?raw";
 import { LittleWindow } from "../components/LittleWindow";
+import { useState } from "react";
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
 
-export const PageAuthenticate = () => {
+export const PageAuthenticate = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   const { address } = useAccount();
+
+  const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
+  const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
 
   return (
     <div>
@@ -20,7 +27,7 @@ export const PageAuthenticate = () => {
         the base of our application.
       </p>
       <p>For the purposes of this demo, we're using 3 providers, like so:</p>
-      <p className="full code">
+      <div className="full code">
         {formatAsCode(`...
 <WagmiProvider config={config}>
   <QueryClientProvider client={queryClient}>
@@ -30,17 +37,17 @@ export const PageAuthenticate = () => {
   </QueryClientProvider>
 </WagmiProvider>
 );`)}
-      </p>
+      </div>
       <p>
         Now, deeper in the App, we can implement a simple authentication widget
         to connect and disconnect.
       </p>
       <div className="row">
-        <p className="column code">
+        <div className="column code">
           {formatAsCode(AuthenticationWidgetSource)}
-        </p>
+        </div>
         <div className="column widget">
-          <LittleWindow>
+          <LittleWindow botMood={!address ? "dead" : "happy"}>
             <AuthenticationWidget />
           </LittleWindow>
         </div>
@@ -58,21 +65,27 @@ export const PageAuthenticate = () => {
       <div className={address ? "" : "ghost"}>
         <h3>Sign a message</h3>
         <div className="row">
-          <p className="column code">{formatAsCode(SignMessageWidgetSource)}</p>
+          <div className="column code">
+            {formatAsCode(SignMessageWidgetSource)}
+          </div>
           <div className="column widget">
-            <LittleWindow>
-              <SignMessageWidget />
+            <LittleWindow
+              botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
+            >
+              <SignMessageWidget setData={setSignedData} />
             </LittleWindow>
           </div>
         </div>
         <h3>Send a test transaction</h3>
         <div className="row">
-          <p className="column code">
+          <div className="column code">
             {formatAsCode(SendTestTransactionWidgetSource)}
-          </p>
+          </div>
           <div className="column widget">
-            <LittleWindow>
-              <SendTestTransactionWidget />
+            <LittleWindow
+              botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
+            >
+              <SendTestTransactionWidget setData={setTransaction} />
             </LittleWindow>
           </div>
         </div>

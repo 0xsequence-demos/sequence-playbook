@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { useAccount, useSignMessage } from "wagmi";
-export const SignMessageWidget = () => {
+interface Props {
+  setData: (data: `0x${string}` | undefined) => void;
+}
+export const SignMessageWidget = (props: Props) => {
+  const { setData } = props;
   const { address } = useAccount();
   const { isPending, data, signMessage } = useSignMessage();
+  useEffect(() => setData(data));
 
   return address ? (
     <>

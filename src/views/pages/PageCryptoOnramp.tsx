@@ -1,4 +1,8 @@
-export const PageCryptoOnramp = () => {
+import { CommonPageProps } from "./common/Props";
+import { useCommonPageEffects } from "./common/UseEffects";
+
+export const PageCryptoOnramp = (props: CommonPageProps) => {
+  useCommonPageEffects(props);
   return (
     <div>
       <h2>

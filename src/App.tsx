@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
 import chains from "./utils/chains";
 import "@0xsequence/design-system/styles.css";
+import { BrowserRouter } from "react-router-dom";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -49,7 +50,9 @@ const App = () => {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <KitProvider config={kitConfig}>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </KitProvider>
       </QueryClientProvider>
     </WagmiProvider>

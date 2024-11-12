@@ -1,3 +1,3 @@
 # TODO
 
-- change the wrapper around widgets to look like a little game window
+- try using other facial expressions based on state

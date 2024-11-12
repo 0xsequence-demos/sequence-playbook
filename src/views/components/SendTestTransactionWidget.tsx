@@ -1,9 +1,16 @@
 import { useAccount, useSendTransaction } from "wagmi";
 import ErrorToast from "./ErrorToast";
-export const SendTestTransactionWidget = () => {
+import { useEffect } from "react";
+interface Props {
+  setData: (data: `0x${string}` | undefined) => void;
+}
+
+export const SendTestTransactionWidget = (props: Props) => {
+  const { setData } = props;
   const { address } = useAccount();
   const { data, sendTransaction, isPending, error, reset } =
     useSendTransaction();
+  useEffect(() => setData(data));
   return address ? (
     <>
       <p>Connected as {address}</p>

@@ -1,14 +1,16 @@
 import { ReactNode } from "react";
-import BuddyBot from "../../images/bot.svg?react";
-import "../../images/bot.css";
+import AnimTestRive from "./animations/bot/AnimTestRive";
 
 type Props = {
   children: ReactNode;
+  botMood: "neutral" | "happy" | "dead";
 };
 export const LittleWindow = (props: Props) => {
-  const { children } = props;
+  const { botMood, children } = props;
   return (
     <div className="little-window">
+      <div className="clouds"></div>
+      <div className="clouds2"></div>
       <div className="header">
         <div className="decor-tl">
           <span className="dot" />
@@ -16,10 +18,9 @@ export const LittleWindow = (props: Props) => {
         </div>
       </div>
       <div className="content">
-        {children}
-        <br />
-        <BuddyBot className="bot-svg" />
+        <div style={{ zIndex: 1, position: "relative" }}>{children}</div>
       </div>
+      <AnimTestRive botMood={botMood} />
     </div>
   );
 };
