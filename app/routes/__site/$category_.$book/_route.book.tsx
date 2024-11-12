@@ -1,7 +1,7 @@
 import { Main } from "~/components/main/Main";
 import { Code } from "../../../components/code/Code";
 import { SendTestTransactionWidget } from "~/examples/authenticate/SendTestTransactionWidget";
-import SendTestTransactionWidgetSource from "~/examples/authenticate/SendTestTransactionWidget";
+import SendTestTransactionWidgetSource from "~/examples/authenticate/SendTestTransactionWidget?raw";
 import { BrowserWindow } from "~/components/browser-window/BrowserWindow";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 

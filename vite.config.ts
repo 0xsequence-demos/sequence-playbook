@@ -35,6 +35,7 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
+    noExternal:["@0xsequence/kit"],
     resolve: {
       conditions: ["workerd", "worker", "browser"],
     },
