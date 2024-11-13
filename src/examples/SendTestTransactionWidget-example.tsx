@@ -1,5 +1,6 @@
 import { useAccount, useSendTransaction } from "wagmi";
 import { useEffect } from "react";
+
 interface Props {
   setData: (data: `0x${string}` | undefined) => void;
 }

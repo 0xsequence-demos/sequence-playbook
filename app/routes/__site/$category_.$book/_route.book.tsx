@@ -1,7 +1,8 @@
 import { Main } from "~/components/main/Main";
-import { Code } from "../../../components/code/Code";
-import { SendTestTransactionWidget } from "~/examples/authenticate/SendTestTransactionWidget";
-import SendTestTransactionWidgetSource from "~/examples/authenticate/SendTestTransactionWidget?raw";
+import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
+import { SignMessageWidget } from "~/examples/SignMessageWidget";
+
+
 import { BrowserWindow } from "~/components/browser-window/BrowserWindow";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 
@@ -13,22 +14,23 @@ import { useLoaderData } from "@remix-run/react";
 import chains from "~/utils/chains";
 import "@0xsequence/design-system/styles.css";
 import { useState } from "react";
-
+import { CopyToClipboardButton } from "~/components/copy-to-clipboard-button/CopyToClipboardButton";
 
 export async function loader({ request, context }: LoaderFunctionArgs){
   const env = context.cloudflare.env;
   const url = new URL(request.url);
   const origin = url.origin;
   const pathname = url.pathname;
+
+
   return {
     projectAccessKey: env.PROJECT_ACCESS_KEY,
     waasConfigKey: env.WAAS_CONFIG_KEY,
     googleClientId: env.GOOGLE_CLIENT_ID,
     appleClientId: env.APPLE_CLIENT_ID,
     appleRedirectURI: origin + pathname,
-    walletConnectProjectId: env.WALLET_CONNECT_ID
+    walletConnectProjectId: env.WALLET_CONNECT_ID,
   }
-
 }
 
 export default function BookRoute() {
@@ -40,7 +42,7 @@ export default function BookRoute() {
     googleClientId,
     appleClientId,
     appleRedirectURI,
-    walletConnectProjectId
+    walletConnectProjectId,
   } = useLoaderData<typeof loader>();
 
   const connectors = getDefaultWaasConnectors({
@@ -86,15 +88,31 @@ export default function BookRoute() {
               <h3>Sign a message</h3>
               <div className="grid md:grid-cols-2">
                 <div className="">
-                  <Code>{SendTestTransactionWidgetSource}</Code>
+                  <CopyToClipboardButton value={SendTestTransactionWidget.String}>Copy</CopyToClipboardButton>
+                  <SendTestTransactionWidget.Snippet/>
                 </div>
                 <div className="">
                   <AccountProvider>{ ({ address }: {address:`0x${string}` | undefined }) =>
                   <BrowserWindow
-                  botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
+                    botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
                   >
-              <SendTestTransactionWidget setData={setTransaction} />
+                    <SendTestTransactionWidget setData={setTransaction} />
+                  </BrowserWindow>
+                  }</AccountProvider>
+                </div>
+              </div>
 
+              <div className="grid md:grid-cols-2">
+                <div className="">
+                  <CopyToClipboardButton value={SignMessageWidget.String}>Copy</CopyToClipboardButton>
+                  <SignMessageWidget.Snippet/>
+                </div>
+                <div className="">
+                  <AccountProvider>{ ({ address }: {address:`0x${string}` | undefined }) =>
+                  <BrowserWindow
+                    botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
+                  >
+                    <SignMessageWidget setData={setTransaction} />
                   </BrowserWindow>
                   }</AccountProvider>
                 </div>

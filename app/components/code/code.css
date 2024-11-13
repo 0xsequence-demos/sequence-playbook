@@ -1,0 +1,5 @@
+@layer components {
+  .shiki {
+    @apply p-6 rounded-[10px] overflow-x-scroll text-13;
+  }
+}

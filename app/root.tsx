@@ -6,8 +6,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/cloudflare";
-
+import { PreloadIconSprites } from "~/components/preload-icon-sprites/PreloadIconSprites";
 import "./tailwind.css";
+import { Toaster } from "sonner";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,6 +23,8 @@ export const links: LinksFunction = () => [
   },
 ];
 
+
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="flex flex-col flex-1 min-h-full">
@@ -30,11 +33,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+<PreloadIconSprites />
       </head>
       <body className="flex flex-col flex-1">
         {children}
         <ScrollRestoration />
         <Scripts />
+        <Toaster/>
       </body>
     </html>
   );
