@@ -1,11 +1,10 @@
-import { defineConfig, type ViteDevServer } from "vite";
+import { defineConfig } from "vite";
 import {
   vitePlugin as remix,
   cloudflareDevProxyVitePlugin,
 } from "@remix-run/dev";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { getLoadContext } from "./load-context";
-import morgan from "morgan";
 import { flatRoutes } from "remix-flat-routes";
 
 declare module "@remix-run/cloudflare" {
@@ -31,11 +30,10 @@ export default defineConfig({
         return flatRoutes("routes", defineRoutes);
       },
     }),
-    morganPlugin(),
     tsconfigPaths(),
   ],
   ssr: {
-    noExternal:["@0xsequence/kit"],
+    noExternal: ["@0xsequence/kit"],
     resolve: {
       conditions: ["workerd", "worker", "browser"],
     },
@@ -47,14 +45,3 @@ export default defineConfig({
     minify: true,
   },
 });
-
-function morganPlugin() {
-  return {
-    name: "morgan-plugin",
-    configureServer(server: ViteDevServer) {
-      return () => {
-        server.middlewares.use(morgan("tiny"));
-      };
-    },
-  };
-}

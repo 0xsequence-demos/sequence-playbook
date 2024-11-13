@@ -4,11 +4,17 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/cloudflare";
 import { PreloadIconSprites } from "~/components/preload-icon-sprites/PreloadIconSprites";
 import "./tailwind.css";
 import { Toaster } from "sonner";
+import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createConfig, http, WagmiProvider } from "wagmi";
+import { LoaderFunctionArgs } from "@remix-run/server-runtime";
+import chains from "~/utils/chains";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,28 +29,92 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  const env = context.cloudflare.env;
+  const url = new URL(request.url);
+  const origin = url.origin;
+  const pathname = url.pathname;
 
+  return {
+    projectAccessKey: env.PROJECT_ACCESS_KEY,
+    waasConfigKey: env.WAAS_CONFIG_KEY,
+    googleClientId: env.GOOGLE_CLIENT_ID,
+    appleClientId: env.APPLE_CLIENT_ID,
+    appleRedirectURI: origin + pathname,
+    walletConnectProjectId: env.WALLET_CONNECT_ID,
+  };
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="flex flex-col flex-1 min-h-full">
+    <html lang="en" className="flex flex-col flex-1 min-h-full bg-black">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-<PreloadIconSprites />
+        <PreloadIconSprites />
       </head>
       <body className="flex flex-col flex-1">
         {children}
         <ScrollRestoration />
         <Scripts />
-        <Toaster/>
+        <Toaster />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  const queryClient = new QueryClient();
+
+  const {
+    projectAccessKey,
+    waasConfigKey,
+    googleClientId,
+    appleClientId,
+    appleRedirectURI,
+    walletConnectProjectId,
+  } = useLoaderData<typeof loader>();
+
+  const connectors = getDefaultWaasConnectors({
+    walletConnectProjectId,
+    waasConfigKey,
+    googleClientId,
+    // Notice: Apple Login only works if deployed on https (to support Apple redirects)
+    appleClientId,
+    appleRedirectURI,
+    /* Arbitrum sepolia chainId */
+    defaultChainId: 421614,
+    appName: "Kit Starter",
+    projectAccessKey,
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const transports: { [key: number]: any } = {};
+
+  chains.forEach((chain) => {
+    transports[chain.id] = http();
+  });
+
+  const config = createConfig({
+    ssr: true,
+    transports,
+    connectors,
+    chains,
+  });
+
+  const kitConfig = {
+    projectAccessKey,
+  };
+
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <KitProvider config={kitConfig}>
+          <Outlet />
+        </KitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
 }

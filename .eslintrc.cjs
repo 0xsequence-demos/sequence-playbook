@@ -70,6 +70,10 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        "@typescript-eslint/no-explicit-any": "off", // Allow explicit 'any' type
+        "react/no-unescaped-entities": "off",
+      },
     },
 
     // Node

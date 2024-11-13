@@ -1,11 +1,11 @@
-import { NavLink, Outlet } from "@remix-run/react";
+import { NavLink, Outlet, Link } from '@remix-run/react';
 
 export default function SiteLayout() {
   return (
     <div className="flex flex-col flex-1">
       <header className="bg-black  py-2 border-b border-white/20">
         <div className="max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 min-h-[4rem] py-1 items-center px-8">
-          <span>Sequence Playbook</span>
+          <Link to="/">Sequence Playbook</Link>
 
           <nav className="flex gap-1">
             {navLinks.map((link) => (

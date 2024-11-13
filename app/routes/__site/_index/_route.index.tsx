@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
+import { TOPICS } from "~/data/data";
 
 export default function IndexRoute() {
   return (
@@ -21,27 +22,17 @@ export default function IndexRoute() {
           </span>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid md:grid-cols-3 gap-3">
+          {TOPICS.map((topic) => (
           <FeatureCard
-            title="Onboard"
-            path="/onboard"
+            key={topic.path}
+            title={ topic.title }
+            path={ topic.path }
             icon=""
-            description="Small paragraph text that's not more than two lines that brings a bit more."
+            description={ topic.description }
           />
 
-          <FeatureCard
-            title="Monetize"
-            path="/monetize"
-            icon=""
-            description="Small paragraph text that's not more than two lines that brings a bit more."
-          />
-
-          <FeatureCard
-            title="Power"
-            path="/power"
-            icon=""
-            description="Small paragraph text that's not more than two lines that brings a bit more."
-          />
+          ))}
         </div>
       </div>
     </Main>

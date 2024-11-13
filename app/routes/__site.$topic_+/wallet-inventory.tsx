@@ -2,7 +2,6 @@ import { Main } from "~/components/main/Main";
 import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
 import { SignMessageWidget } from "~/examples/SignMessageWidget";
 
-
 import { BrowserWindow } from "~/components/browser-window/BrowserWindow";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 
@@ -12,16 +11,14 @@ import { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import { useLoaderData } from "@remix-run/react";
 
 import chains from "~/utils/chains";
-import "@0xsequence/design-system/styles.css";
 import { useState } from "react";
 import { CopyToClipboardButton } from "~/components/copy-to-clipboard-button/CopyToClipboardButton";
 
-export async function loader({ request, context }: LoaderFunctionArgs){
+export async function loader({ request, context }: LoaderFunctionArgs) {
   const env = context.cloudflare.env;
   const url = new URL(request.url);
   const origin = url.origin;
   const pathname = url.pathname;
-
 
   return {
     projectAccessKey: env.PROJECT_ACCESS_KEY,
@@ -30,7 +27,7 @@ export async function loader({ request, context }: LoaderFunctionArgs){
     appleClientId: env.APPLE_CLIENT_ID,
     appleRedirectURI: origin + pathname,
     walletConnectProjectId: env.WALLET_CONNECT_ID,
-  }
+  };
 }
 
 export default function BookRoute() {
@@ -88,33 +85,47 @@ export default function BookRoute() {
               <h3>Sign a message</h3>
               <div className="grid md:grid-cols-2">
                 <div className="">
-                  <CopyToClipboardButton value={SendTestTransactionWidget.String}>Copy</CopyToClipboardButton>
-                  <SendTestTransactionWidget.Snippet/>
+                  <CopyToClipboardButton
+                    value={SendTestTransactionWidget.String}
+                  >
+                    Copy
+                  </CopyToClipboardButton>
+                  <SendTestTransactionWidget.Snippet />
                 </div>
                 <div className="">
-                  <AccountProvider>{ ({ address }: {address:`0x${string}` | undefined }) =>
-                  <BrowserWindow
-                    botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
-                  >
-                    <SendTestTransactionWidget setData={setTransaction} />
-                  </BrowserWindow>
-                  }</AccountProvider>
+                  <AccountProvider>
+                    {({ address }: { address: `0x${string}` | undefined }) => (
+                      <BrowserWindow
+                        botMood={
+                          !address ? "dead" : signedData ? "happy" : "neutral"
+                        }
+                      >
+                        <SendTestTransactionWidget setData={setTransaction} />
+                      </BrowserWindow>
+                    )}
+                  </AccountProvider>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2">
                 <div className="">
-                  <CopyToClipboardButton value={SignMessageWidget.String}>Copy</CopyToClipboardButton>
-                  <SignMessageWidget.Snippet/>
+                  <CopyToClipboardButton value={SignMessageWidget.String}>
+                    Copy
+                  </CopyToClipboardButton>
+                  <SignMessageWidget.Snippet />
                 </div>
                 <div className="">
-                  <AccountProvider>{ ({ address }: {address:`0x${string}` | undefined }) =>
-                  <BrowserWindow
-                    botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
-                  >
-                    <SignMessageWidget setData={setTransaction} />
-                  </BrowserWindow>
-                  }</AccountProvider>
+                  <AccountProvider>
+                    {({ address }: { address: `0x${string}` | undefined }) => (
+                      <BrowserWindow
+                        botMood={
+                          !address ? "dead" : signedData ? "happy" : "neutral"
+                        }
+                      >
+                        <SignMessageWidget setData={setTransaction} />
+                      </BrowserWindow>
+                    )}
+                  </AccountProvider>
                 </div>
               </div>
             </div>
@@ -125,8 +136,15 @@ export default function BookRoute() {
   );
 }
 
-
-function AccountProvider({ children }: { children: ({ address }: { address: `0x${string}` | undefined }) => React.ReactNode | null }) {
+function AccountProvider({
+  children,
+}: {
+  children: ({
+    address,
+  }: {
+    address: `0x${string}` | undefined;
+  }) => React.ReactNode | null;
+}) {
   const { address } = useAccount();
 
   return typeof children === "function" ? children({ address }) : null;
