@@ -1,14 +1,13 @@
 import { ReactNode } from "react";
-import { Bot } from "../bot/Bot";
+import { Bot } from "~/components/bot/Bot";
 
 type Props = {
   children: ReactNode;
-  botMood: "neutral" | "happy" | "dead";
+  botMood?: "neutral" | "happy" | "dead";
 };
-export const BrowserWindow = (props: Props) => {
-  const { botMood, children } = props;
+export const BrowserWindow = ({botMood = "neutral", children}: Props) => {
   return (
-    <div className="little-window">
+    <div className="little-window aspect-video top-0 sticky">
       <div className="clouds"></div>
       <div className="clouds2"></div>
       <div className="header">
@@ -20,7 +19,7 @@ export const BrowserWindow = (props: Props) => {
       <div className="content">
         <div className="z-1 relative">{children}</div>
       </div>
-      {/* <Bot mood={botMood} /> */}
+      <Bot mood={botMood} />
     </div>
   );
 };

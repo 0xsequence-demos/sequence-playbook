@@ -7,9 +7,12 @@ interface Props {
 export const SendTestTransactionWidget = (props: Props) => {
   const { setData } = props;
   const { address } = useAccount();
+
   const { data, sendTransaction, isPending, error, reset } =
     useSendTransaction();
-  useEffect(() => setData(data));
+  useEffect(() => setData(data), []);
+
+
   return address ? (
     <>
       <p>Connected as {address}</p>

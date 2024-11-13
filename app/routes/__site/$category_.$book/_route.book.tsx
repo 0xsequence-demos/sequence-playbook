@@ -6,9 +6,14 @@ import { BrowserWindow } from "~/components/browser-window/BrowserWindow";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createConfig, http, WagmiProvider } from "wagmi";
+import { createConfig, http, useAccount, WagmiProvider } from "wagmi";
 import { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import { useLoaderData } from "@remix-run/react";
+
+import chains from "~/utils/chains";
+import "@0xsequence/design-system/styles.css";
+import { useState } from "react";
+
 
 export async function loader({ request, context }: LoaderFunctionArgs){
   const env = context.cloudflare.env;
@@ -37,7 +42,6 @@ export default function BookRoute() {
     appleRedirectURI,
     walletConnectProjectId
   } = useLoaderData<typeof loader>();
-
 
   const connectors = getDefaultWaasConnectors({
     walletConnectProjectId,
@@ -70,25 +74,29 @@ export default function BookRoute() {
     projectAccessKey,
   };
 
+  const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
+  const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
+
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <KitProvider config={kitConfig}>
           <Main>
             <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
-              Book11
               <h3>Sign a message</h3>
               <div className="grid md:grid-cols-2">
                 <div className="">
                   <Code>{SendTestTransactionWidgetSource}</Code>
                 </div>
                 <div className="">
+                  <AccountProvider>{ ({ address }: {address:`0x${string}` | undefined }) =>
                   <BrowserWindow
-                  // botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
+                  botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
                   >
-                    <SendTestTransactionWidget />
-                    string.
+              <SendTestTransactionWidget setData={setTransaction} />
+
                   </BrowserWindow>
+                  }</AccountProvider>
                 </div>
               </div>
             </div>
@@ -97,4 +105,11 @@ export default function BookRoute() {
       </QueryClientProvider>
     </WagmiProvider>
   );
+}
+
+
+function AccountProvider({ children }: { children: ({ address }: { address: `0x${string}` | undefined }) => React.ReactNode | null }) {
+  const { address } = useAccount();
+
+  return typeof children === "function" ? children({ address }) : null;
 }
