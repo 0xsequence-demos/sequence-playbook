@@ -7,19 +7,40 @@ import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
+import { LoaderFunctionArgs } from "@remix-run/server-runtime";
+import { useLoaderData } from "@remix-run/react";
+
+export async function loader({ request, context }: LoaderFunctionArgs){
+  const env = context.cloudflare.env;
+  const url = new URL(request.url);
+  const origin = url.origin;
+  const pathname = url.pathname;
+  return {
+    projectAccessKey: env.PROJECT_ACCESS_KEY,
+    waasConfigKey: env.WAAS_CONFIG_KEY,
+    googleClientId: env.GOOGLE_CLIENT_ID,
+    appleClientId: env.APPLE_CLIENT_ID,
+    appleRedirectURI: origin + pathname,
+    walletConnectProjectId: env.WALLET_CONNECT_ID
+  }
+
+}
 
 export default function BookRoute() {
   const queryClient = new QueryClient();
 
-  const projectAccessKey = import.meta.env.VITE_PROJECT_ACCESS_KEY;
-  const waasConfigKey = import.meta.env.VITE_WAAS_CONFIG_KEY;
-  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-  const appleClientId = import.meta.env.VITE_APPLE_CLIENT_ID;
-  const appleRedirectURI = window.location.origin + window.location.pathname;
-  const walletConnectId = import.meta.env.VITE_WALLET_CONNECT_ID;
+  const {
+    projectAccessKey,
+    waasConfigKey,
+    googleClientId,
+    appleClientId,
+    appleRedirectURI,
+    walletConnectProjectId
+  } = useLoaderData<typeof loader>();
+
 
   const connectors = getDefaultWaasConnectors({
-    walletConnectProjectId: walletConnectId,
+    walletConnectProjectId,
     waasConfigKey,
     googleClientId,
     // Notice: Apple Login only works if deployed on https (to support Apple redirects)
@@ -39,6 +60,7 @@ export default function BookRoute() {
   });
 
   const config = createConfig({
+    ssr: true,
     transports,
     connectors,
     chains,
@@ -54,7 +76,7 @@ export default function BookRoute() {
         <KitProvider config={kitConfig}>
           <Main>
             <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
-              Book
+              Book11
               <h3>Sign a message</h3>
               <div className="grid md:grid-cols-2">
                 <div className="">
