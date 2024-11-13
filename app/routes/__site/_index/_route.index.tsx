@@ -28,7 +28,7 @@ export default function IndexRoute() {
 
         <div className="grid md:grid-cols-3 gap-3">
           {TOPICS.map((topic) => (
-            <FeatureCard
+            <TopicCard
               key={topic.path}
               title={topic.title}
               path={topic.path}
@@ -43,7 +43,7 @@ export default function IndexRoute() {
   );
 }
 
-function FeatureCard({
+function TopicCard({
   title,
   description,
   path,

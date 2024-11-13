@@ -56,7 +56,7 @@ export default function TopicRoute() {
                     />
                   ) : null}
                 </div>
-                <h2 className="text-lg font-semibold text-center">
+                <h2 className="text-lg font-semibold text-center min-h-[3.5rem] inline-flex items-center">
                   <Link to={`/${data.name}/${book.name}`}>{book.title}</Link>
                 </h2>
               </div>

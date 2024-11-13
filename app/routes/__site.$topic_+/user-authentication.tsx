@@ -10,7 +10,7 @@ import { CopyToClipboardButton } from "../../components/copy-to-clipboard-button
 import { Icon } from "~/components/icon/Icon";
 import { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import { getLoaderBookData } from "~/helpers/get-loader-book-data";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { BookTitle } from "~/components/book-title/BookTitle";
 
 export async function loader({ params }: LoaderFunctionArgs) {
