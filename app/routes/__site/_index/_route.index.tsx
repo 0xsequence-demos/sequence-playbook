@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
 import { TOPICS } from "~/data/data";
@@ -24,14 +25,14 @@ export default function IndexRoute() {
 
         <div className="grid md:grid-cols-3 gap-3">
           {TOPICS.map((topic) => (
-          <FeatureCard
-            key={topic.path}
-            title={ topic.title }
-            path={ topic.path }
-            icon=""
-            description={ topic.description }
-          />
-
+            <FeatureCard
+              key={topic.path}
+              title={topic.title}
+              path={topic.path}
+              icon={topic.icon}
+              description={topic.description}
+              theme={topic.theme}
+            />
           ))}
         </div>
       </div>
@@ -44,16 +45,29 @@ function FeatureCard({
   description,
   path,
   icon,
+  theme,
 }: {
   title: string;
   path: string;
   description: string;
   icon: string;
+  theme: {
+    bgImage: string;
+    bookColor: string;
+  };
 }) {
   return (
     <InheritLinkFromChild asChild>
-      <div className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-gradient-to-br from-blue-800/50 via-blue-950/20 to-blue-950/30">
-        <div className="size-[5rem] border border-white/10">{icon}</div>
+      <div
+        className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img"
+        style={
+          {
+            "--bg-image": `url('./${theme.bgImage}.svg')`,
+          } as React.CSSProperties
+        }
+      >
+        <Icon name={icon} className="size-[4.5rem]" />
+
         <Link to={path} className="text-28 font-bold text-center">
           {title}
         </Link>

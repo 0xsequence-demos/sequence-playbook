@@ -1,4 +1,6 @@
-import { NavLink, Outlet, Link } from '@remix-run/react';
+import { NavLink, Outlet, Link } from "@remix-run/react";
+import { TOPICS } from "~/data/data";
+import { Icon } from "../../components/icon/Icon";
 
 export default function SiteLayout() {
   return (
@@ -8,13 +10,15 @@ export default function SiteLayout() {
           <Link to="/">Sequence Playbook</Link>
 
           <nav className="flex gap-1">
-            {navLinks.map((link) => (
+            {TOPICS.map((link) => (
               <NavLink
                 to={link.path}
                 key={link.path}
-                className="rounded-full px-4 py-1.5 hover:bg-white/10 border border-transparent hover:border-white/5"
+                className="rounded-full px-4 py-1.5 hover:bg-white/10 border border-transparent hover:border-white/5 inline-flex gap-2 items-center aria-[current]:text-white font-semibold text-neutral-400"
               >
-                {link.label}
+                <Icon name={link.icon} className="size-[1.25rem]" />
+
+                {link.title}
               </NavLink>
             ))}
           </nav>
@@ -27,9 +31,3 @@ export default function SiteLayout() {
     </div>
   );
 }
-
-const navLinks = [
-  { label: "Onboard", path: "/onboard" },
-  { label: "Monetize", path: "/monetize" },
-  { label: "Power", path: "/power" },
-];
