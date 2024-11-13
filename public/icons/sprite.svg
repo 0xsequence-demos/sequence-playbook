@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
 <defs>
+<symbol viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" id="arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></symbol>
 <symbol viewBox="0 0 160 160" fill="none" id="book-base">
   <g opacity="0.5">
   <path d="M13.214 27.7967C8.40525 29.0499 5.55155 33.8572 6.84004 38.5342L37.1693 148.623C38.4577 153.3 43.4005 156.076 48.2092 154.823L126.572 134.401L91.5764 7.37482L13.214 27.7967Z" fill="currentColor"></path>

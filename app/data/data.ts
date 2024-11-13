@@ -1,3 +1,5 @@
+import { Topic } from "~/data/types";
+
 export const TOPICS = [
   {
     name: "onboard",
@@ -16,7 +18,8 @@ export const TOPICS = [
         path: "/onboard/user-authentication",
         title: "User Authentication via Sequence Embedded Wallet",
         bookIcon: "book-cover-wallet",
-        description: "",
+        description:
+          "Everything starts with user authentication. To authenticate a user  with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",
       },
       {
         name: "multiple-wallets",
@@ -118,4 +121,4 @@ export const TOPICS = [
       },
     ],
   },
-] as const;
+] as Topic[];

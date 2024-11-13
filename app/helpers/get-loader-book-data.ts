@@ -1,8 +1,12 @@
 import { TOPICS } from "../data/data";
 
-export function getLoaderBookData(params: { topic?: string; book?: string }) {
-  const { topic, book } = params;
-
+export function getLoaderBookData({
+  topic,
+  book,
+}: {
+  topic?: string;
+  book?: string;
+}) {
   if (topic && book) {
     try {
       const parentTopic = TOPICS.find((d) => d.name === topic);

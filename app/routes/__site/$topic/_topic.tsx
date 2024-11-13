@@ -25,10 +25,10 @@ export default function TopicRoute() {
     <Main>
       <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
         <div
-          className="px-10 py-8 bg-img rounded-[1rem] flex gap-8 bg-cover "
+          className="px-10 py-8 bg-img rounded-[1rem] flex gap-8 bg-cover"
           style={
             {
-              "--bg-image": `url('./${data.theme.bgImage}.svg')`,
+              "--bg-image": `url('/${data.theme.bgImage}.svg')`,
             } as React.CSSProperties
           }
         >

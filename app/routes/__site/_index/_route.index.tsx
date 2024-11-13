@@ -62,7 +62,7 @@ function FeatureCard({
         className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img"
         style={
           {
-            "--bg-image": `url('./${theme.bgImage}.svg')`,
+            "--bg-image": `url('/${theme.bgImage}.svg')`,
           } as React.CSSProperties
         }
       >
