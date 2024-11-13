@@ -9,7 +9,10 @@ export default function IndexRoute() {
     <Main>
       <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
         <div className="w-full flex flex-col items-center justify-center gap-6">
-          <h1 className="text-48 font-bold">Sequence Playbook</h1>
+          <span className="flex gap-4 items-center">
+            <Icon name="sequence-logo" className="size-20" />
+            <h1 className="text-48 font-bold">Sequence Playbook</h1>
+          </span>
           <span>
             Mini tutorials on how to use{" "}
             <a

@@ -16,3 +16,4 @@ export type IconName =
 	| "monetize"
 	| "onboard"
 	| "power"
+	| "sequence-logo"
