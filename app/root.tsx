@@ -15,6 +15,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
 import { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import chains from "~/utils/chains";
+import { Favicon } from "~/components/favicon/Favicon";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -51,6 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Favicon />
         <Meta />
         <Links />
         <PreloadIconSprites />
