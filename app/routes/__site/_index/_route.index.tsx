@@ -9,10 +9,10 @@ export default function IndexRoute() {
     <Main asChild>
       <main style={{ backgroundImage: "url('/bg-chessboard.svg')" }}>
         <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
-          <div className="w-full flex flex-col items-center justify-center gap-6">
-            <span className="flex gap-4 items-center">
-              <Icon name="sequence-logo" className="size-12 md:size-20" />
-              <h1 className="text-24 md:text-48 font-bold">
+          <div className="w-full flex flex-col items-center justify-center gap-6 text-center sm:text-start ">
+            <span className="flex-col sm:flex-row flex gap-4 items-center">
+              <Icon name="sequence-logo" className="size-16 md:size-20" />
+              <h1 className="text-24 md:text-48 font-bold leading-tight">
                 Sequence Playbook
               </h1>
             </span>

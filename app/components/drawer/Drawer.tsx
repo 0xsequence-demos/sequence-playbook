@@ -23,7 +23,7 @@ export default function Drawer({
       <Vaul.Portal>
         <Vaul.Overlay className="fixed inset-0 bg-black/40" />
         <Vaul.Content className="h-fit fixed bottom-0 left-0 right-0 outline-none">
-          <div className="p-4 flex flex-col min-h-[80vh] bg-black rounded-t-[1rem] border-white/20 border">
+          <div className="flex flex-col min-h-[30vh] bg-black rounded-t-[1rem] border-white/20 border overflow-clip p-2">
             {children}
           </div>
         </Vaul.Content>

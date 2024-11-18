@@ -27,9 +27,9 @@ export default function SiteLayout() {
               <NavLink
                 to={link.path}
                 key={link.path}
-                className="rounded-full px-4 py-1.5 hover:bg-white/10 border border-transparent hover:border-white/5 inline-flex gap-2 items-center aria-[current]:text-white font-semibold text-neutral-400"
+                className="p-4 rounded-[0.5rem] hover:bg-white/10 inline-flex gap-2 items-center aria-[current]:text-white font-semibold "
               >
-                <Icon name={link.icon} className="size-[1.25rem]" />
+                <Icon name={link.icon} className="size-[1.5rem]" />
 
                 {link.title}
               </NavLink>
