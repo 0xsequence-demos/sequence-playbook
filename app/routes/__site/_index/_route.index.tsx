@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
-import { TOPICS } from "~/content/topics";
+import Topics from "~/content/topics";
 
 export default function IndexRoute() {
   return (
@@ -28,7 +28,7 @@ export default function IndexRoute() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-3">
-            {TOPICS.map((topic) => (
+            {Topics.map((topic) => (
               <TopicCard
                 key={topic.path}
                 title={topic.title}
