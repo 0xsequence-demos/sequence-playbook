@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { BackgroundIconGrid } from "~/components/background-icon-grid/BackgroundIconGrid";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
@@ -8,6 +9,8 @@ export default function IndexRoute() {
   return (
     <Main asChild>
       <main style={{ backgroundImage: "url('/bg-chessboard.svg')" }}>
+        <BackgroundIconGrid></BackgroundIconGrid>
+
         <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
           <div className="w-full flex flex-col items-center justify-center gap-6 text-center sm:text-start ">
             <span className="flex-col sm:flex-row flex gap-4 items-center">
@@ -29,11 +32,11 @@ export default function IndexRoute() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-3 max-w-[256px] md:max-w-none mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-[256px] md:max-w-none mx-auto">
             {Topics.map((topic) => (
               <InheritLinkFromChild asChild key={topic.path}>
                 <div
-                  className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img bg-no-repeat bg-cover"
+                  className="rounded-[1rem] transition-transform hover:-translate-y-2 duration-150 hover:scale-105 p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img bg-no-repeat bg-cover"
                   style={
                     {
                       "--bg-image": `url('/${topic.theme.bgImage}.svg')`,
