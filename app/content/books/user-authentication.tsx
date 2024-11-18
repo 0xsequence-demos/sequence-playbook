@@ -5,11 +5,7 @@ import { useAccount } from "wagmi";
 import { useState } from "react";
 import { Providers } from "~/examples/Providers";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
-import {
-  CopyToClipboardButton,
-  CopyExampleCode,
-} from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
-import { Icon } from "~/components/icon/Icon";
+import { CopyExampleCode } from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
 
 const info = {
   name: "user-authentication",

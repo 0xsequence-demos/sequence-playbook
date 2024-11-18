@@ -1,6 +1,7 @@
 import { NavLink, Outlet, Link } from "@remix-run/react";
 import Topics from "~/content/topics";
 import { Icon } from "../../components/icon/Icon";
+import Drawer from "~/components/drawer/Drawer";
 
 export default function SiteLayout() {
   return (
@@ -12,12 +13,28 @@ export default function SiteLayout() {
             Sequence Playbook
           </Link>
 
-          <button
-            type="button"
-            className="block sm:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
+          <Drawer
+            trigger={
+              <button
+                type="button"
+                className="block sm:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
+              >
+                <Icon name="menu" className="size-5" alt="Menu" />
+              </button>
+            }
           >
-            <Icon name="menu" className="size-5" alt="Menu" />
-          </button>
+            {Topics.map((link) => (
+              <NavLink
+                to={link.path}
+                key={link.path}
+                className="rounded-full px-4 py-1.5 hover:bg-white/10 border border-transparent hover:border-white/5 inline-flex gap-2 items-center aria-[current]:text-white font-semibold text-neutral-400"
+              >
+                <Icon name={link.icon} className="size-[1.25rem]" />
+
+                {link.title}
+              </NavLink>
+            ))}
+          </Drawer>
 
           <nav className="hidden sm:flex gap-1">
             {Topics.map((link) => (

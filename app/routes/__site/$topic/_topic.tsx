@@ -1,6 +1,5 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, MetaFunction } from "@remix-run/react";
 import { LoaderFunctionArgs } from "@remix-run/server-runtime";
-import { MetaFunction } from "@remix-run/node";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";

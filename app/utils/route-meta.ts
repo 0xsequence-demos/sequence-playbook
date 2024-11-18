@@ -1,4 +1,4 @@
-import { MetaArgs } from "@remix-run/node";
+import { MetaArgs } from "@remix-run/react";
 
 export function routeMeta(
   {
