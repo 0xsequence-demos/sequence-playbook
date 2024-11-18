@@ -33,16 +33,18 @@ export const meta: MetaFunction<typeof loader> = (args) => {
 export default function TopicRoute() {
   const data = useLoaderData<typeof loader>();
 
+  const style = {
+    "--bg-image": `url('/${data.theme.bgImage}.svg')`,
+  } as React.CSSProperties;
+
   return (
-    <Main>
-      <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
+    <Main className="relative">
+      <div className="w-full h-[100px] bg-chessboard absolute" />
+
+      <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col isolate">
         <div
-          className="px-10 py-8 bg-img rounded-[1rem] flex gap-8 bg-cover"
-          style={
-            {
-              "--bg-image": `url('/${data.theme.bgImage}.svg')`,
-            } as React.CSSProperties
-          }
+          className="px-10 py-8 bg-img rounded-[1rem] flex gap-8 bg-cover max-sm:flex-col max-sm:text-center max-sm:items-center"
+          style={style}
         >
           <Icon name={data.icon} className="size-[4.5rem]" />
 
@@ -56,15 +58,15 @@ export default function TopicRoute() {
           {data.books.map((book) => (
             <InheritLinkFromChild asChild key={book.path}>
               <div className="bg-white/10 text-white p-4 rounded-[1rem] shadow-md aspect-square flex flex-col items-center justify-center gap-6">
-                <div className="grid grid-sols-1 grid-rows-1">
+                <div className="grid grid-cols-1 grid-rows-1">
                   <Icon
                     name="book-base"
-                    className={`${data.theme.bookColor} col-start-1 row-start-1`}
+                    className={`${data.theme.bookColor} col-start-1 row-start-1 max-w-full`}
                   />
                   {book.bookIcon ? (
                     <Icon
                       name={book.bookIcon}
-                      className="text-white col-start-1 row-start-1"
+                      className="text-white col-start-1 row-start-1 max-w-full"
                     />
                   ) : null}
                 </div>

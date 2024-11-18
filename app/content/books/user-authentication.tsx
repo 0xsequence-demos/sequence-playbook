@@ -5,7 +5,10 @@ import { useAccount } from "wagmi";
 import { useState } from "react";
 import { Providers } from "~/examples/Providers";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
-import { CopyToClipboardButton } from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
+import {
+  CopyToClipboardButton,
+  CopyExampleCode,
+} from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
 import { Icon } from "~/components/icon/Icon";
 
 const info = {
@@ -25,28 +28,29 @@ function Book({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <p>For the purposes of this demo, we're using 3 providers, like so:</p>
+
+      <div className="px-4">
+        <p>For the purposes of this demo, we're using 3 providers, like so:</p>
+      </div>
+
       <div className="relative">
-        <CopyToClipboardButton value={Providers.String} asChild>
-          <button className="absolute top-3 right-3 h-8 w-10 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
-            <Icon name="copy" className="size-4" />
-          </button>
-        </CopyToClipboardButton>
+        <CopyExampleCode value={Providers.String} />
         <Providers.Snippet />
       </div>
-      <p>
-        Now, deeper in the App, we can implement a simple authentication widget
-        to connect and disconnect.
-      </p>
-      <div className="grid md:grid-cols-2 rounded-[12px] bg-neutral-900 overflow-hidden">
-        <div className="relative">
-          <CopyToClipboardButton value={AuthenticationWidget.String} asChild>
-            <button className="absolute top-3 right-3 h-8 w-10 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
-              <Icon name="copy" className="size-4" />
-            </button>
-          </CopyToClipboardButton>
 
-          <AuthenticationWidget.Snippet />
+      <div className="px-4">
+        <p>
+          Now, deeper in the App, we can implement a simple authentication
+          widget to connect and disconnect.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
+        <div className="relative">
+          <CopyExampleCode value={AuthenticationWidget.String} />
+          <div className="max-w-full overflow-x-auto">
+            <AuthenticationWidget.Snippet />
+          </div>
         </div>
         <div
           className="flex flex-col items-center p-8"
@@ -57,28 +61,32 @@ function Book({ children }: { children: React.ReactNode }) {
           </BrowserWindow>
         </div>
       </div>
-      {!address ? (
-        <p>
-          <b>
+
+      <div className="px-4">
+        {!address ? (
+          <p>
             To see what you can do once you're authenticated, Connect a wallet
             above.
-          </b>
-        </p>
-      ) : (
-        <p>While a user is connected, they can do various things, like:</p>
-      )}
-      <div className={address ? "" : "opacity-40"}>
-        <h3>Sign a message</h3>
-        <div className="grid md:grid-cols-2 gap-x-4">
+          </p>
+        ) : (
+          <p>While a user is connected, they can do various things, like:</p>
+        )}
+      </div>
+
+      <div className={`flex flex-col gap-10 ${address ? "" : "opacity-40"}`}>
+        <div className="px-4">
+          <h3>Sign a message</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
           <div className="relative">
-            <CopyToClipboardButton value={SignMessageWidget.String} asChild>
-              <button className="absolute top-3 right-3 h-8 w-10 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
-                <Icon name="copy" className="size-4" />
-              </button>
-            </CopyToClipboardButton>
+            <CopyExampleCode value={SignMessageWidget.String} />
             <SignMessageWidget.Snippet />
           </div>
-          <div className="top-0 sticky">
+          <div
+            className="flex flex-col items-center p-8"
+            style={{ backgroundImage: "url('/bg-chessboard.svg')" }}
+          >
+            {" "}
             <BrowserWindow
               botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
             >
@@ -87,20 +95,19 @@ function Book({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <h3>Send a test transaction</h3>
-        <div className="grid md:grid-cols-2 gap-x-4">
+        <div className="px-4">
+          <h3>Send a test transaction</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
           <div className="relative">
-            <CopyToClipboardButton
-              value={SendTestTransactionWidget.String}
-              asChild
-            >
-              <button className="absolute top-3 right-3 h-8 w-10 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
-                <Icon name="copy" className="size-4" />
-              </button>
-            </CopyToClipboardButton>
+            <CopyExampleCode value={SendTestTransactionWidget.String} />
             <SendTestTransactionWidget.Snippet />
           </div>
-          <div className="top-0 sticky">
+          <div
+            className="flex flex-col items-center p-8"
+            style={{ backgroundImage: "url('/bg-chessboard.svg')" }}
+          >
+            {" "}
             <BrowserWindow
               botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
             >

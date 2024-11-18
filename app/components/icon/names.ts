@@ -13,6 +13,7 @@ export type IconName =
 	| "book-cover-payments"
 	| "book-cover-wallet"
 	| "copy"
+	| "menu"
 	| "monetize"
 	| "onboard"
 	| "power"

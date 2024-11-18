@@ -3,9 +3,9 @@
     box-shadow: 5px 10px 16px #0000007f;
     margin: auto;
     background-color: #1a1a1a;
-    /* max-width: 600px; */
-    width: 100%;
     max-width: 600px;
+    width: 100%;
+
     text-align: center;
     align-items: center;
     align-content: center;
@@ -52,6 +52,7 @@
     background: linear-gradient(270deg, #7537f9 0%, #5826ff 100%);
     margin: 10px;
     border-radius: 20px;
+    padding: 2px 8px;
   }
 
   .clouds {

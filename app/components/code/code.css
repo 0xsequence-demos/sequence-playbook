@@ -1,6 +1,6 @@
 @layer components {
   .shiki {
-    @apply p-6 rounded-[10px] overflow-x-scroll text-13;
+    @apply p-3 sm:p-6 rounded-[10px] overflow-x-scroll text-11 sm:text-13;
     line-height: 2em;
   }
 }

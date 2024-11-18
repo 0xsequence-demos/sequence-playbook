@@ -5,14 +5,21 @@ import { Icon } from "../../components/icon/Icon";
 export default function SiteLayout() {
   return (
     <div className="flex flex-col flex-1">
-      <header className="bg-black  py-2 border-b border-white/20">
-        <div className="max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 min-h-[4rem] py-1 items-center px-8">
+      <header className="bg-black py-2 shadow-[0_1px_0_0_theme(colors.white/20%)] z-50">
+        <div className="max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 min-h-[4rem] py-1 items-center px-4  sm:px-8">
           <Link to="/" className="flex gap-2 items-center font-bold">
             <Icon name="sequence-logo" className="size-8" />
             Sequence Playbook
           </Link>
 
-          <nav className="flex gap-1">
+          <button
+            type="button"
+            className="block sm:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
+          >
+            <Icon name="menu" className="size-5" alt="Menu" />
+          </button>
+
+          <nav className="hidden sm:flex gap-1">
             {Topics.map((link) => (
               <NavLink
                 to={link.path}

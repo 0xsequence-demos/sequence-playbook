@@ -6,6 +6,7 @@ import { routeMeta } from "~/utils/route-meta";
 import { MetaFunction } from "@remix-run/node";
 import Books from "~/content/books";
 import Topics from "~/content/topics";
+import { NoBookContent } from "~/content/books/no-book-content";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { topic, book } = params;
@@ -32,15 +33,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
   throw new Response("Not Found", { status: 404 });
 }
 
-function NoBook({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      {children}
-      <div>No book content just yet</div>
-    </>
-  );
-}
-
 export const meta: MetaFunction<typeof loader> = (args) => {
   return routeMeta(
     {
@@ -57,12 +49,12 @@ export default function BookCatchall() {
 
   const Book = Object.prototype.hasOwnProperty.call(Books, book.name)
     ? Books[book.name]
-    : NoBook;
+    : NoBookContent;
 
   return (
     <Main className="relative">
-      <div className="w-full h-[100px] bg-chessboard absolute" />
-      <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col isolate">
+      <div className="hidden sm:block w-full h-[100px] bg-chessboard absolute" />
+      <div className="w-full max-w-screen-xl sm:py-16 gap-10 flex flex-col isolate">
         <Book>
           <BookTitle book={book} topic={topic} />
         </Book>

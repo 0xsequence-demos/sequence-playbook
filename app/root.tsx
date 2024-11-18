@@ -17,7 +17,11 @@ import { LoaderFunctionArgs } from "@remix-run/server-runtime";
 import chains from "~/utils/chains";
 import { Favicon } from "~/components/favicon/Favicon";
 
+import styles from "@0xsequence/design-system/styles.css?url";
+import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
+
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
@@ -61,7 +65,10 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="flex flex-col flex-1 min-h-full bg-black">
+    <html
+      lang="en"
+      className="flex flex-col flex-1 min-h-full bg-black overflow-x-hidden"
+    >
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,6 +78,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <PreloadIconSprites />
       </head>
       <body className="flex flex-col flex-1">
+        <SkipAhead>Skip to content</SkipAhead>
         {children}
         <ScrollRestoration />
         <Scripts />

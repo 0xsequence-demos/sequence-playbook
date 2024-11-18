@@ -24,6 +24,7 @@ export function Main({
       id="main"
       className={className}
       asChild={asChild}
+      tabIndex={-1}
       {...props}
     >
       {children}
