@@ -1,9 +1,21 @@
-import { Link } from "@remix-run/react";
+import { Link, MetaFunction } from "@remix-run/react";
 import { BackgroundIconGrid } from "~/components/background-icon-grid/BackgroundIconGrid";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
 import Topics from "~/content/topics";
+import { routeMeta } from "~/utils/route-meta";
+
+export const meta: MetaFunction = (args) => {
+  return routeMeta(
+    {
+      title: "Sequence Playbook",
+      description: "",
+      image: "",
+    },
+    args
+  );
+};
 
 export default function IndexRoute() {
   return (
