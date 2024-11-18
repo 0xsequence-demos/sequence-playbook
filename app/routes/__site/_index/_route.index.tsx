@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
-import { TOPICS } from "~/data/data";
+import { TOPICS } from "~/content/topics";
 
 export default function IndexRoute() {
   return (

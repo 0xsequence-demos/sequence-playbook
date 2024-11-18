@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { Icon } from "../../components/icon/Icon";
-import { Book, Topic } from "~/data/types";
+import { Book, Topic } from "~/content/types";
 
 export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
   return (

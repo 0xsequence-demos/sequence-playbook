@@ -5,9 +5,9 @@ type Props = {
   children: ReactNode;
   botMood?: "neutral" | "happy" | "dead";
 };
-export const BrowserWindow = ({botMood = "neutral", children}: Props) => {
+export const BrowserWindow = ({ botMood = "neutral", children }: Props) => {
   return (
-    <div className="little-window aspect-video top-0 sticky">
+    <div className="little-window top-0 sticky">
       <div className="clouds"></div>
       <div className="clouds2"></div>
       <div className="header">

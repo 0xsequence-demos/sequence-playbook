@@ -1,10 +1,10 @@
-
 @layer components {
-
   .little-window {
     box-shadow: 5px 10px 16px #0000007f;
     margin: auto;
     background-color: #1a1a1a;
+    /* max-width: 600px; */
+    width: 100%;
     max-width: 600px;
     text-align: center;
     align-items: center;
@@ -88,5 +88,4 @@
     margin-top: -30px;
     aspect-ratio: 4;
   }
-
 }

@@ -1,5 +1,5 @@
 import { NavLink, Outlet, Link } from "@remix-run/react";
-import { TOPICS } from "~/data/data";
+import Topics from "~/content/topics";
 import { Icon } from "../../components/icon/Icon";
 
 export default function SiteLayout() {
@@ -13,7 +13,7 @@ export default function SiteLayout() {
           </Link>
 
           <nav className="flex gap-1">
-            {TOPICS.map((link) => (
+            {Topics.map((link) => (
               <NavLink
                 to={link.path}
                 key={link.path}

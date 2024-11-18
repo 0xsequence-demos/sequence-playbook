@@ -1,6 +1,7 @@
-import { Topic } from "~/data/types";
+import { Topic } from "~/content/types";
+import UserAuthenticationBook from "~/content/books/user-authentication";
 
-export const TOPICS = [
+export default [
   {
     name: "onboard",
     title: "Onboard",
@@ -13,14 +14,7 @@ export const TOPICS = [
     description:
       "Small paragraph text that's not more than two lines that brings a bit more context of this particular feature if necessary",
     books: [
-      {
-        name: "user-authentication",
-        path: "/onboard/user-authentication",
-        title: "User Authentication via Sequence Embedded Wallet",
-        bookIcon: "book-cover-wallet",
-        description:
-          "Everything starts with user authentication. To authenticate a user  with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",
-      },
+      UserAuthenticationBook.info,
       {
         name: "multiple-wallets",
         path: "/onboard/multiple-wallets",

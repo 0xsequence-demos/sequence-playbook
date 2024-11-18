@@ -36,6 +36,13 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
   const origin = url.origin;
   const pathname = url.pathname;
 
+  // Define base meta
+  const base_path = url.origin;
+  const base_title = "Sequence Playbook";
+  const default_description =
+    "The Sequence Playbook is a collection of examples, guides, and tutorials to help you build with the Sequence SDK.";
+  const base_image = "";
+
   return {
     projectAccessKey: env.PROJECT_ACCESS_KEY,
     waasConfigKey: env.WAAS_CONFIG_KEY,
@@ -43,6 +50,12 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
     appleClientId: env.APPLE_CLIENT_ID,
     appleRedirectURI: origin + pathname,
     walletConnectProjectId: env.WALLET_CONNECT_ID,
+    meta: {
+      base_title,
+      default_description,
+      base_path,
+      base_image,
+    },
   };
 }
 

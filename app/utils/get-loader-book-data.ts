@@ -1,4 +1,4 @@
-import { TOPICS } from "../data/data";
+import { TOPICS } from "../content/topics";
 
 export function getLoaderBookData({
   topic,

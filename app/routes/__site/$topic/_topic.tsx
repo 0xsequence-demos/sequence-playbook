@@ -1,25 +1,37 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { LoaderFunctionArgs } from "@remix-run/server-runtime";
+import { MetaFunction } from "@remix-run/node";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
-import { TOPICS } from "~/data/data";
+import Topics from "~/content/topics";
+
+import { routeMeta } from "~/utils/route-meta";
 export async function loader({ params }: LoaderFunctionArgs) {
   const { topic } = params;
 
-  const data = TOPICS.find((d) => d.name === topic);
+  const data = Topics.find((d) => d.name === topic);
 
   if (!data) {
     throw new Response("Not Found", { status: 404 });
   }
 
-  return {
-    data,
-  };
+  return data;
 }
 
+export const meta: MetaFunction<typeof loader> = (args) => {
+  return routeMeta(
+    {
+      title: args?.data?.title,
+      description: "",
+      image: "",
+    },
+    args
+  );
+};
+
 export default function TopicRoute() {
-  const { data } = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <Main>
