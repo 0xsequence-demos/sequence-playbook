@@ -40,7 +40,7 @@ export function CopyExampleCode({ value }: { value: string }) {
   return (
     <CopyToClipboardButton value={value} asChild>
       <button className="absolute top-3 right-3 h-8 w-10 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
-        <Icon name="copy" className="size-4" />
+        <Icon name="copy" className="size-4" alt="Copy code to clipboard" />
       </button>
     </CopyToClipboardButton>
   );

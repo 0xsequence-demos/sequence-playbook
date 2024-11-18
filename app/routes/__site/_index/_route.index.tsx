@@ -11,8 +11,10 @@ export default function IndexRoute() {
         <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
           <div className="w-full flex flex-col items-center justify-center gap-6">
             <span className="flex gap-4 items-center">
-              <Icon name="sequence-logo" className="size-20" />
-              <h1 className="text-48 font-bold">Sequence Playbook</h1>
+              <Icon name="sequence-logo" className="size-12 md:size-20" />
+              <h1 className="text-24 md:text-48 font-bold">
+                Sequence Playbook
+              </h1>
             </span>
             <span>
               Mini tutorials on how to use{" "}
@@ -27,57 +29,37 @@ export default function IndexRoute() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-3">
+          <div className="grid md:grid-cols-3 gap-3 max-w-[256px] md:max-w-none mx-auto">
             {Topics.map((topic) => (
-              <TopicCard
-                key={topic.path}
-                title={topic.title}
-                path={topic.path}
-                icon={topic.icon}
-                description={topic.description}
-                theme={topic.theme}
-              />
+              <InheritLinkFromChild asChild key={topic.path}>
+                <div
+                  className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img bg-no-repeat bg-cover"
+                  style={
+                    {
+                      "--bg-image": `url('/${topic.theme.bgImage}.svg')`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <Icon
+                    name={topic.icon}
+                    className="size-[3rem] md:size-[4.5rem]"
+                  />
+
+                  <Link
+                    to={topic.path}
+                    className="text-18 md:text-28 font-bold text-center"
+                  >
+                    {topic.title}
+                  </Link>
+                  <p className="line-clamp-2 text-center">
+                    {topic.description}
+                  </p>
+                </div>
+              </InheritLinkFromChild>
             ))}
           </div>
         </div>
       </main>
     </Main>
-  );
-}
-
-function TopicCard({
-  title,
-  description,
-  path,
-  icon,
-  theme,
-}: {
-  title: string;
-  path: string;
-  description: string;
-  icon: string;
-  theme: {
-    bgImage: string;
-    bookColor: string;
-  };
-}) {
-  return (
-    <InheritLinkFromChild asChild>
-      <div
-        className="rounded-[1rem] p-10 bg-white/10 flex flex-col items-center gap-4 aspect-square justify-center bg-img"
-        style={
-          {
-            "--bg-image": `url('/${theme.bgImage}.svg')`,
-          } as React.CSSProperties
-        }
-      >
-        <Icon name={icon} className="size-[4.5rem]" />
-
-        <Link to={path} className="text-28 font-bold text-center">
-          {title}
-        </Link>
-        <p className="line-clamp-2 text-center">{description}</p>
-      </div>
-    </InheritLinkFromChild>
   );
 }
