@@ -4,21 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply text-white bg-neutral-950;
+@layer base {
+  html,
+  body {
+    @apply text-white bg-neutral-950;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+    }
   }
-}
 
-.bg-img {
-  background-image: var(--bg-image);
-}
-
-@layer components {
   .bg-chessboard {
     background-image: url("/bg-chessboard.svg");
+  }
+
+  .bg-img {
+    background-image: var(--bg-image);
   }
 }
