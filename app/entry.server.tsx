@@ -8,6 +8,8 @@ import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
+import { cspHeaderDirectives } from "~/utils/csp-header-directives";
+import { NonceProvider } from "~/providers/nonce-provider";
 
 const ABORT_DELAY = 5000;
 
@@ -24,12 +26,16 @@ export default async function handleRequest(
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), ABORT_DELAY);
 
+  const { nonce, cspHeader } = cspHeaderDirectives();
+
   const body = await renderToReadableStream(
-    <RemixServer
-      context={remixContext}
-      url={request.url}
-      abortDelay={ABORT_DELAY}
-    />,
+    <NonceProvider value={nonce}>
+      <RemixServer
+        context={remixContext}
+        url={request.url}
+        abortDelay={ABORT_DELAY}
+      />
+    </NonceProvider>,
     {
       signal: controller.signal,
       onError(error: unknown) {
@@ -49,6 +55,26 @@ export default async function handleRequest(
   }
 
   responseHeaders.set("Content-Type", "text/html");
+  responseHeaders.set("Content-Security-Policy", cspHeader);
+  responseHeaders.set("X-Content-Type-Options", "nosniff");
+  responseHeaders.set("X-Frame-Options", "DENY");
+  responseHeaders.set("Referrer-Policy", "same-origin");
+  responseHeaders.set(
+    "Strict-Transport-Security",
+    "max-age=31536000; includeSubDomains"
+  );
+  responseHeaders.set("X-XSS-Protection", "1; mode=block");
+  responseHeaders.set("Cross-Origin-Open-Policy", "same-origin");
+  responseHeaders.set("Cross-Origin-Resource-Policy", "same-origin");
+  responseHeaders.set(
+    "Feature-Policy",
+    "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+  );
+  responseHeaders.set(
+    "Permissions-Policy",
+    "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), fullscreen=()"
+  );
+
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,
