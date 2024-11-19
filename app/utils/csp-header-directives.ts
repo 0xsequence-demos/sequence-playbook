@@ -9,14 +9,23 @@ export function cspHeaderDirectives() {
 
   const directives = {
     "connect-src": [
-      process.env.SENTRY_DSN ? "*.ingest.sentry.io" : null,
+      "nodes.sequence.app",
+      "unpkg.com",
+      "cdn.jsdelivr.net",
+      "pulse.walletconnect.org",
       "identitytoolkit.googleapis.com",
+      "explorer-api.walletconnect.com",
       "'self'",
     ].filter(Boolean),
     "font-src": ["'self'", "fonts.gstatic.com"],
-    "frame-src": ["'self'"],
-    "img-src": ["'self'", "cdn.shopify.com", "cdn.sanity.io", "data:"],
-    "script-src": ["'strict-dynamic'", "'self'", `'nonce-${nonce}'`],
+    "frame-src": ["'self'", "accounts.google.com"],
+    "img-src": ["'self'", "data:", "explorer-api.walletconnect.com"],
+    "script-src": [
+      "'strict-dynamic'",
+      "'self'",
+      "'wasm-unsafe-eval'", // for Rive - https://github.com/rive-app/rive-wasm/issues/131
+      `'nonce-${nonce}'`,
+    ],
     "script-src-attr": [`'nonce-${nonce}'`],
     "upgrade-insecure-requests": null,
   };
@@ -30,6 +39,8 @@ export function cspHeaderDirectives() {
       return `${key} ${value};`;
     })
     .join(" ");
+
+  console.log(cspHeader);
 
   return { cspHeader, nonce };
 }

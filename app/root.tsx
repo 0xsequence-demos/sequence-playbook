@@ -16,6 +16,7 @@ import { createConfig, http, WagmiProvider } from "wagmi";
 import { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import chains from "~/utils/chains";
 import { Favicon } from "~/components/favicon/Favicon";
+import { useNonce } from "~/providers/nonce-provider";
 
 import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
@@ -64,6 +65,8 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const nonce = useNonce();
+
   return (
     <html
       lang="en"
@@ -80,8 +83,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body className="flex flex-col flex-1">
         <SkipAhead>Skip to content</SkipAhead>
         {children}
-        <ScrollRestoration />
-        <Scripts />
+        <ScrollRestoration nonce={nonce} />
+        <Scripts nonce={nonce} />
         <Toaster />
       </body>
     </html>
