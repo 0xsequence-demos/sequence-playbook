@@ -127,11 +127,5 @@ export default function App() {
     chains,
   });
 
-  return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <Outlet />
-      </QueryClientProvider>
-    </WagmiProvider>
-  );
+  return <Outlet />;
 }
