@@ -134,9 +134,7 @@ export default function App() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <KitProvider config={kitConfig}>
-          <Outlet />
-        </KitProvider>
+        <Outlet />
       </QueryClientProvider>
     </WagmiProvider>
   );
