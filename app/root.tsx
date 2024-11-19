@@ -13,7 +13,7 @@ import { Toaster } from "sonner";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
-import { LoaderFunctionArgs } from "@remix-run/server-runtime";
+import { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import chains from "~/utils/chains";
 import { Favicon } from "~/components/favicon/Favicon";
 
