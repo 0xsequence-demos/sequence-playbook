@@ -6,3 +6,7 @@ pages_build_output_dir = "./build/client"
 compatibility_flags = ["nodejs_compat"]
 # Fixes "compatibility_flags cannot be specified without a compatibility_date"
 compatibility_date = "2024-11-11"
+
+
+[vars]
+NODE_VERSION = "22"
