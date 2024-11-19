@@ -7,8 +7,6 @@
     "build": "remix vite:build",
     "deploy": "wrangler deploy",
     "dev": "remix vite:dev",
-    "build-examples": "node ./cli/build-code-blocks.js -i ./src/examples",
-    "build-icons": "node ./cli/build-icons.js",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler dev",
     "typecheck": "tsc",
