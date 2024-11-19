@@ -11,7 +11,7 @@ Run the dev server:
 npm run dev
 ```
 
-To run Wrangler:
+To run Wrangler
 
 ```sh
 npm run build
