@@ -121,6 +121,7 @@ export default function App() {
   });
 
   const config = createConfig({
+    ssr: true,
     transports,
     connectors,
     chains,
