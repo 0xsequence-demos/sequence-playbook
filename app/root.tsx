@@ -4,13 +4,17 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/cloudflare";
 import { PreloadIconSprites } from "~/components/preload-icon-sprites/PreloadIconSprites";
 import "./tailwind.css";
 import { Toaster } from "sonner";
+import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { createConfig, http, WagmiProvider } from "wagmi";
+import { LoaderFunctionArgs } from "@remix-run/server-runtime";
+import chains from "~/utils/chains";
 import { Favicon } from "~/components/favicon/Favicon";
 
 import styles from "@0xsequence/design-system/styles.css?url";
@@ -87,9 +91,52 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   const queryClient = new QueryClient();
 
+  const {
+    projectAccessKey,
+    waasConfigKey,
+    googleClientId,
+    appleClientId,
+    appleRedirectURI,
+    walletConnectProjectId,
+  } = useLoaderData<typeof loader>();
+
+  const connectors = getDefaultWaasConnectors({
+    walletConnectProjectId,
+    waasConfigKey,
+    googleClientId,
+    // Notice: Apple Login only works if deployed on https (to support Apple redirects)
+    appleClientId,
+    appleRedirectURI,
+    /* Arbitrum sepolia chainId */
+    defaultChainId: 421614,
+    appName: "Kit Starter",
+    projectAccessKey,
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const transports: { [key: number]: any } = {};
+
+  chains.forEach((chain) => {
+    transports[chain.id] = http();
+  });
+
+  const config = createConfig({
+    transports,
+    connectors,
+    chains,
+  });
+
+  const kitConfig = {
+    projectAccessKey,
+  };
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-    </QueryClientProvider>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <KitProvider config={kitConfig}>
+          <Outlet />
+        </KitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }
