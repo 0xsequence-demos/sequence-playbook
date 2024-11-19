@@ -10,7 +10,7 @@ import type { LinksFunction } from "@remix-run/cloudflare";
 import { PreloadIconSprites } from "~/components/preload-icon-sprites/PreloadIconSprites";
 import "./tailwind.css";
 import { Toaster } from "sonner";
-import { getDefaultWaasConnectors } from "@0xsequence/kit";
+import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createConfig, http, WagmiProvider } from "wagmi";
 import { LoaderFunctionArgs } from "@remix-run/cloudflare";
@@ -127,5 +127,17 @@ export default function App() {
     chains,
   });
 
-  return <Outlet />;
+  const kitConfig = {
+    projectAccessKey,
+  };
+
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <KitProvider config={kitConfig}>
+          <Outlet />
+        </KitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
 }
