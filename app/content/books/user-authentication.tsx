@@ -48,10 +48,7 @@ function Book({ children }: { children: React.ReactNode }) {
             <AuthenticationWidget.Snippet />
           </div>
         </div>
-        <div
-          className="flex flex-col items-center p-8"
-          style={{ backgroundImage: "url('/bg-chessboard.svg')" }}
-        >
+        <div className="flex flex-col items-center p-8  bg-chessboard">
           <BrowserWindow botMood={!address ? "dead" : "happy"}>
             <AuthenticationWidget />
           </BrowserWindow>
@@ -78,10 +75,7 @@ function Book({ children }: { children: React.ReactNode }) {
             <CopyExampleCode value={SignMessageWidget.String} />
             <SignMessageWidget.Snippet />
           </div>
-          <div
-            className="flex flex-col items-center p-8"
-            style={{ backgroundImage: "url('/bg-chessboard.svg')" }}
-          >
+          <div className="flex flex-col items-center p-8  bg-chessboard">
             {" "}
             <BrowserWindow
               botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -99,10 +93,7 @@ function Book({ children }: { children: React.ReactNode }) {
             <CopyExampleCode value={SendTestTransactionWidget.String} />
             <SendTestTransactionWidget.Snippet />
           </div>
-          <div
-            className="flex flex-col items-center p-8"
-            style={{ backgroundImage: "url('/bg-chessboard.svg')" }}
-          >
+          <div className="flex flex-col items-center p-8  bg-chessboard">
             {" "}
             <BrowserWindow
               botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
