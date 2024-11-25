@@ -23,7 +23,7 @@ export default function IndexRoute() {
       <main>
         <BackgroundIconGrid></BackgroundIconGrid>
 
-        <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col">
+        <div className="w-full max-w-screen-xl px-8 py-16 gap-10 flex flex-col relative isolate">
           <div className="w-full flex flex-col items-center justify-center gap-6 text-center sm:text-start ">
             <span className="flex-col sm:flex-row flex gap-4 items-center">
               <Icon name="SequenceLogo" className="size-16 md:size-20" />
