@@ -8,7 +8,7 @@ export default [
     path: "/onboard",
     icon: "onboard",
     theme: {
-      bgImage: "cat-bg-onboard",
+      bgImage: "bg-onboard",
       bookColor: "text-blue-400",
     },
     description:
@@ -36,7 +36,7 @@ export default [
     title: "Monetize",
     path: "/monetize",
     theme: {
-      bgImage: "cat-bg-monetize",
+      bgImage: "bg-monetize",
       bookColor: "text-green-400",
     },
     icon: "monetize",
@@ -83,7 +83,7 @@ export default [
       "Small paragraph text that's not more than two lines that brings a bit more context of this particular feature if necessary",
 
     theme: {
-      bgImage: "cat-bg-power",
+      bgImage: "bg-power",
       bookColor: "text-violet-400",
     },
     path: "/power",

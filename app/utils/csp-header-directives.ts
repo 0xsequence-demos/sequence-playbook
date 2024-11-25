@@ -33,7 +33,7 @@ export function cspHeaderDirectives() {
       `'nonce-${nonce}'`, // Sign with nonce
     ],
     "script-src-attr": [`'nonce-${nonce}'`], // Sign with nonce
-    "upgrade-insecure-requests": null,
+    // "upgrade-insecure-requests": null,
   };
 
   // Build the headers from the directive.

@@ -60,10 +60,10 @@ export default async function handleRequest(
   responseHeaders.set("X-Content-Type-Options", "nosniff");
   responseHeaders.set("X-Frame-Options", "DENY");
   responseHeaders.set("Referrer-Policy", "same-origin");
-  responseHeaders.set(
-    "Strict-Transport-Security",
-    "max-age=31536000; includeSubDomains"
-  );
+  // responseHeaders.set(
+  //   "Strict-Transport-Security",
+  //   "max-age=31536000; includeSubDomains"
+  // );
   responseHeaders.set("X-XSS-Protection", "1; mode=block");
   responseHeaders.set("Cross-Origin-Open-Policy", "same-origin");
   responseHeaders.set("Cross-Origin-Resource-Policy", "same-origin");

@@ -1,39 +1,48 @@
+import { Slot } from "~/components/slot/Slot";
+import * as Svgs from "./index";
 import { type SVGProps } from "react";
-import type { IconName } from "./names";
+
+const SvgComponents = Svgs as Record<
+  keyof typeof Svgs | string,
+  React.ComponentType<SVGProps<SVGSVGElement>>
+>;
+
+function kebabToPascalCase(input: string): string {
+  return input
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
+}
 
 export function Icon({
   name,
-
-  width = undefined,
-  height = undefined,
   alt = undefined,
   className = "",
-  preserveAspectRatio = "xMinYMin",
-
   ...props
 }: SVGProps<SVGSVGElement> & {
+  name: keyof typeof Svgs | string;
+  className?: string;
   alt?: string;
-
-  name: IconName | string;
 }) {
+  const SvgComponent = SvgComponents?.[kebabToPascalCase(name)];
 
   return (
-    <svg
+    <Slot
+      fallbackAs="svg"
+      name={name}
       {...{
-        preserveAspectRatio,
+        preserveAspectRatio: "xMinYMin",
         "aria-hidden": !alt ? true : undefined,
         role: alt ? "img" : "presentation",
         title: alt,
         "aria-label": alt || undefined,
-        width,
-        height,
         focusable: "false",
         className: `${className} flex-shrink-0`.trim(),
-        // style,
       }}
+      asChild
       {...props}
     >
-      <use href={`/icons/sprite.svg#${name}`} />
-    </svg>
+      <SvgComponent />
+    </Slot>
   );
 }

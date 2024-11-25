@@ -42,7 +42,7 @@ export default function TopicRoute() {
 
       <div className="w-full max-w-screen-xl sm:px-4 sm:py-16 gap-10 flex flex-col isolate">
         <div
-          className="px-4 sm:px-10 py-8 bg-img sm:rounded-[1rem] flex gap-8 bg-cover max-sm:flex-col max-sm:text-center max-sm:items-center"
+          className={`px-4 sm:px-10 py-8 sm:rounded-[1rem] flex gap-8 bg-cover max-sm:flex-col max-sm:text-center max-sm:items-center ${data.theme.bgImage}`}
           style={style}
         >
           <Icon name={data.icon} className="size-[4.5rem]" />
@@ -60,12 +60,12 @@ export default function TopicRoute() {
                 <div className="grid grid-cols-1 grid-rows-1">
                   <Icon
                     name="book-base"
-                    className={`${data.theme.bookColor} col-start-1 row-start-1 max-w-full size-24 md:size-auto`}
+                    className={`${data.theme.bookColor} col-start-1 row-start-1 max-w-full size-24 md:size-32`}
                   />
                   {book.bookIcon ? (
                     <Icon
                       name={book.bookIcon}
-                      className="text-white col-start-1 row-start-1 max-w-full size-24 md:size-auto"
+                      className="text-white col-start-1 row-start-1 max-w-full size-24 md:size-32"
                     />
                   ) : null}
                 </div>

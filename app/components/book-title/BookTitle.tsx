@@ -1,17 +1,12 @@
 import { Link } from "@remix-run/react";
-import { Icon } from "../../components/icon/Icon";
+import { Icon } from "../icon/Icon";
 import { Book, Topic } from "~/content/types";
 
 export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
   return (
     <div className="sm:px-4">
       <div
-        className="px-4 py-8 sm:p-10 sm:rounded-[1rem] bg-img flex gap-6 bg-cover"
-        style={
-          {
-            "--bg-image": `url('/${topic.theme.bgImage}.svg')`,
-          } as React.CSSProperties
-        }
+        className={`px-4 py-8 sm:p-10 sm:rounded-[1rem] flex gap-6 bg-cover  ${topic.theme.bgImage}`}
       >
         <div className="flex flex-col gap-3 flex-1">
           <Link

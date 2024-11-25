@@ -24,7 +24,7 @@ export function BackgroundIconGrid() {
 
   return (
     <div
-      className="w-full h-full absolute inset-0 grid opacity-50"
+      className="w-full h-full absolute inset-0 grid bg-chessboard"
       style={{
         gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
         gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,
@@ -39,7 +39,7 @@ export function BackgroundIconGrid() {
         return (
           <div
             key={index}
-            className="flex items-center justify-center relative"
+            className="flex items-center justify-center relative opacity-50"
             style={{
               gridColumn: (position % GRID_SIZE) + 1,
               gridRow: Math.floor(position / GRID_SIZE) + 1,

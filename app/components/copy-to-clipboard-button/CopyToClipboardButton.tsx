@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Slot } from "~/components/slot/Slot";
 import { toast } from "sonner";
 import { Icon } from "~/components/icon/Icon";

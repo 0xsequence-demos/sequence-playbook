@@ -7,7 +7,6 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/cloudflare";
-import { PreloadIconSprites } from "~/components/preload-icon-sprites/PreloadIconSprites";
 import "./tailwind.css";
 import { Toaster } from "sonner";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
@@ -20,7 +19,6 @@ import { useNonce } from "~/providers/nonce-provider";
 
 import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
-
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -78,7 +76,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Favicon />
         <Meta />
         <Links />
-        <PreloadIconSprites />
       </head>
       <body className="flex flex-col flex-1">
         <SkipAhead>Skip to content</SkipAhead>
