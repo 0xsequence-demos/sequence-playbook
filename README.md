@@ -1,23 +1,43 @@
-# Sequence Playbook
+# Welcome to Remix + Cloudflare Workers!
 
-## Interactive guides
+- 📖 [Remix docs](https://remix.run/docs)
+- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
 
-A collection of interactive development guides using sequence features. It's a great starting point before moving onto the sequence project boilerplates.
+## Development
 
-## Quickstart
+Run the dev server:
 
-Copy `.env.example` to `.env` and fill with your project information. To test things out, you can use the pre-provided keys in the `.env.example` file:
-
-```
-cp .env.example .env
-```
-
-Then install and run:
-
-```js
-pnpm install && pnpm dev
+```sh
+npm run dev
 ```
 
-The app will start on `localhost:4444`
+To run Wrangler
 
-To provide your own keys from [Sequence Builder](https://sequence.build/), simply edit the `.env` file accordingly.
+```sh
+npm run build
+npm start
+```
+
+## Typegen
+
+Generate types for your Cloudflare bindings in `wrangler.toml`:
+
+```sh
+npm run typegen
+```
+
+You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+
+## Deployment
+
+If you don't already have an account, then [create a cloudflare account here](https://dash.cloudflare.com/sign-up) and after verifying your email address with Cloudflare, go to your dashboard and set up your free custom Cloudflare Workers subdomain.
+
+Once that's done, you should be able to deploy your app:
+
+```sh
+npm run deploy
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.

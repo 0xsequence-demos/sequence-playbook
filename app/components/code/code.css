@@ -1,0 +1,10 @@
+@layer components {
+  .shiki {
+    @apply p-3 sm:p-6 overflow-x-scroll text-11 sm:text-13;
+    line-height: 2em;
+  }
+
+  .shiki:focus {
+    /* background: white; */
+  }
+}

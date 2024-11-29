@@ -1,0 +1,17 @@
+@import "./components/components.css";
+@import "./svg.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply text-white bg-neutral-950;
+
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+    }
+  }
+}
