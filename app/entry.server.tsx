@@ -56,10 +56,10 @@ export default async function handleRequest(
   }
 
   responseHeaders.set("Content-Type", "text/html");
-  responseHeaders.set("Content-Security-Policy", cspHeader);
+  // responseHeaders.set("Content-Security-Policy", cspHeader);
   responseHeaders.set("X-Content-Type-Options", "nosniff");
   responseHeaders.set("X-Frame-Options", "DENY");
-  responseHeaders.set("Referrer-Policy", "same-origin");
+  // responseHeaders.set("Referrer-Policy", "same-origin");
   // responseHeaders.set(
   //   "Strict-Transport-Security",
   //   "max-age=31536000; includeSubDomains"
