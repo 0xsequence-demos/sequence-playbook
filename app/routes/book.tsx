@@ -52,8 +52,7 @@ export default function BookCatchall() {
 
   return (
     <Main className="relative">
-      <div className="hidden sm:block w-full h-[100px] bg-chessboard absolute" />
-      <div className="w-full max-w-screen-xl sm:py-16 gap-10 flex flex-col isolate">
+      <div className="w-full gap-10 flex flex-col isolate">
         <Book>
           <BookTitle book={book} topic={topic} />
         </Book>
@@ -63,3 +62,4 @@ export default function BookCatchall() {
 }
 
 export type LoaderData = Awaited<ReturnType<typeof loader>>;
+1;

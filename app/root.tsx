@@ -1,4 +1,11 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from "react-router";
 import type { LinksFunction } from "react-router";
 import "./tailwind.css";
 import { Toaster } from "sonner";
@@ -61,7 +68,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className="flex flex-col flex-1 min-h-full bg-black overflow-x-hidden"
+      className="flex flex-col flex-1 min-h-full overflow-x-hidden bg-deep-purple-950"
     >
       <head>
         <meta charSet="utf-8" />
@@ -70,7 +77,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col flex-1">
+      <body className="flex flex-col flex-1 bg-deep-purple-950">
         <SkipAhead>Skip to content</SkipAhead>
         {children}
         <ScrollRestoration nonce={nonce} />
@@ -123,7 +130,6 @@ export default function App() {
   const kitConfig = {
     projectAccessKey,
   };
-
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>

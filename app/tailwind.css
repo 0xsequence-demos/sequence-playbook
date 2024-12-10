@@ -9,6 +9,10 @@
   html,
   body {
     @apply text-white bg-neutral-950;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    text-rendering: optimizeLegibility;
 
     @media (prefers-color-scheme: dark) {
       color-scheme: dark;

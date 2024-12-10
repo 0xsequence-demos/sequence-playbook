@@ -16,6 +16,21 @@ export default {
           "Noto Color Emoji",
         ],
       },
+      colors: {
+        "deep-purple": {
+          50: "#e9e8ff",
+          100: "#d7d5ff",
+          200: "#bcb4ff",
+          300: "#9787ff",
+          400: "#7e57ff",
+          500: "#7331ff",
+          600: "#710eff",
+          700: "#6d05fd",
+          800: "#5708cb",
+          900: "#46119e",
+          950: "#110424",
+        },
+      },
       fontSize: {
         "10": "calc(0.625rem * var(--font-size-multiplier, 1))",
         "11": "calc(0.6875rem * var(--font-size-multiplier, 1))",

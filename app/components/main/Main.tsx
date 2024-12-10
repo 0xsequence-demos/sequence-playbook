@@ -15,7 +15,7 @@ export function Main({
   ...props
 }: Props) {
   if (!appearance) {
-    className = `flex flex-col flex-1 items-center ${className}`;
+    className = `flex flex-col flex-1 ${className}`;
   }
 
   return (

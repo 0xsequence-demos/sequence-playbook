@@ -2,6 +2,7 @@ export type Book = {
   name: string;
   path: string;
   title: string;
+  shortname?: string;
   bookIcon: string;
   description: string;
 };

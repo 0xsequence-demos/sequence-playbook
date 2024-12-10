@@ -11,6 +11,7 @@ const info = {
   name: "user-authentication",
   path: "/onboard/user-authentication",
   title: "User Authentication via Sequence Embedded Wallet",
+  shortname: "User authentication",
   bookIcon: "book-cover-wallet",
   description:
     "Everything starts with user authentication. To authenticate a user  with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",
@@ -25,21 +26,17 @@ function Book({ children }: { children: React.ReactNode }) {
     <>
       {children}
 
-      <div className="px-4">
-        <p>For the purposes of this demo, we're using 3 providers, like so:</p>
-      </div>
+      <p>For the purposes of this demo, we're using 3 providers, like so:</p>
 
       <div className="relative">
         <CopyExampleCode value={Providers.String} />
         <Providers.Snippet />
       </div>
 
-      <div className="px-4">
-        <p>
-          Now, deeper in the App, we can implement a simple authentication
-          widget to connect and disconnect.
-        </p>
-      </div>
+      <p>
+        Now, deeper in the App, we can implement a simple authentication widget
+        to connect and disconnect.
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
         <div className="relative">
@@ -55,21 +52,17 @@ function Book({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      <div className="px-4">
-        {!address ? (
-          <p>
-            To see what you can do once you're authenticated, Connect a wallet
-            above.
-          </p>
-        ) : (
-          <p>While a user is connected, they can do various things, like:</p>
-        )}
-      </div>
+      {!address ? (
+        <p>
+          To see what you can do once you're authenticated, Connect a wallet
+          above.
+        </p>
+      ) : (
+        <p>While a user is connected, they can do various things, like:</p>
+      )}
 
       <div className={`flex flex-col gap-10 ${address ? "" : "opacity-40"}`}>
-        <div className="px-4">
-          <h3>Sign a message</h3>
-        </div>
+        <h3>Sign a message</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
           <div className="relative">
             <CopyExampleCode value={SignMessageWidget.String} />
@@ -85,9 +78,7 @@ function Book({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <div className="px-4">
-          <h3>Send a test transaction</h3>
-        </div>
+        <h3>Send a test transaction</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
           <div className="relative">
             <CopyExampleCode value={SendTestTransactionWidget.String} />
