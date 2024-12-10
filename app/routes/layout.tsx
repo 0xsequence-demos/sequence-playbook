@@ -7,8 +7,8 @@ import { Fragment } from "react";
 export default function SiteLayout() {
   return (
     <>
-      <header className="z-50 h-[8rem] flex items-center sm:sticky top-0">
-        <div className="max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 min-h-[4rem]  items-center px-12">
+      <header className="z-50 h-[8rem] flex items-center md:sticky top-0">
+        <div className="max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 min-h-[4rem]  items-center px-4 md:px-12">
           <div className="my-12">
             <Link to="/">
               <img
@@ -24,7 +24,7 @@ export default function SiteLayout() {
             trigger={
               <button
                 type="button"
-                className="block sm:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
+                className="block md:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
               >
                 <Icon name="menu" className="size-5" alt="Menu" />
               </button>
@@ -67,17 +67,11 @@ export default function SiteLayout() {
         </div>
       </header>
       <div className="w-full h-[50rem] bg-[linear-gradient(to_bottom,theme(colors.deep-purple.950/10%)_50%,theme(colors.deep-purple.950/100%)),url('/bg-body@2x.png')] absolute inset-0 isolate z-0"></div>
-      <img
-        src="/home-hero@2x.png"
-        alt=""
-        width="468"
-        height="289"
-        className="absolute right-8 top-8"
-      />
-      <div className="flex flex-col sm:grid sm:grid-cols-[16rem_1fr] gap-24 flex-1 items-stretch px-12 isolate max-w-screen-xl w-full mx-auto relative">
+
+      <div className="flex flex-col md:grid md:grid-cols-[16rem_1fr] gap-24 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto relative">
         <nav
           aria-label="books"
-          className="hidden sm:flex flex-col gap-3 sticky top-[8rem] self-start overflow-auto max-h-screen"
+          className="hidden md:flex flex-col gap-3 sticky top-[8rem] self-start overflow-auto max-h-screen"
         >
           <ul className="flex flex-col gap-1">
             {Topics.map((topic, index) => (
@@ -108,9 +102,7 @@ export default function SiteLayout() {
             ))}
           </ul>
         </nav>
-        <div className="overflow-scroll">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
 
       {/* <footer className="border-t border-white/20">

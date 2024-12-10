@@ -66,7 +66,9 @@ function Book({ children }: { children: React.ReactNode }) {
         <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-deep-purple-950 border border-white/10 overflow-hidden">
           <div className="relative">
             <CopyExampleCode value={SignMessageWidget.String} />
-            <SignMessageWidget.Snippet />
+            <div className="pt-8">
+              <SignMessageWidget.Snippet />
+            </div>
           </div>
           <div className="flex flex-col items-center p-8 bg-gradient-to-b from-white/[4%] to-white/[2%]">
             {" "}
