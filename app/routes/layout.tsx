@@ -66,7 +66,7 @@ export default function SiteLayout() {
           </Drawer>
         </div>
       </header>
-      <div className="w-full h-[50rem] bg-[linear-gradient(to_bottom,theme(colors.deep-purple.950/10%)_50%,theme(colors.deep-purple.950/100%)),url('/bg-body@2x.png')] absolute inset-0 isolate z-0"></div>
+      <div className="w-full h-[50rem] absolute inset-0 isolate z-0"></div>
 
       <div className="flex flex-col md:grid md:grid-cols-[16rem_1fr] gap-24 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto relative">
         <nav

@@ -19,6 +19,25 @@
     }
   }
 
+  body {
+    background-image: linear-gradient(
+        to bottom,
+        theme(colors.deep-purple.950/10%) 50%,
+        theme(colors.deep-purple.950/100%)
+      ),
+      linear-gradient(
+        to right,
+        theme(colors.deep-purple.950),
+        theme(colors.deep-purple.950/0%) 10%,
+        theme(colors.deep-purple.950/0%) 90%,
+        theme(colors.deep-purple.950)
+      ),
+      url("/bg-body@2x.png");
+    background-size: 2280px 820px;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
   .shiki.laserwave {
     @apply !bg-transparent;
   }
