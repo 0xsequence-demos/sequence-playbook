@@ -33,6 +33,7 @@
         theme(colors.deep-purple.950)
       ),
       url("/bg-body@2x.png");
+    background-attachment: fixed;
     background-size: 2280px 820px;
     background-position: top center;
     background-repeat: no-repeat;
