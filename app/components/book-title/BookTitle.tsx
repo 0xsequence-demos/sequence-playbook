@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { Icon } from "../icon/Icon";
 import { Book, Topic } from "~/content/types";
 

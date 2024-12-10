@@ -4,8 +4,8 @@
  * For more information, see https://remix.run/file-conventions/entry.server
  */
 
-import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
-import { RemixServer } from "@remix-run/react";
+import type { AppLoadContext, EntryContext } from "react-router";
+import { ServerRouter } from "react-router";
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
 import { cspHeaderDirectives } from "~/utils/csp-header-directives";
@@ -17,7 +17,7 @@ export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
+  reactRouterContext: EntryContext,
   // This is ignored so we can keep it in the template for visibility.  Feel
   // free to delete this parameter in your app if you're not using it!
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,12 +26,12 @@ export default async function handleRequest(
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), ABORT_DELAY);
 
-  const { nonce, cspHeader } = cspHeaderDirectives();
+  const { nonce } = cspHeaderDirectives(); //cspHeader
 
   const body = await renderToReadableStream(
     <NonceProvider value={nonce}>
-      <RemixServer
-        context={remixContext}
+      <ServerRouter
+        context={reactRouterContext}
         url={request.url}
         abortDelay={ABORT_DELAY}
         nonce={nonce}

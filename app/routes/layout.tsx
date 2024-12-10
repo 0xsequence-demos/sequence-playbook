@@ -1,6 +1,6 @@
-import { NavLink, Outlet, Link } from "@remix-run/react";
+import { NavLink, Outlet, Link } from "react-router";
 import Topics from "~/content/topics";
-import { Icon } from "../../components/icon/Icon";
+import { Icon } from "../components/icon/Icon";
 import Drawer from "~/components/drawer/Drawer";
 
 export default function SiteLayout() {

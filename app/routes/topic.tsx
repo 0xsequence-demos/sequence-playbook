@@ -1,5 +1,5 @@
-import { Link, useLoaderData, MetaFunction } from "@remix-run/react";
-import { LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { Link, useLoaderData, MetaFunction } from "react-router";
+import { LoaderFunctionArgs } from "react-router";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";

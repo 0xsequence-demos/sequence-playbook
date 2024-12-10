@@ -1,4 +1,4 @@
-import { MetaArgs } from "@remix-run/react";
+import { MetaArgs } from "react-router";
 
 export function routeMeta(
   {

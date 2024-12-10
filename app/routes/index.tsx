@@ -1,4 +1,4 @@
-import { Link, MetaFunction } from "@remix-run/react";
+import { Link, MetaFunction } from "react-router";
 import { BackgroundIconGrid } from "~/components/background-icon-grid/BackgroundIconGrid";
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";

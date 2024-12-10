@@ -1,5 +1,5 @@
-import { LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { useLoaderData, MetaFunction } from "@remix-run/react";
+import { LoaderFunctionArgs } from "react-router";
+import { useLoaderData, MetaFunction } from "react-router";
 import { Main } from "~/components/main/Main";
 import { BookTitle } from "~/components/book-title/BookTitle";
 import { routeMeta } from "~/utils/route-meta";
