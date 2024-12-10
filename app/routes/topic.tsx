@@ -1,5 +1,10 @@
-import { Link, useLoaderData, MetaFunction } from "react-router";
-import { LoaderFunctionArgs } from "react-router";
+import {
+  Link,
+  useLoaderData,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from "react-router";
+
 import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
@@ -32,21 +37,12 @@ export const meta: MetaFunction<typeof loader> = (args) => {
 export default function TopicRoute() {
   const data = useLoaderData<typeof loader>();
 
-  const style = {
-    "--bg-image": `url('/${data.theme.bgImage}.svg')`,
-  } as React.CSSProperties;
-
   return (
     <Main className="relative">
-      <div className="w-full h-[100px] bg-chessboard absolute" />
-
       <div className="w-full max-w-screen-xl sm:px-4 sm:py-16 gap-10 flex flex-col isolate">
         <div
           className={`px-4 sm:px-10 py-8 sm:rounded-[1rem] flex gap-8 bg-cover max-sm:flex-col max-sm:text-center max-sm:items-center ${data.theme.bgImage}`}
-          style={style}
         >
-          <Icon name={data.icon} className="size-[4.5rem]" />
-
           <div className="flex flex-col gap-2">
             <h1 className="text-28 font-bold">{data.title}</h1>
             {data.description ? <p>{data.description}</p> : null}

@@ -38,14 +38,14 @@ function Book({ children }: { children: React.ReactNode }) {
         to connect and disconnect.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-deep-purple-950 border border-white/10 overflow-hidden">
         <div className="relative">
           <CopyExampleCode value={AuthenticationWidget.String} />
           <div className="max-w-full overflow-x-auto">
             <AuthenticationWidget.Snippet />
           </div>
         </div>
-        <div className="flex flex-col items-center p-8  bg-chessboard">
+        <div className="flex flex-col items-center p-8 bg-gradient-to-b from-white/[4%] to-white/[2%]">
           <BrowserWindow botMood={!address ? "dead" : "happy"}>
             <AuthenticationWidget />
           </BrowserWindow>
@@ -63,12 +63,12 @@ function Book({ children }: { children: React.ReactNode }) {
 
       <div className={`flex flex-col gap-10 ${address ? "" : "opacity-40"}`}>
         <h3>Sign a message</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-deep-purple-950 border border-white/10 overflow-hidden">
           <div className="relative">
             <CopyExampleCode value={SignMessageWidget.String} />
             <SignMessageWidget.Snippet />
           </div>
-          <div className="flex flex-col items-center p-8  bg-chessboard">
+          <div className="flex flex-col items-center p-8 bg-gradient-to-b from-white/[4%] to-white/[2%]">
             {" "}
             <BrowserWindow
               botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -79,12 +79,12 @@ function Book({ children }: { children: React.ReactNode }) {
         </div>
 
         <h3>Send a test transaction</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-neutral-900 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 sm:rounded-[12px] text-13 bg-deep-purple-950 border border-white/10 overflow-hidden">
           <div className="relative">
             <CopyExampleCode value={SendTestTransactionWidget.String} />
             <SendTestTransactionWidget.Snippet />
           </div>
-          <div className="flex flex-col items-center p-8  bg-chessboard">
+          <div className="flex flex-col items-center p-8 bg-gradient-to-b from-white/[4%] to-white/[2%]">
             {" "}
             <BrowserWindow
               botMood={!address ? "dead" : transaction ? "happy" : "neutral"}

@@ -1,1 +1,1 @@
-export const codeString = "<WagmiProvider config={config}>\n  <QueryClientProvider client={queryClient}>\n    <KitProvider config={kitConfig}>\n      <Home />\n    </KitProvider>\n  </QueryClientProvider>\n</WagmiProvider>"
+export const codeString = ""

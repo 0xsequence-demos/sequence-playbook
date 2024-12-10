@@ -18,4 +18,8 @@
       color-scheme: dark;
     }
   }
+
+  .shiki.laserwave {
+    @apply !bg-transparent;
+  }
 }

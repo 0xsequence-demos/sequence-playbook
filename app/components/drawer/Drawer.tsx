@@ -21,9 +21,9 @@ export default function Drawer({
     <Vaul.Root open={open} onOpenChange={setOpen}>
       <Vaul.Trigger asChild>{trigger}</Vaul.Trigger>
       <Vaul.Portal>
-        <Vaul.Overlay className="fixed inset-0 bg-black/40" />
+        <Vaul.Overlay className="fixed inset-0 bg-deep-purple-950/40 backdrop-blur-md" />
         <Vaul.Content className="h-fit fixed bottom-0 left-0 right-0 outline-none">
-          <div className="flex flex-col min-h-[30vh] bg-black rounded-t-[1rem] border-white/20 border overflow-clip p-2">
+          <div className="flex flex-col min-h-[30vh] bg-gradient-to-b from-deep-purple-900/75 to-deep-purple-900 rounded-t-[1rem] overflow-clip px-6 pt-8 pb-6">
             {children}
           </div>
         </Vaul.Content>

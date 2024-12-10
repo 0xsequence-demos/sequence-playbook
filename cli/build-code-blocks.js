@@ -29,8 +29,8 @@ async function generateComponentFromFile(
 ) {
   // Highlighted code snippet
   let highlightedCode = await codeToHtml(originalCode, {
-    lang: "javascript",
-    theme: "min-dark",
+    lang: "jsx",
+    theme: "laserwave",
   });
 
   highlightedCode = JSON.stringify(highlightedCode);
@@ -63,12 +63,6 @@ async function generateComponentFromFile(
     export const ${componentName} = Object.assign(example, { Snippet:snippet, String:codeString });
   `
   );
-}
-
-async function generateIndexFile(outputDir, components) {
-  const component = `
-    import
-  `;
 }
 
 // Helper function to recursively find matching files
@@ -127,6 +121,7 @@ async function compileDirectoryToReactComponents(inputDir, outputDir) {
 const inputDir = options.input;
 
 compileDirectoryToReactComponents(inputDir).catch((err) => {
+  console.error("!!");
   console.error(err);
   process.exit(1);
 });
