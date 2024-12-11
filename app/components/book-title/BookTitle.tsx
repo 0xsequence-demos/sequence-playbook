@@ -3,8 +3,8 @@ import { Book, Topic } from "~/content/types";
 
 export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
   return (
-    <div className="relative grid grid-cols-4 gap-3 flex-1 px-12 py-12">
-      <div className="absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div>
+    <div className="relative grid grid-cols-4 gap-3 flex-1 md:px-12 md:py-12">
+      <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div>
       <div className="col-span-3 z-10 flex flex-col gap-3">
         <Link
           to={topic.path}
@@ -22,13 +22,15 @@ export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
         ) : null}
       </div>
       <div>
-        <img
-          src="/home-hero@2x.png"
-          alt=""
-          width="468"
-          height="289"
-          className="absolute right-[-60px] top-[-60px]"
-        />
+        {book.hero ? (
+          <img
+            src={`/${book.hero.image}`}
+            alt={book.hero.alt ?? ""}
+            width={book.hero.width}
+            height={book.hero.height}
+            className={`absolute ${book.hero.className}`}
+          />
+        ) : null}
       </div>
     </div>
   );

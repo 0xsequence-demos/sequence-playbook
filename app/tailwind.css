@@ -42,8 +42,4 @@
     background-position: top center;
     background-repeat: no-repeat;
   }
-
-  .shiki.laserwave {
-    @apply !bg-transparent;
-  }
 }

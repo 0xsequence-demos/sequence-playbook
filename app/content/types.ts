@@ -3,7 +3,14 @@ export type Book = {
   path: string;
   title: string;
   shortname?: string;
-  bookIcon: string;
+
+  hero?: {
+    image: string;
+    alt?: string;
+    width: number;
+    height: number;
+    className?: string;
+  };
   description: string;
 };
 

@@ -1,5 +1,5 @@
-import { LoaderFunctionArgs } from "react-router";
-import { useLoaderData, MetaFunction } from "react-router";
+import { LoaderFunctionArgs, useLoaderData, MetaFunction } from "react-router";
+
 import { Main } from "~/components/main/Main";
 import { BookTitle } from "~/components/book-title/BookTitle";
 import { routeMeta } from "~/utils/route-meta";
@@ -53,9 +53,10 @@ export default function BookCatchall() {
   return (
     <Main className="relative">
       <div className="w-full gap-10 flex flex-col isolate">
-        <Book>
-          <BookTitle book={book} topic={topic} />
-        </Book>
+        <BookTitle book={book} topic={topic} />
+        <div className="md:px-12 w-full gap-10 flex flex-col isolate">
+          <Book />
+        </div>
       </div>
     </Main>
   );

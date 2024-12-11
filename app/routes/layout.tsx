@@ -68,7 +68,7 @@ export default function SiteLayout() {
       </header>
       <div className="w-full h-[50rem] absolute inset-0 isolate z-0"></div>
 
-      <div className="flex flex-col md:grid md:grid-cols-[16rem_1fr] gap-24 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto relative">
+      <div className="flex flex-col md:grid md:grid-cols-[minmax(8rem,16rem)_minmax(32rem,1fr)] gap-16 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto relative">
         <nav
           aria-label="books"
           className="hidden md:flex flex-col gap-3 sticky top-[8rem] self-start overflow-auto max-h-[calc(100vh-8rem)]"

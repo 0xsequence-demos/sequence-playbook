@@ -1,0 +1,9 @@
+@layer utilities {
+  .playcard {
+    width: 100%;
+  }
+  .playcard pre {
+    width: 100%;
+    overflow: hidden;
+  }
+}
