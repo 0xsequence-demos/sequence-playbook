@@ -5,7 +5,6 @@ import {
   LoaderFunctionArgs,
 } from "react-router";
 
-import { Icon } from "~/components/icon/Icon";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
 import Topics from "~/content/topics";
@@ -35,43 +34,49 @@ export const meta: MetaFunction<typeof loader> = (args) => {
 };
 
 export default function TopicRoute() {
-  const data = useLoaderData<typeof loader>();
+  const { title, description, name, books } = useLoaderData<typeof loader>();
 
   return (
-    <Main className="relative">
-      <div className="w-full max-w-screen-xl sm:px-4 sm:py-16 gap-10 flex flex-col isolate">
-        <div
-          className={`px-4 sm:px-10 py-8 sm:rounded-[1rem] flex gap-8 bg-cover max-sm:flex-col max-sm:text-center max-sm:items-center ${data.theme.bgImage}`}
-        >
-          <div className="flex flex-col gap-2">
-            <h1 className="text-28 font-bold">{data.title}</h1>
-            {data.description ? <p>{data.description}</p> : null}
-          </div>
+    <Main>
+      <div className="relative grid grid-cols-4 gap-3 md:px-12 md:py-12">
+        <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div>
+        <div className="col-span-3 z-10 flex flex-col gap-3">
+          <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
+            {title}
+          </h1>
+          <p>{description}</p>
         </div>
+        <div>
+          <img
+            src="/home-hero@2x.png"
+            alt=""
+            width="468"
+            height="289"
+            className={`absolute top-[-60px] right-[-80px]`}
+          />
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
-          {data.books.map((book) => (
-            <InheritLinkFromChild asChild key={book.path}>
-              <div className="bg-white/10 text-white p-4 rounded-[1rem] shadow-md aspect-square flex flex-col items-center justify-center gap-6">
-                <div className="grid grid-cols-1 grid-rows-1">
-                  <Icon
-                    name="book-base"
-                    className={`${data.theme.bookColor} col-start-1 row-start-1 max-w-full size-24 md:size-32`}
+      <div className="grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-2 gap-4 items-stretch md:px-12">
+        {books.map((book) => (
+          <InheritLinkFromChild asChild key={book.path}>
+            <div className="aspect-video bg-white/5 border border-white/10 text-white p-4 rounded-[1rem] grid grid-cols-4 items-center justify-center">
+              <h2 className="col-span-3 text-18 font-semibold text-left min-h-[3.5rem] inline-flex items-center leading-tight px-3">
+                <Link to={`/${name}/${book.name}`}>{book.title}</Link>
+              </h2>
+              {book.hero ? (
+                <div className="">
+                  <img
+                    src={`/${book.hero.image}`}
+                    alt={book.hero.alt ?? ""}
+                    width={book.hero.width}
+                    height={book.hero.height}
                   />
-                  {book.bookIcon ? (
-                    <Icon
-                      name={book.bookIcon}
-                      className="text-white col-start-1 row-start-1 max-w-full size-24 md:size-32"
-                    />
-                  ) : null}
                 </div>
-                <h2 className="text-18 font-semibold text-center min-h-[3.5rem] inline-flex items-center leading-tight px-3">
-                  <Link to={`/${data.name}/${book.name}`}>{book.title}</Link>
-                </h2>
-              </div>
-            </InheritLinkFromChild>
-          ))}
-        </div>
+              ) : null}
+            </div>
+          </InheritLinkFromChild>
+        ))}
       </div>
     </Main>
   );

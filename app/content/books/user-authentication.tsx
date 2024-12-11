@@ -4,7 +4,6 @@ import { useAccount } from "wagmi";
 import { useState } from "react";
 import { Providers } from "~/examples/Providers";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
-import { CopyExampleCode } from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
 import { PlayCard } from "../../components/playcard/PlayCard";
 
 const info = {

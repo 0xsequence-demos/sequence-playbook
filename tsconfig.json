@@ -10,7 +10,11 @@
     "**/.client/**/*.tsx"
   ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
     "types": [
       "@remix-run/cloudflare",
       "@cloudflare/workers-types",
@@ -28,9 +32,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": [
+        "./app/*"
+      ]
     },
-
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
   }
