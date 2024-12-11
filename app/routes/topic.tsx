@@ -60,7 +60,7 @@ export default function TopicRoute() {
       <div className="grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-2 gap-4 items-stretch md:px-12">
         {books.map((book) => (
           <InheritLinkFromChild asChild key={book.path}>
-            <div className="aspect-video bg-white/5 border border-white/10 text-white p-4 rounded-[1rem] grid grid-cols-4 items-center justify-center">
+            <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] grid grid-cols-4 items-center justify-center">
               <h2 className="col-span-3 text-18 font-semibold text-left min-h-[3.5rem] inline-flex items-center leading-tight px-3">
                 <Link to={`/${name}/${book.name}`}>{book.title}</Link>
               </h2>
