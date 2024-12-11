@@ -2,7 +2,7 @@
   .little-window {
     box-shadow: 5px 10px 16px #0000007f;
     margin: auto;
-    @apply bg-deep-purple-800;
+    @apply bg-deep-purple-600;
     max-width: 600px;
     width: 100%;
 
@@ -12,40 +12,6 @@
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-  }
-  .little-window .header {
-    @apply bg-deep-purple-700;
-    height: 38px;
-    position: relative;
-    border-radius: 12px 12px 0px 0px;
-  }
-  .header .decor-tl {
-    top: 0px;
-    left: 0px;
-    position: absolute;
-  }
-  .decor-tl .dot {
-    background-color: theme(colors.white/5%);
-    width: 22px;
-    height: 22px;
-    border-radius: 11px;
-    top: 8px;
-    left: 8px;
-    position: absolute;
-  }
-  .decor-tl .dash {
-    background-color: theme(colors.white/5%);
-    width: 66px;
-    height: 12px;
-    border-radius: 6px;
-    top: 13px;
-    left: 38px;
-    position: absolute;
-  }
-
-  .little-window .content {
-    margin: 20px;
-    z-index: 1;
   }
 
   .little-window button {

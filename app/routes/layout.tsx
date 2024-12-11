@@ -51,7 +51,7 @@ export default function SiteLayout() {
                     <li key={book.path} className="text-14 w-full flex">
                       <NavLink
                         to={book.path}
-                        className="hover:underline text-white/70 aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
+                        className="hover:underline text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
                       >
                         {book.shortname || book.title}
                       </NavLink>
@@ -89,7 +89,7 @@ export default function SiteLayout() {
                   <li key={book.path} className="text-14 w-full flex">
                     <NavLink
                       to={book.path}
-                      className="hover:underline text-white/70 aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
+                      className="hover:underline text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
                     >
                       {book.shortname || book.title}
                     </NavLink>
