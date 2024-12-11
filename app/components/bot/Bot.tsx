@@ -30,5 +30,5 @@ export function Bot(props: Props) {
       vHappy.value = mood === "happy";
     }
   });
-  return <RiveComponent className="base-canvas-size" />;
+  return <RiveComponent className="aspect-[4/1] -mt-8" />;
 }

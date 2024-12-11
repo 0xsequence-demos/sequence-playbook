@@ -1,24 +1,18 @@
 @layer components {
-  .little-window {
-    box-shadow: 5px 10px 16px #0000007f;
-    margin: auto;
-    @apply bg-deep-purple-600;
-    max-width: 600px;
-    width: 100%;
-
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .little-window button {
+  .browser-window button {
     background: linear-gradient(270deg, #7537f9 0%, #5826ff 100%);
     margin: 10px;
     border-radius: 20px;
     padding: 2px 8px;
+  }
+
+  @keyframes slide {
+    0% {
+      background-position: 0px 50px;
+    }
+    100% {
+      background-position: -497px 50px;
+    }
   }
 
   .clouds {
@@ -33,15 +27,6 @@
     animation: slide 12s linear infinite;
   }
 
-  @keyframes slide {
-    0% {
-      background-position: 0px 50px;
-    }
-    100% {
-      background-position: -497px 50px;
-    }
-  }
-
   .clouds2 {
     position: absolute;
     opacity: 0.05;
@@ -52,9 +37,5 @@
     background-repeat: repeat-x;
     background-position: 0px 50px;
     animation: slide 27s linear infinite;
-  }
-  .base-canvas-size {
-    margin-top: -30px;
-    aspect-ratio: 4;
   }
 }
