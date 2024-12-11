@@ -11,8 +11,7 @@ export default [
       bgImage: "bg-onboard",
       bookColor: "text-blue-400",
     },
-    description:
-      "Small paragraph text that's not more than two lines that brings a bit more context of this particular feature if necessary",
+    description: "Authentication & wallets",
     books: [
       UserAuthenticationBook.info,
       {
@@ -42,8 +41,7 @@ export default [
       bookColor: "text-green-400",
     },
     icon: "monetize-icon@2x.png",
-    description:
-      "Small paragraph text that's not more than two lines that brings a bit more context of this particular feature if necessary",
+    description: "Purchasing & payments",
     books: [
       {
         name: "in-game-marketplace",
@@ -85,8 +83,7 @@ export default [
   {
     name: "power",
     title: "Power",
-    description:
-      "Small paragraph text that's not more than two lines that brings a bit more context of this particular feature if necessary",
+    description: "Contracts & minting",
 
     theme: {
       bgImage: "bg-power",

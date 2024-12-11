@@ -58,15 +58,23 @@ export default function IndexRoute() {
             />
           </div>
         </div>
-        <div className="w-full grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch md:px-12">
+        <div className="w-full grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch md:px-12 mt-8 md:mt-0">
           {topics.map((topic) => (
             <InheritLinkFromChild asChild key={topic.path}>
-              <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center gap-2">
-                <img src={`/${topic.icon}`} alt={""} width="48" height="48" />
+              <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center">
+                <img
+                  src={`/${topic.icon}`}
+                  alt={""}
+                  width="40"
+                  height="40"
+                  className="mb-2"
+                />
 
-                <h2 className=" text-18 font-semibold text-left inline-flex items-center leading-tight px-3">
+                <h2 className="text-18 font-semibold text-left inline-flex items-center leading-tight px-3">
                   <Link to={topic.path}>{topic.title}</Link>
                 </h2>
+
+                <p className="text-14 text-white/70">{topic.description}</p>
                 {/* {book.hero ? (
                     <div className="">
                       <img
