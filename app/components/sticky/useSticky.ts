@@ -1,4 +1,4 @@
-import { createRef, useEffect, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { Slot } from "~/components/slot/Slot";
 
 type StickyProps = {
@@ -13,7 +13,7 @@ type StickyProps = {
 // https://mtm.dev/sticky-stuck-styles
 export function useSticky() {
   const [stuck, setStuck] = useState(false);
-  const ref = createRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const cachedRef = ref.current;
@@ -29,5 +29,5 @@ export function useSticky() {
     return () => (cachedRef ? observer.unobserve(cachedRef) : undefined);
   }, [ref]);
 
-  return [ref, stuck];
+  return [ref, stuck] as [React.RefObject<HTMLDivElement>, boolean];
 }
