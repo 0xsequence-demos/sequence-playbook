@@ -3,9 +3,10 @@ import { Book, Topic } from "~/content/types";
 
 export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
   return (
-    <div className="relative grid grid-cols-4 gap-3 flex-1 md:px-12 md:py-12">
-      <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div>
-      <div className="col-span-4 md:col-span-3 z-10 flex flex-col gap-3">
+    <>
+      {" "}
+      <div className="relative flex flex-col gap-3 flex-1 items-start  max-w-[640px] w-full">
+        {/* <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div> */}
         <Link
           to={topic.path}
           className="text-15 font-medium mb-1 flex items-center gap-3"
@@ -21,17 +22,8 @@ export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
           <p className="text-14">{book.description}</p>
         ) : null}
       </div>
-      <div className="hidden md:block">
-        {book.hero ? (
-          <img
-            src={`/${book.hero.image}`}
-            alt={book.hero.alt ?? ""}
-            width={book.hero.width}
-            height={book.hero.height}
-            className={`absolute ${book.hero.className}`}
-          />
-        ) : null}
-      </div>
-    </div>
+      {/* <div className="hidden md:block"> */}
+      {/* </div> */}
+    </>
   );
 }

@@ -16,11 +16,11 @@ const info = {
   path: "/onboard/user-authentication",
   title: "User Authentication via Sequence Embedded Wallet",
   shortname: "User authentication",
-  hero: {
-    image: "user-authentication@2x.png",
-    width: 170,
-    height: 122,
-    className: "right-[-20px] top-[-10px]",
+  image: {
+    src: "/resources/user-authentication.webp",
+    // width: 170,
+    // height: 122,
+    // className: "right-[-20px] top-[-10px]",
   },
   description:
     "Everything starts with user authentication. To authenticate a user with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",

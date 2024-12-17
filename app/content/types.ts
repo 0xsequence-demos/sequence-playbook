@@ -4,8 +4,8 @@ export type Book = {
   title: string;
   shortname?: string;
 
-  hero?: {
-    image: string;
+  image?: {
+    src: string;
     alt?: string;
     width: number;
     height: number;

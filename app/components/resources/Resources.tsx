@@ -37,7 +37,7 @@ export function Resources(props: ResourcesProps) {
           {items?.map((item, index) => (
             <InheritLinkFromChild asChild key={index}>
               <li
-                className="aspect-video  rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
+                className="aspect-video rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
                 style={{
                   backgroundImage: `url(${item.image.src})`,
                 }}

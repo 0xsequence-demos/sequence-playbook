@@ -51,10 +51,26 @@ export default function BookCatchall() {
     : NoBookContent;
 
   return (
-    <Main className="relative">
+    <Main className="">
+      {book.image ? (
+        <div className="absolute top-0 right-0 w-[700px] h-[525px] opacity-35">
+          <div className="book-hero-image-outer-gradient-mask ">
+            <div className="book-hero-image-inner-gradient-mask ">
+              <img
+                src={book.image.src}
+                alt={book.image.alt ?? ""}
+                width={book.image.width || 1600}
+                height={book.image.height || 1200}
+                className="object-cover"
+                // className={`absolute ${book.hero.className}`}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="w-full gap-10 flex flex-col isolate pb-16">
         <BookTitle book={book} topic={topic} />
-        <div className="md:px-12 w-full gap-4 flex flex-col isolate book-content">
+        <div className=" w-full gap-4 flex flex-col isolate book-content">
           <Book />
         </div>
       </div>

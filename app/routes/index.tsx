@@ -30,38 +30,41 @@ export default function IndexRoute() {
   return (
     <>
       <Main>
-        <div className="relative grid grid-cols-4 gap-3 md:px-12 md:py-12">
-          <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div>
-          <div className="col-span-3 z-10 flex flex-col gap-3">
-            <img
-              src="/sequence-logo@2x.png"
-              width="108"
-              height="20"
-              alt="Sequence"
-            />
-            <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
-              Playbook
-            </h1>
-            <p className="mt-4">
-              Follow our Playbook guides to enhance onboarding, unlock new
-              monetization opportunities, and supercharge your app with seamless
-              Web3 integrations.
-            </p>
-          </div>
-          <div>
-            <img
-              src="/home-hero@2x.png"
-              alt=""
-              width="468"
-              height="289"
-              className={`absolute top-[-60px] right-[-80px]`}
-            />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-35">
+          <div className="book-hero-image-outer-gradient-mask ">
+            <div className="book-hero-image-inner-gradient-mask ">
+              <img
+                src="/resources/home.webp"
+                alt=""
+                width={1600}
+                height={1600}
+                className="object-cover"
+                // className={`absolute ${book.hero.className}`}
+              />
+            </div>
           </div>
         </div>
-        <div className="w-full grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch md:px-12 mt-8 md:mt-0">
+        <div className=" z-10 flex flex-col gap-3 mb-12 max-w-[640px] w-full ">
+          <img
+            src="/sequence-logo@2x.png"
+            width="108"
+            height="20"
+            alt="Sequence"
+          />
+          <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
+            Playbook
+          </h1>
+          <p className="mt-4">
+            Follow our Playbook guides to enhance onboarding, unlock new
+            monetization opportunities, and supercharge your app with seamless
+            Web3 integrations.
+          </p>
+        </div>
+
+        <div className="w-full grid grid-cols-1 mx-auto max-w-[256px] sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
           {topics.map((topic) => (
             <InheritLinkFromChild asChild key={topic.path}>
-              <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center">
+              <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center backdrop-blur-sm">
                 <img
                   src={`/${topic.icon}`}
                   alt={""}
@@ -75,16 +78,6 @@ export default function IndexRoute() {
                 </h2>
 
                 <p className="text-14 text-white/70">{topic.description}</p>
-                {/* {book.hero ? (
-                    <div className="">
-                      <img
-                        src={`/${book.hero.image}`}
-                        alt={book.hero.alt ?? ""}
-                        width={book.hero.width}
-                        height={book.hero.height}
-                      />
-                    </div>
-                  ) : null} */}
               </div>
             </InheritLinkFromChild>
           ))}

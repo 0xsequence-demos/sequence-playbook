@@ -11,7 +11,7 @@ export function Button(props: ButtonProps) {
       <span className="right-[1rem] top-[-0.5px] w-[1.5rem] h-[1.5px] absolute bg-gradient-to-r from-white/0 via-white/60 to-white/0 blur-[2px]"></span>
       <button
         type="button"
-        className="py-1 px-2.5 rounded-[0.5rem] bg-gradient-to-b from-deep-purple-500 to-deep-purple-600 text-13"
+        className="py-1 px-2.5 rounded-[0.5rem] bg-gradient-to-b from-deep-purple-700 to-deep-purple-800 text-13"
         {...restProps}
       >
         {children}
