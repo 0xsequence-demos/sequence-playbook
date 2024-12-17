@@ -52,7 +52,7 @@ export default function SiteLayout() {
         <div
           data-stuck={isStuck}
           className={`hidden md:block absolute h-[3rem] w-full top-0
-            transition-opacity duration-200 ease-in-out opacity-0 bg-gradient-to-b from-white/5 to-white/10 border-b border-white/15  data-[stuck='true']:md:opacity-100
+            transition-opacity duration-200 ease-in-out opacity-0 bg-gradient-to-b from-deep-purple-950/5 to-deep-purple-950/10 border-b border-deep-purple-200/10  data-[stuck='true']:md:opacity-100
             `}
         ></div>
         <div
