@@ -5,7 +5,7 @@ import { BookTitle } from "~/components/book-title/BookTitle";
 import { routeMeta } from "~/utils/route-meta";
 import Books from "~/content/books";
 import Topics from "~/content/topics";
-import { NoBookContent } from "~/content/books/no-book-content";
+import { NoBookContent } from "~/content/no-book-content";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { topic, book } = params;
@@ -52,9 +52,9 @@ export default function BookCatchall() {
 
   return (
     <Main className="relative">
-      <div className="w-full gap-10 flex flex-col isolate">
+      <div className="w-full gap-10 flex flex-col isolate pb-16">
         <BookTitle book={book} topic={topic} />
-        <div className="md:px-12 w-full gap-10 flex flex-col isolate">
+        <div className="md:px-12 w-full gap-4 flex flex-col isolate book-content">
           <Book />
         </div>
       </div>
@@ -63,4 +63,3 @@ export default function BookCatchall() {
 }
 
 export type LoaderData = Awaited<ReturnType<typeof loader>>;
-1;

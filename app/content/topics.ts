@@ -1,5 +1,5 @@
 import { Topic } from "~/content/types";
-import UserAuthenticationBook from "~/content/books/user-authentication";
+import UserAuthenticationBook from "~/content/user-authentication/user-authentication";
 
 export default [
   {

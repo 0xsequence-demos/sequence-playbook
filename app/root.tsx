@@ -5,20 +5,31 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  LoaderFunctionArgs,
+  useRouteLoaderData,
 } from "react-router";
 import type { LinksFunction } from "react-router";
 import "./tailwind.css";
 import { Toaster } from "sonner";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createConfig, http, WagmiProvider } from "wagmi";
-import { LoaderFunctionArgs } from "react-router";
+import {
+  createConfig,
+  http,
+  WagmiProvider,
+  cookieStorage,
+  createStorage,
+  deserialize,
+  parseCookie,
+} from "wagmi";
+
 import chains from "~/utils/chains";
 import { Favicon } from "~/components/favicon/Favicon";
 import { useNonce } from "~/providers/nonce-provider";
 
 import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
+import { useState } from "react";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -33,6 +44,10 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export function shouldRevalidate() {
+  return true;
+}
+
 export async function loader({ request, context }: LoaderFunctionArgs) {
   const env = context.cloudflare.env;
   const url = new URL(request.url);
@@ -46,6 +61,17 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
     "The Sequence Playbook is a collection of examples, guides, and tutorials to help you build with the Sequence SDK.";
   const base_image = "";
 
+  // // Wagmi cookie to initial state adapted for React Router 7 (Remix)
+  const cookie = request.headers.get("cookie");
+  let initialState = null;
+  if (cookie) {
+    const serializedState = parseCookie(cookie, "wagmi.store");
+
+    initialState = serializedState
+      ? deserialize<any>(serializedState).state
+      : null;
+  }
+
   return {
     projectAccessKey: env.PROJECT_ACCESS_KEY,
     waasConfigKey: env.WAAS_CONFIG_KEY,
@@ -53,6 +79,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
     appleClientId: env.APPLE_CLIENT_ID,
     appleRedirectURI: origin + pathname,
     walletConnectProjectId: env.WALLET_CONNECT_ID,
+    initialState,
     meta: {
       base_title,
       default_description,
@@ -88,9 +115,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  const queryClient = new QueryClient();
-
+export function useConfig() {
   const {
     projectAccessKey,
     waasConfigKey,
@@ -98,7 +123,7 @@ export default function App() {
     appleClientId,
     appleRedirectURI,
     walletConnectProjectId,
-  } = useLoaderData<typeof loader>();
+  } = useRouteLoaderData<any>("root");
 
   const connectors = getDefaultWaasConnectors({
     walletConnectProjectId,
@@ -120,18 +145,29 @@ export default function App() {
     transports[chain.id] = http();
   });
 
-  const config = createConfig({
-    ssr: true,
-    transports,
-    connectors,
-    chains,
-  });
+  return useState(() =>
+    createConfig({
+      ssr: true,
+      transports,
+      connectors,
+      chains,
+      storage: createStorage({
+        storage: cookieStorage,
+      }),
+    })
+  );
+}
 
+export default function App() {
+  const { projectAccessKey, initialState } = useLoaderData<typeof loader>();
+  const [config] = useConfig();
+  const [queryClient] = useState(() => new QueryClient());
   const kitConfig = {
     projectAccessKey,
   };
+
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>
         <KitProvider config={kitConfig}>
           <Outlet />
