@@ -34,8 +34,8 @@
         theme(colors.deep-purple.950)
       ),
       image-set(
-        url("/bg-body@2x.webp") type("image/webp"),
-        url("/bg-body@2x.png") type("image/png")
+        url("/images/bg-body@2x.webp") type("image/webp"),
+        url("/images/bg-body@2x.png") type("image/png")
       );
 
     background-attachment: fixed;

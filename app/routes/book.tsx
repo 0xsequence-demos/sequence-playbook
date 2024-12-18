@@ -6,6 +6,8 @@ import { routeMeta } from "~/utils/route-meta";
 import Books from "~/content/books";
 import Topics from "~/content/topics";
 import { NoBookContent } from "~/content/no-book-content";
+import { Mask } from "~/components/mask/Mask";
+import { Image } from "~/components/image/Image";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { topic, book } = params;
@@ -54,18 +56,17 @@ export default function BookCatchall() {
     <Main className="">
       {book.image ? (
         <div className="absolute top-0 right-0 w-[700px] h-[525px] opacity-35">
-          <div className="book-hero-image-outer-gradient-mask ">
-            <div className="book-hero-image-inner-gradient-mask ">
-              <img
-                src={book.image.src}
-                alt={book.image.alt ?? ""}
-                width={book.image.width || 1600}
-                height={book.image.height || 1200}
-                className="object-cover"
-                // className={`absolute ${book.hero.className}`}
-              />
-            </div>
-          </div>
+          <Mask.BoxFade>
+            <Image name={book.image.src} />
+            {/* <img
+              src={book.image.src}
+              alt={book.image.alt ?? ""}
+              width={book.image.width || 1600}
+              height={book.image.height || 1200}
+              className="object-cover"
+              // className={`absolute ${book.hero.className}`}
+            /> */}
+          </Mask.BoxFade>
         </div>
       ) : null}
       <div className="w-full gap-10 flex flex-col isolate pb-16">

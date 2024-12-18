@@ -8,6 +8,7 @@ import { useOpenConnectModal } from "@0xsequence/kit";
 import { shortAddress } from "~/utils/short-address";
 import { Button } from "~/components/button/Button";
 import { useSticky } from "~/components/sticky/useSticky";
+import { Image } from "~/components/image/Image";
 
 function Wallet() {
   const { address } = useAccount();
@@ -35,7 +36,7 @@ function Wallet() {
 export default function SiteLayout() {
   const [ref, isStuck] = useSticky();
   return (
-    <div className="flex flex-col flex-1">
+    <div className="flex flex-col flex-1 pb-12">
       <div
         data-component="sticky-reference"
         ref={ref}
@@ -64,13 +65,12 @@ export default function SiteLayout() {
             data-stuck={isStuck}
           >
             <Link to="/">
-              <img
-                src="/playbook-logo@2x.png"
-                width="120"
-                height="32"
+              <Image
+                name="playbook-logo"
                 alt="Playbook"
-                data-stuck={isStuck}
+                width={128}
                 className="data-[stuck='true']:md:scale-90 transition-transform duration-200 ease-in-out"
+                data-stuck={isStuck}
               />
             </Link>
           </div>
@@ -94,12 +94,7 @@ export default function SiteLayout() {
                       to={topic.path}
                       className="text-15 font-medium mb-2 flex items-center gap-3"
                     >
-                      <img
-                        src={`/${topic.icon}`}
-                        alt=""
-                        width="20"
-                        height="20"
-                      />
+                      <Image name={topic.icon} width={20} />
                       {topic.title}
                     </Link>
                   </li>
@@ -129,11 +124,11 @@ export default function SiteLayout() {
           </div>
         </div>
       </header>
-      <div className="max-w-[108rem] w-full mx-auto relative flex-1  flex flex-col">
-        <div className="w-full h-full max-h-[50rem] absolute inset-0 isolate z-0"></div>
-        <div className="bg-gradient-to-br from-white/5 to-white/[2%] w-full flex md:hidden justify-between gap-2 py-4 border-y border-white/10 mb-8 items-center px-4">
-          <Wallet />
-        </div>
+      <div className="bg-gradient-to-br from-white/5 to-white/[2%] w-full flex md:hidden justify-between gap-2 py-4 border-y border-white/10 mb-8 items-center px-4 relative isolate z-[10]">
+        <Wallet />
+      </div>
+      <div className="max-w-[108rem] w-full mx-auto relative flex-1 flex flex-col">
+        <div className="w-full h-full max-h-[50rem] absolute inset-0 isolate z-0 pointer-events-none"></div>
         <div className=" flex flex-col md:grid md:grid-cols-[minmax(8rem,16rem)_minmax(32rem,1fr)] gap-16 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto ">
           <nav
             aria-label="books"
@@ -147,12 +142,7 @@ export default function SiteLayout() {
                       to={topic.path}
                       className="text-15 font-medium mb-2 flex items-center gap-3"
                     >
-                      <img
-                        src={`/${topic.icon}`}
-                        alt=""
-                        width="20"
-                        height="20"
-                      />
+                      <Image name={topic.icon} width={20} />
                       {topic.title}
                     </Link>
                   </li>

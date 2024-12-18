@@ -17,7 +17,7 @@ const info = {
   title: "User Authentication via Sequence Embedded Wallet",
   shortname: "User authentication",
   image: {
-    src: "/resources/user-authentication.webp",
+    src: "user-authentication",
     // width: 170,
     // height: 122,
     // className: "right-[-20px] top-[-10px]",

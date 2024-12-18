@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Image } from "~/components/image/Image";
 import { Book, Topic } from "~/content/types";
 
 export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
@@ -11,8 +12,7 @@ export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
           to={topic.path}
           className="text-15 font-medium mb-1 flex items-center gap-3"
         >
-          <img src={`/${topic.icon}`} alt="" width="20" height="20" />
-
+          <Image name={topic.icon} width={20} />
           {topic.title}
         </Link>
         <h1 className="text-24 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">

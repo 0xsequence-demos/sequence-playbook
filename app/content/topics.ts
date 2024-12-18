@@ -6,7 +6,7 @@ export default [
     name: "onboard",
     title: "Onboard",
     path: "/onboard",
-    icon: "onboard-icon@2x.png",
+    icon: "onboard-icon",
     theme: {
       bgImage: "bg-onboard",
       bookColor: "text-blue-400",
@@ -40,7 +40,7 @@ export default [
       bgImage: "bg-monetize",
       bookColor: "text-green-400",
     },
-    icon: "monetize-icon@2x.png",
+    icon: "monetize-icon",
     description: "Purchasing & payments",
     books: [
       {
@@ -90,7 +90,7 @@ export default [
       bookColor: "text-violet-400",
     },
     path: "/power",
-    icon: "power-icon@2x.png",
+    icon: "power-icon",
     books: [
       {
         name: "contract-inventory",
