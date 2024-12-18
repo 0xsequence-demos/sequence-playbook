@@ -45,13 +45,13 @@ export default function TopicRoute() {
     <Main>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-35">
         <Mask.BoxFade>
-          <Image name="home" className="object-cover" />
+          {/* <Image name="home" className="object-cover" /> */}
         </Mask.BoxFade>
       </div>
       <div className="flex flex-col gap-2 mb-12">
         {/* <div className="hidden md:block absolute inset-0 w-full h-full z-0 gradient-mask border rounded-t-[12px] border-white/10 bg-white/5"></div> */}
 
-        <Image name={icon} width={48} loading="lazy" />
+        <Image name={icon} width={48} />
         <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
           {title}
         </h1>

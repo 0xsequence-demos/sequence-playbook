@@ -31,7 +31,7 @@ const resources = [
     type: "boilerplate",
     title: "Sequence Wallet Boilerplate",
     image: {
-      src: "/resources/example1.jpg",
+      src: "example1",
       alt: "",
     },
     links: [
@@ -50,7 +50,7 @@ const resources = [
     type: "boilerplate",
     title: "Sequence Wallet Boilerplate",
     image: {
-      src: "/resources/example1.jpg",
+      src: "example1",
       alt: "",
     },
     links: [
@@ -69,7 +69,7 @@ const resources = [
     type: "boilerplate",
     title: "Sequence Wallet Boilerplate",
     image: {
-      src: "/resources/example1.jpg",
+      src: "example1",
       alt: "",
     },
     links: [

@@ -60,20 +60,28 @@ function normalizePath(relativePath) {
  * @param {string} imagePath
  * @returns {Promise<string>}
  */
-// Try text-davinci-003, fallback to gpt-4-mini
+
 async function generateAltTag(imagePath) {
   if (!openAIApiKey) return null;
 
+  console.log(imagePath);
+
+  const imageBase64 = getImageAsBase64(imagePath);
+  if (!imageBase64) return null;
+
   const body = {
+    messages: [
+      {
+        role: "developer",
+        content: `Generate a descriptive alt text for the image encoded in Base64: ${imageBase64}. The text should not include "the image, this image, etc.", and should be as concise as possible.`,
+      },
+    ],
     model: "gpt-4o-mini",
-    prompt: `Generate a descriptive alt text for the image located at: ${imagePath}`,
-    max_tokens: 50,
+    max_tokens: 250,
   };
 
-  console.log(openAIApiKey);
-
   try {
-    const response = await fetch("https://api.openai.com/v1/completions", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,29 +91,24 @@ async function generateAltTag(imagePath) {
     });
 
     const data = await response.json();
-    if (data.choices?.[0]?.text?.trim()) {
-      return data.choices[0].text.trim();
+    console.log(data.choices[0].message.content);
+    if (data.choices?.[0]?.message?.content) {
+      return data.choices[0].message.content;
     }
 
-    console.log(data);
-
-    // Fallback to gpt-4-mini
-    body.model = "gpt-4-mini";
-    const fallbackResponse = await fetch(
-      "https://api.openai.com/v1/completions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${openAIApiKey}`,
-        },
-        body: JSON.stringify(body),
-      }
-    );
-    const fallbackData = await fallbackResponse.json();
-    return fallbackData.choices?.[0]?.text?.trim() || null;
+    return null;
   } catch (error) {
     console.error("Failed to generate alt tag:", error);
+    return null;
+  }
+}
+
+function getImageAsBase64(imagePath) {
+  try {
+    const imageBuffer = fs.readFileSync(imagePath);
+    return imageBuffer.toString("base64");
+  } catch (error) {
+    console.error("Failed to read and encode image:", error);
     return null;
   }
 }
@@ -147,14 +150,12 @@ async function processImage(imagePath, inputDir, outputDir, maxWidth = null) {
     height = Math.ceil(height * scaleFactor);
   }
 
-  const altText = null; //await generateAltTag(imagePath);
-
   const metadata = {
     name: baseName,
     path: `${outputPublicPath}_original${ext}`,
     width,
     height,
-    alt: altText,
+    alt: null,
     srcset: [],
   };
 
@@ -207,6 +208,8 @@ async function processImage(imagePath, inputDir, outputDir, maxWidth = null) {
       width: scaledWidth1x,
       height: scaledHeight1x,
     });
+
+    metadata.alt = await generateAltTag(scaledPath1x);
   }
 
   return metadata;

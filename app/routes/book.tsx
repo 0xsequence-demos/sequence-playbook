@@ -58,14 +58,6 @@ export default function BookCatchall() {
         <div className="absolute top-0 right-0 w-[700px] h-[525px] opacity-35">
           <Mask.BoxFade>
             <Image name={book.image.src} />
-            {/* <img
-              src={book.image.src}
-              alt={book.image.alt ?? ""}
-              width={book.image.width || 1600}
-              height={book.image.height || 1200}
-              className="object-cover"
-              // className={`absolute ${book.hero.className}`}
-            /> */}
           </Mask.BoxFade>
         </div>
       ) : null}
