@@ -1,0 +1,372 @@
+{
+  "bg-body": {
+    "name": "bg-body",
+    "path": "/images/bg-body_original.png",
+    "width": 2000,
+    "height": 737,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/bg-body@2x.png",
+        "width": 2000,
+        "height": 737
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/bg-body.png",
+        "width": 1000,
+        "height": 369
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/bg-body@2x.webp",
+        "width": 2000,
+        "height": 737
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/bg-body.webp",
+        "width": 1000,
+        "height": 369
+      }
+    ]
+  },
+  "home-hero": {
+    "name": "home-hero",
+    "path": "/images/home-hero_original.png",
+    "width": 1874,
+    "height": 1156,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/home-hero@2x.png",
+        "width": 1874,
+        "height": 1156
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/home-hero.png",
+        "width": 937,
+        "height": 578
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/home-hero@2x.webp",
+        "width": 1874,
+        "height": 1156
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/home-hero.webp",
+        "width": 937,
+        "height": 578
+      }
+    ]
+  },
+  "monetize-icon": {
+    "name": "monetize-icon",
+    "path": "/images/monetize-icon_original.png",
+    "width": 80,
+    "height": 80,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/monetize-icon@2x.png",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/monetize-icon.png",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/monetize-icon@2x.webp",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/monetize-icon.webp",
+        "width": 40,
+        "height": 40
+      }
+    ]
+  },
+  "onboard-icon": {
+    "name": "onboard-icon",
+    "path": "/images/onboard-icon_original.png",
+    "width": 80,
+    "height": 80,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/onboard-icon@2x.png",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/onboard-icon.png",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/onboard-icon@2x.webp",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/onboard-icon.webp",
+        "width": 40,
+        "height": 40
+      }
+    ]
+  },
+  "playbook-logo": {
+    "name": "playbook-logo",
+    "path": "/images/playbook-logo_original.png",
+    "width": 480,
+    "height": 128,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/playbook-logo@2x.png",
+        "width": 480,
+        "height": 128
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/playbook-logo.png",
+        "width": 240,
+        "height": 64
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/playbook-logo@2x.webp",
+        "width": 480,
+        "height": 128
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/playbook-logo.webp",
+        "width": 240,
+        "height": 64
+      }
+    ]
+  },
+  "power-icon": {
+    "name": "power-icon",
+    "path": "/images/power-icon_original.png",
+    "width": 80,
+    "height": 80,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/power-icon@2x.png",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/power-icon.png",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/power-icon@2x.webp",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/power-icon.webp",
+        "width": 40,
+        "height": 40
+      }
+    ]
+  },
+  "example1": {
+    "name": "example1",
+    "path": "/images/resources/example1_original.jpg",
+    "width": 512,
+    "height": 512,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/example1@2x.jpg",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/example1.jpg",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/example1@2x.webp",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/example1.webp",
+        "width": 256,
+        "height": 256
+      }
+    ]
+  },
+  "home": {
+    "name": "home",
+    "path": "/images/resources/home_original.png",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/home@2x.png",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/home.png",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/home@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/home.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "user-authentication": {
+    "name": "user-authentication",
+    "path": "/images/resources/user-authentication_original.jpg",
+    "width": 1600,
+    "height": 1200,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/user-authentication@2x.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/user-authentication.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/user-authentication@2x.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/user-authentication.webp",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  },
+  "sequence-logo": {
+    "name": "sequence-logo",
+    "path": "/images/sequence-logo_original.png",
+    "width": 303,
+    "height": 56,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/sequence-logo@2x.png",
+        "width": 303,
+        "height": 56
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/sequence-logo.png",
+        "width": 152,
+        "height": 28
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/sequence-logo@2x.webp",
+        "width": 303,
+        "height": 56
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/sequence-logo.webp",
+        "width": 152,
+        "height": 28
+      }
+    ]
+  }
+}

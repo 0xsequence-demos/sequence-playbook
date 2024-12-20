@@ -1,9 +1,6 @@
-import UserAuthenticationBook from "~/content/books/user-authentication";
+import UserAuthenticationBook from "~/content/user-authentication/user-authentication";
 
-const Books: Record<
-  string,
-  ({ children }: { children: React.ReactNode }) => React.ReactNode
-> = {
+const Books: Record<string, () => React.ReactNode> = {
   "user-authentication": UserAuthenticationBook,
 };
 

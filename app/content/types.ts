@@ -2,7 +2,15 @@ export type Book = {
   name: string;
   path: string;
   title: string;
-  bookIcon: string;
+  shortname?: string;
+
+  image?: {
+    src: string;
+    alt?: string;
+    width: number;
+    height: number;
+    className?: string;
+  };
   description: string;
 };
 

@@ -4,7 +4,6 @@ import { Command } from "commander";
 import { codeToHtml } from "shiki";
 import fs from "fs";
 import path from "path";
-
 const program = new Command();
 
 program
@@ -25,19 +24,20 @@ if (!options.input) {
 async function generateComponentFromFile(
   outputDir,
   componentName,
-  originalCode
+  originalCode,
+  ext
 ) {
   // Highlighted code snippet
   let highlightedCode = await codeToHtml(originalCode, {
-    lang: "javascript",
-    theme: "min-dark",
+    lang: "jsx",
+    theme: "laserwave",
   });
 
   highlightedCode = JSON.stringify(highlightedCode);
 
   const reactComponent = `
     export function snippet(){
-      return <pre dangerouslySetInnerHTML={{ __html: ${highlightedCode} }}></pre>
+      return <div dangerouslySetInnerHTML={{ __html: ${highlightedCode} }}></div>
     }
   `;
   // Write the component file
@@ -58,17 +58,17 @@ async function generateComponentFromFile(
     `
     import { snippet } from './${componentName}Snippet';
     import { codeString } from './${componentName}String';
-    import { ${componentName} as example } from './${componentName}';
+    ${
+      ext === "tsx"
+        ? `import { ${componentName} as example } from './${componentName}';`
+        : ""
+    }
 
-    export const ${componentName} = Object.assign(example, { Snippet:snippet, String:codeString });
+    export const ${componentName} = Object.assign(${
+      ext === "tsx" ? "example" : "{}"
+    }, { Snippet:snippet, String:codeString });
   `
   );
-}
-
-async function generateIndexFile(outputDir, components) {
-  const component = `
-    import
-  `;
 }
 
 // Helper function to recursively find matching files
@@ -93,12 +93,17 @@ function findFiles(dir, pattern) {
 // Main function to process all matching files
 async function compileDirectoryToReactComponents(inputDir, outputDir) {
   // Find all files matching "*-example.tsx" recursively
-  const files = findFiles(inputDir, /-example\.tsx$/);
+  const files = [
+    ...findFiles(inputDir, /-example\.tsx$/),
+    ...findFiles(inputDir, /-example\.txt$/),
+  ];
 
   for (const file of files) {
     const originalCode = fs.readFileSync(file, "utf-8");
 
-    const baseName = path.basename(file, "-example.tsx"); // remove "-example" suffix
+    const ext = path.basename(file).split(".").pop();
+
+    const baseName = path.basename(file, `-example.${ext}`); // remove "-example" suffix
     const componentName = baseName.charAt(0).toUpperCase() + baseName.slice(1);
 
     // Set up output path mirroring input directory structure
@@ -108,17 +113,20 @@ async function compileDirectoryToReactComponents(inputDir, outputDir) {
     }
 
     // Copy the original file to the output directory
-    const outputOriginalFilePath = path.join(
-      outputComponentDir,
-      `${baseName}.tsx`
-    );
-    fs.copyFileSync(file, outputOriginalFilePath);
+    if (ext === "tsx") {
+      const outputOriginalFilePath = path.join(
+        outputComponentDir,
+        `${baseName}.tsx`
+      );
+      fs.copyFileSync(file, outputOriginalFilePath);
+    }
 
     // Generate the React component file
     await generateComponentFromFile(
       outputComponentDir,
       componentName,
-      originalCode
+      originalCode,
+      ext
     );
   }
 }

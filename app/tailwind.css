@@ -1,4 +1,5 @@
 @import "./components/components.css";
+@import "./content/books.css";
 @import "./svg.css";
 
 @tailwind base;
@@ -9,9 +10,37 @@
   html,
   body {
     @apply text-white bg-neutral-950;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    text-rendering: optimizeLegibility;
 
     @media (prefers-color-scheme: dark) {
       color-scheme: dark;
     }
+  }
+
+  body {
+    background-image: linear-gradient(
+        to bottom,
+        theme(colors.deep-purple.950/10%) 50%,
+        theme(colors.deep-purple.950/100%)
+      ),
+      linear-gradient(
+        to right,
+        theme(colors.deep-purple.950),
+        theme(colors.deep-purple.950/0%) 10%,
+        theme(colors.deep-purple.950/0%) 90%,
+        theme(colors.deep-purple.950)
+      ),
+      image-set(
+        url("/images/bg-body@2x.webp") type("image/webp"),
+        url("/images/bg-body@2x.png") type("image/png")
+      );
+
+    background-attachment: fixed;
+    background-size: 2280px 820px;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 }

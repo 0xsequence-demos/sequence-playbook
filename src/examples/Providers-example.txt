@@ -1,0 +1,5 @@
+<WagmiProvider config={wagmiConfig}>
+  <QueryClientProvider client={queryClient || defaultQueryClient}>
+    <KitProvider config={kitConfig}>{children}</KitProvider>
+  </QueryClientProvider>
+</WagmiProvider>
