@@ -4,12 +4,10 @@ import { useAccount } from "wagmi";
 import { useState } from "react";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
-import {
-  Resources,
-  type ResourceItemProps,
-} from "~/components/resources/Resources";
+import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
+import { includeResources } from "~/content/resources";
 
 const info = {
   name: "user-authentication",
@@ -26,65 +24,11 @@ const info = {
     "Everything starts with user authentication. To authenticate a user with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",
 } as const;
 
-const resources = [
-  {
-    type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
-    image: {
-      src: "example1",
-      alt: "",
-    },
-    links: [
-      {
-        label: "Demo",
-        href: "",
-      },
-      {
-        label: "Source",
-        icon: "github",
-        href: "",
-      },
-    ],
-  },
-  {
-    type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
-    image: {
-      src: "example1",
-      alt: "",
-    },
-    links: [
-      {
-        label: "Demo",
-        href: "",
-      },
-      {
-        label: "Source",
-        icon: "github",
-        href: "",
-      },
-    ],
-  },
-  {
-    type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
-    image: {
-      src: "example1",
-      alt: "",
-    },
-    links: [
-      {
-        label: "Demo",
-        href: "",
-      },
-      {
-        label: "Source",
-        icon: "github",
-        href: "",
-      },
-    ],
-  },
-] as ResourceItemProps[];
+const resources = includeResources([
+  "sequence-wallet-boilerplate",
+  "sequence-wallet-boilerplate-2",
+  "sequence-wallet-boilerplate-3",
+]);
 
 function Book() {
   const { address } = useAccount();

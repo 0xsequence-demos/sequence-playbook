@@ -3,8 +3,8 @@ import { LoaderFunctionArgs, useLoaderData, MetaFunction } from "react-router";
 import { Main } from "~/components/main/Main";
 import { BookTitle } from "~/components/book-title/BookTitle";
 import { routeMeta } from "~/utils/route-meta";
+
 import Books from "~/content/books";
-import Topics from "~/content/topics";
 import { NoBookContent } from "~/content/no-book-content";
 import { Mask } from "~/components/mask/Mask";
 import { Image } from "~/components/image/Image";
@@ -14,7 +14,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   if (topic && book) {
     try {
-      const parentTopic = Topics.find((d) => d.name === topic);
+      const parentTopic = Books.find((d) => d.name === topic);
 
       const data = parentTopic?.books?.find((b) => b.name === book);
 
@@ -41,15 +41,23 @@ export const meta: MetaFunction<typeof loader> = (args) => {
       description: "",
       image: "",
     },
-    args
+    args,
   );
 };
 
 export default function BookCatchall() {
   const { book, topic } = useLoaderData<typeof loader>();
 
-  const Book = Object.prototype.hasOwnProperty.call(Books, book.name)
-    ? Books[book.name]
+  const bookTopic = Object.values(Books).find((d) => d.name === topic.name);
+
+  // const Book = Object.prototype.hasOwnProperty.call(Topics, book.name)
+  //   ? Topics[book.name]?.content
+
+  //   : NoBookContent;
+
+  const Book = bookTopic
+    ? bookTopic.books.find((item) => item.name === book.name)?.content ||
+      NoBookContent
     : NoBookContent;
 
   return (

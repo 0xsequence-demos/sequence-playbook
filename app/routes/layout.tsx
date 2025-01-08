@@ -1,5 +1,5 @@
 import { Outlet, Link, NavLink } from "react-router";
-import Topics from "~/content/topics";
+import Books from "~/content/books";
 import { Icon } from "../components/icon/Icon";
 import Drawer from "~/components/drawer/Drawer";
 import { Fragment } from "react";
@@ -87,7 +87,7 @@ export default function SiteLayout() {
           >
             {" "}
             <ul className="flex flex-col gap-1">
-              {Topics.map((topic, index) => (
+              {Books.map((topic, index) => (
                 <Fragment key={topic.path}>
                   <li>
                     <Link
@@ -108,7 +108,7 @@ export default function SiteLayout() {
                       </NavLink>
                     </li>
                   ))}
-                  {index < Topics.length - 1 ? (
+                  {index < Books.length - 1 ? (
                     <hr className="w-full border-white/10 my-3" />
                   ) : null}
                 </Fragment>
@@ -135,7 +135,7 @@ export default function SiteLayout() {
             className="hidden md:flex flex-col gap-3 sticky top-[8rem] self-start overflow-auto max-h-[calc(100vh-8rem)]"
           >
             <ul className="flex flex-col gap-1">
-              {Topics.map((topic, index) => (
+              {Books.map((topic, index) => (
                 <Fragment key={topic.path}>
                   <li>
                     <Link
@@ -156,7 +156,7 @@ export default function SiteLayout() {
                       </NavLink>
                     </li>
                   ))}
-                  {index < Topics.length - 1 ? (
+                  {index < Books.length - 1 ? (
                     <hr className="w-full border-white/10 my-3" />
                   ) : null}
                 </Fragment>

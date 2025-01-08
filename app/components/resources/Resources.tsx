@@ -15,6 +15,7 @@ export type ResourceItemProps = {
   };
   type: "guide" | "boilerplate";
   title: string;
+  name: string;
   links?: ResourceItemLinkProps[];
 };
 
