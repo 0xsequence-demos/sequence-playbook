@@ -1,7 +1,7 @@
 import { MetaFunction, useLoaderData, Link } from "react-router";
 import { Main } from "~/components/main/Main";
 import { routeMeta } from "~/utils/route-meta";
-import Topics from "~/content/topics";
+import Books from "~/content/books";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Mask } from "~/components/mask/Mask";
 import { Image } from "~/components/image/Image";
@@ -13,12 +13,12 @@ export const meta: MetaFunction = (args) => {
       description: "",
       image: "",
     },
-    args
+    args,
   );
 };
 
 export async function loader() {
-  const data = Topics;
+  const data = Books;
 
   if (!data) {
     throw new Response("Not Found", { status: 404 });

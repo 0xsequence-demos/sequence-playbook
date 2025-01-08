@@ -1,5 +1,4 @@
 @import "./components/components.css";
-@import "./content/books.css";
 @import "./svg.css";
 
 @tailwind base;
@@ -42,5 +41,16 @@
     background-size: 2280px 820px;
     background-position: top center;
     background-repeat: no-repeat;
+  }
+}
+
+@layer components {
+  .book-content {
+    h2 {
+      @apply text-18 md:text-24 font-bold tracking-[-2%];
+    }
+    h3 {
+      @apply text-16 md:text-18 font-semibold;
+    }
   }
 }

@@ -1,23 +1,23 @@
-import { Fragment, useCallback } from "react";
+import { Fragment } from "react";
 import {
   Link,
   useLoaderData,
   MetaFunction,
   LoaderFunctionArgs,
 } from "react-router";
-import { DebugObject } from "~/components/debug/DebugObject";
 import { BackgroundImage, Image } from "~/components/image/Image";
 
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
 import { Mask } from "~/components/mask/Mask";
-import Topics from "~/content/topics";
+import Books from "~/content/books";
 
 import { routeMeta } from "~/utils/route-meta";
+
 export async function loader({ params }: LoaderFunctionArgs) {
   const { topic } = params;
 
-  const data = Topics.find((d) => d.name === topic);
+  const data = Books.find((d) => d.name === topic);
 
   if (!data) {
     throw new Response("Not Found", { status: 404 });
@@ -33,7 +33,7 @@ export const meta: MetaFunction<typeof loader> = (args) => {
       description: "",
       image: "",
     },
-    args
+    args,
   );
 };
 

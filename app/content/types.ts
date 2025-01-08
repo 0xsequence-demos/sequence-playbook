@@ -12,6 +12,7 @@ export type Book = {
     className?: string;
   };
   description: string;
+  content?: () => JSX.Element;
 };
 
 export type Topic = {
