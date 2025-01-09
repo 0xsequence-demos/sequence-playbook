@@ -1,3 +1,4 @@
+import { useOpenConnectModal } from "@0xsequence/kit";
 import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
 import { SignMessageWidget } from "~/examples/SignMessageWidget";
 import { useAccount } from "wagmi";
@@ -13,7 +14,7 @@ const info = {
   name: "user-authentication",
   path: "/onboard/user-authentication",
   title: "User Authentication via Sequence Embedded Wallet",
-  shortname: "User authentication",
+  shortname: "User Authentication",
   image: {
     src: "user-authentication",
     // width: 170,
@@ -21,13 +22,24 @@ const info = {
     // className: "right-[-20px] top-[-10px]",
   },
   description:
-    "Everything starts with user authentication. To authenticate a user with an embedded web3 wallet, we first need to integrate web3 providers into the base of our application.",
+    "Everything starts with user authentication.",
 } as const;
 
 const resources = includeResources([
-  "sequence-wallet-boilerplate",
-  "sequence-wallet-boilerplate-2",
-  "sequence-wallet-boilerplate-3",
+  "email-embedded-wallet-react-boilerplate",
+  "embedded-wallet-playfab-react-boilerplate",
+  "google-embedded-wallet-react-boilerplate",
+  "kit-embedded-wallet-nextjs-boilerplate",
+  "kit-embedded-wallet-react-boilerplate",
+  "kit-embedded-wallet-remix-cloudflare-boilerplate",
+  "kit-embedded-wallet-remix-nodejs-boilerplate",
+  "kit-universal-wallet-nextjs-boilerplate",
+  "kit-universal-wallet-react-boilerplate",
+  "stytch-embedded-wallet-react-boilerplate",
+  "telegram-kit-embedded-wallet-react-boilerplate",
+  "telegram-metamask-react-boilerplate",
+  "telegram-sequencejs-react-boilerplate",
+  "universal-wallet-react-boilerplate",
 ]);
 
 function Book() {
@@ -35,9 +47,11 @@ function Book() {
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
 
+  const { setOpenConnectModal } = useOpenConnectModal();
   return (
     <>
-      <h2>Authenticate with your wallet</h2>
+      <h2>Authenticate with an embedded wallet</h2>
+      Sequence Kit provides a wide variety of login providers, all easily configured.
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
@@ -47,8 +61,15 @@ function Book() {
           <AuthenticationWidget.Snippet />
         </PlayCard.Code>
       </PlayCard>
-
       <Divide />
+
+      That's how simple it is. 
+      <br />
+      {address ? <>
+        Go ahead, test out your embedded wallet...
+      </> : <>
+        Go ahead, <span onClick={() => setOpenConnectModal(true)}>Connect</span> now to see what you can do with your embedded wallet...
+      </>}
 
       <h2>Sign a message</h2>
 
@@ -88,7 +109,11 @@ function Book() {
         </PlayCard.Code>
       </PlayCard>
 
-      <Resources items={resources} />
+      This is only the beginning.<br />
+      Maybe you want to sell items to your users. <br />
+      Maybe you want to reward your players, or provide a marketplace for peer to peer transactions.
+
+      <Resources title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods" items={resources} />
     </>
   );
 }

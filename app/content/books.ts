@@ -1,5 +1,18 @@
 import { Topic } from "~/content/types";
-import UserAuthenticationBook from "~/content/user-authentication/user-authentication";
+import UserAuthenticationBook from "~/content/onboard/user-authentication";
+import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
+import WalletInventoryBook from "~/content/onboard/wallet-inventory";
+
+
+import CryptoOnrampCreditCardBook from "~/content/monetize/crypto-onramp-credit-card";
+import IngameWeb3MarketplaceBook from "~/content/monetize/ingame-web3-marketplace";
+import PrimarySaleNftBook from "~/content/monetize/primary-sale-nft";
+import PrimarySaleOffChainDigitalGoodsBook from "~/content/monetize/primary-sale-off-chain-digital-goods";
+
+
+import ContractInventoryBook from "~/content/power/contract-inventory";
+import ListeningToWeb3EventsBook from "~/content/power/listening-to-web3-events";
+import MintingTokensBook from "~/content/power/minting-tokens";
 
 export default [
   {
@@ -14,20 +27,8 @@ export default [
     description: "Authentication & wallets",
     books: [
       { ...UserAuthenticationBook.info, content: UserAuthenticationBook },
-      {
-        name: "multiple-wallets",
-        path: "/onboard/multiple-wallets",
-        title: "Connect multiple wallets",
-        shortname: "Multiple wallets",
-        description: "",
-      },
-      {
-        name: "wallet-inventory",
-        path: "/onboard/wallet-inventory",
-        title: "Display Wallet Inventory",
-        shortname: "Wallet inventory",
-        description: "",
-      },
+      { ...MultipleWalletsBook.info, content: MultipleWalletsBook },
+      { ...WalletInventoryBook.info, content: WalletInventoryBook },
     ],
   },
   {
@@ -41,41 +42,10 @@ export default [
     icon: "monetize-icon",
     description: "Purchasing & payments",
     books: [
-      {
-        name: "in-game-marketplace",
-        title: "Implementing an In-Game Web3 Marketplace",
-        shortname: "In-game Web3 marketplace",
-        path: "/monetize/in-game-marketplace",
-        bookIcon: "book-cover-marketplace",
-
-        description: "",
-      },
-      {
-        name: "primary-sale-nft",
-        title: "Implementing primary sale for NFTs",
-        shortname: "Primary sale for NFTs",
-        path: "/monetize/primary-sale-nft",
-        bookIcon: "book-cover-coins",
-
-        description: "",
-      },
-      {
-        name: "primary-sale-off-chain-digital-goods",
-        title: "Implementing primary sales for off-chain digital goods",
-        shortname: "Primary sales for off-chain digital goods",
-        path: "/monetize/primary-sale-off-chain-digital-goods",
-        bookIcon: "book-cover-globe",
-
-        description: "",
-      },
-      {
-        name: "crypto-onramp-credit-card",
-        title: "Implementing crypto onramp with credit card payments",
-        shortname: "Crypto onramp with credit card payments",
-        path: "/monetize/crypto-onramp-credit-card",
-        bookIcon: "book-cover-payments",
-        description: "",
-      },
+      { ...CryptoOnrampCreditCardBook.info, content: CryptoOnrampCreditCardBook },
+      { ...IngameWeb3MarketplaceBook.info, content: IngameWeb3MarketplaceBook },
+      { ...PrimarySaleNftBook.info, content: PrimarySaleNftBook },
+      { ...PrimarySaleOffChainDigitalGoodsBook.info, content: PrimarySaleOffChainDigitalGoodsBook },
     ],
   },
   {
@@ -90,33 +60,9 @@ export default [
     path: "/power",
     icon: "power-icon",
     books: [
-      {
-        name: "contract-inventory",
-        title: "Showing contract inventory in user’s wallet",
-        shortname: "Contract inventory",
-        path: "/power/contract-inventory",
-        bookIcon: "book-cover-wallet",
-
-        description: "",
-      },
-      {
-        name: "minting-tokens",
-        title: "Minting Tokens in Web3",
-        shortname: "Minting tokens",
-        path: "/power/minting-tokens",
-        bookIcon: "book-cover-minter",
-
-        description: "",
-      },
-      {
-        name: "listening-to-web3-events",
-        title: "Listening to Web3 Events Using Webhooks",
-        shortname: "Listening to Web3 events",
-        path: "/power/listening-to-web3-events",
-        bookIcon: "book-cover-list",
-
-        description: "",
-      },
+      { ...ContractInventoryBook.info, content: ContractInventoryBook },
+      { ...ListeningToWeb3EventsBook.info, content: ListeningToWeb3EventsBook },
+      { ...MintingTokensBook.info, content: MintingTokensBook },
     ],
   },
 ] as Topic[];
