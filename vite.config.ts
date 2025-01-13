@@ -16,7 +16,7 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   ssr: {
-    noExternal: ["@0xsequence/kit"],
+    noExternal: ["@0xsequence/kit", "@0xsequence/kit-wallet"],
     resolve: {
       conditions: ["workerd", "worker", "browser"],
     },
