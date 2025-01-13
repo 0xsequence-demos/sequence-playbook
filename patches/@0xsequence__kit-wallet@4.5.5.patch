@@ -1,0 +1,30 @@
+diff --git a/dist/esm/shared/CopyButton.js b/dist/esm/shared/CopyButton.js
+index c94502619c4a730834160202eee119fdb47f1815..5d51a5002996ea8a51bebbc0aebf3796b227b286 100644
+--- a/dist/esm/shared/CopyButton.js
++++ b/dist/esm/shared/CopyButton.js
+@@ -1,7 +1,8 @@
+ import { jsx as _jsx } from "react/jsx-runtime";
+ import { CopyIcon, CheckmarkIcon, IconButton, vars } from '@0xsequence/design-system';
+ import { useEffect, useState } from 'react';
+-import { CopyToClipboard } from 'react-copy-to-clipboard';
++import ctc from 'react-copy-to-clipboard';
++const CopyToClipboard = ctc.CopyToClipboard;
+ export const CopyButton = (props) => {
+     const { buttonVariant = 'icon', text, size = 'xs', ...rest } = props;
+     const [isCopied, setCopy] = useState(false);
+diff --git a/dist/esm/views/Receive.js b/dist/esm/views/Receive.js
+index f4bd787a4ef6b47a3b548c53463db5361bfa3bfb..e1eae5198c4c97dd3f96c481e0c48dc515755953 100644
+--- a/dist/esm/views/Receive.js
++++ b/dist/esm/views/Receive.js
+@@ -3,9 +3,10 @@ import { Box, Button, Text, CopyIcon, ShareIcon, Image } from '@0xsequence/desig
+ import { getNativeTokenInfoByChainId } from '@0xsequence/kit';
+ import { QRCodeCanvas } from 'qrcode.react';
+ import { useState, useEffect } from 'react';
+-import { CopyToClipboard } from 'react-copy-to-clipboard';
++import ctc from 'react-copy-to-clipboard';
+ import { useAccount, useConfig } from 'wagmi';
+ import { HEADER_HEIGHT } from '../constants';
++const CopyToClipboard = ctc.CopyToClipboard;
+ export const Receive = () => {
+     const { address, chain } = useAccount();
+     const { chains } = useConfig();
