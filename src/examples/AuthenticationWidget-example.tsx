@@ -5,15 +5,18 @@ export const AuthenticationWidget = () => {
   const { address } = useAccount();
 
   const { setOpenConnectModal } = useOpenConnectModal();
+  // #region
   return address ? (
     <>
       <p>Connected as {address}</p>
       <button onClick={() => disconnect()}>Disconnect</button>
     </>
   ) : (
+    /* starthide */
     <>
       <p>Not connected</p>
       <button onClick={() => setOpenConnectModal(true)}>Connect</button>
     </>
+    /* endhide */
   );
 };

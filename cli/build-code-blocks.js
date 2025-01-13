@@ -5,7 +5,7 @@ import { codeToHtml } from "shiki";
 import fs from "fs";
 import path from "path";
 const program = new Command();
-
+import { JSDOM } from "jsdom";
 program
   .version("1.0.0")
   .description("A CLI tool to compile code snippets into React components")
@@ -25,7 +25,7 @@ async function generateComponentFromFile(
   outputDir,
   componentName,
   originalCode,
-  ext
+  ext,
 ) {
   // Highlighted code snippet
   let highlightedCode = await codeToHtml(originalCode, {
@@ -33,6 +33,8 @@ async function generateComponentFromFile(
     theme: "laserwave",
   });
 
+  highlightedCode = generateComponentWithCollapsibleSections(highlightedCode);
+  // console.log(highlightedCode);
   highlightedCode = JSON.stringify(highlightedCode);
 
   const reactComponent = `
@@ -43,13 +45,13 @@ async function generateComponentFromFile(
   // Write the component file
   fs.writeFileSync(
     path.join(outputDir, `${componentName}Snippet.tsx`),
-    reactComponent
+    reactComponent,
   );
 
   // Write plaintext version
   fs.writeFileSync(
     path.join(outputDir, `${componentName}String.tsx`),
-    `export const codeString = ${JSON.stringify(originalCode)}`
+    `export const codeString = ${JSON.stringify(originalCode)}`,
   );
 
   // Write index
@@ -67,8 +69,84 @@ async function generateComponentFromFile(
     export const ${componentName} = Object.assign(${
       ext === "tsx" ? "example" : "{}"
     }, { Snippet:snippet, String:codeString });
-  `
+  `,
   );
+}
+
+function generateComponentWithCollapsibleSections(originalCode) {
+  // Generate syntax-highlighted HTML using Shiki
+  // Create a DOM parser
+  const dom = new JSDOM(`<div>${originalCode}</div>`);
+  const doc = dom.window.document;
+  const lines = Array.from(doc.querySelectorAll(".line"));
+
+  // const collapsibleSections = [];
+  // let inCollapsibleSection = false;
+  let starts = [];
+  let ends = [];
+  // Iterate through lines and detect hide markers
+  lines.forEach((line) => {
+    const textContent = line.textContent || "";
+
+    if (textContent.includes("starthide")) {
+      starts.push(line);
+    }
+    if (textContent.includes("endhide")) {
+      ends.push(line);
+    }
+    // if (textContent.includes("/* hide */")) {
+    //   inCollapsibleSection = true;
+    //   currentSection = [];
+    // } else if (textContent.includes("/* endhide */")) {
+    //   inCollapsibleSection = false;
+    //   collapsibleSections.push([...currentSection]);
+    // } else if (inCollapsibleSection) {
+    //   currentSection.push(line);
+    // }
+  });
+  starts.forEach((line) => {
+    const wrapper = doc.createElement("div");
+    wrapper.dataset.hide = "start";
+    wrapper.classList.add("hidden");
+
+    line.replaceWith(wrapper);
+  });
+
+  ends.forEach((line) => {
+    const wrapper = doc.createElement("div");
+    wrapper.dataset.hide = "end";
+    wrapper.classList.add("hidden");
+
+    line.replaceWith(wrapper);
+  });
+
+  return doc.body.innerHTML;
+  // Wrap the collected sections in a collapsible div
+  // collapsibleSections.forEach((section) => {
+  //   const wrapper = doc.createElement("div");
+  //   wrapper.className = "collapsible-section";
+  //   wrapper.innerHTML = `
+  //     <button onclick="this.nextElementSibling.style.display =
+  //       this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+  //       Toggle Section
+  //     </button>
+  //     <div style="display: none;">
+  //       ${section.map((line) => line.outerHTML).join("")}
+  //     </div>
+  //   `;
+
+  //   section[0].parentNode.insertBefore(wrapper, section[0]);
+  //   section.forEach((line) => line.remove());
+  // });
+
+  // // Return the updated HTML as a React component
+  // return `
+  //   export function Snippet() {
+  //     return <div dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
+  //       doc.body.innerHTML,
+  //     )} }}></div>;
+  //   }
+  // `;
 }
 
 // Helper function to recursively find matching files
@@ -116,7 +194,7 @@ async function compileDirectoryToReactComponents(inputDir, outputDir) {
     if (ext === "tsx") {
       const outputOriginalFilePath = path.join(
         outputComponentDir,
-        `${baseName}.tsx`
+        `${baseName}.tsx`,
       );
       fs.copyFileSync(file, outputOriginalFilePath);
     }
@@ -126,7 +204,7 @@ async function compileDirectoryToReactComponents(inputDir, outputDir) {
       outputComponentDir,
       componentName,
       originalCode,
-      ext
+      ext,
     );
   }
 }
