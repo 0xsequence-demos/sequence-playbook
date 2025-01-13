@@ -11,8 +11,8 @@ export const SendTestTransactionWidget = (props: Props) => {
 
   const { data, sendTransaction, isPending, error, reset } =
     useSendTransaction();
+  void reset;
   useEffect(() => setData(data), []);
-
 
   return address ? (
     <>
