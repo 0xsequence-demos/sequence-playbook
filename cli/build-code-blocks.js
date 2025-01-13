@@ -42,10 +42,13 @@ async function generateComponentFromFile(
       return <div dangerouslySetInnerHTML={{ __html: ${highlightedCode} }}></div>
     }
   `;
+
+  const reactComponentString = `export const snippet = ${highlightedCode}`;
+
   // Write the component file
   fs.writeFileSync(
     path.join(outputDir, `${componentName}Snippet.tsx`),
-    reactComponent,
+    reactComponentString,
   );
 
   // Write plaintext version
@@ -85,14 +88,27 @@ function generateComponentWithCollapsibleSections(originalCode) {
   let starts = [];
   let ends = [];
   // Iterate through lines and detect hide markers
+
+  let index = 0;
+  let inCollapse = false;
+
   lines.forEach((line) => {
     const textContent = line.textContent || "";
 
+    if (inCollapse) {
+      line.dataset.collapsed = true;
+      line.dataset.group = index;
+    }
+
     if (textContent.includes("starthide")) {
+      inCollapse = true;
+      index++;
       starts.push(line);
     }
     if (textContent.includes("endhide")) {
       ends.push(line);
+      inCollapse = false;
+      // ends.push(line);
     }
     // if (textContent.includes("/* hide */")) {
     //   inCollapsibleSection = true;
@@ -113,12 +129,14 @@ function generateComponentWithCollapsibleSections(originalCode) {
   });
 
   ends.forEach((line) => {
-    const wrapper = doc.createElement("div");
-    wrapper.dataset.hide = "end";
-    wrapper.classList.add("hidden");
+    // const wrapper = doc.createElement("div");
+    // wrapper.dataset.hide = "end";
+    // wrapper.classList.add("hidden");
 
-    line.replaceWith(wrapper);
+    line.remove();
   });
+
+  console.log(doc.body.innerHTML);
 
   return doc.body.innerHTML;
   // Wrap the collected sections in a collapsible div

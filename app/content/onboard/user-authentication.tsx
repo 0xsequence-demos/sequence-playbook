@@ -21,8 +21,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Everything starts with user authentication.",
+  description: "Everything starts with user authentication.",
 } as const;
 
 const resources = includeResources([
@@ -51,7 +50,8 @@ function Book() {
   return (
     <>
       <h2>Authenticate with an embedded wallet</h2>
-      Sequence Kit provides a wide variety of login providers, all easily configured.
+      Sequence Kit provides a wide variety of login providers, all easily
+      configured.
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
@@ -62,17 +62,18 @@ function Book() {
         </PlayCard.Code>
       </PlayCard>
       <Divide />
-
-      That's how simple it is. 
+      That's how simple it is.
       <br />
-      {address ? <>
-        Go ahead, test out your embedded wallet...
-      </> : <>
-        Go ahead, <span onClick={() => setOpenConnectModal(true)}>Connect</span> now to see what you can do with your embedded wallet...
-      </>}
-
+      {address ? (
+        <>Go ahead, test out your embedded wallet...</>
+      ) : (
+        <>
+          Go ahead,{" "}
+          <span onClick={() => setOpenConnectModal(true)}>Connect</span> now to
+          see what you can do with your embedded wallet...
+        </>
+      )}
       <h2>Sign a message</h2>
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -88,11 +89,8 @@ function Book() {
           <SignMessageWidget.Snippet />
         </PlayCard.Code>
       </PlayCard>
-
       <Divide />
-
       <h2>Send a test transaction</h2>
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
@@ -108,12 +106,15 @@ function Book() {
           <SendTestTransactionWidget.Snippet />
         </PlayCard.Code>
       </PlayCard>
-
-      This is only the beginning.<br />
+      This is only the beginning.
+      <br />
       Maybe you want to sell items to your users. <br />
-      Maybe you want to reward your players, or provide a marketplace for peer to peer transactions.
-
-      <Resources title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods" items={resources} />
+      Maybe you want to reward your players, or provide a marketplace for peer
+      to peer transactions.
+      <Resources
+        title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods"
+        items={resources}
+      />
     </>
   );
 }

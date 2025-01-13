@@ -17,6 +17,8 @@ function PlayCode({
   children: React.ReactNode;
   copy?: string;
 }) {
+  console.log(children);
+
   return (
     <div>
       {copy ? (
@@ -24,7 +26,7 @@ function PlayCode({
           <CopyExampleCode value={copy} />
         </div>
       ) : null}
-      {children}
+      {/* {children} */}
     </div>
   );
 }
