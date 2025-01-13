@@ -30,6 +30,7 @@ import { useNonce } from "~/providers/nonce-provider";
 import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
 import { useState } from "react";
+import { KitWalletProvider } from "@0xsequence/kit-wallet";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -175,7 +176,9 @@ export default function App() {
     <WagmiProvider config={config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>
         <KitProvider config={kitConfig}>
-          <Outlet />
+          <KitWalletProvider>
+            <Outlet />
+          </KitWalletProvider>
         </KitProvider>
       </QueryClientProvider>
     </WagmiProvider>
