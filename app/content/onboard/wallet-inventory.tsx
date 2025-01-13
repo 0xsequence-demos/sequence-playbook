@@ -1,5 +1,5 @@
 import { useAccount } from "wagmi";
-import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
+import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
@@ -32,11 +32,11 @@ function Book() {
       <h2>View every asset in your wallet</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
-          <AuthenticationWidget />
+          <WalletInventoryWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
+        <PlayCard.Code copy={WalletInventoryWidget.String}>
+          <WalletInventoryWidget.Snippet />
         </PlayCard.Code>
       </PlayCard>
 
