@@ -33,6 +33,7 @@ import { useState } from "react";
 import { KitWalletProvider } from "@0xsequence/kit-wallet";
 import shiki from "./shiki.css?url";
 
+import { KitWalletProvider } from "@0xsequence/kit-wallet";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
 
