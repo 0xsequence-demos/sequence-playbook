@@ -20,13 +20,10 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Build responsive experiences that react to onchain activity.",
+  description: "Build responsive experiences that react to onchain activity.",
 } as const;
 
-const resources = includeResources([
-  "web3-events-boilerplate",
-]);
+const resources = includeResources(["web3-events-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -35,21 +32,22 @@ function Book() {
 
   return (
     <>
-    Web3 events take the mystery out of the state of your onchain interactions. 
-    <br />
-    <br />
-    You can stop long-polling, and start listening to wallet updates.
+      Web3 events take the mystery out of the state of your onchain
+      interactions.
+      <br />
+      <br />
+      You can stop long-polling, and start listening to wallet updates.
       <h2>Listen to Web3 Events</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );

@@ -54,3 +54,11 @@
     }
   }
 }
+
+@layer components {
+  /* [data-collapsed="true"] {
+    @apply hidden;
+    display: none;
+    line-height: 0;
+  } */
+}

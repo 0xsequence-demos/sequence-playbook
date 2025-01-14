@@ -1,3 +1,5 @@
+import { Platform } from "~/components/platforms/Platforms";
+
 export type Book = {
   name: string;
   path: string;
@@ -11,6 +13,7 @@ export type Book = {
     height?: number;
     className?: string;
   };
+  platforms: Platform;
   description: string;
   content?: () => JSX.Element;
 };

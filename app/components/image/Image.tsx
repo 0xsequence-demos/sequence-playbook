@@ -65,7 +65,7 @@ function parseSources(srcset: Srcset[]) {
     .map(([format, srcs]) => {
       const _format = format as Mimetypes;
       return srcs.map(
-        (src) => `url("${src.split(" ")[0]}") type("${TYPES[_format]}")`
+        (src) => `url("${src.split(" ")[0]}") type("${TYPES[_format]}")`,
       );
     })
     .flat()
@@ -84,13 +84,13 @@ export const Image = (
     alt?: string;
     width?: number;
     height?: number;
-  } & ComponentProps<"img">
+  } & ComponentProps<"img">,
 ) => {
   const { name, alt, width, height, ...restProps } = props;
 
   const image = IMAGES[name];
   if (!image) {
-    console.error(`Image with name "${name}" not found in schema.`);
+    console.warn(`Image with name "${name}" not found in schema.`);
     return null;
   }
 
@@ -123,7 +123,7 @@ export function BackgroundImage(props: { name?: string }) {
   const image = IMAGES[name];
 
   if (!image) {
-    console.error(`Image with name "${name}" not found in schema.`);
+    console.warn(`Image with name "${name}" not found in schema.`);
     return null;
   }
   const { fallback, backgroundSet } = parseSources(image.srcset);

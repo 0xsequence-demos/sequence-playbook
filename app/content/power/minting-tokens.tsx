@@ -20,13 +20,10 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Mint your own ERC20, ERC721 or ERC1155 tokens.",
+  description: "Mint your own ERC20, ERC721 or ERC1155 tokens.",
 } as const;
 
-const resources = includeResources([
-  "server-side-transactions-boilerplate",
-]);
+const resources = includeResources(["server-side-transactions-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -36,22 +33,22 @@ function Book() {
   return (
     <>
       <h2>No Coding Necessary</h2>
-      Using sequence.build, you can create your tokens and mint them from the browser
+      Using sequence.build, you can create your tokens and mint them from the
+      browser
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
-
       <h2>Coding is Cool, Though</h2>
-      We agree! Using the sequence API, you can create and mint tokens in ways only you can imagine.
-
+      We agree! Using the sequence API, you can create and mint tokens in ways
+      only you can imagine.
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -63,11 +60,11 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SignMessageWidget.String}>
-          <SignMessageWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SignMessageWidget.String}
+          steps={SignMessageWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );

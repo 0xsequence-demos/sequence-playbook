@@ -20,9 +20,7 @@ const info = {
     "A simple and elegant way to view your wallet inventory, with Sequence Kit",
 } as const;
 
-const resources = includeResources([
-  "gift-wallet-inventory-boilerplate",
-]);
+const resources = includeResources(["gift-wallet-inventory-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -35,9 +33,10 @@ function Book() {
           <WalletInventoryWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={WalletInventoryWidget.String}>
-          <WalletInventoryWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={WalletInventoryWidget.String}
+          steps={WalletInventoryWidget.steps}
+        />
       </PlayCard>
 
       <Divide />

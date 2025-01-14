@@ -12,6 +12,7 @@ export default defineConfig({
     cloudflareDevProxy({
       getLoadContext,
     }),
+
     reactRouter(),
     tsconfigPaths(),
   ],
