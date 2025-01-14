@@ -33,7 +33,7 @@ export const BackgroundImage = ({ name }: { name: string }) => {
   const image = IMAGES[name];
 
   if (!image) {
-    console.error(`Image with name "${name}" not found in schema.`);
+    console.warn(`Image with name "${name}" not found in schema.`);
     return null;
   }
 
@@ -64,7 +64,7 @@ export const BackgroundImage = ({ name }: { name: string }) => {
     .map(([format, srcs]) => {
       const _format = format as Mimetypes;
       return srcs.map(
-        (src) => `url("${src.split(" ")[0]}") type("${TYPES[_format]}")`
+        (src) => `url("${src.split(" ")[0]}") type("${TYPES[_format]}")`,
       );
     })
     .flat()

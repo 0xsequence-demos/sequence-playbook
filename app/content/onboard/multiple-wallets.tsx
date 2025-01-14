@@ -20,13 +20,10 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Link Multiple Wallets to bring your players' assets together",
+  description: "Link Multiple Wallets to bring your players' assets together",
 } as const;
 
-const resources = includeResources([
-  "wallet-linking-boilerplate",
-]);
+const resources = includeResources(["wallet-linking-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -36,23 +33,21 @@ function Book() {
   return (
     <>
       <h2>Nobody has just one wallet anymore</h2>
-      Make life easier for your users, by letting them link wallets together and stop shuffling assets back and forth
+      Make life easier for your users, by letting them link wallets together and
+      stop shuffling assets back and forth
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
-
       Now that you linked wallets, you can:
-
       <h2>Pay for an item with funds from a linked wallet</h2>
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -64,15 +59,15 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SignMessageWidget.String}>
-          <SignMessageWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SignMessageWidget.String}
+          steps={SignMessageWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
-
-      <h2>Check for an item across your wallets, to unlock a feature in your dapp</h2>
-      
+      <h2>
+        Check for an item across your wallets, to unlock a feature in your dapp
+      </h2>
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
@@ -84,11 +79,11 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SendTestTransactionWidget.String}>
-          <SendTestTransactionWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SendTestTransactionWidget.String}
+          steps={SendTestTransactionWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );

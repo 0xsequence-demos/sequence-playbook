@@ -20,13 +20,10 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Let users build a live economy in your game!",
+  description: "Let users build a live economy in your game!",
 } as const;
 
-const resources = includeResources([
-  "ingame-marketplace-boilerplate",
-]);
+const resources = includeResources(["ingame-marketplace-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -35,8 +32,10 @@ function Book() {
 
   return (
     <>
-    Unlike the Sequence Builder Marketplace, which let's you open a marketplace with no code, the powerful Marketplace API lets you integrate your marketplace directly into your game.
-    <br />
+      Unlike the Sequence Builder Marketplace, which let's you open a
+      marketplace with no code, the powerful Marketplace API lets you integrate
+      your marketplace directly into your game.
+      <br />
       <h2>Create a Sell Order</h2>
       You can list an item for sale, for a set price
       <PlayCard>
@@ -44,16 +43,14 @@ function Book() {
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
-
       <h2>Create a Buy Order</h2>
       You can try to buy an item for a preferred price
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -65,15 +62,14 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SignMessageWidget.String}>
-          <SignMessageWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SignMessageWidget.String}
+          steps={SignMessageWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
       <h2>Fulfill a Sell Order</h2>
       You can buy an item someone listed, at their preferred price
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
@@ -85,15 +81,15 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SendTestTransactionWidget.String}>
-          <SendTestTransactionWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SendTestTransactionWidget.String}
+          steps={SendTestTransactionWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
       <h2>Fulfill a Buy Order</h2>
-      You can sell your item to someone who wants it, if you think the price is fair, or even profitable!
-
+      You can sell your item to someone who wants it, if you think the price is
+      fair, or even profitable!
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : transaction ? "happy" : "neutral"}
@@ -105,11 +101,11 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SendTestTransactionWidget.String}>
-          <SendTestTransactionWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SendTestTransactionWidget.String}
+          steps={SendTestTransactionWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );
