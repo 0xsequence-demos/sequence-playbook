@@ -13,7 +13,7 @@ export const ContractInventoryWidget = () => {
         defaultNavigation: {
           location: 'collection-details',
           params: {
-            contractAddress: '0xdbac91902dce61d231154bbcbb16227dca31141c',
+            contractAddress: '0x1693ffc74edbb50d6138517fe5cd64fd1c917709',
             chainId: arbitrumSepolia.id
           }
         }
