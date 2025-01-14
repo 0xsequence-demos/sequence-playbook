@@ -48,7 +48,21 @@ function PlayCode({
               className="size-4"
               alt=""
             />
-            <>{step === 0 ? "Expand" : "Collapse"}</>
+            <span className="grid grid-col-1 grid-row-1">
+              <span
+                className="col-start-1 row-start-1 invisible data-[visible='true']:visible"
+                data-visible={step === 1}
+              >
+                Collapse
+              </span>
+              <span
+                className="col-start-1 row-start-1 invisible data-[visible='true']:visible"
+                data-visible={step === 0}
+              >
+                Expand
+              </span>
+            </span>
+            {/* <>{step === 0 ? "Expand" : "Collapse"}</> */}
           </button>
         ) : null}
       </div>
