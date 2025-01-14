@@ -2,10 +2,7 @@
 
 import { Command } from "commander";
 import { createHighlighter } from "shiki";
-import {
-  codeToKeyedTokens,
-  createMagicMoveMachine,
-} from "shiki-magic-move/core";
+import { codeToKeyedTokens, createMagicMoveMachine } from "./core.mjs";
 import fs from "fs";
 import path from "path";
 const program = new Command();
@@ -42,8 +39,8 @@ function adjustTabIndent(lines) {
   });
 
   // Join the lines back into a single string
-
-  return adjustedLines.filter((string) => (string.length < 1 ? false : true));
+  return adjustedLines;
+  // return adjustedLines.filter((string) => (string.length < 1 ? false : true));
 }
 
 // Helper function to generate a component file from a code snippet
@@ -69,15 +66,10 @@ async function generateComponentFromFile(
   }
 
   const machine = createMagicMoveMachine((code) =>
-    codeToKeyedTokens(
-      shiki,
-      code,
-      {
-        lang: "jsx",
-        theme: "laserwave",
-      },
-      {},
-    ),
+    codeToKeyedTokens(shiki, code, {
+      lang: "jsx",
+      theme: "laserwave",
+    }),
   );
 
   const compiledSteps = codeSteps.map((code) => machine.commit(code).current);
@@ -123,10 +115,8 @@ function removeDirectiveComments(originalCode) {
   const lines = originalCode.split("\n");
 
   const result = lines.filter((line) => {
-    const textContent = line || "";
-
-    const isStart = textContent.includes("starthide");
-    const isEnd = textContent.includes("endhide");
+    const isStart = line.includes("starthide");
+    const isEnd = line.includes("endhide");
 
     if (isStart || isEnd) {
       return false;
@@ -148,6 +138,10 @@ function generateMinimalCode(originalCode) {
       const isStart = line.includes("starthide");
       const isEnd = line.includes("endhide");
 
+      if (line.length < 1) {
+        return false;
+      }
+
       if (isStart) {
         index = 0;
         isHidden = true;
@@ -156,18 +150,19 @@ function generateMinimalCode(originalCode) {
 
       if (isEnd) {
         isHidden = false;
-        return false;
-        // return `/* ${index} hidden lines */`;
+        // return false;
+        return `$$`; ///* ${index} hidden lines */`;
       }
 
       if (isHidden) {
         index++;
-        return false;
+        return `**`;
       }
 
       return line;
     })
     .filter(Boolean);
+
   return adjustTabIndent(result).join("\n");
 }
 

@@ -15,8 +15,11 @@ export const AuthenticationWidget = () => {
     </>
   ) : (
     <>
+      {/* endhide */}
+
       <p>Not connected</p>
       <button onClick={() => setOpenConnectModal(true)}>Connect</button>
+      {/* starthide */}
     </>
   );
 };

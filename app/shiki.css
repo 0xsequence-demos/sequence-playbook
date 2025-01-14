@@ -5,7 +5,17 @@
 
 .shiki-magic-move-line-number {
   opacity: 0.3;
+  /* transition: opacity 6s var(--smm-easing, "ease") !important; */
+
   user-select: none;
+}
+
+.shiki-magic-move-collapsed {
+  opacity: 0.5;
+  font-size: 11px;
+  border-top: 4px rgba(255, 255, 255, 0) solid;
+  border-bottom: 4px rgba(255, 255, 255, 0) solid;
+  gap: 8px; /* Optional: Add spacing between lines and content */
 }
 
 .shiki-magic-move-item {
@@ -22,6 +32,11 @@
   transition: all var(--smm-duration, 0.5s) var(--smm-easing, "ease");
 }
 
+.shiki-magic-move-line-number.shiki-magic-move-enter-active,
+.shiki-magic-move-line-number.shiki-magic-move-leave-active {
+  transition: all 0.1s var(--smm-easing, "ease");
+}
+
 .shiki-magic-move-container-resize,
 .shiki-magic-move-container-restyle {
   overflow: hidden !important;
@@ -32,10 +47,10 @@
 }
 
 .shiki-magic-move-move {
-  transition-delay: calc(
+  /* transition-delay: calc(
     calc(var(--smm-duration, 0.5s) * var(--smm-delay-move, 1)) +
       var(--smm-stagger, 0)
-  );
+  ); */
   z-index: 1;
 }
 
