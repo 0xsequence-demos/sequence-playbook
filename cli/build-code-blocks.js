@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { codeToHtml } from "shiki";
+import { createHighlighter } from "shiki";
+import {
+  codeToKeyedTokens,
+  createMagicMoveMachine,
+} from "shiki-magic-move/core";
 import fs from "fs";
 import path from "path";
 const program = new Command();
-import { JSDOM } from "jsdom";
+
 program
   .version("1.0.0")
   .description("A CLI tool to compile code snippets into React components")
   .option("-i, --input <path>", "Input directory path containing code snippets")
-
   .parse(process.argv);
 
 const options = program.opts();
@@ -18,6 +21,29 @@ const options = program.opts();
 if (!options.input) {
   console.error("Please specify input directory with -i <dir>");
   process.exit(1);
+}
+
+function adjustTabIndent(lines) {
+  // Split the code block into an array of lines
+
+  // Determine the number of leading spaces in the first line
+  const firstLineIndent = lines[0].match(/^ */)[0].length;
+
+  // If the first line already has no spaces, return the original code block
+  if (firstLineIndent === 0) {
+    return lines;
+  }
+
+  // Remove the leading spaces from each line based on first line's indent
+  const adjustedLines = lines.map((line) => {
+    return line.startsWith(" ".repeat(firstLineIndent))
+      ? line.slice(firstLineIndent)
+      : line;
+  });
+
+  // Join the lines back into a single string
+
+  return adjustedLines.filter((string) => (string.length < 1 ? false : true));
 }
 
 // Helper function to generate a component file from a code snippet
@@ -28,40 +54,57 @@ async function generateComponentFromFile(
   ext,
 ) {
   // Highlighted code snippet
-  let highlightedCode = await codeToHtml(originalCode, {
-    lang: "jsx",
-    theme: "laserwave",
+  let shiki = await createHighlighter({
+    langs: ["jsx"],
+    themes: ["laserwave"],
   });
 
-  highlightedCode = generateComponentWithCollapsibleSections(highlightedCode);
-  // console.log(highlightedCode);
-  highlightedCode = JSON.stringify(highlightedCode);
+  const minimum = generateMinimalCode(originalCode);
+  const full = removeDirectiveComments(originalCode);
 
-  const reactComponent = `
-    export function snippet(){
-      return <div dangerouslySetInnerHTML={{ __html: ${highlightedCode} }}></div>
-    }
-  `;
+  const codeSteps = [minimum];
 
-  const reactComponentString = `export const snippet = ${highlightedCode}`;
+  if (minimum !== full) {
+    codeSteps.push(full);
+  }
+
+  const machine = createMagicMoveMachine((code) =>
+    codeToKeyedTokens(
+      shiki,
+      code,
+      {
+        lang: "jsx",
+        theme: "laserwave",
+      },
+      {},
+    ),
+  );
+
+  const compiledSteps = codeSteps.map((code) => machine.commit(code).current);
+
+  const snippet = `import type {
+      KeyedTokensInfo,
+    } from "shiki-magic-move/types";
+
+    export const steps = ${JSON.stringify(compiledSteps)} as KeyedTokensInfo[]`;
 
   // Write the component file
   fs.writeFileSync(
     path.join(outputDir, `${componentName}Snippet.tsx`),
-    reactComponentString,
+    snippet,
   );
 
   // Write plaintext version
   fs.writeFileSync(
     path.join(outputDir, `${componentName}String.tsx`),
-    `export const codeString = ${JSON.stringify(originalCode)}`,
+    `export const codeString = ${JSON.stringify(full)}`,
   );
 
   // Write index
   fs.writeFileSync(
     path.join(outputDir, `index.tsx`),
     `
-    import { snippet } from './${componentName}Snippet';
+    import { steps } from './${componentName}Snippet';
     import { codeString } from './${componentName}String';
     ${
       ext === "tsx"
@@ -71,100 +114,61 @@ async function generateComponentFromFile(
 
     export const ${componentName} = Object.assign(${
       ext === "tsx" ? "example" : "{}"
-    }, { Snippet:snippet, String:codeString });
+    }, {  steps, String:codeString });
   `,
   );
 }
 
-function generateComponentWithCollapsibleSections(originalCode) {
-  // Generate syntax-highlighted HTML using Shiki
-  // Create a DOM parser
-  const dom = new JSDOM(`<div>${originalCode}</div>`);
-  const doc = dom.window.document;
-  const lines = Array.from(doc.querySelectorAll(".line"));
+function removeDirectiveComments(originalCode) {
+  const lines = originalCode.split("\n");
 
-  // const collapsibleSections = [];
-  // let inCollapsibleSection = false;
-  let starts = [];
-  let ends = [];
-  // Iterate through lines and detect hide markers
+  const result = lines.filter((line) => {
+    const textContent = line || "";
 
+    const isStart = textContent.includes("starthide");
+    const isEnd = textContent.includes("endhide");
+
+    if (isStart || isEnd) {
+      return false;
+    }
+
+    return line;
+  });
+
+  return adjustTabIndent(result).join("\n");
+}
+
+function generateMinimalCode(originalCode) {
+  const lines = originalCode.split("\n");
+
+  let isHidden = false;
   let index = 0;
-  let inCollapse = false;
+  const result = lines
+    .map((line) => {
+      const isStart = line.includes("starthide");
+      const isEnd = line.includes("endhide");
 
-  lines.forEach((line) => {
-    const textContent = line.textContent || "";
+      if (isStart) {
+        index = 0;
+        isHidden = true;
+        return false;
+      }
 
-    if (inCollapse) {
-      line.dataset.collapsed = true;
-      line.dataset.group = index;
-    }
+      if (isEnd) {
+        isHidden = false;
+        return false;
+        // return `/* ${index} hidden lines */`;
+      }
 
-    if (textContent.includes("starthide")) {
-      inCollapse = true;
-      index++;
-      starts.push(line);
-    }
-    if (textContent.includes("endhide")) {
-      ends.push(line);
-      inCollapse = false;
-      // ends.push(line);
-    }
-    // if (textContent.includes("/* hide */")) {
-    //   inCollapsibleSection = true;
-    //   currentSection = [];
-    // } else if (textContent.includes("/* endhide */")) {
-    //   inCollapsibleSection = false;
-    //   collapsibleSections.push([...currentSection]);
-    // } else if (inCollapsibleSection) {
-    //   currentSection.push(line);
-    // }
-  });
-  starts.forEach((line) => {
-    const wrapper = doc.createElement("div");
-    wrapper.dataset.hide = "start";
-    wrapper.classList.add("hidden");
+      if (isHidden) {
+        index++;
+        return false;
+      }
 
-    line.replaceWith(wrapper);
-  });
-
-  ends.forEach((line) => {
-    // const wrapper = doc.createElement("div");
-    // wrapper.dataset.hide = "end";
-    // wrapper.classList.add("hidden");
-
-    line.remove();
-  });
-
-  console.log(doc.body.innerHTML);
-
-  return doc.body.innerHTML;
-  // Wrap the collected sections in a collapsible div
-  // collapsibleSections.forEach((section) => {
-  //   const wrapper = doc.createElement("div");
-  //   wrapper.className = "collapsible-section";
-  //   wrapper.innerHTML = `
-  //     <button onclick="this.nextElementSibling.style.display =
-  //       this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
-  //       Toggle Section
-  //     </button>
-  //     <div style="display: none;">
-  //       ${section.map((line) => line.outerHTML).join("")}
-  //     </div>
-  //   `;
-
-  //   section[0].parentNode.insertBefore(wrapper, section[0]);
-  //   section.forEach((line) => line.remove());
-  // });
-
-  // // Return the updated HTML as a React component
-  // return `
-  //   export function Snippet() {
-  //     return <div dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
-  //       doc.body.innerHTML,
-  //     )} }}></div>;
-  //   }
-  // `;
+      return line;
+    })
+    .filter(Boolean);
+  return adjustTabIndent(result).join("\n");
 }
 
 // Helper function to recursively find matching files

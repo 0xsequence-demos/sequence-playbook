@@ -28,6 +28,8 @@
     "clsx": "^2.1.1",
     "ethers": "^6.13.5",
     "isbot": "^5.1.21",
+    "@sanity/diff-match-patch": "^3.1.2",
+    "framer-motion": "^11.17.0",
     "js-cookie": "^3.0.5",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
@@ -36,10 +38,11 @@
     "react-router-dom": "^7.1.1",
     "remix-flat-routes": "^0.6.5",
     "remix-utils": "^8.0.0",
-    "sonner": "^1.7.1",
-    "vaul": "^1.1.2",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wagmi": "^2.14.7"
+    "shiki-magic-move": "^0.5.2",
+    "sonner": "^1.7.0",
+    "vaul": "^1.1.1",
+    "vite-tsconfig-paths": "^4.2.1",
+    "wagmi": "^2.12.30"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",

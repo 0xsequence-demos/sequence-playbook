@@ -43,7 +43,7 @@ export default function SiteLayout() {
         className="top-[3rem] absolute"
       ></div>
 
-      <header className="z-10 w-full flex items-center isolate py-4 md:py-0 md:sticky top-0">
+      <header className="z-10 w-full flex items-center ilaysolate py-4 md:py-0 md:sticky top-0">
         <div
           data-stuck={isStuck}
           className={`hidden md:block absolute h-[6rem] w-full top-[-3rem]
@@ -58,7 +58,7 @@ export default function SiteLayout() {
         ></div>
         <div
           data-stuck={isStuck}
-          className={`max-w-screen-xl w-full mx-auto flex justify-between gap-x-4 data-[stuck='true']:md:translate-y-[-1.5rem] md:min-h-[6rem] items-center px-4 md:px-12 transition-all will-change-auto duration-200 ease-in-out `}
+          className={`max-w-[108rem] w-full mx-auto flex justify-between gap-x-4 data-[stuck='true']:md:translate-y-[-1.5rem] md:min-h-[6rem] items-center px-4 md:px-12 transition-all will-change-auto duration-200 ease-in-out `}
         >
           <div
             className="data-[stuck='true']:md:my-2 transition-all"
@@ -129,7 +129,7 @@ export default function SiteLayout() {
       </div>
       <div className="max-w-[108rem] w-full mx-auto relative flex-1 flex flex-col">
         <div className="w-full h-full max-h-[50rem] absolute inset-0 isolate z-0 pointer-events-none"></div>
-        <div className=" flex flex-col md:grid md:grid-cols-[minmax(8rem,16rem)_minmax(32rem,1fr)] gap-16 flex-1 items-stretch px-4 md:px-12 isolate max-w-screen-xl w-full mx-auto ">
+        <div className=" flex flex-col md:grid md:grid-cols-[minmax(8rem,16rem)_minmax(32rem,1fr)] gap-16 flex-1 items-stretch px-4 md:px-12 isolate w-full mx-auto ">
           <nav
             aria-label="books"
             className="hidden md:flex flex-col gap-3 sticky top-[8rem] self-start overflow-auto max-h-[calc(100vh-8rem)]"

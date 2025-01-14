@@ -1,11 +1,10 @@
-@layer components {
-  .shiki {
-    @apply p-3 sm:p-6 overflow-x-scroll max-w-full text-11 sm:text-13 !bg-transparent;
+.shiki,
+.shiki-magic-move-container {
+  @apply p-3 sm:p-6 overflow-x-scroll max-w-full text-11 sm:text-13 !bg-transparent;
 
-    line-height: 2em;
-  }
+  line-height: 2em;
+}
 
-  .shiki:focus {
-    /* background: white; */
-  }
+.shiki:focus {
+  /* background: white; */
 }

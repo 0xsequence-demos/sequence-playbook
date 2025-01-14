@@ -1,7 +1,7 @@
 
-    import { snippet } from './ProvidersSnippet';
+    import { steps } from './ProvidersSnippet';
     import { codeString } from './ProvidersString';
     
 
-    export const Providers = Object.assign({}, { Snippet:snippet, String:codeString });
+    export const Providers = Object.assign({}, {  steps, String:codeString });
   

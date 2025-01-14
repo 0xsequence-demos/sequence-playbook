@@ -56,9 +56,9 @@
 }
 
 @layer components {
-  [data-collapsed="true"] {
+  /* [data-collapsed="true"] {
     @apply hidden;
     display: none;
     line-height: 0;
-  }
+  } */
 }

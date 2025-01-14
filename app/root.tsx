@@ -31,8 +31,12 @@ import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
 import { useState } from "react";
 import { KitWalletProvider } from "@0xsequence/kit-wallet";
+import shiki from "./shiki.css?url";
+
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
+
+  { rel: "stylesheet", href: shiki },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
@@ -160,7 +164,7 @@ export function useConfig() {
       storage: createStorage({
         storage: cookieStorage,
       }),
-    })
+    }),
   );
 }
 

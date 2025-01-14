@@ -1,3 +1,4 @@
+/* starthide */
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { useAccount, useDisconnect } from "wagmi";
 export const AuthenticationWidget = () => {
@@ -5,18 +6,18 @@ export const AuthenticationWidget = () => {
   const { address } = useAccount();
 
   const { setOpenConnectModal } = useOpenConnectModal();
-  // #region
   return address ? (
     <>
+      {/* endhide */}
       <p>Connected as {address}</p>
       <button onClick={() => disconnect()}>Disconnect</button>
+      {/* starthide */}
     </>
   ) : (
-    /* starthide */
     <>
       <p>Not connected</p>
       <button onClick={() => setOpenConnectModal(true)}>Connect</button>
     </>
-    /* endhide */
   );
 };
+/* endhide */
