@@ -64,7 +64,7 @@ export default function BookCatchall() {
   return (
     <Main className="">
       {book.image ? (
-        <div className="absolute top-0 right-0 w-[700px] h-[525px] opacity-35">
+        <div className="hidden md:block absolute top-0 right-0 w-[700px] h-[525px] opacity-35">
           <Mask.BoxFade>
             <Image name={book.image.src} />
           </Mask.BoxFade>

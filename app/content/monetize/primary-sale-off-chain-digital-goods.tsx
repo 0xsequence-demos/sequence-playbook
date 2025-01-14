@@ -20,13 +20,10 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Let users pay for anything with powerful Checkout options",
+  description: "Let users pay for anything with powerful Checkout options",
 } as const;
 
-const resources = includeResources([
-  "offchain-sales-boilerplate",
-]);
+const resources = includeResources(["offchain-sales-boilerplate"]);
 
 function Book() {
   const { address } = useAccount();
@@ -35,20 +32,22 @@ function Book() {
 
   return (
     <>
-      Just because you aren't selling NFTs, doesn't mean your users don't want to support you. 
+      Just because you aren't selling NFTs, doesn't mean your users don't want
+      to support you.
       <br />
-      By using Sequence Pay, users can pay for anything, like season passes, non-blockchain items, or even coffee!
+      By using Sequence Pay, users can pay for anything, like season passes,
+      non-blockchain items, or even coffee!
       <h2>Buy a Season Pass</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );

@@ -20,8 +20,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Getting crypto in your wallet is easier than ever.",
+  description: "Getting crypto in your wallet is easier than ever.",
 } as const;
 
 const resources = includeResources([
@@ -42,19 +41,15 @@ function Book() {
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       That's how simple it is.
-
       <Divide />
-
       What if you need a different currency? No problem, just swap it!
-
       <h2>Swap it for something else</h2>
-
       <PlayCard>
         <PlayCard.Preview
           botMood={!address ? "dead" : signedData ? "happy" : "neutral"}
@@ -66,11 +61,11 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SignMessageWidget.String}>
-          <SignMessageWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SignMessageWidget.String}
+          steps={SignMessageWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );

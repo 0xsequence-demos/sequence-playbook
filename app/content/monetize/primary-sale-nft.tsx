@@ -19,8 +19,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description:
-    "Let users Mint new NFTs, by purchase!",
+  description: "Let users Mint new NFTs, by purchase!",
 } as const;
 
 const resources = includeResources([
@@ -35,7 +34,8 @@ function Book() {
 
   return (
     <>
-    Primary sales for NFTs let you ask for the support your project needs from your community, while securely minting NFTs in return.
+      Primary sales for NFTs let you ask for the support your project needs from
+      your community, while securely minting NFTs in return.
       <h2>Audience</h2>
       Users can sign up in advance, as part of a premint
       <PlayCard>
@@ -43,15 +43,13 @@ function Book() {
           <AuthenticationWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={AuthenticationWidget.String}
+          steps={AuthenticationWidget.steps}
+        />
       </PlayCard>
-
       <Divide />
-
       <h2>Buy an NFT from a primary sale</h2>
-
       When your NFT sale opens, your users can buy your NFTs
       <PlayCard>
         <PlayCard.Preview
@@ -64,11 +62,11 @@ function Book() {
           )}
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={SignMessageWidget.String}>
-          <SignMessageWidget.Snippet />
-        </PlayCard.Code>
+        <PlayCard.Code
+          copy={SignMessageWidget.String}
+          steps={SignMessageWidget.steps}
+        />
       </PlayCard>
-
       <Resources items={resources} />
     </>
   );
