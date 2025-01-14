@@ -1,12 +1,7 @@
-import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
-import { SignMessageWidget } from "~/examples/SignMessageWidget";
 import { useAccount } from "wagmi";
-import { useState } from "react";
-import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
+import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
-import { Divide } from "~/components/divide/Divide";
-import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
 import { includeResources } from "~/content/resources";
 
 const info = {
@@ -30,8 +25,6 @@ const resources = includeResources([
 
 function Book() {
   const { address } = useAccount();
-  const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
-  const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
 
   return (
     <>
@@ -45,11 +38,11 @@ function Book() {
       <h2>View Assets from a Single Contract</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
-          <AuthenticationWidget />
+          <WalletInventoryWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={AuthenticationWidget.String}>
-          <AuthenticationWidget.Snippet />
+        <PlayCard.Code copy={WalletInventoryWidget.String}>
+          <WalletInventoryWidget.Snippet />
         </PlayCard.Code>
       </PlayCard>
 
