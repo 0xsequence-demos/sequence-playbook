@@ -19,8 +19,8 @@
   "dependencies": {
     "0xsequence": "^2.2.5",
     "@0xsequence/design-system": "^1.9.0",
-    "@0xsequence/kit": "^4.5.5",
-    "@0xsequence/kit-wallet": "^4.5.5",
+    "@0xsequence/kit": "^4.5.6",
+    "@0xsequence/kit-wallet": "^4.5.6",
     "@react-router/cloudflare": "^7.1.1",
     "@reactuses/core": "^6.0.1",
     "@rive-app/react-canvas": "^4.17.5",
@@ -90,7 +90,8 @@
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
   "pnpm": {
     "patchedDependencies": {
-      "@0xsequence/kit-wallet@4.5.5": "patches/@0xsequence__kit-wallet@4.5.5.patch"
+      "@0xsequence/kit-wallet@4.5.6": "patches/@0xsequence__kit-wallet@4.5.6.patch",
+      "@0xsequence/kit@4.5.6": "patches/@0xsequence__kit@4.5.6.patch"
     }
   }
 }

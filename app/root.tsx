@@ -12,6 +12,7 @@ import type { LinksFunction } from "react-router";
 import "./tailwind.css";
 import { Toaster } from "sonner";
 import { getDefaultWaasConnectors, KitProvider } from "@0xsequence/kit";
+import { KitWalletProvider } from "@0xsequence/kit-wallet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   createConfig,
@@ -30,10 +31,8 @@ import { useNonce } from "~/providers/nonce-provider";
 import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
 import { useState } from "react";
-import { KitWalletProvider } from "@0xsequence/kit-wallet";
 import shiki from "./shiki.css?url";
 
-import { KitWalletProvider } from "@0xsequence/kit-wallet";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
 

@@ -1,5 +1,5 @@
 import { useAccount } from "wagmi";
-import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
+import { ContractInventoryWidget } from "~/examples/ContractInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { includeResources } from "~/content/resources";
@@ -37,12 +37,12 @@ function Book() {
       <h2>View Assets from a Single Contract</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
-          <WalletInventoryWidget />
+          <ContractInventoryWidget />
         </PlayCard.Preview>
 
         <PlayCard.Code
-          copy={WalletInventoryWidget.String}
-          steps={WalletInventoryWidget.steps}
+          copy={ContractInventoryWidget.String}
+          steps={ContractInventoryWidget.steps}
         />
       </PlayCard>
       <Resources items={resources} />
