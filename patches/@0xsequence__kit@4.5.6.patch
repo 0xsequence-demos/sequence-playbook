@@ -1,5 +1,5 @@
 diff --git a/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js b/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
-index aa7203f745742bf54551fe774c8238336268cd44..d93fd1e9c64b50c85f36399f7644a0aa2eaa9d87 100644
+index aa7203f745742bf54551fe774c8238336268cd44..ff008ab5c56743c1a252c3d8163a9f3e4202c48b 100644
 --- a/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
 +++ b/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
 @@ -12,7 +12,7 @@ const wagmi_1 = require("wagmi");
@@ -7,12 +7,12 @@ index aa7203f745742bf54551fe774c8238336268cd44..d93fd1e9c64b50c85f36399f7644a0aa
  sequenceWaasWallet.type = 'sequence-waas';
  function sequenceWaasWallet(params) {
 -    const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
-+    const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
++    const nodesUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
      const showConfirmationModal = params.enableConfirmationModal ?? false;
      const sequenceWaas = new waas_1.SequenceWaaS({
          waasConfigKey: params.waasConfigKey,
 diff --git a/dist/cjs/hooks/useAPIClient.js b/dist/cjs/hooks/useAPIClient.js
-index 7283804e71bbb90087972ce093d724f09245cbdc..721cdd540192fe5adc847f8252479ad3d4f9653b 100644
+index 7283804e71bbb90087972ce093d724f09245cbdc..9bcee1731aa19cc11fd49e8efbacf5aeefd3b6b1 100644
 --- a/dist/cjs/hooks/useAPIClient.js
 +++ b/dist/cjs/hooks/useAPIClient.js
 @@ -6,7 +6,7 @@ const react_1 = require("react");
@@ -20,12 +20,12 @@ index 7283804e71bbb90087972ce093d724f09245cbdc..721cdd540192fe5adc847f8252479ad3
  const useAPIClient = () => {
      const projectAccessKey = (0, useProjectAccessKey_1.useProjectAccessKey)();
 -    const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
-+    const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
      const apiClient = (0, react_1.useMemo)(() => {
          return new api_1.SequenceAPIClient(clientUrl, projectAccessKey);
      }, [projectAccessKey]);
 diff --git a/dist/cjs/hooks/useIndexerClient.js b/dist/cjs/hooks/useIndexerClient.js
-index a0e11ef115467800120b117f9cbecff5869d4e6a..67e2093279ad0f4b693d85f8720d359a7632ce59 100644
+index a0e11ef115467800120b117f9cbecff5869d4e6a..431aecc3326e747b80248dd4c798328e7262c384 100644
 --- a/dist/cjs/hooks/useIndexerClient.js
 +++ b/dist/cjs/hooks/useIndexerClient.js
 @@ -11,7 +11,7 @@ const useIndexerClient = (chainId) => {
@@ -33,7 +33,7 @@ index a0e11ef115467800120b117f9cbecff5869d4e6a..67e2093279ad0f4b693d85f8720d359a
      }, [projectAccessKey]);
      const network = network_1.networks[chainId];
 -    const clientUrl = process.env.DEBUG
-+    const clientUrl = process?.env?.DEBUG
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG
          ? `https://dev-${network.name}-indexer.sequence.app`
          : `https://${network.name}-indexer.sequence.app`;
      if (!indexerClients.has(chainId)) {
@@ -42,12 +42,12 @@ index a0e11ef115467800120b117f9cbecff5869d4e6a..67e2093279ad0f4b693d85f8720d359a
      for (const chainId of chainIds) {
          const network = network_1.networks[chainId];
 -        const clientUrl = process.env.DEBUG
-+        const clientUrl = process?.env?.DEBUG
++        const clientUrl = typeof process === "object" && process?.env?.DEBUG
              ? `https://dev-${network.name}-indexer.sequence.app`
              : `https://${network.name}-indexer.sequence.app`;
          if (!indexerClients.has(chainId)) {
 diff --git a/dist/cjs/hooks/useMetadataClient.js b/dist/cjs/hooks/useMetadataClient.js
-index 98a82fca54627269bc0af1664f06212e0e44d534..80b1278ae1915957592b2924fba8a50ab866875f 100644
+index 98a82fca54627269bc0af1664f06212e0e44d534..8c6fbb2ee5a9ab4904532141c1d86b4da35e9b48 100644
 --- a/dist/cjs/hooks/useMetadataClient.js
 +++ b/dist/cjs/hooks/useMetadataClient.js
 @@ -7,7 +7,7 @@ const useProjectAccessKey_1 = require("./useProjectAccessKey");
@@ -55,12 +55,12 @@ index 98a82fca54627269bc0af1664f06212e0e44d534..80b1278ae1915957592b2924fba8a50a
      const projectAccessKey = (0, useProjectAccessKey_1.useProjectAccessKey)();
      const metadataClient = (0, react_1.useMemo)(() => {
 -        const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
-+        const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
++        const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
          return new metadata_1.SequenceMetadata(clientUrl, projectAccessKey);
      }, [projectAccessKey]);
      return metadataClient;
 diff --git a/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js b/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
-index 939c49f14deef35d1422c39df918ee75b4d64b02..d0a8ec488e47243d62496d94304f1a00136eedf1 100644
+index 939c49f14deef35d1422c39df918ee75b4d64b02..c56e96cd97cfb34ccccfbe22cc37ae9ff23037e1 100644
 --- a/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
 +++ b/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
 @@ -7,7 +7,7 @@ import { createConnector } from 'wagmi';
@@ -68,12 +68,12 @@ index 939c49f14deef35d1422c39df918ee75b4d64b02..d0a8ec488e47243d62496d94304f1a00
  sequenceWaasWallet.type = 'sequence-waas';
  export function sequenceWaasWallet(params) {
 -    const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
-+    const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
++    const nodesUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
      const showConfirmationModal = params.enableConfirmationModal ?? false;
      const sequenceWaas = new SequenceWaaS({
          waasConfigKey: params.waasConfigKey,
 diff --git a/dist/esm/hooks/useAPIClient.js b/dist/esm/hooks/useAPIClient.js
-index f3fcb16f01dc4f4406b40219fd621ea5379df810..0af9b0136742ab86cba151e3309a9f5132eb09ba 100644
+index f3fcb16f01dc4f4406b40219fd621ea5379df810..55f1d123f4bf8b1952549dfd65623d1910cb3a7f 100644
 --- a/dist/esm/hooks/useAPIClient.js
 +++ b/dist/esm/hooks/useAPIClient.js
 @@ -3,7 +3,7 @@ import { useMemo } from 'react';
@@ -81,12 +81,12 @@ index f3fcb16f01dc4f4406b40219fd621ea5379df810..0af9b0136742ab86cba151e3309a9f51
  export const useAPIClient = () => {
      const projectAccessKey = useProjectAccessKey();
 -    const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
-+    const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
      const apiClient = useMemo(() => {
          return new SequenceAPIClient(clientUrl, projectAccessKey);
      }, [projectAccessKey]);
 diff --git a/dist/esm/hooks/useIndexerClient.js b/dist/esm/hooks/useIndexerClient.js
-index 939a7e5b01aabff4f579379b55a9e5ec52309106..640fe914878a06081d2c1d76de9cb543d5f57b1b 100644
+index 939a7e5b01aabff4f579379b55a9e5ec52309106..c74be2b5b9d9e2c42118701859945b2ed4eb87bb 100644
 --- a/dist/esm/hooks/useIndexerClient.js
 +++ b/dist/esm/hooks/useIndexerClient.js
 @@ -8,7 +8,7 @@ export const useIndexerClient = (chainId) => {
@@ -94,7 +94,7 @@ index 939a7e5b01aabff4f579379b55a9e5ec52309106..640fe914878a06081d2c1d76de9cb543
      }, [projectAccessKey]);
      const network = networks[chainId];
 -    const clientUrl = process.env.DEBUG
-+    const clientUrl = process?.env?.DEBUG
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG
          ? `https://dev-${network.name}-indexer.sequence.app`
          : `https://${network.name}-indexer.sequence.app`;
      if (!indexerClients.has(chainId)) {
@@ -103,12 +103,12 @@ index 939a7e5b01aabff4f579379b55a9e5ec52309106..640fe914878a06081d2c1d76de9cb543
      for (const chainId of chainIds) {
          const network = networks[chainId];
 -        const clientUrl = process.env.DEBUG
-+        const clientUrl = process?.env?.DEBUG
++        const clientUrl = typeof process === "object" && process?.env?.DEBUG
              ? `https://dev-${network.name}-indexer.sequence.app`
              : `https://${network.name}-indexer.sequence.app`;
          if (!indexerClients.has(chainId)) {
 diff --git a/dist/esm/hooks/useMetadataClient.js b/dist/esm/hooks/useMetadataClient.js
-index f3a6c1a19e14d3c5e15ba3cdd86ca4f2e0edeb34..5767ed3411ea06e6c2d1dbeb37ce3d0f226998ea 100644
+index f3a6c1a19e14d3c5e15ba3cdd86ca4f2e0edeb34..f33c5ca675ddcae09ef1b83652750573d18b7cc6 100644
 --- a/dist/esm/hooks/useMetadataClient.js
 +++ b/dist/esm/hooks/useMetadataClient.js
 @@ -4,7 +4,7 @@ import { useProjectAccessKey } from './useProjectAccessKey';
@@ -116,12 +116,12 @@ index f3a6c1a19e14d3c5e15ba3cdd86ca4f2e0edeb34..5767ed3411ea06e6c2d1dbeb37ce3d0f
      const projectAccessKey = useProjectAccessKey();
      const metadataClient = useMemo(() => {
 -        const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
-+        const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
++        const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
          return new SequenceMetadata(clientUrl, projectAccessKey);
      }, [projectAccessKey]);
      return metadataClient;
 diff --git a/src/connectors/wagmiConnectors/sequenceWaasConnector.ts b/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
-index 24e5aed3d4cfd5b94b44c9e2e632b2c02bf20e95..a482ec477866e13ff1b71dfb8ba3d24c2b63cbbb 100644
+index 24e5aed3d4cfd5b94b44c9e2e632b2c02bf20e95..e0b61c49cef99a36b9e4c3bc758a5f56f931aaf0 100644
 --- a/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
 +++ b/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
 @@ -51,7 +51,7 @@ export function sequenceWaasWallet(params: BaseSequenceWaasConnectorOptions) {
@@ -129,12 +129,12 @@ index 24e5aed3d4cfd5b94b44c9e2e632b2c02bf20e95..a482ec477866e13ff1b71dfb8ba3d24c
    }
  
 -  const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app'
-+  const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app'
++  const nodesUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app'
  
    const showConfirmationModal = params.enableConfirmationModal ?? false
  
 diff --git a/src/hooks/useAPIClient.ts b/src/hooks/useAPIClient.ts
-index dbdebdc6a9917bd09ed7e75f31f491279e4f2f19..cc751e96e12a5e5d7858d9bd05ee35351a45891a 100644
+index dbdebdc6a9917bd09ed7e75f31f491279e4f2f19..924640065b6bfb419a62c3135cfc90c09d406e8d 100644
 --- a/src/hooks/useAPIClient.ts
 +++ b/src/hooks/useAPIClient.ts
 @@ -8,7 +8,7 @@ import { useProjectAccessKey } from './useProjectAccessKey'
@@ -142,12 +142,12 @@ index dbdebdc6a9917bd09ed7e75f31f491279e4f2f19..cc751e96e12a5e5d7858d9bd05ee3535
    const projectAccessKey = useProjectAccessKey()
  
 -  const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app'
-+  const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app'
++  const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app'
  
    const apiClient = useMemo(() => {
      return new SequenceAPIClient(clientUrl, projectAccessKey)
 diff --git a/src/hooks/useIndexerClient.ts b/src/hooks/useIndexerClient.ts
-index d946669324926b9590bb0825df05a890846070b1..0e94f41cba10e819e7f3344aecfdc8dc4d0d0ce3 100644
+index d946669324926b9590bb0825df05a890846070b1..b1d62ff9b71655275d224eb2ce8f0688ac4bdac8 100644
 --- a/src/hooks/useIndexerClient.ts
 +++ b/src/hooks/useIndexerClient.ts
 @@ -14,7 +14,7 @@ export const useIndexerClient = (chainId: ChainId) => {
@@ -155,7 +155,7 @@ index d946669324926b9590bb0825df05a890846070b1..0e94f41cba10e819e7f3344aecfdc8dc
  
    const network = networks[chainId]
 -  const clientUrl = process.env.DEBUG
-+  const clientUrl = process?.env?.DEBUG
++  const clientUrl = typeof process === "object" && process?.env?.DEBUG
      ? `https://dev-${network.name}-indexer.sequence.app`
      : `https://${network.name}-indexer.sequence.app`
  
@@ -164,12 +164,12 @@ index d946669324926b9590bb0825df05a890846070b1..0e94f41cba10e819e7f3344aecfdc8dc
    for (const chainId of chainIds) {
      const network = networks[chainId]
 -    const clientUrl = process.env.DEBUG
-+    const clientUrl = process?.env?.DEBUG
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG
        ? `https://dev-${network.name}-indexer.sequence.app`
        : `https://${network.name}-indexer.sequence.app`
  
 diff --git a/src/hooks/useMetadataClient.ts b/src/hooks/useMetadataClient.ts
-index 2e5e0e9d712d85526546e12840ff48ca8a72ebbf..3df1daf23c69b3a28664a892322c150517623e50 100644
+index 2e5e0e9d712d85526546e12840ff48ca8a72ebbf..1faa79f9df496136aa507b64bf4fd41dda6bf4dc 100644
 --- a/src/hooks/useMetadataClient.ts
 +++ b/src/hooks/useMetadataClient.ts
 @@ -9,7 +9,7 @@ export const useMetadataClient = () => {
@@ -177,7 +177,7 @@ index 2e5e0e9d712d85526546e12840ff48ca8a72ebbf..3df1daf23c69b3a28664a892322c1505
  
    const metadataClient = useMemo(() => {
 -    const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app'
-+    const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app'
++    const clientUrl = typeof process === "object" && process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app'
  
      return new SequenceMetadata(clientUrl, projectAccessKey)
    }, [projectAccessKey])
