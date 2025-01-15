@@ -9,15 +9,19 @@ export const ContractInventoryWidget = () => {
   return address ? (
     <>
       <p>Connected as {address}</p>
-      <button onClick={() => setOpenWalletModal(true, {
-        defaultNavigation: {
-          location: 'collection-details',
-          params: {
-            contractAddress: '0x1693ffc74edbb50d6138517fe5cd64fd1c917709',
-            chainId: arbitrumSepolia.id
-          }
+      <button
+        onClick={() =>
+          setOpenWalletModal(true, {
+            defaultNavigation: {
+              location: "collection-details",
+              params: {
+                contractAddress: "0x1693ffc74edbb50d6138517fe5cd64fd1c917709",
+                chainId: arbitrumSepolia.id,
+              },
+            },
+          })
         }
-        })}>
+      >
         Open Wallet Inventory
       </button>
     </>
