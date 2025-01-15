@@ -1,0 +1,183 @@
+diff --git a/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js b/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
+index aa7203f745742bf54551fe774c8238336268cd44..d93fd1e9c64b50c85f36399f7644a0aa2eaa9d87 100644
+--- a/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
++++ b/dist/cjs/connectors/wagmiConnectors/sequenceWaasConnector.js
+@@ -12,7 +12,7 @@ const wagmi_1 = require("wagmi");
+ const localStorage_1 = require("../../constants/localStorage");
+ sequenceWaasWallet.type = 'sequence-waas';
+ function sequenceWaasWallet(params) {
+-    const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
++    const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
+     const showConfirmationModal = params.enableConfirmationModal ?? false;
+     const sequenceWaas = new waas_1.SequenceWaaS({
+         waasConfigKey: params.waasConfigKey,
+diff --git a/dist/cjs/hooks/useAPIClient.js b/dist/cjs/hooks/useAPIClient.js
+index 7283804e71bbb90087972ce093d724f09245cbdc..721cdd540192fe5adc847f8252479ad3d4f9653b 100644
+--- a/dist/cjs/hooks/useAPIClient.js
++++ b/dist/cjs/hooks/useAPIClient.js
+@@ -6,7 +6,7 @@ const react_1 = require("react");
+ const useProjectAccessKey_1 = require("./useProjectAccessKey");
+ const useAPIClient = () => {
+     const projectAccessKey = (0, useProjectAccessKey_1.useProjectAccessKey)();
+-    const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
++    const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
+     const apiClient = (0, react_1.useMemo)(() => {
+         return new api_1.SequenceAPIClient(clientUrl, projectAccessKey);
+     }, [projectAccessKey]);
+diff --git a/dist/cjs/hooks/useIndexerClient.js b/dist/cjs/hooks/useIndexerClient.js
+index a0e11ef115467800120b117f9cbecff5869d4e6a..67e2093279ad0f4b693d85f8720d359a7632ce59 100644
+--- a/dist/cjs/hooks/useIndexerClient.js
++++ b/dist/cjs/hooks/useIndexerClient.js
+@@ -11,7 +11,7 @@ const useIndexerClient = (chainId) => {
+         return new Map();
+     }, [projectAccessKey]);
+     const network = network_1.networks[chainId];
+-    const clientUrl = process.env.DEBUG
++    const clientUrl = process?.env?.DEBUG
+         ? `https://dev-${network.name}-indexer.sequence.app`
+         : `https://${network.name}-indexer.sequence.app`;
+     if (!indexerClients.has(chainId)) {
+@@ -32,7 +32,7 @@ const useIndexerClients = (chainIds) => {
+     const result = new Map();
+     for (const chainId of chainIds) {
+         const network = network_1.networks[chainId];
+-        const clientUrl = process.env.DEBUG
++        const clientUrl = process?.env?.DEBUG
+             ? `https://dev-${network.name}-indexer.sequence.app`
+             : `https://${network.name}-indexer.sequence.app`;
+         if (!indexerClients.has(chainId)) {
+diff --git a/dist/cjs/hooks/useMetadataClient.js b/dist/cjs/hooks/useMetadataClient.js
+index 98a82fca54627269bc0af1664f06212e0e44d534..80b1278ae1915957592b2924fba8a50ab866875f 100644
+--- a/dist/cjs/hooks/useMetadataClient.js
++++ b/dist/cjs/hooks/useMetadataClient.js
+@@ -7,7 +7,7 @@ const useProjectAccessKey_1 = require("./useProjectAccessKey");
+ const useMetadataClient = () => {
+     const projectAccessKey = (0, useProjectAccessKey_1.useProjectAccessKey)();
+     const metadataClient = (0, react_1.useMemo)(() => {
+-        const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
++        const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
+         return new metadata_1.SequenceMetadata(clientUrl, projectAccessKey);
+     }, [projectAccessKey]);
+     return metadataClient;
+diff --git a/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js b/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
+index 939c49f14deef35d1422c39df918ee75b4d64b02..d0a8ec488e47243d62496d94304f1a00136eedf1 100644
+--- a/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
++++ b/dist/esm/connectors/wagmiConnectors/sequenceWaasConnector.js
+@@ -7,7 +7,7 @@ import { createConnector } from 'wagmi';
+ import { LocalStorageKey } from '../../constants/localStorage';
+ sequenceWaasWallet.type = 'sequence-waas';
+ export function sequenceWaasWallet(params) {
+-    const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
++    const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app';
+     const showConfirmationModal = params.enableConfirmationModal ?? false;
+     const sequenceWaas = new SequenceWaaS({
+         waasConfigKey: params.waasConfigKey,
+diff --git a/dist/esm/hooks/useAPIClient.js b/dist/esm/hooks/useAPIClient.js
+index f3fcb16f01dc4f4406b40219fd621ea5379df810..0af9b0136742ab86cba151e3309a9f5132eb09ba 100644
+--- a/dist/esm/hooks/useAPIClient.js
++++ b/dist/esm/hooks/useAPIClient.js
+@@ -3,7 +3,7 @@ import { useMemo } from 'react';
+ import { useProjectAccessKey } from './useProjectAccessKey';
+ export const useAPIClient = () => {
+     const projectAccessKey = useProjectAccessKey();
+-    const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
++    const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app';
+     const apiClient = useMemo(() => {
+         return new SequenceAPIClient(clientUrl, projectAccessKey);
+     }, [projectAccessKey]);
+diff --git a/dist/esm/hooks/useIndexerClient.js b/dist/esm/hooks/useIndexerClient.js
+index 939a7e5b01aabff4f579379b55a9e5ec52309106..640fe914878a06081d2c1d76de9cb543d5f57b1b 100644
+--- a/dist/esm/hooks/useIndexerClient.js
++++ b/dist/esm/hooks/useIndexerClient.js
+@@ -8,7 +8,7 @@ export const useIndexerClient = (chainId) => {
+         return new Map();
+     }, [projectAccessKey]);
+     const network = networks[chainId];
+-    const clientUrl = process.env.DEBUG
++    const clientUrl = process?.env?.DEBUG
+         ? `https://dev-${network.name}-indexer.sequence.app`
+         : `https://${network.name}-indexer.sequence.app`;
+     if (!indexerClients.has(chainId)) {
+@@ -28,7 +28,7 @@ export const useIndexerClients = (chainIds) => {
+     const result = new Map();
+     for (const chainId of chainIds) {
+         const network = networks[chainId];
+-        const clientUrl = process.env.DEBUG
++        const clientUrl = process?.env?.DEBUG
+             ? `https://dev-${network.name}-indexer.sequence.app`
+             : `https://${network.name}-indexer.sequence.app`;
+         if (!indexerClients.has(chainId)) {
+diff --git a/dist/esm/hooks/useMetadataClient.js b/dist/esm/hooks/useMetadataClient.js
+index f3a6c1a19e14d3c5e15ba3cdd86ca4f2e0edeb34..5767ed3411ea06e6c2d1dbeb37ce3d0f226998ea 100644
+--- a/dist/esm/hooks/useMetadataClient.js
++++ b/dist/esm/hooks/useMetadataClient.js
+@@ -4,7 +4,7 @@ import { useProjectAccessKey } from './useProjectAccessKey';
+ export const useMetadataClient = () => {
+     const projectAccessKey = useProjectAccessKey();
+     const metadataClient = useMemo(() => {
+-        const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
++        const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app';
+         return new SequenceMetadata(clientUrl, projectAccessKey);
+     }, [projectAccessKey]);
+     return metadataClient;
+diff --git a/src/connectors/wagmiConnectors/sequenceWaasConnector.ts b/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
+index 24e5aed3d4cfd5b94b44c9e2e632b2c02bf20e95..a482ec477866e13ff1b71dfb8ba3d24c2b63cbbb 100644
+--- a/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
++++ b/src/connectors/wagmiConnectors/sequenceWaasConnector.ts
+@@ -51,7 +51,7 @@ export function sequenceWaasWallet(params: BaseSequenceWaasConnectorOptions) {
+     [LocalStorageKey.WaasSignInEmail]: string
+   }
+ 
+-  const nodesUrl = process.env.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app'
++  const nodesUrl = process?.env?.DEBUG ? 'https://dev-nodes.sequence.app' : 'https://nodes.sequence.app'
+ 
+   const showConfirmationModal = params.enableConfirmationModal ?? false
+ 
+diff --git a/src/hooks/useAPIClient.ts b/src/hooks/useAPIClient.ts
+index dbdebdc6a9917bd09ed7e75f31f491279e4f2f19..cc751e96e12a5e5d7858d9bd05ee35351a45891a 100644
+--- a/src/hooks/useAPIClient.ts
++++ b/src/hooks/useAPIClient.ts
+@@ -8,7 +8,7 @@ import { useProjectAccessKey } from './useProjectAccessKey'
+ export const useAPIClient = () => {
+   const projectAccessKey = useProjectAccessKey()
+ 
+-  const clientUrl = process.env.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app'
++  const clientUrl = process?.env?.DEBUG ? 'https://dev-api.sequence.app' : 'https://api.sequence.app'
+ 
+   const apiClient = useMemo(() => {
+     return new SequenceAPIClient(clientUrl, projectAccessKey)
+diff --git a/src/hooks/useIndexerClient.ts b/src/hooks/useIndexerClient.ts
+index d946669324926b9590bb0825df05a890846070b1..0e94f41cba10e819e7f3344aecfdc8dc4d0d0ce3 100644
+--- a/src/hooks/useIndexerClient.ts
++++ b/src/hooks/useIndexerClient.ts
+@@ -14,7 +14,7 @@ export const useIndexerClient = (chainId: ChainId) => {
+   }, [projectAccessKey])
+ 
+   const network = networks[chainId]
+-  const clientUrl = process.env.DEBUG
++  const clientUrl = process?.env?.DEBUG
+     ? `https://dev-${network.name}-indexer.sequence.app`
+     : `https://${network.name}-indexer.sequence.app`
+ 
+@@ -42,7 +42,7 @@ export const useIndexerClients = (chainIds: ChainId[]) => {
+ 
+   for (const chainId of chainIds) {
+     const network = networks[chainId]
+-    const clientUrl = process.env.DEBUG
++    const clientUrl = process?.env?.DEBUG
+       ? `https://dev-${network.name}-indexer.sequence.app`
+       : `https://${network.name}-indexer.sequence.app`
+ 
+diff --git a/src/hooks/useMetadataClient.ts b/src/hooks/useMetadataClient.ts
+index 2e5e0e9d712d85526546e12840ff48ca8a72ebbf..3df1daf23c69b3a28664a892322c150517623e50 100644
+--- a/src/hooks/useMetadataClient.ts
++++ b/src/hooks/useMetadataClient.ts
+@@ -9,7 +9,7 @@ export const useMetadataClient = () => {
+   const projectAccessKey = useProjectAccessKey()
+ 
+   const metadataClient = useMemo(() => {
+-    const clientUrl = process.env.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app'
++    const clientUrl = process?.env?.DEBUG ? 'https://dev-metadata.sequence.app' : 'https://metadata.sequence.app'
+ 
+     return new SequenceMetadata(clientUrl, projectAccessKey)
+   }, [projectAccessKey])
