@@ -45,7 +45,7 @@ export default [
       { ...CryptoOnrampCreditCardBook.info, content: CryptoOnrampCreditCardBook },
       { ...IngameWeb3MarketplaceBook.info, content: IngameWeb3MarketplaceBook },
       { ...PrimarySaleNftBook.info, content: PrimarySaleNftBook },
-      { ...PrimarySaleOffChainDigitalGoodsBook.info, content: PrimarySaleOffChainDigitalGoodsBook },
+      // { ...PrimarySaleOffChainDigitalGoodsBook.info, content: PrimarySaleOffChainDigitalGoodsBook },
     ],
   },
   {

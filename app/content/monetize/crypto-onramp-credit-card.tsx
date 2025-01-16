@@ -20,7 +20,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description: "Getting crypto in your wallet is easier than ever.",
+  description: "Getting crypto in your wallet is easier than ever on mainnet.",
 } as const;
 
 const resources = includeResources([
