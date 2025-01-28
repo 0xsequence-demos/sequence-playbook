@@ -3,7 +3,6 @@ import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "wallet-inventory",
@@ -12,17 +11,14 @@ const info = {
   shortname: "Wallet Inventory",
   image: {
     src: "wallet-inventory",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   description:
     "A simple and elegant way to view your wallet inventory, with Sequence Kit",
 } as const;
 
-const resources = includeResources(["gift-wallet-inventory-boilerplate"]);
+const resources = ["gift-wallet-inventory-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
 
   return (
@@ -46,4 +42,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

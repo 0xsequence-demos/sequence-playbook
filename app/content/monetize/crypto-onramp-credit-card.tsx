@@ -7,7 +7,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "crypto-onramp-credit-card",
@@ -23,12 +22,9 @@ const info = {
   description: "Getting crypto in your wallet is easier than ever on mainnet.",
 } as const;
 
-const resources = includeResources([
-  "crypto-onramp-boilerplate",
-  "sequence-pay-boilerplate",
-]);
+const resources = ["crypto-onramp-boilerplate", "sequence-pay-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -71,4 +67,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

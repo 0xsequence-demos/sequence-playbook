@@ -6,7 +6,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "primary-sale-nft",
@@ -22,12 +21,12 @@ const info = {
   description: "Let users Mint new NFTs, by purchase!",
 } as const;
 
-const resources = includeResources([
+const resources = [
   "primary-drop-sale-721-boilerplate",
   "primary-sale-1155-boilerplate",
-]);
+];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -72,4 +71,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

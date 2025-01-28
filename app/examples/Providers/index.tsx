@@ -3,5 +3,11 @@
     import { codeString } from './ProvidersString';
     
 
-    export const Providers = Object.assign({}, {  steps, String:codeString });
+    export const Providers = Object.assign({}, {
+      steps,
+      id: "Providers",
+      String:codeString
+      
+      
+    });
   

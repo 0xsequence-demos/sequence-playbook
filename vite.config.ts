@@ -3,7 +3,7 @@ import { reactRouter } from "@react-router/dev/vite";
 import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { getLoadContext } from "./load-context";
-
+import { envOnlyMacros } from "vite-env-only";
 export default defineConfig({
   server: {
     port: 4444,
@@ -12,7 +12,7 @@ export default defineConfig({
     cloudflareDevProxy({
       getLoadContext,
     }),
-
+    envOnlyMacros(),
     reactRouter(),
     tsconfigPaths(),
   ],

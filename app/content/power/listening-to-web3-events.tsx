@@ -16,16 +16,13 @@ const info = {
   shortname: "Web3 Events",
   image: {
     src: "listening-to-web3-events",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   description: "Build responsive experiences that react to onchain activity.",
 } as const;
 
-const resources = includeResources(["web3-events-boilerplate"]);
+const resources = ["web3-events-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -53,4 +50,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

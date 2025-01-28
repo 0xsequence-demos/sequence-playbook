@@ -59,6 +59,8 @@ async function generateComponentFromFile(
   const minimum = generateMinimalCode(originalCode);
   const full = removeDirectiveComments(originalCode);
 
+  const loader = findLoader(originalCode);
+  const action = findAction(originalCode);
   const codeSteps = [minimum];
 
   if (minimum !== full) {
@@ -100,15 +102,36 @@ async function generateComponentFromFile(
     import { codeString } from './${componentName}String';
     ${
       ext === "tsx"
-        ? `import { ${componentName} as example } from './${componentName}';`
+        ? `import { ${componentName} as example${loader ? ", loader" : ""}${action ? ", action" : ""} } from './${componentName}';`
         : ""
     }
 
     export const ${componentName} = Object.assign(${
       ext === "tsx" ? "example" : "{}"
-    }, {  steps, String:codeString });
+    }, {
+      steps,
+      id: "${componentName}",
+      String:codeString
+      ${loader ? ", loader" : ""}
+      ${action ? ", action" : ""}
+    });
   `,
   );
+}
+
+let serverImports = ``;
+let serverComponents = ``;
+
+function findLoader(originalCode) {
+  return originalCode.includes("export const loader = serverOnly$")
+    ? true
+    : false;
+}
+
+function findAction(originalCode) {
+  return originalCode.includes("export const action = serverOnly$")
+    ? true
+    : false;
 }
 
 function removeDirectiveComments(originalCode) {
@@ -126,6 +149,19 @@ function removeDirectiveComments(originalCode) {
   });
 
   return adjustTabIndent(result).join("\n");
+}
+
+function generateServerLoaderIndex() {
+  const outputDir = path.join("app", "examples");
+  fs.writeFileSync(
+    path.join(outputDir, `widgetLoaders.server.ts`),
+    `import { LoaderFunctionArgs } from "react-router";
+${serverImports}
+export const serverDependencies = {
+  ${serverComponents}
+} as Record<string, (context: LoaderFunctionArgs) => Record<string, any>>;
+`,
+  );
 }
 
 function generateMinimalCode(originalCode) {
@@ -224,6 +260,8 @@ async function compileDirectoryToReactComponents(inputDir, outputDir) {
       ext,
     );
   }
+
+  generateServerLoaderIndex();
 }
 
 // Run the main function with the provided options

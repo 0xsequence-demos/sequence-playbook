@@ -11,17 +11,14 @@ const info = {
   shortname: "Contract Inventory",
   image: {
     src: "contract-inventory",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   description:
     "A simple and elegant way to view your wallet inventory for a specific contract, with Sequence Kit",
 } as const;
 
-const resources = includeResources(["gift-wallet-inventory-boilerplate"]);
+const resources = ["gift-wallet-inventory-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
 
   return (
@@ -50,4 +47,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

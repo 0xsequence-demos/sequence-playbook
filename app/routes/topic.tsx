@@ -53,12 +53,12 @@ export default function TopicRoute() {
 
       <div className="grid grid-cols-1 mx-auto sm:mx-none sm:max-w-none md:grid-cols-2 xl:grid-cols-3 gap-4  items-stretch w-full">
         {books.map((book) => (
-          <Fragment key={book.path}>
-            <BackgroundImage name={book?.image?.src} />
+          <Fragment key={book.info.path}>
+            <BackgroundImage name={book?.info?.image?.src} />
             <InheritLinkFromChild asChild>
               <div
-                data-background={book?.image?.src}
-                className="aspect-video rounded-[0.75rem] max-w-full relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
+                data-background={book?.info?.image?.src}
+                className="aspect-video rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
               >
                 <div className="absolute size-full inset-0 border group-hover:border-white/30 border-white/10 transition-all duration-300 rounded-[0.75rem] pointer-events-none"></div>
                 <div className="flex flex-col px-8 p-8 bg-gradient-to-b from-0% to-40% from-deep-purple-900/0 to-deep-purple-900/95 gap-1">
@@ -66,13 +66,13 @@ export default function TopicRoute() {
                     {item.type}
                   </span> */}
                   <Link
-                    to={`/${name}/${book.name}`}
+                    to={`/${name}/${book.info.name}`}
                     className="text-20 font-bold leading-tight"
                   >
-                    {book.shortname}
+                    {book.info.shortname}
                   </Link>
 
-                  <p className="text-14 text-white/70">{book.title}</p>
+                  <p className="text-14 text-white/70">{book.info.title}</p>
                 </div>
               </div>
             </InheritLinkFromChild>

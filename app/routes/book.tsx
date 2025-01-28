@@ -1,38 +1,100 @@
-import { LoaderFunctionArgs, useLoaderData, MetaFunction } from "react-router";
+import {
+  LoaderFunctionArgs,
+  useLoaderData,
+  MetaFunction,
+  ActionFunctionArgs,
+} from "react-router";
 
 import { Main } from "~/components/main/Main";
 import { BookTitle } from "~/components/book-title/BookTitle";
 import { routeMeta } from "~/utils/route-meta";
-
 import Books from "~/content/books";
 import { NoBookContent } from "~/content/no-book-content";
 import { Mask } from "~/components/mask/Mask";
 import { Image } from "~/components/image/Image";
 import { Platforms } from "~/components/platforms/Platforms";
 
-export async function loader({ params }: LoaderFunctionArgs) {
-  const { topic, book } = params;
+export async function action(context: ActionFunctionArgs) {
+  const { topic, book } = context.params;
 
-  if (topic && book) {
-    try {
-      const parentTopic = Books.find((d) => d.name === topic);
-
-      const data = parentTopic?.books?.find((b) => b.name === book);
-
-      if (!data || !parentTopic) {
-        throw new Error();
-      }
-
-      return {
-        book: data,
-        topic: parentTopic,
-      };
-    } catch {
-      throw new Response("Not Found", { status: 404 });
-    }
+  if (!topic || !book) {
+    throw new Response("Not Found", { status: 404 });
   }
 
-  throw new Response("Not Found", { status: 404 });
+  try {
+    const parentTopic = Books.find((d) => d.name === topic);
+    const data = parentTopic?.books?.find((b) => b?.info?.name === book);
+
+    let widgets = {};
+
+    // If a dependency has a loader, run it
+    if (data?.dependencies) {
+      widgets = await data.dependencies.reduce(async (acc, item) => {
+        if (item?.action && typeof item?.action === "function") {
+          const response = await item.action(context);
+          acc[item.id] = response;
+          return acc;
+        }
+        return acc;
+      }, {});
+    }
+    let local = {};
+    if (data?.loader && typeof data?.loader === "function") {
+      local = await data?.loader(context);
+    }
+
+    return {
+      book: local,
+      widgets,
+    };
+  } catch {
+    throw new Response("Not Found", { status: 404 });
+  }
+}
+
+export async function loader(context: LoaderFunctionArgs) {
+  const { topic, book } = context.params;
+
+  if (!topic || !book) {
+    throw new Response("Not Found", { status: 404 });
+  }
+
+  try {
+    const parentTopic = Books.find((d) => d.name === topic);
+
+    const data = parentTopic?.books?.find((b) => b?.info?.name === book);
+
+    let widgets = {};
+
+    // If a dependency has a loader, run it
+    if (data?.dependencies) {
+      widgets = await data.dependencies.reduce(async (acc, item) => {
+        if (item?.loader && typeof item?.loader === "function") {
+          const response = await item.loader(context);
+          acc[item.id] = response;
+          return acc;
+        }
+        return acc;
+      }, {});
+    }
+
+    let local = {};
+    if (data?.loader && typeof data?.loader === "function") {
+      local = await data?.loader(context);
+    }
+
+    if (!data || !parentTopic) {
+      throw new Error();
+    }
+
+    return {
+      book: { ...data.info, data: local },
+      widgets,
+      topic: parentTopic,
+    };
+  } catch {
+    throw new Response("Not Found", { status: 404 });
+  }
 }
 
 export const meta: MetaFunction<typeof loader> = (args) => {
@@ -47,18 +109,12 @@ export const meta: MetaFunction<typeof loader> = (args) => {
 };
 
 export default function BookCatchall() {
-  const { book, topic } = useLoaderData<typeof loader>();
-
+  const { book, widgets, topic } = useLoaderData<typeof loader>();
   const bookTopic = Object.values(Books).find((d) => d.name === topic.name);
 
-  // const Book = Object.prototype.hasOwnProperty.call(Topics, book.name)
-  //   ? Topics[book.name]?.content
-
-  //   : NoBookContent;
-
   const Book = bookTopic
-    ? bookTopic.books.find((item) => item.name === book.name)?.content ||
-      NoBookContent
+    ? bookTopic.books.find((item) => item?.info?.name === book.name)
+        ?.component || NoBookContent
     : NoBookContent;
 
   return (
@@ -74,7 +130,7 @@ export default function BookCatchall() {
         <BookTitle book={book} topic={topic} />
         <Platforms platforms={book?.platforms} />
         <div className=" w-full gap-4 flex flex-col isolate book-content">
-          <Book />
+          <Book book={book} widgets={widgets} topic={topic} />
         </div>
       </div>
     </Main>

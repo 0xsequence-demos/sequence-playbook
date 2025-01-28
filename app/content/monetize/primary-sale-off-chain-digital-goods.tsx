@@ -7,7 +7,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "primary-sale-off-chain-digital-goods",
@@ -23,9 +22,9 @@ const info = {
   description: "Let users pay for anything with powerful Checkout options",
 } as const;
 
-const resources = includeResources(["offchain-sales-boilerplate"]);
+const resources = ["offchain-sales-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -53,4 +52,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

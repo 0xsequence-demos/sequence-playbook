@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { Image } from "~/components/image/Image";
-import { Book, Topic } from "~/content/types";
+import { BookInfo, Topic } from "~/content/types";
 
-export function BookTitle({ book, topic }: { book: Book; topic: Topic }) {
+export function BookTitle({ book, topic }: { book: BookInfo; topic: Topic }) {
   return (
     <>
       {" "}
