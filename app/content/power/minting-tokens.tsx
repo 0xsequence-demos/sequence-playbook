@@ -7,7 +7,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "minting-tokens",
@@ -23,9 +22,9 @@ const info = {
   description: "Mint your own ERC20, ERC721 or ERC1155 tokens.",
 } as const;
 
-const resources = includeResources(["server-side-transactions-boilerplate"]);
+const resources = ["server-side-transactions-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -70,4 +69,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

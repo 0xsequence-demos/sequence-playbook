@@ -3,5 +3,11 @@
     import { codeString } from './ContractInventoryWidgetString';
     import { ContractInventoryWidget as example } from './ContractInventoryWidget';
 
-    export const ContractInventoryWidget = Object.assign(example, {  steps, String:codeString });
+    export const ContractInventoryWidget = Object.assign(example, {
+      steps,
+      id: "ContractInventoryWidget",
+      String:codeString
+      
+      
+    });
   

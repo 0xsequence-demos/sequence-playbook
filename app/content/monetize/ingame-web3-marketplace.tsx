@@ -7,7 +7,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "ingame-web3-marketplace",
@@ -23,9 +22,9 @@ const info = {
   description: "Let users build a live economy in your game!",
 } as const;
 
-const resources = includeResources(["ingame-marketplace-boilerplate"]);
+const resources = ["ingame-marketplace-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -111,4 +110,4 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default { info, component };

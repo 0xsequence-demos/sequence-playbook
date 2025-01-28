@@ -3,12 +3,10 @@ import UserAuthenticationBook from "~/content/onboard/user-authentication";
 import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
 import WalletInventoryBook from "~/content/onboard/wallet-inventory";
 
-
 import CryptoOnrampCreditCardBook from "~/content/monetize/crypto-onramp-credit-card";
 import IngameWeb3MarketplaceBook from "~/content/monetize/ingame-web3-marketplace";
 import PrimarySaleNftBook from "~/content/monetize/primary-sale-nft";
 import PrimarySaleOffChainDigitalGoodsBook from "~/content/monetize/primary-sale-off-chain-digital-goods";
-
 
 import ContractInventoryBook from "~/content/power/contract-inventory";
 import ListeningToWeb3EventsBook from "~/content/power/listening-to-web3-events";
@@ -25,11 +23,7 @@ export default [
       bookColor: "text-blue-400",
     },
     description: "Authentication & wallets",
-    books: [
-      { ...UserAuthenticationBook.info, content: UserAuthenticationBook },
-      { ...MultipleWalletsBook.info, content: MultipleWalletsBook },
-      { ...WalletInventoryBook.info, content: WalletInventoryBook },
-    ],
+    books: [UserAuthenticationBook, MultipleWalletsBook, WalletInventoryBook],
   },
   {
     name: "monetize",
@@ -42,10 +36,10 @@ export default [
     icon: "monetize-icon",
     description: "Purchasing & payments",
     books: [
-      { ...CryptoOnrampCreditCardBook.info, content: CryptoOnrampCreditCardBook },
-      { ...IngameWeb3MarketplaceBook.info, content: IngameWeb3MarketplaceBook },
-      { ...PrimarySaleNftBook.info, content: PrimarySaleNftBook },
-      // { ...PrimarySaleOffChainDigitalGoodsBook.info, content: PrimarySaleOffChainDigitalGoodsBook },
+      CryptoOnrampCreditCardBook,
+      IngameWeb3MarketplaceBook,
+      PrimarySaleNftBook,
+      PrimarySaleOffChainDigitalGoodsBook,
     ],
   },
   {
@@ -60,9 +54,9 @@ export default [
     path: "/power",
     icon: "power-icon",
     books: [
-      { ...ContractInventoryBook.info, content: ContractInventoryBook },
-      { ...ListeningToWeb3EventsBook.info, content: ListeningToWeb3EventsBook },
-      { ...MintingTokensBook.info, content: MintingTokensBook },
+      ContractInventoryBook,
+      ListeningToWeb3EventsBook,
+      MintingTokensBook,
     ],
   },
 ] as Topic[];

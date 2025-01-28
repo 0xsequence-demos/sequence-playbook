@@ -99,12 +99,12 @@ export default function SiteLayout() {
                     </Link>
                   </li>
                   {topic.books.map((book) => (
-                    <li key={book.path} className="text-14 w-full flex">
+                    <li key={book.info.path} className="text-14 w-full flex">
                       <NavLink
-                        to={book.path}
+                        to={book.info.path}
                         className="hover:underline text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
                       >
-                        {book.shortname || book.title}
+                        {book.info.shortname || book.info.title}
                       </NavLink>
                     </li>
                   ))}
@@ -147,12 +147,12 @@ export default function SiteLayout() {
                     </Link>
                   </li>
                   {topic.books.map((book) => (
-                    <li key={book.path} className="text-14 w-full flex">
+                    <li key={book.info.path} className="text-14 w-full flex">
                       <NavLink
-                        to={book.path}
+                        to={book.info.path}
                         className="hover:border-white/10 hover:bg-white/[1%] hover:text-white focus:border-white/10 focus:bg-white/[1%] focus:text-white border border-transparent text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 aria-[current='page']:border-white/10 rounded-[5px] flex-1 px-3 py-1.5"
                       >
-                        {book.shortname || book.title}
+                        {book.info.shortname || book.info.title}
                       </NavLink>
                     </li>
                   ))}

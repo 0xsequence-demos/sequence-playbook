@@ -1,6 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import { BackgroundImage } from "~/components/image/Image";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
+import { includeResources, ResourceName } from "~/content/resources";
 
 export type ResourceItemLinkProps = {
   label: string;
@@ -21,7 +22,7 @@ export type ResourceItemProps = {
 
 export type ResourcesProps = {
   title?: string;
-  items?: ResourceItemProps[];
+  items?: ResourceName[] | ResourceName;
 };
 
 export function Resources(props: ResourcesProps) {
@@ -31,13 +32,15 @@ export function Resources(props: ResourcesProps) {
     ...props,
   };
 
+  const resources = includeResources(items);
+
   return (
     <div className="flex flex-col gap-4">
       <h3 className="font-medium text-15">{title}</h3>
 
       {items ? (
         <ul className="grid sm:grid-cols-3 gap-4">
-          {items?.map((item, index) => (
+          {resources?.map((item, index) => (
             <Fragment key={index}>
               <BackgroundImage name={item.image.src} />
               <InheritLinkFromChild asChild>

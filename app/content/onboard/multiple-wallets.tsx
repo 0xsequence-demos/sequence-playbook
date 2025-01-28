@@ -7,7 +7,6 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "multiple-wallets",
@@ -16,16 +15,13 @@ const info = {
   shortname: "Multiple Wallets",
   image: {
     src: "multiple-wallets",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   description: "Link Multiple Wallets to bring your players' assets together",
 } as const;
 
-const resources = includeResources(["wallet-linking-boilerplate"]);
+const resources = ["wallet-linking-boilerplate"];
 
-function Book() {
+function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -89,4 +85,7 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default {
+  info,
+  component,
+};

@@ -1,6 +1,7 @@
+import { LoaderFunctionArgs } from "react-router";
 import { Platform } from "~/components/platforms/Platforms";
 
-export type Book = {
+export type BookInfo = {
   name: string;
   path: string;
   title: string;
@@ -15,7 +16,12 @@ export type Book = {
   };
   platforms: Platform;
   description: string;
-  content?: () => JSX.Element;
+};
+export type Book = {
+  info: BookInfo;
+  component?: () => JSX.Element;
+  dependencies: any[];
+  loader?: (context?: LoaderFunctionArgs) => Record<string, any>;
 };
 
 export type Topic = {

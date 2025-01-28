@@ -8,8 +8,10 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { includeResources } from "~/content/resources";
-import { type Book } from "~/content/types";
+import { BookInfo, Topic, type Book } from "~/content/types";
+// import { serverOnly$ } from "vite-env-only/macros";
+// import { Form, useActionData } from "react-router";
+// import { useWidgetActionData } from "~/hooks/useWidgetActionData";
 
 const info = {
   name: "user-authentication",
@@ -18,9 +20,6 @@ const info = {
   shortname: "User Authentication",
   image: {
     src: "user-authentication",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   platforms: {
     unreal: "https://google.com",
@@ -30,9 +29,11 @@ const info = {
     web: "",
   },
   description: "Everything starts with user authentication.",
-} as Book;
+} as BookInfo;
 
-const resources = includeResources([
+const dependencies = [AuthenticationWidget];
+
+const resources = [
   "email-embedded-wallet-react-boilerplate",
   "embedded-wallet-playfab-react-boilerplate",
   "google-embedded-wallet-react-boilerplate",
@@ -47,9 +48,25 @@ const resources = includeResources([
   "telegram-metamask-react-boilerplate",
   "telegram-sequencejs-react-boilerplate",
   "universal-wallet-react-boilerplate",
-]);
+];
 
-function Book() {
+// const loader = serverOnly$(async function () {
+//   return {
+//     test: "test",
+//   };
+// });
+
+// const action = serverOnly$(async function () {
+//   return {
+//     test: "action test",
+//   };
+// });
+
+function component(data: {
+  book: Book;
+  topic: Topic;
+  widgets: Record<string, unknown>;
+}) {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
@@ -134,4 +151,10 @@ function Book() {
   );
 }
 
-export default Object.assign(Book, { info });
+export default {
+  info,
+  dependencies,
+  component,
+  // loader,
+  // action,
+};
