@@ -23,7 +23,11 @@ export default [
       bookColor: "text-blue-400",
     },
     description: "Authentication & wallets",
-    books: [UserAuthenticationBook, MultipleWalletsBook, WalletInventoryBook],
+    books: [
+      UserAuthenticationBook,
+      // MultipleWalletsBook,
+      WalletInventoryBook,
+    ],
   },
   {
     name: "monetize",
@@ -37,9 +41,9 @@ export default [
     description: "Purchasing & payments",
     books: [
       CryptoOnrampCreditCardBook,
-      IngameWeb3MarketplaceBook,
+      // IngameWeb3MarketplaceBook,
       PrimarySaleNftBook,
-      PrimarySaleOffChainDigitalGoodsBook,
+      // PrimarySaleOffChainDigitalGoodsBook,
     ],
   },
   {

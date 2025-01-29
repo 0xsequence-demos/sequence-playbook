@@ -12,7 +12,7 @@ const info = {
   name: "minting-tokens",
   path: "/power/minting-tokens",
   title: "Minting Tokens",
-  shortname: "Minting Tokens",
+  shortname: "Minting Tokens 🚧",
   image: {
     src: "minting-tokens",
     // width: 170,
@@ -25,6 +25,8 @@ const info = {
 const resources = ["server-side-transactions-boilerplate"];
 
 function component() {
+  return <h2>🚧 Coming soon! 🚧</h2>;
+
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();

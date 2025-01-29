@@ -12,7 +12,7 @@ const info = {
   name: "crypto-onramp-credit-card",
   path: "/monetize/crypto-onramp-credit-card",
   title: "Onramp Crypto with a Credit Card via Sequence Kit",
-  shortname: "Buy Crypto",
+  shortname: "Buy Crypto 🚧",
   image: {
     src: "crypto-onramp-credit-card",
     // width: 170,
@@ -25,9 +25,12 @@ const info = {
 const resources = ["crypto-onramp-boilerplate", "sequence-pay-boilerplate"];
 
 function component() {
+  return <h2>🚧 Coming soon! 🚧</h2>;
+
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
+
 
   return (
     <>
