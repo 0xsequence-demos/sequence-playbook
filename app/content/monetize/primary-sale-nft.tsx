@@ -11,7 +11,7 @@ const info = {
   name: "primary-sale-nft",
   path: "/monetize/primary-sale-nft",
   title: "Primary sale for NFTs",
-  shortname: "Primary sale for NFTs",
+  shortname: "Primary sale for NFTs 🚧",
   image: {
     src: "primary-sale-nft",
     // width: 170,
@@ -27,6 +27,7 @@ const resources = [
 ];
 
 function component() {
+  return <h2>🚧 Coming soon! 🚧</h2>;
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
   const [signedData, setSignedData] = useState<`0x${string}` | undefined>();

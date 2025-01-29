@@ -2,7 +2,6 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount, useDisconnect } from "wagmi";
-import { useWidgetData } from "~/hooks/useWidgetData";
 
 export const loader = serverOnly$(async () => ({
   name: "Authentication Widget is my name",
