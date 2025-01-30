@@ -73,6 +73,117 @@
       }
     ]
   },
+  "mallet-crude-minting": {
+    "name": "mallet-crude-minting",
+    "path": "/images/mallet-crude-minting_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude-minting@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude-minting.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude-minting@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude-minting.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "mallet-crude-wireframe": {
+    "name": "mallet-crude-wireframe",
+    "path": "/images/mallet-crude-wireframe_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude-wireframe@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude-wireframe.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude-wireframe@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude-wireframe.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "mallet-crude": {
+    "name": "mallet-crude",
+    "path": "/images/mallet-crude_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
   "monetize-icon": {
     "name": "monetize-icon",
     "path": "/images/monetize-icon_original.png",
