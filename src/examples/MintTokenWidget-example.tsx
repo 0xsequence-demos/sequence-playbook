@@ -1,0 +1,141 @@
+/* starthide */
+import { Session, SessionSettings } from "@0xsequence/auth";
+import { ethers } from "ethers";
+import { useOpenConnectModal } from "@0xsequence/kit";
+import { findSupportedNetwork, networks } from "@0xsequence/network";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Form } from "react-router";
+import { serverOnly$ } from "vite-env-only/macros";
+import { useAccount } from "wagmi";
+import { useWidgetData } from "~/hooks/useWidgetData";
+import { useWidgetActionData } from "~/hooks/useWidgetActionData";
+// import { SequenceIndexer } from "0xsequence/indexer";
+
+// const indexerClient = new SequenceIndexer(
+//   `https://${import.meta.env.VITE_CHAIN_HANDLE}-indexer.sequence.app`,
+//   import.meta.env.VITE_SEQUENCE_PROJECT_ACCESS_KEY,
+// );
+
+export type MintStatus = "notStarted" | "pending" | "successs" | "failed";
+
+export const loader = serverOnly$(async (req) => {
+  void req;
+  console.log("Mint Token loader!!");
+  return {
+    name: "Mint Token Widget is my name!",
+  };
+});
+/* endhide */
+export const action = serverOnly$(async (req) => {
+  void req;
+  console.log("Mint Token action!");
+
+  const env = req.context.cloudflare.env;
+
+  const formData = await req.request.formData();
+  const walletAddress = formData.get("walletAddress");
+  const network = findSupportedNetwork(env.CHAIN_HANDLE)!;
+  const relayerUrl = `https://${env.CHAIN_HANDLE}-relayer.sequence.app`;
+
+  const settings: Partial<SessionSettings> = {
+    networks: [
+      {
+        ...networks[network.chainId],
+        rpcUrl: network.rpcUrl,
+        relayer: {
+          url: relayerUrl,
+          provider: {
+            url: network.rpcUrl,
+          },
+        },
+      },
+    ],
+  };
+
+  const session = await Session.singleSigner({
+    settings: settings,
+    signer: env.PKEY,
+    projectAccessKey: env.BUILDER_PROJECT_ACCESS_KEY,
+  });
+
+  const signer = session.account.getSigner(network.chainId);
+  const collectibleInterface = new ethers.Interface([
+    "function mint(address to, uint256 tokenId, uint256 amount, bytes data)",
+  ]);
+  const dataArgs = [walletAddress, 3, 1, "0x00"];
+  const data = collectibleInterface.encodeFunctionData("mint", dataArgs);
+  const transaction = { status: "unknown", result: "" };
+  try {
+    const res = await signer.sendTransaction({
+      to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
+      data,
+    });
+    transaction.status = "success";
+    transaction.result = res.hash;
+  } catch (err) {
+    transaction.status = "error";
+    transaction.result = err as string;
+  }
+  return { transaction };
+});
+/* endhide */
+export const MintTokenWidget = (props: {
+  mintStatus: MintStatus;
+  setMintStatus: Dispatch<SetStateAction<MintStatus>>;
+}) => {
+  const { mintStatus, setMintStatus } = props;
+  const { address } = useAccount();
+
+  const { setOpenConnectModal } = useOpenConnectModal();
+
+  const [txHash, setTxHash] = useState("");
+
+  const d = useWidgetData("MintTokenWidget");
+  console.log("WidgetData", d);
+  const ad = useWidgetActionData("MintTokenWidget");
+  console.log("WidgetActionData", ad);
+  useEffect(() => {
+    if (ad?.transaction?.status === "success") {
+      setMintStatus("successs");
+      console.log(ad?.transaction);
+      setTxHash(ad?.transaction?.result);
+    }
+  }, ad);
+
+  return address ? (
+    <>
+      {/* endhide */}
+      {mintStatus === "notStarted" ? (
+        <Form
+          replace
+          method="post"
+          onSubmit={() => {
+            setMintStatus("pending");
+          }}
+        >
+          <input type="hidden" name="walletAddress" value={address} />
+          <button type="submit">MINT</button>
+        </Form>
+      ) : mintStatus === "pending" ? (
+        <div>Please wait...</div>
+      ) : (
+        <div>
+          A crude mallet{" "}
+          <a
+            href={`https://sepolia.arbiscan.io/tx/${txHash}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <b>is yours!</b>
+          </a>
+        </div>
+      )}
+      {/* starthide */}
+    </>
+  ) : (
+    <>
+      <p>Not connected</p>
+      <button onClick={() => setOpenConnectModal(true)}>Connect</button>
+    </>
+  );
+};

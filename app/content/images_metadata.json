@@ -184,6 +184,43 @@
       }
     ]
   },
+  "minting-via-builder": {
+    "name": "minting-via-builder",
+    "path": "/images/minting-via-builder_original.png",
+    "width": 2000,
+    "height": 1178,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/minting-via-builder@2x.png",
+        "width": 2000,
+        "height": 1178
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/minting-via-builder.png",
+        "width": 1000,
+        "height": 589
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/minting-via-builder@2x.webp",
+        "width": 2000,
+        "height": 1178
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/minting-via-builder.webp",
+        "width": 1000,
+        "height": 589
+      }
+    ]
+  },
   "monetize-icon": {
     "name": "monetize-icon",
     "path": "/images/monetize-icon_original.png",
