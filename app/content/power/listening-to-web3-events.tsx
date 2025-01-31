@@ -7,7 +7,7 @@ const info = {
   name: "listening-to-web3-events",
   path: "/power/listening-to-web3-events",
   title: "Listen to Web3 Events",
-  shortname: "Web3 Events 🚧",
+  shortname: "Web3 Events",
   image: {
     src: "web3-events",
   },

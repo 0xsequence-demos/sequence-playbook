@@ -1,15 +1,13 @@
-import { Web3EventsWidget as BaseWidget } from "./Web3EventsWidget";
-import { steps } from "./Web3EventsWidgetSnippet";
-import { codeString } from "./Web3EventsWidgetString";
 
-type WidgetType = typeof BaseWidget & {
-  steps: typeof steps;
-  String: typeof codeString;
-};
+    import { steps } from './Web3EventsWidgetSnippet';
+    import { codeString } from './Web3EventsWidgetString';
+    import { Web3EventsWidget as example } from './Web3EventsWidget';
 
-const EnhancedWidget = Object.assign(BaseWidget, {
-  steps,
-  String: codeString,
-}) as WidgetType;
-
-export { EnhancedWidget as Web3EventsWidget };
+    export const Web3EventsWidget = Object.assign(example, {
+      steps,
+      id: "Web3EventsWidget",
+      String:codeString
+      
+      
+    });
+  
