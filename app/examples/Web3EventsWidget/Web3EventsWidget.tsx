@@ -4,6 +4,7 @@ import { decodeEventLog } from "viem";
 import { formatUnits } from "ethers";
 import {
   SequenceIndexer,
+  SubscribeEventsArgs,
   SubscribeEventsReturn,
   WebrpcError,
 } from "@0xsequence/indexer";
@@ -27,14 +28,15 @@ export const Web3EventsWidget = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const indexer = new SequenceIndexer(
-    "https://polygon-indexer.sequence.app",
+    "https://arbitrum-indexer.sequence.app",
     "c3bgcU3LkFR9Bp9jFssLenPAAAAAAAAAA",
   );
 
-  const req = {
+  const req: SubscribeEventsArgs = {
     filter: {
+      accounts: [address as `0x${string}`],
       events: ["Transfer(address,address,uint256)"],
-      contractAddresses: ["0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"],
+      contractAddresses: ["0xaf88d065e77c8cC2239327C5EDb3A432268e5831"],
     },
   };
 
