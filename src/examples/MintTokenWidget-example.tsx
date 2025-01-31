@@ -7,7 +7,6 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Form } from "react-router";
 import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount } from "wagmi";
-import { useWidgetData } from "~/hooks/useWidgetData";
 import { useWidgetActionData } from "~/hooks/useWidgetActionData";
 // import { SequenceIndexer } from "0xsequence/indexer";
 
@@ -27,17 +26,14 @@ export const loader = serverOnly$(async (req) => {
 });
 /* endhide */
 export const action = serverOnly$(async (req) => {
-  void req;
-  console.log("Mint Token action!");
-
   const env = req.context.cloudflare.env;
-
   const formData = await req.request.formData();
   const walletAddress = formData.get("walletAddress");
   const network = findSupportedNetwork(env.CHAIN_HANDLE)!;
   const relayerUrl = `https://${env.CHAIN_HANDLE}-relayer.sequence.app`;
 
   const settings: Partial<SessionSettings> = {
+    /* starthide */
     networks: [
       {
         ...networks[network.chainId],
@@ -50,6 +46,7 @@ export const action = serverOnly$(async (req) => {
         },
       },
     ],
+    /* endhide */
   };
 
   const session = await Session.singleSigner({
@@ -64,21 +61,12 @@ export const action = serverOnly$(async (req) => {
   ]);
   const dataArgs = [walletAddress, 3, 1, "0x00"];
   const data = collectibleInterface.encodeFunctionData("mint", dataArgs);
-  const transaction = { status: "unknown", result: "" };
-  try {
-    const res = await signer.sendTransaction({
-      to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
-      data,
-    });
-    transaction.status = "success";
-    transaction.result = res.hash;
-  } catch (err) {
-    transaction.status = "error";
-    transaction.result = err as string;
-  }
-  return { transaction };
+  return await signer.sendTransaction({
+    to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
+    data,
+  });
 });
-/* endhide */
+/* starthide */
 export const MintTokenWidget = (props: {
   mintStatus: MintStatus;
   setMintStatus: Dispatch<SetStateAction<MintStatus>>;
@@ -90,32 +78,32 @@ export const MintTokenWidget = (props: {
 
   const [txHash, setTxHash] = useState("");
 
-  const d = useWidgetData("MintTokenWidget");
-  console.log("WidgetData", d);
   const ad = useWidgetActionData("MintTokenWidget");
-  console.log("WidgetActionData", ad);
+
   useEffect(() => {
-    if (ad?.transaction?.status === "success") {
+    if (ad?.hash) {
       setMintStatus("successs");
-      console.log(ad?.transaction);
-      setTxHash(ad?.transaction?.result);
+      setTxHash(ad?.hash);
     }
-  }, ad);
+  }, [ad]);
 
   return address ? (
     <>
-      {/* endhide */}
       {mintStatus === "notStarted" ? (
-        <Form
-          replace
-          method="post"
-          onSubmit={() => {
-            setMintStatus("pending");
-          }}
-        >
-          <input type="hidden" name="walletAddress" value={address} />
-          <button type="submit">MINT</button>
-        </Form>
+        <>
+          {/* endhide */}
+          <Form
+            replace
+            method="post"
+            onSubmit={() => {
+              setMintStatus("pending");
+            }}
+          >
+            <input type="hidden" name="walletAddress" value={address} />
+            <button type="submit">MINT</button>
+          </Form>
+          {/* starthide */}
+        </>
       ) : mintStatus === "pending" ? (
         <div>Please wait...</div>
       ) : (
@@ -130,7 +118,6 @@ export const MintTokenWidget = (props: {
           </a>
         </div>
       )}
-      {/* starthide */}
     </>
   ) : (
     <>
