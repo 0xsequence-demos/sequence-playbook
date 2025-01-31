@@ -4,9 +4,10 @@ import {
   Chain,
   polygonAmoy,
   arbitrumSepolia,
+  arbitrum,
 } from "wagmi/chains";
 
-const chains = [mainnet, polygon, polygonAmoy, arbitrumSepolia] as [
+const chains = [mainnet, polygon, polygonAmoy, arbitrumSepolia, arbitrum] as [
   Chain,
   ...Chain[],
 ];
