@@ -14,7 +14,7 @@ const info = {
   title: "Onramp Crypto with a Credit Card via Sequence Kit",
   shortname: "Buy Crypto 🚧",
   image: {
-    src: "crypto-onramp-credit-card",
+    src: "buy-crypto",
     // width: 170,
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
