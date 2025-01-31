@@ -25,6 +25,9 @@ importers:
       '@0xsequence/kit':
         specifier: ^4.5.8
         version: 4.5.8(0xsequence@2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.7(@tanstack/query-core@5.64.1)(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
+      '@0xsequence/kit-checkout':
+        specifier: ^4.5.9
+        version: 4.5.9(53r7udyx7vrdmbfu6pwa4mgjky)
       '@0xsequence/kit-wallet':
         specifier: ^4.5.8
         version: 4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(d7dirj4p3bdnjfsoy7ya56phou)
@@ -291,6 +294,25 @@ packages:
   '@0xsequence/indexer@2.2.8':
     resolution: {integrity: sha512-dtdA7j92oQidl9iiW4q4Pgn6hv7kU28LEnGihe5CRUWT2zqQhfGEa74fyr1ONA3+vR375FXOdEQd+4X8F53ysw==}
 
+  '@0xsequence/kit-checkout@4.5.9':
+    resolution: {integrity: sha512-k8vUdIZeaTu3VFhJhJkBiHb9e0MGpkUaImtzt4MgFNbvMIfECGAw+Zzs/P+oyG4y9XF8NJzC8NkCZWUMFfmksw==}
+    peerDependencies:
+      0xsequence: '>= 2.2.4'
+      '@0xsequence/api': '>= 2.2.4'
+      '@0xsequence/design-system': '>= 1.7.8'
+      '@0xsequence/indexer': '>= 2.2.4'
+      '@0xsequence/kit': 4.5.9
+      '@0xsequence/metadata': '>= 2.2.4'
+      '@0xsequence/network': '>= 2.2.4'
+      '@0xsequence/waas': '>= 2.2.4'
+      '@tanstack/react-query': '>= 5.0.0'
+      ethers: '>= 6.13.0'
+      framer-motion: '>= 8.5.2'
+      react: '>= 17'
+      react-dom: '>= 17'
+      viem: '>= 2.0.0'
+      wagmi: ^2.13.3
+
   '@0xsequence/kit-wallet@4.5.8':
     resolution: {integrity: sha512-s7/PNxVh6H8MIsLII96p0egj+UtHT4JoDa3yzflOdQFGZuSLu9TxpwYffLjwNWcd5BR2BjfigrtEB5kGuDUvbA==}
     peerDependencies:
@@ -320,6 +342,9 @@ packages:
       react-dom: '>= 17'
       viem: '>= 2.0.0'
       wagmi: ^2.13.3
+
+  '@0xsequence/marketplace@2.2.9':
+    resolution: {integrity: sha512-x/GWMRsbYjp7/HkkhmRg5gVF7EBOfQ7zoI3tQ628V3RFKsT8Yg81WolAFToGz+OKmEBoHUi7lcNOZnAhEwowMg==}
 
   '@0xsequence/metadata@2.2.6':
     resolution: {integrity: sha512-SBCiFvHKkof4upPWdtqMvWnIE/gbj3Hwn8KEnhG1+wins6YMGOsWFCbzNGYxDk/FkyV6NGa6FROYhmyZd7k8OA==}
@@ -5373,6 +5398,9 @@ packages:
   pako@0.2.9:
     resolution: {integrity: sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA==}
 
+  pako@2.1.0:
+    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
+
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -6366,6 +6394,14 @@ packages:
   through2@4.0.2:
     resolution: {integrity: sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==}
 
+  timeago-react@3.0.6:
+    resolution: {integrity: sha512-4ywnCX3iFjdp84WPK7gt8s4n0FxXbYM+xv8hYL73p83dpcMxzmO+0W4xJuxflnkWNvum5aEaqTe6LZ3lUIudjQ==}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
+  timeago.js@4.0.2:
+    resolution: {integrity: sha512-a7wPxPdVlQL7lqvitHGGRsofhdwtkoSXPGATFuSOA2i1ZNQEPLrGnj68vOp2sOJTCFAQVXPeNMX/GctBaO9L2w==}
+
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
@@ -7193,6 +7229,29 @@ snapshots:
 
   '@0xsequence/indexer@2.2.8': {}
 
+  '@0xsequence/kit-checkout@4.5.9(53r7udyx7vrdmbfu6pwa4mgjky)':
+    dependencies:
+      0xsequence: 2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/api': 2.2.8
+      '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@0xsequence/indexer': 2.2.8
+      '@0xsequence/kit': 4.5.8(0xsequence@2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.7(@tanstack/query-core@5.64.1)(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
+      '@0xsequence/marketplace': 2.2.9
+      '@0xsequence/metadata': 2.2.8
+      '@0xsequence/network': 2.2.8(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/waas': 2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@tanstack/react-query': 5.64.1(react@18.3.1)
+      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      framer-motion: 8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      pako: 2.1.0
+      qrcode.react: 4.2.0(react@18.3.1)
+      react: 18.3.1
+      react-copy-to-clipboard: 5.1.0(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      timeago-react: 3.0.6(react@18.3.1)
+      viem: 2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)
+      wagmi: 2.14.7(@tanstack/query-core@5.64.1)(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1)
+
   '@0xsequence/kit-wallet@4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(d7dirj4p3bdnjfsoy7ya56phou)':
     dependencies:
       '@0xsequence/api': 2.2.8
@@ -7245,6 +7304,8 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
       - aws-crt
+
+  '@0xsequence/marketplace@2.2.9': {}
 
   '@0xsequence/metadata@2.2.6': {}
 
@@ -11940,7 +12001,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@1.21.7))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.7)))(eslint@9.18.0(jiti@1.21.7)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@1.21.7))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@9.18.0(jiti@1.21.7)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -11962,7 +12023,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.18.0(jiti@1.21.7)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@1.21.7))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.7)))(eslint@9.18.0(jiti@1.21.7))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@1.21.7))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@9.18.0(jiti@1.21.7))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -13804,6 +13865,8 @@ snapshots:
 
   pako@0.2.9: {}
 
+  pako@2.1.0: {}
+
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -14885,6 +14948,13 @@ snapshots:
   through2@4.0.2:
     dependencies:
       readable-stream: 3.6.2
+
+  timeago-react@3.0.6(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      timeago.js: 4.0.2
+
+  timeago.js@4.0.2: {}
 
   tinyexec@0.3.2: {}
 
