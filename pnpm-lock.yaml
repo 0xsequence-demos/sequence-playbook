@@ -22,12 +22,15 @@ importers:
       '@0xsequence/design-system':
         specifier: ^1.9.0
         version: 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@0xsequence/indexer':
+        specifier: ^2.2.9
+        version: 2.2.9
       '@0xsequence/kit':
         specifier: ^4.5.8
         version: 4.5.8(0xsequence@2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.7(@tanstack/query-core@5.64.1)(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
       '@0xsequence/kit-wallet':
         specifier: ^4.5.8
-        version: 4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(d7dirj4p3bdnjfsoy7ya56phou)
+        version: 4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(wk67bc3mahzxywjdmbdaewddqq)
       '@0xsequence/network':
         specifier: ^2.2.8
         version: 2.2.8(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -85,6 +88,9 @@ importers:
       vaul:
         specifier: ^1.1.1
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      viem:
+        specifier: ^2.12.30
+        version: 2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)
       vite-tsconfig-paths:
         specifier: ^4.2.1
         version: 4.3.2(typescript@5.7.3)(vite@5.4.11(@types/node@22.10.6))
@@ -290,6 +296,9 @@ packages:
 
   '@0xsequence/indexer@2.2.8':
     resolution: {integrity: sha512-dtdA7j92oQidl9iiW4q4Pgn6hv7kU28LEnGihe5CRUWT2zqQhfGEa74fyr1ONA3+vR375FXOdEQd+4X8F53ysw==}
+
+  '@0xsequence/indexer@2.2.9':
+    resolution: {integrity: sha512-w7OSYbjOyxqHRAJ/DprT+NgtMN1HyJpeqwaTKBBqxMSp4ASr8IUnrby5yJu+YWJuc4Lb03Qi8DjqdBQm4AxB7Q==}
 
   '@0xsequence/kit-wallet@4.5.8':
     resolution: {integrity: sha512-s7/PNxVh6H8MIsLII96p0egj+UtHT4JoDa3yzflOdQFGZuSLu9TxpwYffLjwNWcd5BR2BjfigrtEB5kGuDUvbA==}
@@ -7193,11 +7202,13 @@ snapshots:
 
   '@0xsequence/indexer@2.2.8': {}
 
-  '@0xsequence/kit-wallet@4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(d7dirj4p3bdnjfsoy7ya56phou)':
+  '@0xsequence/indexer@2.2.9': {}
+
+  '@0xsequence/kit-wallet@4.5.8(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(wk67bc3mahzxywjdmbdaewddqq)':
     dependencies:
       '@0xsequence/api': 2.2.8
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@0xsequence/indexer': 2.2.8
+      '@0xsequence/indexer': 2.2.9
       '@0xsequence/kit': 4.5.8(0xsequence@2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.7(@tanstack/query-core@5.64.1)(@tanstack/react-query@5.64.1(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.8(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
       '@0xsequence/metadata': 2.2.8
       '@0xsequence/network': 2.2.8(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -7225,7 +7236,7 @@ snapshots:
       '@0xsequence/core': 2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/ethauth': 1.0.0(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/indexer': 2.2.6
+      '@0xsequence/indexer': 2.2.9
       '@0xsequence/metadata': 2.2.6
       '@0xsequence/network': 2.2.8(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/provider': 2.2.6(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -13767,8 +13778,8 @@ snapshots:
   ox@0.6.0(typescript@5.7.3)(zod@3.24.1):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.7.0
-      '@noble/hashes': 1.6.1
+      '@noble/curves': 1.8.0
+      '@noble/hashes': 1.7.0
       '@scure/bip32': 1.6.0
       '@scure/bip39': 1.5.0
       abitype: 1.0.7(typescript@5.7.3)(zod@3.24.1)
@@ -15429,8 +15440,8 @@ snapshots:
 
   webauthn-p256@0.0.10:
     dependencies:
-      '@noble/curves': 1.7.0
-      '@noble/hashes': 1.6.1
+      '@noble/curves': 1.8.0
+      '@noble/hashes': 1.7.0
 
   webextension-polyfill@0.10.0: {}
 

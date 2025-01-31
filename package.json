@@ -21,6 +21,7 @@
     "0xsequence": "^2.2.5",
     "@0xsequence/auth": "^2.2.8",
     "@0xsequence/design-system": "^1.9.0",
+    "@0xsequence/indexer": "^2.2.9",
     "@0xsequence/kit": "^4.5.8",
     "@0xsequence/kit-wallet": "^4.5.8",
     "@0xsequence/network": "^2.2.8",
@@ -42,9 +43,9 @@
     "shiki-magic-move": "^0.5.2",
     "sonner": "^1.7.0",
     "vaul": "^1.1.1",
+    "viem": "^2.12.30",
     "vite-tsconfig-paths": "^4.2.1",
-    "wagmi": "^2.12.30",
-    "viem": "^2.12.30"
+    "wagmi": "^2.12.30"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
