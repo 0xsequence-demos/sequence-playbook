@@ -1,0 +1,44 @@
+diff --git a/dist/esm/shared/components/CopyButton.js b/dist/esm/shared/components/CopyButton.js
+index 629599081b9fc8ce9ad695b751d434b7860186a3..22e5f2e59cd1c379d9da6492b2057f1a51ff9ca9 100644
+--- a/dist/esm/shared/components/CopyButton.js
++++ b/dist/esm/shared/components/CopyButton.js
+@@ -1,7 +1,8 @@
+ import { jsx as _jsx } from "react/jsx-runtime";
+ import { Button, CopyIcon, CheckmarkIcon } from '@0xsequence/design-system';
+ import { useEffect, useState } from 'react';
+-import { CopyToClipboard } from 'react-copy-to-clipboard';
++import ctc from 'react-copy-to-clipboard';
++const CopyToClipboard = ctc.CopyToClipboard;
+ export const CopyButton = (props) => {
+     const { text, size = 'xs', ...rest } = props;
+     const [isCopied, setCopy] = useState(false);
+diff --git a/dist/esm/views/PaymentSelection/TransferFunds.js b/dist/esm/views/PaymentSelection/TransferFunds.js
+index 61a6415fa6c453928e4d02babbb1c833d6d48563..1372e96f7e951a53c7c17d55b16bc64d76d36dc5 100644
+--- a/dist/esm/views/PaymentSelection/TransferFunds.js
++++ b/dist/esm/views/PaymentSelection/TransferFunds.js
+@@ -2,9 +2,10 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+ import { Box, Card, CheckmarkIcon, CopyIcon, IconButton, Text, truncateAddress } from '@0xsequence/design-system';
+ import { QRCodeCanvas } from 'qrcode.react';
+ import { useState, useEffect } from 'react';
+-import { CopyToClipboard } from 'react-copy-to-clipboard';
++import ctc from 'react-copy-to-clipboard';
+ import { useAccount } from 'wagmi';
+ import { useSelectPaymentModal, useTransferFundsModal } from '../../hooks';
++const CopyToClipboard = ctc.CopyToClipboard;
+ export const TransferFunds = () => {
+     const { openTransferFundsModal } = useTransferFundsModal();
+     const { openSelectPaymentModal, closeSelectPaymentModal, selectPaymentSettings } = useSelectPaymentModal();
+diff --git a/dist/esm/views/TransferToWallet/CopyButton.js b/dist/esm/views/TransferToWallet/CopyButton.js
+index 2a7606ff6a6b518c93477eb1f87da76ad25ce81b..a5358b3baf843dd52da6b6aff7e2befde6193619 100644
+--- a/dist/esm/views/TransferToWallet/CopyButton.js
++++ b/dist/esm/views/TransferToWallet/CopyButton.js
+@@ -1,7 +1,8 @@
+ import { jsx as _jsx } from "react/jsx-runtime";
+ import { Button, CopyIcon, CheckmarkIcon } from '@0xsequence/design-system';
+ import { useEffect, useState } from 'react';
+-import { CopyToClipboard } from 'react-copy-to-clipboard';
++import ctc from 'react-copy-to-clipboard';
++const CopyToClipboard = ctc.CopyToClipboard;
+ export const CopyButton = (props) => {
+     const { text, size = 'xs', inline = false, ...rest } = props;
+     const [isCopied, setCopy] = useState(false);
