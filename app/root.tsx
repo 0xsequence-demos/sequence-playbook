@@ -32,6 +32,7 @@ import styles from "@0xsequence/design-system/styles.css?url";
 import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
 import { useState } from "react";
 import shiki from "./shiki.css?url";
+import { KitCheckoutProvider } from "@0xsequence/kit-checkout";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -181,7 +182,9 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <KitProvider config={kitConfig}>
           <KitWalletProvider>
-            <Outlet />
+            <KitCheckoutProvider>
+              <Outlet />
+            </KitCheckoutProvider>
           </KitWalletProvider>
         </KitProvider>
       </QueryClientProvider>
