@@ -26,6 +26,7 @@
     "@0xsequence/kit-checkout": "^4.5.9",
     "@0xsequence/kit-wallet": "^4.5.9",
     "@0xsequence/network": "^2.2.8",
+    "@react-oauth/google": "^0.12.1",
     "@react-router/cloudflare": "^7.1.1",
     "@reactuses/core": "^6.0.1",
     "@rive-app/react-canvas": "^4.17.5",
@@ -36,6 +37,7 @@
     "js-cookie": "^3.0.5",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
+    "react-apple-signin-auth": "^1.1.0",
     "react-dom": "^18.2.0",
     "react-router": "^7.1.1",
     "react-router-dom": "^7.1.1",
@@ -46,8 +48,7 @@
     "vaul": "^1.1.1",
     "viem": "^2.12.30",
     "vite-tsconfig-paths": "^4.2.1",
-    "wagmi": "^2.12.30",
-    "viem": "^2.12.30"
+    "wagmi": "^2.12.30"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",

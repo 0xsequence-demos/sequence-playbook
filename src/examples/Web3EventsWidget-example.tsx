@@ -32,7 +32,6 @@ export const Web3EventsWidget = () => {
 
   const req: SubscribeEventsArgs = {
     filter: {
-      accounts: [address as `0x${string}`],
       events: ["Transfer(address,address,uint256)"],
       contractAddresses: ["0xaf88d065e77c8cC2239327C5EDb3A432268e5831"],
     },
@@ -80,7 +79,7 @@ export const Web3EventsWidget = () => {
   return address ? (
     <div className="m-4 space-y-4">
       <div className="flex items-center justify-between gap-4 border rounded-lg bg-white/5 border-white/10 p-2">
-        <span className="text-sm">Listen to USDC transfers</span>
+        <span className="text-sm">Listen to USDC transfers on Arbitrum</span>
         <button
           onClick={subscribe}
           disabled={isLoading}
