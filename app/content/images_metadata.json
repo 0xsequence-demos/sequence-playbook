@@ -73,6 +73,154 @@
       }
     ]
   },
+  "mallet-crude-minting": {
+    "name": "mallet-crude-minting",
+    "path": "/images/mallet-crude-minting_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude-minting@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude-minting.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude-minting@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude-minting.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "mallet-crude-wireframe": {
+    "name": "mallet-crude-wireframe",
+    "path": "/images/mallet-crude-wireframe_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude-wireframe@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude-wireframe.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude-wireframe@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude-wireframe.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "mallet-crude": {
+    "name": "mallet-crude",
+    "path": "/images/mallet-crude_original.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/mallet-crude@2x.png",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/mallet-crude.png",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/mallet-crude@2x.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/mallet-crude.webp",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "minting-via-builder": {
+    "name": "minting-via-builder",
+    "path": "/images/minting-via-builder_original.png",
+    "width": 2000,
+    "height": 1178,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/minting-via-builder@2x.png",
+        "width": 2000,
+        "height": 1178
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/minting-via-builder.png",
+        "width": 1000,
+        "height": 589
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/minting-via-builder@2x.webp",
+        "width": 2000,
+        "height": 1178
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/minting-via-builder.webp",
+        "width": 1000,
+        "height": 589
+      }
+    ]
+  },
   "monetize-icon": {
     "name": "monetize-icon",
     "path": "/images/monetize-icon_original.png",
@@ -221,6 +369,80 @@
       }
     ]
   },
+  "buy-crypto": {
+    "name": "buy-crypto",
+    "path": "/images/resources/buy-crypto_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/buy-crypto@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/buy-crypto.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/buy-crypto@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/buy-crypto.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "contract-inventory": {
+    "name": "contract-inventory",
+    "path": "/images/resources/contract-inventory_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/contract-inventory@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/contract-inventory.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/contract-inventory@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/contract-inventory.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
   "example1": {
     "name": "example1",
     "path": "/images/resources/example1_original.jpg",
@@ -295,6 +517,117 @@
       }
     ]
   },
+  "ingame-web3-marketplace": {
+    "name": "ingame-web3-marketplace",
+    "path": "/images/resources/ingame-web3-marketplace_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/ingame-web3-marketplace@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/ingame-web3-marketplace.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/ingame-web3-marketplace@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/ingame-web3-marketplace.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "minting-tokens": {
+    "name": "minting-tokens",
+    "path": "/images/resources/minting-tokens_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/minting-tokens@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/minting-tokens.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/minting-tokens@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/minting-tokens.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "primary-sale-nft": {
+    "name": "primary-sale-nft",
+    "path": "/images/resources/primary-sale-nft_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/primary-sale-nft@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/primary-sale-nft.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/primary-sale-nft@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/primary-sale-nft.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
   "user-authentication": {
     "name": "user-authentication",
     "path": "/images/resources/user-authentication_original.jpg",
@@ -329,6 +662,80 @@
         "path": "/images/resources/user-authentication.webp",
         "width": 800,
         "height": 600
+      }
+    ]
+  },
+  "wallet-inventory": {
+    "name": "wallet-inventory",
+    "path": "/images/resources/wallet-inventory_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/wallet-inventory@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/wallet-inventory.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/wallet-inventory@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/wallet-inventory.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "web3-events": {
+    "name": "web3-events",
+    "path": "/images/resources/web3-events_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/web3-events@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/web3-events.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/web3-events@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/web3-events.webp",
+        "width": 1000,
+        "height": 1000
       }
     ]
   },

@@ -9,7 +9,7 @@ const info = {
   title: "Listen to Web3 Events",
   shortname: "Web3 Events",
   image: {
-    src: "listening-to-web3-events",
+    src: "web3-events",
   },
   description: "Build responsive experiences that react to onchain activity.",
 } as const;

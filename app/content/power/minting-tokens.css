@@ -1,0 +1,34 @@
+.mallet {
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.mallet picture {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0px;
+  left:0px;
+}
+
+@keyframes fadeAnimation {
+  0%   { opacity:100%; }
+  50%  { opacity:90%; }
+  100% { opacity:100%; }
+}
+
+.animated-fade {
+  opacity:1;  
+  animation: fadeAnimation 0.5s infinite;
+}
+
+.glow {
+  transition: opacity 0.3s linear;
+}
+
+.fade-out {
+  opacity:0;
+}

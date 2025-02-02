@@ -225,7 +225,7 @@ async function processImages(inputDir, outputDir, maxWidth = null) {
   const images = findImagesRecursively(inputDir);
   const results = {};
 
-  const metaDir = "../app/content";
+  const metaDir = "./app/content";
 
   for (const image of images) {
     console.log(`Processing: ${image}`);

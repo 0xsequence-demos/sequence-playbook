@@ -49,7 +49,7 @@ export default [
   {
     name: "power",
     title: "Power",
-    description: "Contracts & minting",
+    description: "Contracts & backends",
 
     theme: {
       bgImage: "bg-power",
