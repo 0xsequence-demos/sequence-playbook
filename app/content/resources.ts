@@ -8,12 +8,9 @@ export type ResourceName =
   | "kit-embedded-wallet-react-boilerplate"
   | "kit-embedded-wallet-remix-cloudflare-boilerplate"
   | "kit-embedded-wallet-remix-nodejs-boilerplate"
-  | "kit-universal-wallet-nextjs-boilerplate"
+  // | "kit-universal-wallet-nextjs-boilerplate"
   | "kit-universal-wallet-react-boilerplate"
   | "stytch-embedded-wallet-react-boilerplate"
-  | "telegram-kit-embedded-wallet-react-boilerplate"
-  | "telegram-metamask-react-boilerplate"
-  | "telegram-sequencejs-react-boilerplate"
   | "universal-wallet-react-boilerplate"
   | "wallet-linking-boilerplate"
   | "gift-wallet-inventory-boilerplate"
@@ -31,159 +28,256 @@ export const resources: {
 } = {
   "email-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
+    title: "Email Embedded Wallet",
     image: {
-      src: "example1",
+      src: "bg-blue",
       alt: "",
     },
     links: [
       {
         label: "Demo",
-        href: "",
+        href: "https://email-embedded-wallet-react-boilerplate.sequence-demos.xyz",
       },
       {
         label: "Source",
         icon: "github",
-        href: "",
+        href: "https://github.com/0xsequence-demos/email-embedded-wallet-react-boilerplate",
       },
     ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: "react",
+    },
   },
   "embedded-wallet-playfab-react-boilerplate": {
     type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
+    title: "Playfab Embedded Wallet",
     image: {
-      src: "example1",
+      src: "bg-blue",
       alt: "",
     },
     links: [
-      {
-        label: "Demo",
-        href: "",
-      },
+      // {
+      //   label: "Demo",
+      //   href: "http://embedded-wallet-playfab-react-boilerplate.sequence-demos.xyz",
+      // },
       {
         label: "Source",
         icon: "github",
-        href: "",
+        href: "https://github.com/0xsequence-demos/embedded-wallet-playfab-react-boilerplate",
       },
     ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["playfab", "react"],
+    },
   },
   "google-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Sequence Wallet Boilerplate",
+    title: "Google Embedded Wallet",
     image: {
-      src: "example1",
+      src: "bg-blue",
       alt: "",
     },
     links: [
       {
         label: "Demo",
-        href: "",
+        href: "http://google-embedded-wallet-react-boilerplate.sequence-demos.xyz",
       },
       {
         label: "Source",
         icon: "github",
-        href: "",
+        href: "https://github.com/0xsequence-demos/google-embedded-wallet-react-boilerplate",
       },
     ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["google", "react"],
+    },
   },
   "kit-embedded-wallet-nextjs-boilerplate": {
     image: {
-      src: "",
+      src: "bg-purple",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Kit Embedded Wallet",
+    links: [
+      {
+        label: "Demo",
+        href: "http://kit-embedded-wallet-nextjs-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/kit-embedded-wallet-nextjs-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "nextjs",
+    },
   },
   "kit-embedded-wallet-react-boilerplate": {
     image: {
-      src: "",
+      src: "bg-purple",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Kit Embedded Wallet",
+    links: [
+      {
+        label: "Demo",
+        href: "http://kit-embedded-wallet-react-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/kit-embedded-wallet-react-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "kit-embedded-wallet-remix-cloudflare-boilerplate": {
     image: {
-      src: "",
+      src: "bg-purple",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Kit Embedded Wallet",
+    links: [
+      {
+        label: "Demo",
+        href: "http://kit-embedded-wallet-remix-cloudflare-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/kit-embedded-wallet-remix-cloudflare-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: ["remix", "cloudflare"],
+    },
   },
   "kit-embedded-wallet-remix-nodejs-boilerplate": {
     image: {
-      src: "",
+      src: "bg-purple",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
-  },
-  "kit-universal-wallet-nextjs-boilerplate": {
-    image: {
-      src: "",
-      alt: undefined,
+    title: "Kit Embedded Wallet",
+    links: [
+      {
+        label: "Demo",
+        href: "https://kit-embedded-wallet-remix-nodejs-boilerplate.vercel.app",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/kit-embedded-wallet-remix-nodejs-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: ["remix", "nodejs"],
     },
-    type: "boilerplate",
-    title: "",
-    links: [],
   },
+  // "kit-universal-wallet-nextjs-boilerplate": {
+  //   image: {
+  //     src: "bg-purple",
+  //     alt: undefined,
+  //   },
+  //   type: "boilerplate",
+  //   title: "Kit Universal Wallet",
+  //   links: [
+  //     {
+  //       label: "Demo",
+  //       href: "http://kit-universal-wallet-nextjs-boilerplate.sequence-demos.xyz",
+  //     },
+  //     {
+  //       label: "Source",
+  //       icon: "github",
+  //       href: "https://github.com/0xsequence-demos/kit-universal-wallet-nextjs-boilerplate",
+  //     },
+  //   ],
+  //   icons: {
+  //     topLeft: "kit",
+  //     topRight: "nextjs",
+  //   },
+  // },
   "kit-universal-wallet-react-boilerplate": {
     image: {
-      src: "",
+      src: "bg-purple",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Kit Universal Wallet",
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
+    links: [
+      {
+        label: "Demo",
+        href: "http://kit-universal-wallet-react-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/kit-universal-wallet-react-boilerplate",
+      },
+    ],
   },
   "stytch-embedded-wallet-react-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
-  },
-  "telegram-kit-embedded-wallet-react-boilerplate": {
-    image: {
-      src: "",
-      alt: undefined,
+    title: "Stych Embedded Wallet",
+    links: [
+      {
+        label: "Demo",
+        href: "http://stytch-embedded-wallet-react-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/stytch-embedded-wallet-react-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["stych", "react"],
     },
-    type: "boilerplate",
-    title: "",
-    links: [],
-  },
-  "telegram-metamask-react-boilerplate": {
-    image: {
-      src: "",
-      alt: undefined,
-    },
-    type: "boilerplate",
-    title: "",
-    links: [],
-  },
-  "telegram-sequencejs-react-boilerplate": {
-    image: {
-      src: "",
-      alt: undefined,
-    },
-    type: "boilerplate",
-    title: "",
-    links: [],
   },
   "universal-wallet-react-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
     title: "",
-    links: [],
+    links: [
+      {
+        label: "Demo",
+        href: "http://universal-wallet-react-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/universal-wallet-react-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: "react",
+    },
   },
   "wallet-linking-boilerplate": {
     image: {
@@ -281,7 +375,7 @@ for (const key of Object.keys(resources) as ResourceName[]) {
 }
 
 export function includeResources(list?: ResourceName | ResourceName[]) {
-  if (!list) return undefined;
+  if (!list) return [];
 
   if (typeof list === "string") {
     list = [list];

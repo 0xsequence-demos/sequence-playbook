@@ -369,6 +369,635 @@
       }
     ]
   },
+  "bg-blue": {
+    "name": "bg-blue",
+    "path": "/images/resources/boilerplates/bg/bg-blue_original.png",
+    "width": 1200,
+    "height": 675,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-blue@2x.png",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-blue.png",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-blue@2x.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-blue.webp",
+        "width": 600,
+        "height": 338
+      }
+    ]
+  },
+  "bg-green": {
+    "name": "bg-green",
+    "path": "/images/resources/boilerplates/bg/bg-green_original.png",
+    "width": 1200,
+    "height": 675,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-green@2x.png",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-green.png",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-green@2x.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-green.webp",
+        "width": 600,
+        "height": 338
+      }
+    ]
+  },
+  "bg-purple": {
+    "name": "bg-purple",
+    "path": "/images/resources/boilerplates/bg/bg-purple_original.png",
+    "width": 1200,
+    "height": 675,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-purple@2x.png",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-purple.png",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-purple@2x.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-purple.webp",
+        "width": 600,
+        "height": 338
+      }
+    ]
+  },
+  "bg-red": {
+    "name": "bg-red",
+    "path": "/images/resources/boilerplates/bg/bg-red_original.png",
+    "width": 1200,
+    "height": 675,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-red@2x.png",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/bg/bg-red.png",
+        "width": 600,
+        "height": 338
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-red@2x.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/bg/bg-red.webp",
+        "width": 600,
+        "height": 338
+      }
+    ]
+  },
+  "cloudflare": {
+    "name": "cloudflare",
+    "path": "/images/resources/boilerplates/platform/cloudflare_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/cloudflare@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/cloudflare.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/cloudflare@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/cloudflare.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "google": {
+    "name": "google",
+    "path": "/images/resources/boilerplates/platform/google_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/google@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/google.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/google@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/google.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "nextjs": {
+    "name": "nextjs",
+    "path": "/images/resources/boilerplates/platform/nextjs_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/nextjs@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/nextjs.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/nextjs@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/nextjs.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "nodejs": {
+    "name": "nodejs",
+    "path": "/images/resources/boilerplates/platform/nodejs_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/nodejs@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/nodejs.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/nodejs@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/nodejs.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "playfab": {
+    "name": "playfab",
+    "path": "/images/resources/boilerplates/platform/playfab_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/playfab@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/playfab.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/playfab@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/playfab.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "react": {
+    "name": "react",
+    "path": "/images/resources/boilerplates/platform/react_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/react@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/react.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/react@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/react.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "remix": {
+    "name": "remix",
+    "path": "/images/resources/boilerplates/platform/remix_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/remix@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/remix.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/remix@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/remix.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "stych": {
+    "name": "stych",
+    "path": "/images/resources/boilerplates/platform/stych_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/stych@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/stych.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/stych@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/stych.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "unity": {
+    "name": "unity",
+    "path": "/images/resources/boilerplates/platform/unity_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/unity@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/unity.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/unity@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/unity.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "unreal": {
+    "name": "unreal",
+    "path": "/images/resources/boilerplates/platform/unreal_original.png",
+    "width": 480,
+    "height": 480,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/unreal@2x.png",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/platform/unreal.png",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/unreal@2x.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/platform/unreal.webp",
+        "width": 240,
+        "height": 240
+      }
+    ]
+  },
+  "kit": {
+    "name": "kit",
+    "path": "/images/resources/boilerplates/sequence/kit_original.png",
+    "width": 1000,
+    "height": 393,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/kit@2x.png",
+        "width": 1000,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/kit.png",
+        "width": 500,
+        "height": 197
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/kit@2x.webp",
+        "width": 1000,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/kit.webp",
+        "width": 500,
+        "height": 197
+      }
+    ]
+  },
+  "sequence": {
+    "name": "sequence",
+    "path": "/images/resources/boilerplates/sequence/sequence_original.png",
+    "width": 459,
+    "height": 393,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/sequence@2x.png",
+        "width": 459,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/sequence.png",
+        "width": 230,
+        "height": 197
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/sequence@2x.webp",
+        "width": 459,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/sequence.webp",
+        "width": 230,
+        "height": 197
+      }
+    ]
+  },
+  "sequencejs": {
+    "name": "sequencejs",
+    "path": "/images/resources/boilerplates/sequence/sequencejs_original.png",
+    "width": 844,
+    "height": 393,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/sequencejs@2x.png",
+        "width": 844,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "png",
+        "path": "/images/resources/boilerplates/sequence/sequencejs.png",
+        "width": 422,
+        "height": 197
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/sequencejs@2x.webp",
+        "width": 844,
+        "height": 393
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/boilerplates/sequence/sequencejs.webp",
+        "width": 422,
+        "height": 197
+      }
+    ]
+  },
   "buy-crypto": {
     "name": "buy-crypto",
     "path": "/images/resources/buy-crypto_original.jpg",

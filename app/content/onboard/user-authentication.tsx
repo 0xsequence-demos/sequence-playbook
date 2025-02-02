@@ -33,23 +33,6 @@ const info = {
 
 const dependencies = [AuthenticationWidget];
 
-const resources = [
-  "email-embedded-wallet-react-boilerplate",
-  "embedded-wallet-playfab-react-boilerplate",
-  "google-embedded-wallet-react-boilerplate",
-  "kit-embedded-wallet-nextjs-boilerplate",
-  "kit-embedded-wallet-react-boilerplate",
-  "kit-embedded-wallet-remix-cloudflare-boilerplate",
-  "kit-embedded-wallet-remix-nodejs-boilerplate",
-  "kit-universal-wallet-nextjs-boilerplate",
-  "kit-universal-wallet-react-boilerplate",
-  "stytch-embedded-wallet-react-boilerplate",
-  "telegram-kit-embedded-wallet-react-boilerplate",
-  "telegram-metamask-react-boilerplate",
-  "telegram-sequencejs-react-boilerplate",
-  "universal-wallet-react-boilerplate",
-];
-
 // const loader = serverOnly$(async function () {
 //   return {
 //     test: "test",
@@ -145,7 +128,19 @@ function component(data: {
       to peer transactions.
       <Resources
         title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods"
-        items={resources}
+        items={[
+          "email-embedded-wallet-react-boilerplate",
+          "embedded-wallet-playfab-react-boilerplate",
+          "google-embedded-wallet-react-boilerplate",
+          "kit-embedded-wallet-nextjs-boilerplate",
+          "kit-embedded-wallet-react-boilerplate",
+          "kit-embedded-wallet-remix-cloudflare-boilerplate",
+          "kit-embedded-wallet-remix-nodejs-boilerplate",
+          // "kit-universal-wallet-nextjs-boilerplate",
+          "kit-universal-wallet-react-boilerplate",
+          "stytch-embedded-wallet-react-boilerplate",
+          "universal-wallet-react-boilerplate",
+        ]}
       />
     </>
   );
