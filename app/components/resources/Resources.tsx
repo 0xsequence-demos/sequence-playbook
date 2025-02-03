@@ -62,18 +62,18 @@ function Resource(props: { item: ResourceItemProps }) {
       <BackgroundImage name={item.image.src} />
       <InheritLinkFromChild asChild>
         <li
-          className="aspect-video rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
+          className="aspect-video rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group "
           data-background={item.image.src}
         >
-          <div className="flex flex-row justify-between mx-[5px]">
-            <div className="flex justify-start">
+          <div className="flex justify-between p-4 mt-0 mb-auto">
+            <div className="flex">
               {iconsTopLeft.map((iconName) => (
-                <Image className="h-[40px]" name={iconName} key={iconName} />
+                <Image height={28} name={iconName} key={iconName} />
               ))}
             </div>
-            <div className="flex justify-end gap-[5px]">
+            <div className="flex gap-1.5 items-center">
               {iconsTopRight.map((iconName) => (
-                <Image className="h-[24px]" name={iconName} key={iconName} />
+                <Image height={24} name={iconName} key={iconName} />
               ))}
             </div>
           </div>
