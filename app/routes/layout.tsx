@@ -76,14 +76,15 @@ export default function SiteLayout() {
           </div>
 
           <Drawer
-            trigger={
+            trigger={({ handleOpen }) => (
               <button
                 type="button"
                 className="block md:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
+                onClick={handleOpen}
               >
                 <Icon name="menu" className="size-5" alt="Menu" />
               </button>
-            }
+            )}
           >
             {" "}
             <ul className="flex flex-col gap-1">

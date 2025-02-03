@@ -33,6 +33,9 @@ import { SkipAhead } from "~/components/skip-ahead/SkipAhead";
 import { useState } from "react";
 import shiki from "./shiki.css?url";
 import { KitCheckoutProvider } from "@0xsequence/kit-checkout";
+import { WindowController } from "~/components/window-controller/WindowController";
+import { WindowRoot } from "~/components/window-controller/WindowRoot";
+import { WindowPortal } from "~/components/window-controller/WindowPortal";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -183,7 +186,10 @@ export default function App() {
         <KitProvider config={kitConfig}>
           <KitWalletProvider>
             <KitCheckoutProvider>
-              <Outlet />
+              <WindowController>
+                <WindowRoot />
+                <WindowPortal />
+              </WindowController>
             </KitCheckoutProvider>
           </KitWalletProvider>
         </KitProvider>

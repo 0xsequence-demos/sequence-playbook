@@ -34,7 +34,11 @@ export default function IndexRoute() {
       <Main>
         <div className=" relative top-[-96px] z-[0] isolate right-0 w-full">
           <Mask.BoxFade>
-            <Image name="home" className="object-cover" />
+            <Image
+              name="home"
+              className="object-cover aspect-video"
+              width={2400}
+            />
           </Mask.BoxFade>
         </div>
 
