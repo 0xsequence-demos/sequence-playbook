@@ -13,9 +13,8 @@ export const action = serverOnly$(async () => ({
 
 export const BuyCryptoWidget = () => {
   const { address } = useAccount();
-  const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
-
   const { setOpenConnectModal } = useOpenConnectModal();
+  const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
 
   const handleAddFunds = () => {
     toggleAddFunds({
