@@ -106,7 +106,8 @@ export const Image = (
       <img
         src={fallback.path}
         alt={alt || imageAlt || ""}
-        width={width || fallback.width}
+        width="auto"
+        // width={width || fallback.width}
         height={height || fallback.height}
         loading="lazy"
         {...restProps}
