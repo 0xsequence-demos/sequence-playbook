@@ -19,9 +19,9 @@ export const BuyCryptoWidget = () => {
   const handleAddFunds = () => {
     toggleAddFunds({
       walletAddress: address!,
-      defaultCryptoCurrency: "POL",
-      cryptoCurrencyList: "POL",
-      networks: "polygon",
+      defaultCryptoCurrency: "USDC",
+      cryptoCurrencyList: "USDC",
+      networks: "arbitrum-sepolia",
       onOrderCreated(data) {
         console.log("Order Created", data);
       },
