@@ -32,24 +32,30 @@ const TYPES = {
 } as const;
 
 function parseSources(srcset: Srcset[]) {
-  const groupedSrcset = srcset.reduce((acc, src) => {
-    if (!acc[src.format]) {
-      acc[src.format] = [];
-    }
+  const groupedSrcset = srcset.reduce(
+    (acc, src) => {
+      if (!acc[src.format]) {
+        acc[src.format] = [];
+      }
 
-    acc[src.format].push(`${src.path} ${src.scale}`);
+      acc[src.format].push(`${src.path} ${src.scale}`);
 
-    return acc;
-  }, {} as Record<Mimetypes, string[]>);
+      return acc;
+    },
+    {} as Record<Mimetypes, string[]>,
+  );
 
-  const orderedGroupedSrcset = Object.keys(TYPES).reduce((ordered, format) => {
-    const _format = format as Mimetypes;
+  const orderedGroupedSrcset = Object.keys(TYPES).reduce(
+    (ordered, format) => {
+      const _format = format as Mimetypes;
 
-    if (groupedSrcset[_format]) {
-      ordered[_format] = groupedSrcset[_format];
-    }
-    return ordered;
-  }, {} as Record<Mimetypes, string[]>);
+      if (groupedSrcset[_format]) {
+        ordered[_format] = groupedSrcset[_format];
+      }
+      return ordered;
+    },
+    {} as Record<Mimetypes, string[]>,
+  );
 
   // Generate set string for all groups in the groupedSet
   const sources = Object.entries(orderedGroupedSrcset).map(([format, srcs]) => {
@@ -97,6 +103,7 @@ export const Image = (
   const { alt: imageAlt, srcset } = image;
 
   const { sources, fallback } = parseSources(srcset);
+  const aspectRatio = fallback.width / fallback.height;
 
   return (
     <picture>
@@ -106,9 +113,8 @@ export const Image = (
       <img
         src={fallback.path}
         alt={alt || imageAlt || ""}
-        width="auto"
-        // width={width || fallback.width}
-        height={height || fallback.height}
+        width={width || (height || 0) * aspectRatio || fallback.width}
+        height={height || (width || 0) * aspectRatio || fallback.height}
         loading="lazy"
         {...restProps}
       />
