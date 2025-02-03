@@ -13,16 +13,15 @@ export const action = serverOnly$(async () => ({
 
 export const BuyCryptoWidget = () => {
   const { address } = useAccount();
-  const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
-
   const { setOpenConnectModal } = useOpenConnectModal();
+  const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
 
   const handleAddFunds = () => {
     toggleAddFunds({
       walletAddress: address!,
-      defaultCryptoCurrency: "POL",
-      cryptoCurrencyList: "POL",
-      networks: "polygon",
+      defaultCryptoCurrency: "USDC",
+      cryptoCurrencyList: "USDC",
+      networks: "arbitrum-sepolia",
       onOrderCreated(data) {
         console.log("Order Created", data);
       },
