@@ -262,7 +262,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
+    title: "Universal Wallet",
     links: [
       {
         label: "Demo",

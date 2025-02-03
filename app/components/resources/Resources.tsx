@@ -73,7 +73,7 @@ function Resource(props: { item: ResourceItemProps }) {
             </div>
             <div className="flex justify-end gap-[5px]">
               {iconsTopRight.map((iconName) => (
-                <Image className="h-[40px]" name={iconName} key={iconName} />
+                <Image className="h-[24px]" name={iconName} key={iconName} />
               ))}
             </div>
           </div>
