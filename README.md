@@ -36,17 +36,24 @@ Books are stored in the `/app/content/` folder under different topics such as `m
 
    ```tsx
    export const info = {
-     name: "kebab-case-path", // Example: "monetize/cryptonamp"
-     title: "Title of the Book",
-     shortName: "Short Title",
-     image: { src: "/path/to/image" },
-     description: "Short description of the book."
+      name: "kebab-case-path", // Example: "monetize/cryptonamp"
+      title: "Title of the Book",
+      shortName: "Short Title",
+      image: { src: "/path/to/image" },
+      description: "Short description of the book.",
+      platforms: { // Optional -- links to each platform docs
+         unreal: "/url/to/docs",
+         unity: "/url/to/docs",
+         "react-native": "/url/to/docs",
+         telegram: "/url/to/docs",
+         web: "/url/to/docs",
+      },
    };
 
    export function component() {
     return <>{/* React/HTML */}</>
    }
-  ```
+   ```
 
   The following exports are optional
 
