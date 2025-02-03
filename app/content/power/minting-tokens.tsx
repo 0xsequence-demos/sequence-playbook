@@ -46,18 +46,22 @@ function component() {
             !address ? "dead" : mintStatus === "successs" ? "happy" : "neutral"
           }
         >
-          <div className="mallet">
-            <Image
-              name={
-                mintStatus === "successs"
-                  ? "mallet-crude"
-                  : "mallet-crude-wireframe"
-              }
-            />
-            <Image
-              className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
-              name={"mallet-crude-minting"}
-            />
+          <div className="flex flex-1 items-center justify-center">
+            <div className="overflow-clip rounded-[1rem]">
+              <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center">
+                <Image
+                  name={
+                    mintStatus === "successs"
+                      ? "mallet-crude"
+                      : "mallet-crude-wireframe"
+                  }
+                />
+                <Image
+                  className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
+                  name={"mallet-crude-minting"}
+                />
+              </div>
+            </div>
           </div>
           {address ? (
             <MintTokenWidget
