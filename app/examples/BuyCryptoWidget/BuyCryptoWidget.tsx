@@ -1,19 +1,12 @@
 /* starthide */
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { useAddFundsModal } from "@0xsequence/kit-checkout";
-import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount } from "wagmi";
-
-export const loader = serverOnly$(async () => ({
-  name: "BuyCryptoWidget Widget is my name",
-}));
-export const action = serverOnly$(async () => ({
-  name: "BuyCryptoWidget Widget is my name",
-}));
 
 export const BuyCryptoWidget = () => {
   const { address } = useAccount();
   const { setOpenConnectModal } = useOpenConnectModal();
+  /* endhide */
   const { triggerAddFunds: toggleAddFunds } = useAddFundsModal();
 
   const handleAddFunds = () => {
@@ -22,6 +15,7 @@ export const BuyCryptoWidget = () => {
       defaultCryptoCurrency: "USDC",
       cryptoCurrencyList: "USDC",
       networks: "arbitrum-sepolia",
+      /* starthide */
       onOrderCreated(data) {
         console.log("Order Created", data);
       },
@@ -32,12 +26,12 @@ export const BuyCryptoWidget = () => {
         console.warn("Order Failed", data);
       },
       onClose: () => console.log("User closed the popup"),
+      /* endhide */
     });
   };
 
   return address ? (
     <>
-      {/* endhide */}
       <p>Connected as {address}</p>
       <button onClick={() => handleAddFunds()}>Add Funds</button>
       {/* starthide */}
