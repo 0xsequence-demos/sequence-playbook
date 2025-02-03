@@ -25,3 +25,4 @@ export { default as SequenceLogo } from "./SequenceLogo";
 export { default as Telegram } from "./Telegram";
 export { default as Unity } from "./Unity";
 export { default as Unreal } from "./Unreal";
+export { default as X } from "./X";

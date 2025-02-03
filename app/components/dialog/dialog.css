@@ -1,0 +1,24 @@
+@layer components {
+  .Dialog {
+    will-change: transform, opacity;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  .Dialog.open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .Backdrop {
+    will-change: opacity;
+    transition: opacity 0.3s;
+    opacity: 0;
+  }
+
+  .Backdrop.open {
+    opacity: 1;
+  }
+}
