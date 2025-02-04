@@ -26,6 +26,9 @@ export default defineConfig({
       conditions: ["workerd", "worker", "browser"],
     },
   },
+  optimizeDeps: {
+    exclude: ["@0xsequence/kit-checkout"],
+  },
   resolve: {
     mainFields: ["browser", "module", "main"],
   },
