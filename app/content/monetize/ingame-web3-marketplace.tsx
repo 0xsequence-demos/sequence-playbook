@@ -22,8 +22,6 @@ const info = {
   description: "Let users build a live economy in your game!",
 } as const;
 
-const resources = ["ingame-marketplace-boilerplate"];
-
 function component() {
   const { address } = useAccount();
   const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
@@ -105,7 +103,7 @@ function component() {
           steps={SendTestTransactionWidget.steps}
         />
       </PlayCard>
-      <Resources items={resources} />
+      <Resources items={["ingame-marketplace-boilerplate"]} />
     </>
   );
 }

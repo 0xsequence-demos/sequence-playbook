@@ -16,8 +16,6 @@ const info = {
     "A simple and elegant way to view your wallet inventory, with Sequence Kit",
 } as const;
 
-const resources = ["gift-wallet-inventory-boilerplate"];
-
 function component() {
   const { address } = useAccount();
 
@@ -37,7 +35,7 @@ function component() {
 
       <Divide />
 
-      <Resources items={resources} />
+      <Resources items={["gift-wallet-inventory-boilerplate"]} />
     </>
   );
 }
