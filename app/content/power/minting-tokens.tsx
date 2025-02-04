@@ -24,8 +24,6 @@ const info = {
 
 const dependencies = [MintTokenWidget];
 
-const resources = ["server-side-transactions-boilerplate"];
-
 function component() {
   const { address } = useAccount();
 
@@ -78,7 +76,7 @@ function component() {
           steps={MintTokenWidget.steps}
         />
       </PlayCard>
-      <Resources items={resources} />
+      <Resources items={["server-side-transactions-boilerplate"]} />
     </>
   );
 }

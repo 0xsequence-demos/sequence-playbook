@@ -2,7 +2,6 @@ import { useAccount } from "wagmi";
 import { ContractInventoryWidget } from "~/examples/ContractInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
-import { includeResources } from "~/content/resources";
 
 const info = {
   name: "contract-inventory",
@@ -15,8 +14,6 @@ const info = {
   description:
     "A simple and elegant way to view your wallet inventory for a specific contract, with Sequence Kit",
 } as const;
-
-const resources = ["gift-wallet-inventory-boilerplate"];
 
 function component() {
   const { address } = useAccount();
@@ -42,7 +39,7 @@ function component() {
           steps={ContractInventoryWidget.steps}
         />
       </PlayCard>
-      <Resources items={resources} />
+      <Resources items={["gift-wallet-inventory-boilerplate"]} />
     </>
   );
 }

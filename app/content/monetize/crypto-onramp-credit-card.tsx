@@ -17,8 +17,6 @@ const info = {
   description: "Getting crypto in your wallet is easier than ever on mainnet.",
 } as const;
 
-const resources = ["crypto-onramp-boilerplate", "sequence-pay-boilerplate"];
-
 function component() {
   const { address } = useAccount();
 
@@ -30,10 +28,15 @@ function component() {
           <BuyCryptoWidget />
         </PlayCard.Preview>
 
-        <PlayCard.Code copy={BuyCryptoWidget.String} steps={BuyCryptoWidget.steps} />
+        <PlayCard.Code
+          copy={BuyCryptoWidget.String}
+          steps={BuyCryptoWidget.steps}
+        />
       </PlayCard>
 
-      <Resources items={resources} />
+      <Resources
+        items={["crypto-onramp-boilerplate", "sequence-pay-boilerplate"]}
+      />
     </>
   );
 }

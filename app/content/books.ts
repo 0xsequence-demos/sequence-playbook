@@ -1,12 +1,12 @@
 import { Topic } from "~/content/types";
 import UserAuthenticationBook from "~/content/onboard/user-authentication";
-import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
+// import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
 import WalletInventoryBook from "~/content/onboard/wallet-inventory";
 
 import CryptoOnrampCreditCardBook from "~/content/monetize/crypto-onramp-credit-card";
-import IngameWeb3MarketplaceBook from "~/content/monetize/ingame-web3-marketplace";
+// import IngameWeb3MarketplaceBook from "~/content/monetize/ingame-web3-marketplace";
 import PrimarySaleNftBook from "~/content/monetize/primary-sale-nft";
-import PrimarySaleOffChainDigitalGoodsBook from "~/content/monetize/primary-sale-off-chain-digital-goods";
+// import PrimarySaleOffChainDigitalGoodsBook from "~/content/monetize/primary-sale-off-chain-digital-goods";
 
 import ContractInventoryBook from "~/content/power/contract-inventory";
 import ListeningToWeb3EventsBook from "~/content/power/listening-to-web3-events";
