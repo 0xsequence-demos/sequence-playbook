@@ -58,7 +58,7 @@ export const Collectible = ({
   refetchCollectionBalance,
   refetchTotalMinted,
 }: CollectibleProps) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const [txExplorerUrl, setTxExplorerUrl] = useState("");
   const [txError, setTxError] = useState<SendTransactionErrorType | null>(null);
   const [purchasingNft, setPurchasingNft] = useState<boolean>(false);
@@ -77,20 +77,6 @@ export const Collectible = ({
   });
 
   const amountOwned: string = collectibleBalance?.balance || "0";
-
-  const increaseAmount = () => {
-    if (purchasingNft) return;
-    setAmount(amount + 1);
-  };
-
-  const decreaseAmount = () => {
-    if (amount === 0 || purchasingNft) return;
-    setAmount(amount - 1);
-  };
-
-  const resetAmount = () => {
-    setAmount(0);
-  };
 
   const mintedNftPercentage = calculateMintedPercentage(
     Number(nftsMinted),
@@ -190,7 +176,7 @@ export const Collectible = ({
         </div>
 
         <Form className="flex flex-col gap-3">
-          <div className="flex items-center border border-grey-600 rounded-[0.5rem]">
+          {/* <div className="flex items-center border border-grey-600 rounded-[0.5rem]">
             <button
               type="button"
               onClick={decreaseAmount}
@@ -214,14 +200,14 @@ export const Collectible = ({
                 alt="Increase quantity"
               />
             </button>
-          </div>
+          </div> */}
 
           <BuyWithCryptoCardButton
             amount={amount}
             chainId={chainId}
             collectionAddress={saleConfiguration.nftTokenAddress}
             tokenId={tokenMetadata.tokenId}
-            resetAmount={resetAmount}
+            // resetAmount={resetAmount}
             setTxExplorerUrl={setTxExplorerUrl}
             setTxError={setTxError}
             setPurchasingNft={setPurchasingNft}
