@@ -27,7 +27,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ["@0xsequence/kit-checkout"],
+    // exclude: ["@0xsequence/kit-checkout"],
   },
   resolve: {
     mainFields: ["browser", "module", "main"],
