@@ -70,14 +70,13 @@ function component() {
 
   const { data: currencyData, isLoading: currencyDataIsLoading } =
     useSalesCurrency(saleConfiguration);
-
   const {
     data: tokenSaleDetailsData,
     // isLoading: tokenSaleDetailsDataIsLoading,
   } = useReadContract({
     abi: SALES_CONTRACT_ABI,
     functionName: "globalSaleDetails",
-    chainId: chainId,
+    chainId: saleConfiguration.chainId,
     address: saleConfiguration.salesContractAddress as `0x${string}`,
   });
 
@@ -90,7 +89,7 @@ function component() {
       ? {
           abi: ERC20_ABI,
           functionName: "balanceOf",
-          chainId: chainId,
+          chainId: saleConfiguration.chainId,
           address: currencyData.address as `0x${string}`,
           args: [userAddress],
           query: {

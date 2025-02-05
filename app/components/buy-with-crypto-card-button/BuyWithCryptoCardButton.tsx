@@ -23,7 +23,7 @@ interface BuyWithCryptoCardButtonProps {
   collectionAddress: string;
   chainId: number;
   amount: number;
-  resetAmount: () => void;
+  // resetAmount: () => void;
   setTxExplorerUrl: (url: string) => void;
   setTxError: (error: SendTransactionErrorType | null) => void;
   setPurchasingNft: (value: boolean) => void;
@@ -40,7 +40,7 @@ export const BuyWithCryptoCardButton = ({
   // collectionAddress,
   chainId,
   amount,
-  resetAmount,
+  // resetAmount,
   setTxExplorerUrl,
   setTxError,
   userPaymentCurrencyBalance,
@@ -172,7 +172,7 @@ export const BuyWithCryptoCardButton = ({
 
   useEffect(() => {
     if (!txnData || isPendingSendTxn) return;
-    resetAmount();
+    // resetAmount();
 
     // toast.custom((t) => (
     //   <Toast status="success" handleClose={() => toast.dismiss(t)}>
@@ -205,7 +205,7 @@ export const BuyWithCryptoCardButton = ({
 
   return (
     <>
-      <Button
+      <button
         // variant="primary"
         data-nsf={hasNsf}
         className="rounded-[0.5rem] w-full font-bold text-14 data-[nsf=true]:opacity-50"
@@ -216,7 +216,7 @@ export const BuyWithCryptoCardButton = ({
           : !isPendingSendTxn
             ? "Buy"
             : "Buying..."}
-      </Button>
+      </button>
     </>
   );
 };
