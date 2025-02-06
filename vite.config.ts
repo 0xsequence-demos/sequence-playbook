@@ -6,7 +6,7 @@ import { getLoadContext } from "./load-context";
 import { envOnlyMacros } from "vite-env-only";
 
 export default defineConfig(({ mode }) => {
-  loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, process.cwd(), "");
   return {
     server: {
       port: 4444,
@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       "import.meta.env.VITE_PROJECT_ACCESS_KEY": JSON.stringify(
-        process.env.PROJECT_ACCESS_KEY,
+        env.PROJECT_ACCESS_KEY,
       ),
     },
     build: {
