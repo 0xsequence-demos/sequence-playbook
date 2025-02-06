@@ -7,31 +7,6 @@ import { encodeFunctionData } from "viem";
 import type { GetWalletClientData } from "wagmi/query";
 
 export class ERC20 {
-  static approve = async (
-    erc20Address: string,
-    spender: string,
-    amount: bigint,
-    signer: GetWalletClientData<any, any>,
-  ): Promise<string> => {
-    const txHash = await signer.writeContract({
-      chain: signer.chain,
-      address: erc20Address as Hex,
-      abi: ERC20_ABI,
-      functionName: "approve",
-      args: [spender as Hex, amount],
-    });
-
-    return txHash;
-  };
-
-  static approve_data = (spender: string, amount: bigint): string => {
-    return encodeFunctionData({
-      abi: ERC20_ABI,
-      functionName: "approve",
-      args: [spender as Hex, amount],
-    });
-  };
-
   static approveInfinite = async (
     erc20Address: string,
     spender: string,
