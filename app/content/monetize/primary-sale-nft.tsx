@@ -4,12 +4,11 @@ import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
-import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/salesContractAbi";
-import { useSalesCurrency } from "~/utils/primary-sales/hooks/useSalesCurrency";
+import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/abis/salesContractAbi";
+import { useSalesCurrency } from "~/hooks/useSalesCurrency";
 import { saleConfiguration } from "~/utils/primary-sales/helpers";
 import { ERC20_ABI } from "~/utils/primary-sales/ERC20/ERC20_abi";
-import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/nftTokenContractAbi";
-import { calculateMintedPercentage } from "~/utils/primary-sales/calculateMintedPercentage";
+import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
 import { ContractInfo } from "@0xsequence/indexer";
 
