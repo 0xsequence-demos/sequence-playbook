@@ -1,4 +1,6 @@
 const projectAccessKey = import.meta.env.VITE_PROJECT_ACCESS_KEY;
+console.log(projectAccessKey);
+
 import { stringTemplate } from "@0xsequence/network";
 
 export const DEFAULT_PLATFORM_FEE_PERCENTAGE = 2;
