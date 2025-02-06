@@ -8,7 +8,7 @@ import {
 } from "wagmi";
 import { ERC20 } from "~/utils/primary-sales/ERC20/ERC20";
 import { getChain } from "~/utils/primary-sales/ERC20/getChain";
-import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/salesContractAbi";
+import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/abis/salesContractAbi";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ContractInfo } from "@0xsequence/indexer";

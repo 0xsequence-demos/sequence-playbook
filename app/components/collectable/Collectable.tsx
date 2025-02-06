@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ContractInfo, TokenMetadata } from "@0xsequence/indexer";
 import { toast } from "sonner";
 import { SendTransactionErrorType } from "viem";
-import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/nftTokenContractAbi";
+import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { useReadContract } from "wagmi";
 import {
   UnpackedSaleConfigurationProps,
