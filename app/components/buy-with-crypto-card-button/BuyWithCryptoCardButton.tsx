@@ -3,20 +3,17 @@ import {
   usePublicClient,
   useWalletClient,
   useAccount,
-  // useReadContract,
   useSendTransaction,
-  // useSwitchChain,
+  useSwitchChain,
 } from "wagmi";
 import { ERC20 } from "~/utils/primary-sales/ERC20/ERC20";
 import { getChain } from "~/utils/primary-sales/ERC20/getChain";
-
 import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/salesContractAbi";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ContractInfo } from "@0xsequence/indexer";
-// import { Button, Toast } from "boilerplate-design-system";
-import { UnpackedSaleConfigurationProps } from "~/utils/primary-sales/hooks/useSalesCurrency";
-import { Button } from "../button/Button";
+import { Toast } from "boilerplate-design-system";
+import { saleConfiguration } from "~/utils/primary-sales/helpers";
 
 interface BuyWithCryptoCardButtonProps {
   tokenId: string;
@@ -55,7 +52,7 @@ export const BuyWithCryptoCardButton = ({
   const { data: walletClient } = useWalletClient();
   const {
     address: userAddress,
-    // chainId: chainIdUser
+    chainId: chainIdUser
   } = useAccount();
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const [chainInfo, setChainInfo] = useState<{ [key: string]: any }>({});
@@ -66,11 +63,16 @@ export const BuyWithCryptoCardButton = ({
     error,
     reset,
   } = useSendTransaction();
+  const { switchChainAsync } = useSwitchChain();
   const nftPriceBigInt = price ? price : BigInt(0);
   const amountBigInt = BigInt(amount);
   const totalPrice = nftPriceBigInt * amountBigInt;
 
   const onClickBuy = async () => {
+    if (chainIdUser !== chainId) {
+      await switchChainAsync({ chainId });
+    }
+
     if (
       !publicClient ||
       !walletClient ||
@@ -101,20 +103,7 @@ export const BuyWithCryptoCardButton = ({
     setTxError(null);
     setTxExplorerUrl("");
     setPurchasingNft(true);
-    const saleConfiguration = {
-      "networkName": "Polygon Amoy",
-      "nftTokenAddress": "0x888a322db4b8033bac3ff84412738c096f87f9d0",
-      "salesContractAddress": "0x0327b2f274e04d292e74a06809bcd687c63a4ba4",
-      "chainId": 80002,
-      "itemsForSale": [
-          {
-              "tokenId": "0"
-          },
-          {
-              "tokenId": "1"
-          }
-      ]
-    } as UnpackedSaleConfigurationProps;
+
     const allowance = await ERC20.getAllowance(
       currencyData.address,
       userAddress,
@@ -172,23 +161,22 @@ export const BuyWithCryptoCardButton = ({
 
   useEffect(() => {
     if (!txnData || isPendingSendTxn) return;
-    // resetAmount();
 
-    // toast.custom((t) => (
-    //   <Toast status="success" handleClose={() => toast.dismiss(t)}>
-    //     <div className="flex flex-col flex-1 gap-1 w-full">
-    //       <span className="font-medium">Purchase Completed Successfully. </span>
-    //       <a
-    //         href={`${chainInfo.explorerUrl}/tx/${txnData}`}
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-12 font-medium underline text-grey-200"
-    //       >
-    //         View transaction in explorer
-    //       </a>
-    //     </div>
-    //   </Toast>
-    // ));
+    toast.custom((t) => (
+      <Toast status="success" handleClose={() => toast.dismiss(t)}>
+        <div className="flex flex-col flex-1 gap-1 w-full">
+          <span className="font-medium">Purchase Completed Successfully. </span>
+          <a
+            href={`${chainInfo.explorerUrl}/tx/${txnData}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-12 font-medium underline text-grey-200"
+          >
+            View transaction in explorer
+          </a>
+        </div>
+      </Toast>
+    ));
     setTxExplorerUrl(`${chainInfo.explorerUrl}/tx/${txnData}`);
     setPurchasingNft(false);
     setTimeout(() => {
@@ -206,7 +194,6 @@ export const BuyWithCryptoCardButton = ({
   return (
     <>
       <button
-        // variant="primary"
         data-nsf={hasNsf}
         className="rounded-[0.5rem] w-full font-bold text-14 data-[nsf=true]:opacity-50"
         onClick={onClickBuy}

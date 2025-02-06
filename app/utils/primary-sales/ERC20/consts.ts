@@ -1,7 +1,5 @@
 const projectAccessKey = import.meta.env.VITE_PROJECT_ACCESS_KEY;
-export const projectId = import.meta.env.VITE_PROJECT_ID;
 import { stringTemplate } from "@0xsequence/network";
-import { ChainId } from "@0xsequence/network";
 
 export const DEFAULT_PLATFORM_FEE_PERCENTAGE = 2;
 
@@ -12,11 +10,6 @@ export const DEFAULT_PLATFORM_FEE_RECIPIENT =
 // Used for Avalanche and Optimism
 export const PLATFORM_FEE_RECIPIENT_AVALANCHE_OPTIMISM =
   "0x400cdab4676c17aec07e8ec748a5fc3b674bca41";
-
-export const DEFAULT_NETWORK = ChainId.POLYGON;
-
-export const SEQUENCE_MARKET_V1_ADDRESS =
-  "0xB537a160472183f2150d42EB1c3DD6684A55f74c";
 
 const SERVICES = {
   sequenceApi: "https://api.sequence.app",
@@ -39,11 +32,6 @@ export const indexerURL = (network: string) =>
 
 export const marketplaceApiURL = (network: string) =>
   stringTemplate(SERVICES.marketplaceApi, { network: network });
-
-export const builderMarketplaceApi = () =>
-  stringTemplate(SERVICES.builderMarketplaceApi, {
-    projectId: projectId,
-  });
 
 export const rpcNodeURL = (network: string) =>
   stringTemplate(SERVICES.rpcNodeUrl, {
