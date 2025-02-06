@@ -11,6 +11,7 @@ import { ERC20_ABI } from "~/utils/primary-sales/ERC20/ERC20_abi";
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
 import { ContractInfo } from "@0xsequence/indexer";
+import { Link } from "react-router";
 
 const info = {
   name: "primary-sale-nft",
@@ -111,6 +112,7 @@ function component() {
       <Divide />
       <h2>Buy an NFT from a primary sale</h2>
       When your NFT sale opens, your users can buy your NFTs
+      <Link className="underline" to="https://faucet.circle.com/" target="_blank" referrerPolicy="no-referrer">Get some USDC on arbitrum sepolia to play 👈</Link>
       <PlayCard>
         <PlayCard.Preview
           botMood={!userAddress ? "dead" : "neutral"}
