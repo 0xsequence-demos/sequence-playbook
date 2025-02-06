@@ -13,7 +13,7 @@ const info = {
     src: "wallet-inventory",
   },
   description:
-    "A simple and elegant way to view your wallet inventory, with Sequence Kit",
+    "A simple and elegant way for your users to manage their assets, integrated with Sequence Kit",
 } as const;
 
 function component() {
@@ -35,7 +35,6 @@ function component() {
 
       <Divide />
 
-      <Resources items={["gift-wallet-inventory-boilerplate"]} />
     </>
   );
 }

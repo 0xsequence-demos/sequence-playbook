@@ -6,7 +6,7 @@ import { Resources } from "~/components/resources/Resources";
 const info = {
   name: "crypto-onramp-credit-card",
   path: "/monetize/crypto-onramp-credit-card",
-  title: "Onramp Crypto with a Credit Card via Sequence Kit",
+  title: "Onramp to Crypto with a Credit Card",
   shortname: "Buy Crypto",
   image: {
     src: "buy-crypto",
@@ -14,7 +14,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description: "Getting crypto in your wallet is easier than ever on mainnet.",
+  description: "Getting crypto in your wallet is easier than ever on a variety of mainnets.",
 } as const;
 
 function component() {

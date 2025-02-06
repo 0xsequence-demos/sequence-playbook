@@ -10,7 +10,7 @@ const info = {
   image: {
     src: "web3-events",
   },
-  description: "Build responsive experiences that react to onchain activity.",
+  description: "Build responsive experiences that react to onchain activity in realtime.",
 } as const;
 
 function component() {
@@ -22,7 +22,7 @@ function component() {
       interactions.
       <br />
       <br />
-      You can stop long-polling, and start listening to wallet updates.
+      You can stop long-polling, and start listening to wallet updates in realtime.
       <h2>Listen to Web3 Events</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>

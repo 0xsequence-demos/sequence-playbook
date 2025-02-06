@@ -28,7 +28,7 @@ export const resources: {
 } = {
   "email-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Email Embedded Wallet",
+    title: "Embedded Wallet - Email",
     image: {
       src: "bg-blue",
       alt: "",
@@ -51,7 +51,7 @@ export const resources: {
   },
   "embedded-wallet-playfab-react-boilerplate": {
     type: "boilerplate",
-    title: "Playfab Embedded Wallet",
+    title: "Embedded Wallet - Playfab",
     image: {
       src: "bg-blue",
       alt: "",
@@ -74,7 +74,7 @@ export const resources: {
   },
   "google-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Google Embedded Wallet",
+    title: "Embedded Wallet - Google",
     image: {
       src: "bg-blue",
       alt: "",
@@ -101,7 +101,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - NextJS",
     links: [
       {
         label: "Demo",
@@ -124,7 +124,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - React",
     links: [
       {
         label: "Demo",
@@ -147,7 +147,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - Remix + Cloudflare",
     links: [
       {
         label: "Demo",
@@ -170,7 +170,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - Remix + NodeJS",
     links: [
       {
         label: "Demo",

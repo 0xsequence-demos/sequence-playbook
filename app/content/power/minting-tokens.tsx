@@ -19,7 +19,7 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description: "Mint your own ERC20, ERC721 or ERC1155 tokens.",
+  description: "Batch, parallelize, and mint at scale your own ERC20, ERC721 or ERC1155 tokens with our Transactions API.",
 } as const;
 
 const dependencies = [MintTokenWidget];
@@ -31,13 +31,8 @@ function component() {
 
   return (
     <>
-      <h2>No Coding Necessary</h2>
-      Using sequence.build, you can create your tokens and mint them from the
-      browser
-      <Image name="minting-via-builder" />
-      <h2>Coding is Cool, Though</h2>
-      We agree! Using the sequence API, you can create and mint tokens in ways
-      only you can imagine.
+      <h2>Minting at Scale</h2>
+      Create an admin wallet on your backend with built-in access control with our contracts to precisely manage your mints securely.
       <PlayCard>
         <PlayCard.Preview
           botMood={

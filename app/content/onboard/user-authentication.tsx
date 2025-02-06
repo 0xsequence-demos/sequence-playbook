@@ -22,11 +22,11 @@ const info = {
     src: "user-authentication",
   },
   platforms: {
-    unreal: "https://google.com",
-    unity: "",
-    "react-native": "",
-    telegram: "",
-    web: "",
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    "react-native": "https://docs.sequence.xyz/sdk/mobile",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
   },
   description: "Everything starts with user authentication.",
 } as BookInfo;
@@ -59,8 +59,7 @@ function component(data: {
   return (
     <>
       <h2>Authenticate with an embedded wallet</h2>
-      Sequence Kit provides a wide variety of login providers, all easily
-      configured.
+      Sequence Kit provides a wide variety of authentication options, web2 to web3. All easily configurable and customizable for your brand.
       <PlayCard>
         <PlayCard.Code
           copy={AuthenticationWidget.String}
@@ -74,7 +73,7 @@ function component(data: {
       That's how simple it is.
       <br />
       {address ? (
-        <>Go ahead, test out your embedded wallet...</>
+        <>Go ahead, test out your wallet.</>
       ) : (
         <p>
           Go ahead,{" "}
@@ -84,7 +83,7 @@ function component(data: {
           >
             Connect
           </button>{" "}
-          now to see what you can do with your embedded wallet...
+          now to see what you can do with your wallet.
         </p>
       )}
       <h2>Sign a message</h2>
@@ -105,7 +104,8 @@ function component(data: {
         </PlayCard.Preview>
       </PlayCard>
       <Divide />
-      <h2>Send a test transaction</h2>
+      <h2>Send a transaction</h2>
+      Built on top of wagmi, making integration and usage a breeze.
       <PlayCard>
         <PlayCard.Code
           copy={SendTestTransactionWidget.String}
@@ -117,29 +117,24 @@ function component(data: {
           {address ? (
             <SendTestTransactionWidget setData={setTransaction} />
           ) : (
-            <RequireWalletButton title="Connect a wallet send a test transaction" />
+            <RequireWalletButton title="Connect a wallet to send a transaction" />
           )}
         </PlayCard.Preview>
       </PlayCard>
-      This is only the beginning.
       <br />
-      Maybe you want to sell items to your users. <br />
-      Maybe you want to reward your players, or provide a marketplace for peer
-      to peer transactions.
+      Onboarding is only the beginning.<br />
+
+      <br />Check out the rest of the Sequence playbook to see how we enable everything from monetization to your backend.
       <Resources
-        title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods"
+        title="Get started quickly with our range of boilerplates covering a range of frameworks, platforms, and login methods."
         items={[
-          "email-embedded-wallet-react-boilerplate",
-          "embedded-wallet-playfab-react-boilerplate",
-          "google-embedded-wallet-react-boilerplate",
           "kit-embedded-wallet-nextjs-boilerplate",
           "kit-embedded-wallet-react-boilerplate",
           "kit-embedded-wallet-remix-cloudflare-boilerplate",
           "kit-embedded-wallet-remix-nodejs-boilerplate",
-          // "kit-universal-wallet-nextjs-boilerplate",
-          "kit-universal-wallet-react-boilerplate",
-          "stytch-embedded-wallet-react-boilerplate",
-          "universal-wallet-react-boilerplate",
+          "email-embedded-wallet-react-boilerplate",
+          "google-embedded-wallet-react-boilerplate",
+          "embedded-wallet-playfab-react-boilerplate",
         ]}
       />
     </>
