@@ -1,7 +1,4 @@
-import { Button, 
-  // Svg
-} from "boilerplate-design-system";
-import { MintedProgressBar } from "../minted-progress-bar/MintedProgressBar";
+import { Button } from "boilerplate-design-system";
 
 export function CollectableSkeleton() {
   return (
@@ -11,12 +8,9 @@ export function CollectableSkeleton() {
       <span className="text-20 font-bold leading-tight">--</span>
 
       <div className="mt-auto mb-0 flex flex-col gap-4">
-        <MintedProgressBar
-          totalMintedPercentage={0}
-          mintedPercentage={0}
-          mintedValue={Number(0)}
-          supplyValue={Number(0)}
-        />
+        <div>
+          <span className="text-12 font-medium">-- Minted</span>
+        </div>
 
         <div className="flex justify-between">
           <div className="flex flex-col">
@@ -33,32 +27,6 @@ export function CollectableSkeleton() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {/* <div className="flex items-center border border-grey-600 rounded-[0.5rem]">
-            <button
-              type="button"
-              disabled
-              className="size-12 flex items-center justify-center"
-            >
-              <Svg
-                name="Subtract"
-                className="text-white size-4"
-                alt="Decrease quantity"
-              />
-            </button>
-            <span className="flex-1 text-center">0</span>
-            <button
-              type="button"
-              disabled
-              className="size-12 flex items-center justify-center"
-            >
-              <Svg
-                name="Add"
-                className="text-white size-4"
-                alt="Increase quantity"
-              />
-            </button>
-          </div> */}
-
           <Button
             variant="primary"
             className="rounded-[0.5rem] w-full font-bold text-14"
