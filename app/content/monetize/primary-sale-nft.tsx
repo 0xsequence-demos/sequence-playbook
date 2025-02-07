@@ -16,7 +16,7 @@ const info = {
   name: "primary-sale-nft",
   path: "/monetize/primary-sale-nft",
   title: "Primary sale for NFTs",
-  shortname: "Primary sale for NFTs 🚧",
+  shortname: "Primary sale for NFTs",
   image: {
     src: "primary-sale-nft",
     // width: 170,
@@ -96,7 +96,7 @@ function component() {
     <>
       Primary sales for NFTs let you ask for the support your project needs from
       your community, while securely minting NFTs in return.
-      <h2>Audience</h2>
+      {/* <h2>Audience</h2>
       Users can sign up in advance, as part of a premint
       <PlayCard>
         <PlayCard.Preview botMood={!userAddress ? "dead" : "happy"}>
@@ -108,7 +108,7 @@ function component() {
           steps={AuthenticationWidget.steps}
         />
       </PlayCard>
-      <Divide />
+      <Divide /> */}
       <h2>Buy an NFT from a primary sale</h2>
       When your NFT sale opens, your users can buy your NFTs
       <Link className="underline" to="https://faucet.circle.com/" target="_blank" referrerPolicy="no-referrer">Get some USDC on arbitrum sepolia to play 👈</Link>
