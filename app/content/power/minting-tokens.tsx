@@ -3,6 +3,7 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
 import { useState } from "react";
+import { Divide } from "~/components/divide/Divide";
 import { MintTokenWidget } from "~/examples/MintTokenWidget";
 import { Image } from "~/components/image/Image";
 import "./minting-tokens.css";
@@ -13,6 +14,13 @@ const info = {
   path: "/power/minting-tokens",
   title: "Minting Tokens",
   shortname: "Minting Tokens",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    "react-native": "https://docs.sequence.xyz/sdk/mobile",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "minting-tokens",
     // width: 170,
@@ -32,7 +40,7 @@ function component() {
   return (
     <>
       <h2>Minting at Scale</h2>
-      Create an admin wallet on your backend with built-in access control with our contracts to precisely manage your mints securely.
+      Create an admin wallet on your backend with access control to precisely manage your mints securely.
       <PlayCard>
         <PlayCard.Preview
           botMood={
@@ -71,6 +79,7 @@ function component() {
           steps={MintTokenWidget.steps}
         />
       </PlayCard>
+      <Divide />
       <Resources items={["server-side-transactions-boilerplate"]} />
     </>
   );

@@ -299,21 +299,49 @@ export const resources: {
   },
   "crypto-onramp-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Onramp to Crypto with Credit Card",
+    links: [
+      {
+        label: "Demo",
+        href: "https://crypto-onramp-boilerplate.sequence-demos.xyz/",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/crypto-onramp-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "sequence-pay-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Sequence Pay - NFT Checkout",
+    links: [
+      {
+        label: "Demo",
+        href: "https://sequence-pay-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/sequence-pay-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "ingame-marketplace-boilerplate": {
     image: {
@@ -362,12 +390,22 @@ export const resources: {
   },
   "server-side-transactions-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "NFT Minter",
+    links: [
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/server-side-transactions-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["nodejs"],
+    },
   },
 };
 for (const key of Object.keys(resources) as ResourceName[]) {

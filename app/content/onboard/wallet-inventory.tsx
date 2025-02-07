@@ -7,13 +7,18 @@ import { Divide } from "~/components/divide/Divide";
 const info = {
   name: "wallet-inventory",
   path: "/onboard/wallet-inventory",
-  title: "View your Wallet Inventory via Sequence Kit",
+  title: "View your Wallet Inventory",
   shortname: "Wallet Inventory",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "wallet-inventory",
   },
   description:
-    "A simple and elegant way for your users to manage their assets, integrated with Sequence Kit",
+    "A simple and elegant way for your users to manage their assets",
 } as const;
 
 function component() {

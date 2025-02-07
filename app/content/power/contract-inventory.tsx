@@ -8,6 +8,12 @@ const info = {
   path: "/power/contract-inventory",
   title: "Game Inventory",
   shortname: "Game Inventory",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "contract-inventory",
   },
@@ -20,15 +26,8 @@ function component() {
 
   return (
     <>
-      Sometimes a player just wants to see the items they have in the current
-      game.
-      <br />
-      <br />
-      It should be as simple as it sounds.
-      <br />
-      <br />
-      With Sequence Kit, it is!
       <h2>View Assets from a Single Contract</h2>
+      We combine our Indexer for realtime querying with Sequence Kit to simplify this common flow.
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <ContractInventoryWidget />

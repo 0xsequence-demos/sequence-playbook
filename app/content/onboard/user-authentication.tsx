@@ -16,7 +16,7 @@ import { BookInfo, Topic, type Book } from "~/content/types";
 const info = {
   name: "user-authentication",
   path: "/onboard/user-authentication",
-  title: "User Authentication via Sequence Embedded Wallet",
+  title: "User Authentication with Sequence",
   shortname: "User Authentication",
   image: {
     src: "user-authentication",
@@ -58,8 +58,8 @@ function component(data: {
 
   return (
     <>
-      <h2>Authenticate with an embedded wallet</h2>
-      Sequence Kit provides a wide variety of authentication options, web2 to web3. All easily configurable and customizable for your brand.
+      <h2>Authentication made easy.</h2>
+      Sequence provides a wide variety of authentication options, from web2 to web3. All easily configurable and customizable for your brand.
       <PlayCard>
         <PlayCard.Code
           copy={AuthenticationWidget.String}
@@ -69,24 +69,26 @@ function component(data: {
           <AuthenticationWidget />
         </PlayCard.Preview>
       </PlayCard>
-      <Divide />
       That's how simple it is.
       <br />
       {address ? (
         <>Go ahead, test out your wallet.</>
       ) : (
         <p>
-          Go ahead,{" "}
+          Go ahead, try {" "}
           <button
             onClick={() => setOpenConnectModal(true)}
             className="inline-flex underline"
           >
-            Connect
+            connecting
           </button>{" "}
-          now to see what you can do with your wallet.
+          with your email or social to see the power of Sequence embedded wallets.
         </p>
       )}
+      <Divide />
+      
       <h2>Sign a message</h2>
+      No popups, no modals. Seamless UX with a cross-platform, non-custodial wallet.
       <PlayCard>
         <PlayCard.Code
           copy={SignMessageWidget.String}
@@ -105,7 +107,7 @@ function component(data: {
       </PlayCard>
       <Divide />
       <h2>Send a transaction</h2>
-      Built on top of wagmi, making integration and usage a breeze.
+      Built on top of wagmi for web, making integration and usage a breeze.
       <PlayCard>
         <PlayCard.Code
           copy={SendTestTransactionWidget.String}
@@ -124,7 +126,8 @@ function component(data: {
       <br />
       Onboarding is only the beginning.<br />
 
-      <br />Check out the rest of the Sequence playbook to see how we enable everything from monetization to your backend.
+      <Divide />
+      Check out the rest of the Sequence playbook to see how we enable everything from monetization to your backend.
       <Resources
         title="Get started quickly with our range of boilerplates covering a range of frameworks, platforms, and login methods."
         items={[

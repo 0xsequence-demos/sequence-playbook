@@ -7,6 +7,13 @@ const info = {
   path: "/power/listening-to-web3-events",
   title: "Listen to Web3 Events",
   shortname: "Web3 Events",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    "react-native": "https://docs.sequence.xyz/sdk/mobile",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "web3-events",
   },
