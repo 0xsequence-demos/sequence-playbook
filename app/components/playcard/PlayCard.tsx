@@ -34,13 +34,13 @@ function PlayCode({
   }
 
   return (
-    <div className=" text-13 bg-deep-purple-950/50  sm:rounded-[12px] backdrop-blur-md border border-white/10 overflow-hidden w-[calc(100%_+_2rem)] ml-[-1rem] md:ml-0 md:w-auto border-x-0 md:border-x">
+    <div className="text-13 bg-deep-purple-950/50 sm:rounded-[12px] backdrop-blur-md border border-white/10 overflow-hidden w-[calc(100%_+_2rem)] ml-[-1rem] md:ml-0 md:w-auto border-x-0 md:border-x">
       <div className="flex justify-between gap-4 px-6 pt-6">
         {copy ? <CopyExampleCode value={copy} /> : null}
 
         {steps.length > 1 ? (
           <button
-            className=" h-8  px-3 gap-2 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15"
+            className="h-8 px-3 gap-2 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15"
             onClick={toggle}
           >
             <Icon
@@ -62,7 +62,6 @@ function PlayCode({
                 Expand
               </span>
             </span>
-            {/* <>{step === 0 ? "Expand" : "Collapse"}</> */}
           </button>
         ) : null}
       </div>

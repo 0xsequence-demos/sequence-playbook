@@ -48,7 +48,7 @@ export default function IndexRoute() {
             Playbook
           </h1>
           <p className="mt-4">
-            Follow our Playbook guides to enhance onboarding, unlock new
+            Follow our Playbook to get an overview on Sequence features to onboard users, unlock new
             monetization opportunities, and supercharge your app with seamless
             Web3 integrations.
           </p>

@@ -28,7 +28,7 @@ export const resources: {
 } = {
   "email-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Email Embedded Wallet",
+    title: "Embedded Wallet - Email",
     image: {
       src: "bg-blue",
       alt: "",
@@ -51,7 +51,7 @@ export const resources: {
   },
   "embedded-wallet-playfab-react-boilerplate": {
     type: "boilerplate",
-    title: "Playfab Embedded Wallet",
+    title: "Embedded Wallet - Playfab",
     image: {
       src: "bg-blue",
       alt: "",
@@ -74,7 +74,7 @@ export const resources: {
   },
   "google-embedded-wallet-react-boilerplate": {
     type: "boilerplate",
-    title: "Google Embedded Wallet",
+    title: "Embedded Wallet - Google",
     image: {
       src: "bg-blue",
       alt: "",
@@ -101,7 +101,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - NextJS",
     links: [
       {
         label: "Demo",
@@ -124,7 +124,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - React",
     links: [
       {
         label: "Demo",
@@ -147,7 +147,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - Remix + Cloudflare",
     links: [
       {
         label: "Demo",
@@ -170,7 +170,7 @@ export const resources: {
       alt: undefined,
     },
     type: "boilerplate",
-    title: "Kit Embedded Wallet",
+    title: "Sequence Kit - Remix + NodeJS",
     links: [
       {
         label: "Demo",
@@ -299,21 +299,49 @@ export const resources: {
   },
   "crypto-onramp-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Onramp to Crypto with Credit Card",
+    links: [
+      {
+        label: "Demo",
+        href: "https://crypto-onramp-boilerplate.sequence-demos.xyz/",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/crypto-onramp-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "sequence-pay-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Sequence Pay - NFT Checkout",
+    links: [
+      {
+        label: "Demo",
+        href: "https://sequence-pay-boilerplate.sequence-demos.xyz",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/sequence-pay-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "ingame-marketplace-boilerplate": {
     image: {
@@ -362,12 +390,22 @@ export const resources: {
   },
   "server-side-transactions-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "NFT Minter",
+    links: [
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/server-side-transactions-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["nodejs"],
+    },
   },
 };
 for (const key of Object.keys(resources) as ResourceName[]) {

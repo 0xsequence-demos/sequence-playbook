@@ -6,13 +6,19 @@ import { Resources } from "~/components/resources/Resources";
 const info = {
   name: "contract-inventory",
   path: "/power/contract-inventory",
-  title: "Contract Inventory",
-  shortname: "Contract Inventory",
+  title: "Game Inventory",
+  shortname: "Game Inventory",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "contract-inventory",
   },
   description:
-    "A simple and elegant way to view your wallet inventory for a specific contract, with Sequence Kit",
+    "Simplify the experience for your users by showing them only the assets relevant to your game or app.",
 } as const;
 
 function component() {
@@ -20,15 +26,8 @@ function component() {
 
   return (
     <>
-      Sometimes a player just wants to see the items they have in the current
-      game.
-      <br />
-      <br />
-      It should be as simple as it sounds.
-      <br />
-      <br />
-      With Sequence Kit, it is!
       <h2>View Assets from a Single Contract</h2>
+      Sequence Kit combines our Indexer with elegant out-of-the-box UI, to simplify realtime inventory viewing and management.
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <ContractInventoryWidget />
@@ -39,7 +38,6 @@ function component() {
           steps={ContractInventoryWidget.steps}
         />
       </PlayCard>
-      <Resources items={["gift-wallet-inventory-boilerplate"]} />
     </>
   );
 }

@@ -7,10 +7,17 @@ const info = {
   path: "/power/listening-to-web3-events",
   title: "Listen to Web3 Events",
   shortname: "Web3 Events",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    "react-native": "https://docs.sequence.xyz/sdk/mobile",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "web3-events",
   },
-  description: "Build responsive experiences that react to onchain activity.",
+  description: "Build responsive experiences that react to onchain activity in realtime.",
 } as const;
 
 function component() {
@@ -22,7 +29,7 @@ function component() {
       interactions.
       <br />
       <br />
-      You can stop long-polling, and start listening to wallet updates.
+      You can stop long-polling, and start listening to wallet updates in realtime.
       <h2>Listen to Web3 Events</h2>
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>

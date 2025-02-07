@@ -16,17 +16,17 @@ import { BookInfo, Topic, type Book } from "~/content/types";
 const info = {
   name: "user-authentication",
   path: "/onboard/user-authentication",
-  title: "User Authentication via Sequence Embedded Wallet",
+  title: "User Authentication with Sequence",
   shortname: "User Authentication",
   image: {
     src: "user-authentication",
   },
   platforms: {
-    unreal: "https://google.com",
-    unity: "",
-    "react-native": "",
-    telegram: "",
-    web: "",
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    "react-native": "https://docs.sequence.xyz/sdk/mobile",
+    telegram: "https://docs.sequence.xyz/guides/telegram-integration",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
   },
   description: "Everything starts with user authentication.",
 } as BookInfo;
@@ -58,9 +58,8 @@ function component(data: {
 
   return (
     <>
-      <h2>Authenticate with an embedded wallet</h2>
-      Sequence Kit provides a wide variety of login providers, all easily
-      configured.
+      <h2>Authentication made easy.</h2>
+      Sequence provides a wide variety of authentication options, from web2 to web3. All easily configurable and customizable for your brand.
       <PlayCard>
         <PlayCard.Code
           copy={AuthenticationWidget.String}
@@ -70,24 +69,26 @@ function component(data: {
           <AuthenticationWidget />
         </PlayCard.Preview>
       </PlayCard>
-      <Divide />
       That's how simple it is.
       <br />
       {address ? (
-        <>Go ahead, test out your embedded wallet...</>
+        <>Go ahead, test out your wallet.</>
       ) : (
         <p>
-          Go ahead,{" "}
+          Go ahead, try {" "}
           <button
             onClick={() => setOpenConnectModal(true)}
             className="inline-flex underline"
           >
-            Connect
+            connecting
           </button>{" "}
-          now to see what you can do with your embedded wallet...
+          with your email or social to see the power of Sequence embedded wallets.
         </p>
       )}
+      <Divide />
+      
       <h2>Sign a message</h2>
+      No popups, no modals. Seamless UX with a cross-platform, non-custodial wallet.
       <PlayCard>
         <PlayCard.Code
           copy={SignMessageWidget.String}
@@ -105,7 +106,8 @@ function component(data: {
         </PlayCard.Preview>
       </PlayCard>
       <Divide />
-      <h2>Send a test transaction</h2>
+      <h2>Send a transaction</h2>
+      Built on top of wagmi for web, making integration and usage a breeze.
       <PlayCard>
         <PlayCard.Code
           copy={SendTestTransactionWidget.String}
@@ -117,29 +119,25 @@ function component(data: {
           {address ? (
             <SendTestTransactionWidget setData={setTransaction} />
           ) : (
-            <RequireWalletButton title="Connect a wallet send a test transaction" />
+            <RequireWalletButton title="Connect a wallet to send a transaction" />
           )}
         </PlayCard.Preview>
       </PlayCard>
-      This is only the beginning.
       <br />
-      Maybe you want to sell items to your users. <br />
-      Maybe you want to reward your players, or provide a marketplace for peer
-      to peer transactions.
+      Onboarding is only the beginning.<br />
+
+      <Divide />
+      Check out the rest of the Sequence playbook to see how we enable everything from monetization to your backend.
       <Resources
-        title="If you want to explore authentication deeper, these boilerplates cover a wide variety of platforms and login methods"
+        title="Get started quickly with our range of boilerplates covering a range of frameworks, platforms, and login methods."
         items={[
-          "email-embedded-wallet-react-boilerplate",
-          "embedded-wallet-playfab-react-boilerplate",
-          "google-embedded-wallet-react-boilerplate",
           "kit-embedded-wallet-nextjs-boilerplate",
           "kit-embedded-wallet-react-boilerplate",
           "kit-embedded-wallet-remix-cloudflare-boilerplate",
           "kit-embedded-wallet-remix-nodejs-boilerplate",
-          // "kit-universal-wallet-nextjs-boilerplate",
-          "kit-universal-wallet-react-boilerplate",
-          "stytch-embedded-wallet-react-boilerplate",
-          "universal-wallet-react-boilerplate",
+          "email-embedded-wallet-react-boilerplate",
+          "google-embedded-wallet-react-boilerplate",
+          "embedded-wallet-playfab-react-boilerplate",
         ]}
       />
     </>
