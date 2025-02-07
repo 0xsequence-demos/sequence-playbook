@@ -27,7 +27,7 @@ function component() {
   return (
     <>
       <h2>View Assets from a Single Contract</h2>
-      We combine our Indexer for realtime querying with Sequence Kit to simplify this common flow.
+      Sequence Kit combines our Indexer with elegant out-of-the-box UI, to simplify realtime inventory viewing and management.
       <PlayCard>
         <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
           <ContractInventoryWidget />
