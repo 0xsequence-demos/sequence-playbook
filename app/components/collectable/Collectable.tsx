@@ -1,15 +1,14 @@
 import { BuyWithCryptoCardButton } from "../buy-with-crypto-card-button/BuyWithCryptoCardButton";
-import { useEffect, useState } from "react";
-import { ContractInfo, TokenMetadata } from "@0xsequence/indexer";
-import { toast } from "sonner";
-import { SendTransactionErrorType } from "viem";
+import { useState } from "react";
+import { ContractInfo } from "@0xsequence/metadata";
+import { TokenMetadata } from "@0xsequence/metadata";
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { useReadContract } from "wagmi";
 import {
   UnpackedSaleConfigurationProps,
   formatPriceWithDecimals,
 } from "~/utils/primary-sales/helpers";
-import { Form, Svg, Image, Toast } from "boilerplate-design-system";
+import { Form, Svg, Image } from "boilerplate-design-system";
 
 interface CollectibleProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,8 +38,6 @@ export const Collectible = ({
 }: CollectibleProps) => {
   const [amount] = useState(1);
   const [txExplorerUrl, setTxExplorerUrl] = useState("");
-  const [txError, setTxError] = useState<SendTransactionErrorType | null>(null);
-  const [purchasingNft, setPurchasingNft] = useState<boolean>(false);
   const logoURI = currencyData?.logoURI;
 
   const {
@@ -60,46 +57,6 @@ export const Collectible = ({
   const formattedPrice = currencyDecimals
     ? formatPriceWithDecimals(price, currencyDecimals)
     : 0;
-
-  useEffect(() => {
-    if (!txError || JSON.stringify(txError) === "{}") return;
-    // toast.error(`Error purchasing NFT`);
-    setPurchasingNft(false);
-    console.error(txError);
-  }, [txError]);
-
-  useEffect(() => {
-    const label = amount > 1 ? "NFTs" : "NFT";
-    let toastId: string | number;
-    if (purchasingNft) {
-      toastId = toast.custom(() => (
-        <Toast>
-          <div className="w-[20rem]"></div>
-          <div className="flex gap-4 w-full items-center">
-            <img
-              src={tokenMetadata?.image || ""}
-              alt={tokenMetadata?.name || ""}
-              className="size-12 rounded-[0.5rem]"
-            />
-            <div className="flex flex-col gap-1">
-              {tokenMetadata?.name ? (
-                <span className="text-12 font-medium text-grey-200">
-                  {tokenMetadata?.name}
-                </span>
-              ) : null}
-              <span>
-                Purchasing {amount} {label}
-              </span>
-            </div>
-          </div>
-        </Toast>
-      ));
-    }
-
-    return () => {
-      toast.dismiss(toastId);
-    };
-  }, [purchasingNft]);
 
   return (
     <div className="bg-grey-900 p-4 text-left rounded-[1rem] flex flex-col gap-3">
@@ -153,8 +110,6 @@ export const Collectible = ({
             collectionAddress={saleConfiguration.nftTokenAddress}
             tokenId={tokenMetadata.tokenId}
             setTxExplorerUrl={setTxExplorerUrl}
-            setTxError={setTxError}
-            setPurchasingNft={setPurchasingNft}
             userPaymentCurrencyBalance={userPaymentCurrencyBalance}
             price={price}
             currencyData={currencyData}
@@ -163,9 +118,6 @@ export const Collectible = ({
             refetchNftsMinted={refetchNftsMinted}
           />
         </Form>
-        {txError && JSON.stringify(txError) != "{}" && (
-          <span>Error purchasing NFT, see details in the browser console</span>
-        )}
         {txExplorerUrl && (
           <a
             href={txExplorerUrl}

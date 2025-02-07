@@ -1,11 +1,7 @@
-import { SUPPORTED_NETWORKS } from "./config";
+import { findSupportedNetwork } from "@0xsequence/network";
 
 type nameOrId = string | number;
 
 export const getChain = (nameOrId: nameOrId) => {
-  return SUPPORTED_NETWORKS.find(
-    (n) =>
-      n.name === String(nameOrId).toLowerCase() ||
-      n.chainId === Number(nameOrId),
-  );
+  return findSupportedNetwork(nameOrId);
 };

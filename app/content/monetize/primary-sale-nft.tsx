@@ -10,7 +10,6 @@ import { saleConfiguration } from "~/utils/primary-sales/helpers";
 import { ERC20_ABI } from "~/utils/primary-sales/ERC20/ERC20_abi";
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
-import { ContractInfo } from "@0xsequence/indexer";
 import { Link } from "react-router";
 
 const info = {
@@ -124,7 +123,7 @@ function component() {
               userPaymentCurrencyBalance={userPaymentCurrencyBalance}
               price={price}
               currencyDecimals={currencyDecimals}
-              currencyData={currencyData as unknown as ContractInfo}
+              currencyData={currencyData}
               currencyIsLoading={currencyDataIsLoading}
               saleConfiguration={saleConfiguration}
               refetchTotalMinted={refetchTotalMinted}

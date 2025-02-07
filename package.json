@@ -25,6 +25,7 @@
     "@0xsequence/kit": "^4.5.9",
     "@0xsequence/kit-checkout": "^4.5.9",
     "@0xsequence/kit-wallet": "^4.5.9",
+    "@0xsequence/metadata": "^2.2.11",
     "@0xsequence/network": "^2.2.10",
     "@react-router/cloudflare": "^7.1.1",
     "@reactuses/core": "^6.0.1",

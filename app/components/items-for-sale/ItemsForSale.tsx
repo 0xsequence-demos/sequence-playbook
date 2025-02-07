@@ -1,7 +1,8 @@
 import { useAccount } from "wagmi";
 
 import { useTokenMetadata, useCollectionBalance } from "../../hooks/data";
-import { ContractInfo, TokenMetadata } from "@0xsequence/indexer";
+import { TokenMetadata } from "@0xsequence/indexer";
+import { ContractInfo } from "@0xsequence/metadata";
 import { Collectible } from "../collectable/Collectable";
 import { UnpackedSaleConfigurationProps } from "~/utils/primary-sales/helpers";
 import { CollectableSkeleton } from "../collectable/CollectableSkeleton";
