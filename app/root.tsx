@@ -36,9 +36,11 @@ import { KitCheckoutProvider } from "@0xsequence/kit-checkout";
 import { WindowController } from "~/components/window-controller/WindowController";
 import { WindowRoot } from "~/components/window-controller/WindowRoot";
 import { WindowPortal } from "~/components/window-controller/WindowPortal";
+import dsbStyles from "boilerplate-design-system/styles/index.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: dsbStyles },
 
   { rel: "stylesheet", href: shiki },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
