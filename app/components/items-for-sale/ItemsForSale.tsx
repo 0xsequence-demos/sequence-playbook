@@ -6,6 +6,7 @@ import { ContractInfo } from "@0xsequence/metadata";
 import { Collectible } from "../collectable/Collectable";
 import { UnpackedSaleConfigurationProps } from "~/utils/primary-sales/helpers";
 import { CollectableSkeleton } from "../collectable/CollectableSkeleton";
+import { Dispatch, SetStateAction } from "react";
 
 interface ItemsForSaleProps {
   collectionAddress: string;
@@ -17,6 +18,7 @@ interface ItemsForSaleProps {
   currencyIsLoading: boolean;
   saleConfiguration: UnpackedSaleConfigurationProps;
   refetchTotalMinted: () => void;
+  setSomethingBought: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ItemsForSale = ({
@@ -29,6 +31,7 @@ export const ItemsForSale = ({
   currencyIsLoading,
   saleConfiguration,
   refetchTotalMinted,
+  setSomethingBought,
 }: ItemsForSaleProps) => {
   const { address: userAddress } = useAccount();
   const {
@@ -81,6 +84,7 @@ export const ItemsForSale = ({
                 saleConfiguration={saleConfiguration}
                 refetchCollectionBalance={refetchCollectionBalance}
                 refetchTotalMinted={refetchTotalMinted}
+                setSomethingBought={setSomethingBought}
               />
             );
           })}

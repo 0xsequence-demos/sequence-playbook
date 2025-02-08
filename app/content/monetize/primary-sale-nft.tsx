@@ -1,9 +1,8 @@
-import { SignMessageWidget } from "~/examples/SignMessageWidget";
+import { BuyWithCryptoCardWidget } from "~/examples/BuyWithCryptoCardWidget";
 import { useAccount, useReadContract } from "wagmi";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
-import { Divide } from "~/components/divide/Divide";
 import { SALES_CONTRACT_ABI } from "~/utils/primary-sales/abis/salesContractAbi";
 import { useSalesCurrency } from "~/hooks/useSalesCurrency";
 import { saleConfiguration } from "~/utils/primary-sales/helpers";
@@ -11,6 +10,8 @@ import { ERC20_ABI } from "~/utils/primary-sales/ERC20/ERC20_abi";
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
 import { Link } from "react-router";
+import { useState } from "react";
+import { BuyWithCryptoCardWidget } from "~/examples/BuyWithCryptoCardWidget";
 
 const info = {
   name: "primary-sale-nft",
@@ -25,11 +26,6 @@ const info = {
   },
   description: "Let users Mint new NFTs, by purchase!",
 } as const;
-
-const resources = [
-  "primary-drop-sale-721-boilerplate",
-  "primary-sale-1155-boilerplate",
-];
 
 interface GlobalSalesDetailsData {
   cost: bigint;
@@ -92,6 +88,8 @@ function component() {
 
   const currencyDecimals: number | undefined = currencyData?.decimals;
 
+  const [somethingBought, setSomethingBought] = useState(false);
+
   return (
     <>
       Primary sales for NFTs let you ask for the support your project needs from
@@ -111,10 +109,19 @@ function component() {
       <Divide /> */}
       <h2>Buy an NFT from a primary sale</h2>
       When your NFT sale opens, your users can buy your NFTs
-      <Link className="underline" to="https://faucet.circle.com/" target="_blank" referrerPolicy="no-referrer">Get some USDC on arbitrum sepolia to play 👈</Link>
+      <Link
+        className="underline"
+        to="https://faucet.circle.com/"
+        target="_blank"
+        referrerPolicy="no-referrer"
+      >
+        Get some USDC on arbitrum sepolia to play 👈
+      </Link>
       <PlayCard>
         <PlayCard.Preview
-          botMood={!userAddress ? "dead" : "neutral"}
+          botMood={
+            !userAddress ? "dead" : somethingBought ? "happy" : "neutral"
+          }
         >
           {userAddress ? (
             <ItemsForSale
@@ -127,6 +134,7 @@ function component() {
               currencyIsLoading={currencyDataIsLoading}
               saleConfiguration={saleConfiguration}
               refetchTotalMinted={refetchTotalMinted}
+              setSomethingBought={setSomethingBought}
             />
           ) : (
             <AuthenticationWidget />
@@ -135,11 +143,16 @@ function component() {
         </PlayCard.Preview>
 
         <PlayCard.Code
-          copy={SignMessageWidget.String}
-          steps={SignMessageWidget.steps}
+          copy={BuyWithCryptoCardWidget.String}
+          steps={BuyWithCryptoCardWidget.steps}
         />
       </PlayCard>
-      <Resources items={resources} />
+      <Resources
+        items={[
+          "primary-drop-sale-721-boilerplate",
+          "primary-sale-1155-boilerplate",
+        ]}
+      />
     </>
   );
 }

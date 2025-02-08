@@ -1,5 +1,5 @@
-import { BuyWithCryptoCardButton } from "../buy-with-crypto-card-button/BuyWithCryptoCardButton";
-import { useState } from "react";
+import { BuyWithCryptoCardWidget } from "../../examples/BuyWithCryptoCardWidget";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ContractInfo } from "@0xsequence/metadata";
 import { TokenMetadata } from "@0xsequence/metadata";
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
@@ -9,6 +9,7 @@ import {
   formatPriceWithDecimals,
 } from "~/utils/primary-sales/helpers";
 import { Form, Svg, Image } from "boilerplate-design-system";
+import { findSupportedNetwork } from "@0xsequence/network";
 
 interface CollectibleProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,6 +23,7 @@ interface CollectibleProps {
   saleConfiguration: UnpackedSaleConfigurationProps;
   refetchCollectionBalance: () => void;
   refetchTotalMinted: () => void;
+  setSomethingBought: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Collectible = ({
@@ -35,9 +37,10 @@ export const Collectible = ({
   saleConfiguration,
   refetchCollectionBalance,
   refetchTotalMinted,
+  setSomethingBought,
 }: CollectibleProps) => {
   const [amount] = useState(1);
-  const [txExplorerUrl, setTxExplorerUrl] = useState("");
+  const [successfultxHash, setSuccessfulTxHash] = useState("");
   const logoURI = currencyData?.logoURI;
 
   const {
@@ -57,6 +60,25 @@ export const Collectible = ({
   const formattedPrice = currencyDecimals
     ? formatPriceWithDecimals(price, currencyDecimals)
     : 0;
+
+  const [txExplorerUrl, setTxExplorerUrl] = useState("");
+
+  useEffect(() => {
+    if (!successfultxHash) {
+      return;
+    }
+    setSomethingBought(true);
+    refetchCollectionBalance();
+    refetchTotalMinted();
+    refetchNftsMinted();
+    const chainInfoResponse = findSupportedNetwork(chainId);
+    if (chainInfoResponse) {
+      setTxExplorerUrl(
+        `${chainInfoResponse?.blockExplorer?.rootUrl}/tx/${successfultxHash}`,
+      );
+    }
+    console.log("success!", successfultxHash);
+  }, [successfultxHash]);
 
   return (
     <div className="bg-grey-900 p-4 text-left rounded-[1rem] flex flex-col gap-3">
@@ -78,7 +100,9 @@ export const Collectible = ({
 
       <div className="mt-auto mb-0 flex flex-col gap-4 pt-4">
         <div>
-          <span className="text-12 font-medium">{Number(nftsMinted || 0)} Minted</span>
+          <span className="text-12 font-medium">
+            {Number(nftsMinted || 0)} Minted
+          </span>
         </div>
 
         <div className="flex justify-between">
@@ -104,18 +128,16 @@ export const Collectible = ({
         </div>
 
         <Form className="flex flex-col gap-3">
-          <BuyWithCryptoCardButton
+          <BuyWithCryptoCardWidget
             amount={amount}
             chainId={chainId}
-            collectionAddress={saleConfiguration.nftTokenAddress}
             tokenId={tokenMetadata.tokenId}
-            setTxExplorerUrl={setTxExplorerUrl}
+            setSuccessfulTxHash={setSuccessfulTxHash}
             userPaymentCurrencyBalance={userPaymentCurrencyBalance}
             price={price}
             currencyData={currencyData}
-            refetchCollectionBalance={refetchCollectionBalance}
-            refetchTotalMinted={refetchTotalMinted}
-            refetchNftsMinted={refetchNftsMinted}
+            salesContractAddress={saleConfiguration.salesContractAddress}
+            nftTokenAddress={saleConfiguration.nftTokenAddress}
           />
         </Form>
         {txExplorerUrl && (
