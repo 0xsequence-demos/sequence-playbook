@@ -60,7 +60,7 @@ export default function TopicRoute() {
                 data-background={book?.info?.image?.src}
                 className="aspect-video rounded-[0.75rem] relative flex flex-col justify-end overflow-clip bg-cover bg-center bg-no-repeat hover:-translate-y-1 hover:scale-[1.01] transition-transform duration-300 group"
               >
-                <div className="absolute size-full inset-0 border group-hover:border-white/30 border-white/10 transition-all duration-300 rounded-[0.75rem] pointer-events-none"></div>
+                <div className="absolute size-full inset-0  transition-all duration-300 rounded-[0.75rem] pointer-events-none"></div>
                 <div className="flex flex-col px-8 p-8 bg-gradient-to-b from-0% to-40% from-deep-purple-900/0 to-deep-purple-900/95 gap-1">
                   {/* <span className="text-[9px] uppercase font-bold">
                     {item.type}

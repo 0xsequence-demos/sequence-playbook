@@ -1,5 +1,6 @@
 @import "./components/components.css";
 @import "./svg.css";
+@import "boilerplate-design-system/styles/index.css";
 
 @tailwind base;
 @tailwind components;
@@ -21,6 +22,12 @@
 
   body {
     background-image: linear-gradient(
+        to bottom,
+        theme(colors.black) 4.25rem,
+
+        theme(colors.black/0%) 25%
+      ),
+      linear-gradient(
         to bottom,
         theme(colors.deep-purple.950/10%) 50%,
         theme(colors.deep-purple.950/100%)
@@ -53,6 +60,10 @@
       @apply text-16 md:text-18 font-semibold;
     }
   }
+
+  [data-component="menuPopoverButton"] {
+    @apply text-14 gap-2 px-2 py-1.5 hover:bg-white/10 bg-white/15 rounded-full border-none pr-3;
+  }
 }
 
 @layer components {
@@ -61,4 +72,12 @@
     display: none;
     line-height: 0;
   } */
+  .prose {
+    @apply max-w-[32rem];
+    & > * {
+      @apply mb-4;
+    }
+    p {
+    }
+  }
 }

@@ -17,7 +17,7 @@ export default [
     name: "onboard",
     title: "Onboard",
     path: "/onboard",
-    icon: "onboard-icon",
+    icon: "onboard",
     theme: {
       bgImage: "bg-onboard",
       bookColor: "text-blue-400",
@@ -37,7 +37,7 @@ export default [
       bgImage: "bg-monetize",
       bookColor: "text-green-400",
     },
-    icon: "monetize-icon",
+    icon: "coins",
     description: "Purchasing & payments",
     books: [
       CryptoOnrampCreditCardBook,
@@ -56,7 +56,7 @@ export default [
       bookColor: "text-violet-400",
     },
     path: "/power",
-    icon: "power-icon",
+    icon: "power",
     books: [
       ContractInventoryBook,
       ListeningToWeb3EventsBook,

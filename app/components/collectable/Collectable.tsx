@@ -1,7 +1,7 @@
 import { BuyWithCryptoCardWidget } from "../../examples/BuyWithCryptoCardWidget";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { ContractInfo } from "@0xsequence/metadata";
-import { TokenMetadata } from "@0xsequence/metadata";
+import { ContractInfo, TokenMetadata } from "@0xsequence/metadata";
+
 import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContractAbi";
 import { useReadContract } from "wagmi";
 import {
@@ -41,7 +41,10 @@ export const Collectible = ({
 }: CollectibleProps) => {
   const [amount] = useState(1);
   const [successfultxHash, setSuccessfulTxHash] = useState("");
-  const logoURI = currencyData?.logoURI;
+  const logoURI =
+    currencyData?.symbol === "USDC" && !currencyData?.logoURI
+      ? "/images/usdc-logo.svg"
+      : currencyData?.logoURI;
 
   const {
     data: nftsMinted,
@@ -81,53 +84,47 @@ export const Collectible = ({
   }, [successfultxHash]);
 
   return (
-    <div className="bg-grey-900 p-4 text-left rounded-[1rem] flex flex-col gap-3">
+    <div className="bg-deep-purple-950 text-left rounded-[1rem] flex flex-col overflow-clip">
       {tokenMetadata?.image ? (
         <Image
-          className=" w-full max-w-[28rem] mx-auto aspect-square rounded-[0.5rem]"
+          className=" w-full max-w-[28rem] mx-auto aspect-square "
           src={tokenMetadata?.image}
         />
       ) : (
         <div className=" w-full max-w-[28rem] mx-auto aspect-square rounded-[0.5rem] bg-grey-800"></div>
       )}
 
-      <span className="text-10 font-bold">
-        Token id: {tokenMetadata?.tokenId || ""}
-      </span>
-      <span className="text-20 font-bold leading-tight">
-        {tokenMetadata?.name || ""}
-      </span>
-
-      <div className="mt-auto mb-0 flex flex-col gap-4 pt-4">
-        <div>
-          <span className="text-12 font-medium">
-            {Number(nftsMinted || 0)} Minted
+      <div className="flex flex-col gap-4 pt-4">
+        <div className="flex flex-col gap-1 px-4">
+          <span className="text-20 font-bold leading-tight">
+            {tokenMetadata?.name || ""}
           </span>
+
+          <div className="mt-auto mb-0 flex flex-col gap-4">
+            <dl className="flex flex-col">
+              <dt className="sr-only">Price</dt>
+              <dd className="text-14 inline-flex items-center gap-1">
+                {logoURI ? (
+                  <img
+                    src={logoURI}
+                    width="16"
+                    height="16"
+                    alt={currencyData?.symbol}
+                    className="mr-1"
+                  />
+                ) : null}
+                <span className="inline-flex items-baseline gap-1">
+                  <span className="text-15 font-medium">{formattedPrice}</span>
+                  <span className="text-12 text-grey-100">
+                    {currencyData?.symbol}
+                  </span>
+                </span>
+              </dd>
+            </dl>
+          </div>
         </div>
 
-        <div className="flex justify-between">
-          <div className="flex flex-col">
-            <span className="text-12 font-medium text-grey-50 ">Price</span>
-            <span className="text-14 font-bold inline-flex items-center gap-1">
-              {!logoURI ? (
-                <span className="size-4 bg-grey-800"></span>
-              ) : // <TokenImage
-              //   // src="https://metadata.sequence.app/projects/30957/collections/690/image.png"
-              //   withNetwork="amoy"
-              //   symbol="matic"
-              //   style={{ width: 20, height: 20 }}
-              // />
-              null}
-              {formattedPrice}
-            </span>
-          </div>
-          <div className="flex flex-col items-end text-end">
-            <span className="text-grey-50 font-medium text-12">Owned</span>
-            <span className="text-white font-bold text-14">{amountOwned}</span>
-          </div>
-        </div>
-
-        <Form className="flex flex-col gap-3">
+        <Form className="flex flex-col gap-3 px-4">
           <BuyWithCryptoCardWidget
             amount={amount}
             chainId={chainId}
@@ -140,6 +137,32 @@ export const Collectible = ({
             nftTokenAddress={saleConfiguration.nftTokenAddress}
           />
         </Form>
+
+        <dl className="flex justify-between gap-4 border-t border-grey-800 px-6 py-3">
+          <div className="flex flex-col">
+            <dt className="text-11 font-medium text-grey-200 leading-[1em]">
+              Token Id
+            </dt>
+            <dd className="text-white font-bold text-14">
+              {tokenMetadata?.tokenId || ""}
+            </dd>
+          </div>
+          <div className="flex flex-col text-center items-center">
+            <dt className="text-11 font-medium text-grey-200 leading-[1em]">
+              Minted
+            </dt>
+            <dd className="text-white font-bold text-14">
+              {Number(nftsMinted || 0)}
+            </dd>
+          </div>
+          <div className="flex flex-col text-end items-end">
+            <dt className="text-11 font-medium text-grey-200 leading-[1em]">
+              Owned
+            </dt>
+            <dd className="text-white font-bold text-14">{amountOwned}</dd>
+          </div>
+        </dl>
+
         {txExplorerUrl && (
           <a
             href={txExplorerUrl}

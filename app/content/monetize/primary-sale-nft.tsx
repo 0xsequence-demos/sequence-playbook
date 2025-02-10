@@ -11,7 +11,27 @@ import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContr
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
 import { Link } from "react-router";
 import { useState } from "react";
-import { BuyWithCryptoCardWidget } from "~/examples/BuyWithCryptoCardWidget";
+import { Card, Divider } from "boilerplate-design-system";
+import { CopyToClipboardButton } from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
+
+export const formatPriceWithDecimals = (
+  price: bigint,
+  tokenDecimals: number,
+): string => {
+  if (!price) return null;
+  const divisor = BigInt(10 ** tokenDecimals);
+
+  const integerPart = price / divisor;
+  const decimalPart = price % divisor;
+
+  let formattedDecimal = decimalPart.toString().padStart(tokenDecimals, "0");
+
+  formattedDecimal = formattedDecimal.replace(/0+$/, "");
+
+  return formattedDecimal
+    ? `${integerPart.toString()}.${formattedDecimal}`
+    : integerPart.toString();
+};
 
 const info = {
   name: "primary-sale-nft",
@@ -20,9 +40,6 @@ const info = {
   shortname: "Primary sale for NFTs",
   image: {
     src: "primary-sale-nft",
-    // width: 170,
-    // height: 122,
-    // className: "right-[-20px] top-[-10px]",
   },
   description: "Let users Mint new NFTs, by purchase!",
 } as const;
@@ -92,31 +109,33 @@ function component() {
 
   return (
     <>
-      Primary sales for NFTs let you ask for the support your project needs from
-      your community, while securely minting NFTs in return.
-      {/* <h2>Audience</h2>
-      Users can sign up in advance, as part of a premint
-      <PlayCard>
-        <PlayCard.Preview botMood={!userAddress ? "dead" : "happy"}>
-          <AuthenticationWidget />
-        </PlayCard.Preview>
+      <Divider />
+      <div className="py-8 prose">
+        <h2>Buy an NFT from a primary sale</h2>
+        <p>
+          Primary sales for NFTs let you ask for the support your project needs
+          from your community, while securely minting NFTs in return.
+        </p>
+        <p>When your NFT sale opens, your users can buy your NFTs</p>
+      </div>
+      <span>
+        <Link
+          className="underline"
+          to="https://faucet.circle.com/"
+          target="_blank"
+          referrerPolicy="no-referrer"
+        >
+          Get some USDC on arbitrum sepolia to play 👈
+        </Link>
+        {" - "}
+        <CopyToClipboardButton
+          value={userAddress?.toString()}
+          className="inline underline"
+        >
+          Copy wallet address
+        </CopyToClipboardButton>
+      </span>
 
-        <PlayCard.Code
-          copy={AuthenticationWidget.String}
-          steps={AuthenticationWidget.steps}
-        />
-      </PlayCard>
-      <Divide /> */}
-      <h2>Buy an NFT from a primary sale</h2>
-      When your NFT sale opens, your users can buy your NFTs
-      <Link
-        className="underline"
-        to="https://faucet.circle.com/"
-        target="_blank"
-        referrerPolicy="no-referrer"
-      >
-        Get some USDC on arbitrum sepolia to play 👈
-      </Link>
       <PlayCard>
         <PlayCard.Preview
           botMood={

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
-import { Image } from "~/components/image/Image";
+
 import { BookInfo, Topic } from "~/content/types";
+import { Icon } from "../icon/Icon";
 
 export function BookTitle({ book, topic }: { book: BookInfo; topic: Topic }) {
   return (
@@ -12,7 +13,7 @@ export function BookTitle({ book, topic }: { book: BookInfo; topic: Topic }) {
           to={topic.path}
           className="text-15 font-medium mb-1 flex items-center gap-3"
         >
-          <Image name={topic.icon} width={20} />
+          <Icon name={topic.icon} className="size-5" />
           {topic.title}
         </Link>
         <h1 className="text-24 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">

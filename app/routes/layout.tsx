@@ -5,13 +5,12 @@ import Drawer from "~/components/drawer/Drawer";
 import { Fragment } from "react";
 import { useAccount, useDisconnect } from "wagmi";
 import { useOpenConnectModal } from "@0xsequence/kit";
-import { shortAddress } from "~/utils/short-address";
 import { Button } from "~/components/button/Button";
 import { useSticky } from "~/components/sticky/useSticky";
 import { Image } from "~/components/image/Image";
-
+import { AccountPopup, Svg } from "boilerplate-design-system";
 function Wallet() {
-  const { address } = useAccount();
+  const { chain, address } = useAccount();
   const { disconnectAsync } = useDisconnect();
   const { setOpenConnectModal } = useOpenConnectModal();
 
@@ -19,12 +18,11 @@ function Wallet() {
     <>
       {address ? (
         <>
-          <span className="text-13 font-medium relative">
-            {shortAddress(address)}
-          </span>
-          <Button onClick={async () => await disconnectAsync()}>
-            Disconnect
-          </Button>
+          <AccountPopup
+            address={address}
+            chain={chain}
+            disconnect={disconnectAsync}
+          />
         </>
       ) : (
         <Button onClick={() => setOpenConnectModal(true)}>Connect</Button>
@@ -43,89 +41,76 @@ export default function SiteLayout() {
         className="top-[3rem] absolute"
       ></div>
 
-      <header className="z-10 w-full flex items-center ilaysolate py-4 md:py-0 md:sticky top-0">
-        <div
+      <header className="z-10 w-full flex items-center isolate  md:py-0 md:sticky top-0">
+        {/* <div
           data-stuck={isStuck}
-          className={`hidden md:block absolute h-[6rem] w-full top-[-3rem]
+          className={`hidden md:block absolute w-full top-[-3rem]
             transition-opacity duration-200 ease-in-out opacity-0 backdrop-blur-xl data-[stuck='true']:md:opacity-100
-            `}
-        ></div>
-        <div
+             bg-black
+          `}
+        ></div> */}
+        {/* <div
           data-stuck={isStuck}
           className={`hidden md:block absolute h-[3rem] w-full top-0
-            transition-opacity duration-200 ease-in-out opacity-0 bg-gradient-to-b from-deep-purple-950/5 to-deep-purple-950/10 border-b border-deep-purple-200/10  data-[stuck='true']:md:opacity-100
+            transition-opacity duration-200 ease-in-out opacity-0 bg-gradient-to-b from-deep-purple-950/5 to-deep-purple-950/10 border-b border-deep-purple-200/10 data-[stuck='true']:md:opacity-100 bg-black
             `}
-        ></div>
-        <div
-          data-stuck={isStuck}
-          className={`max-w-[108rem] w-full mx-auto flex justify-between gap-x-4 data-[stuck='true']:md:translate-y-[-1.5rem] md:min-h-[6rem] items-center px-4 md:px-12 transition-all will-change-auto duration-200 ease-in-out `}
-        >
-          <div
-            className="data-[stuck='true']:md:my-2 transition-all"
-            data-stuck={isStuck}
-          >
-            <Link to="/">
-              <Image
-                name="playbook-logo"
-                alt="Playbook"
-                width={128}
-                className="data-[stuck='true']:md:scale-90 transition-transform duration-200 ease-in-out"
-                data-stuck={isStuck}
-              />
+        ></div> */}
+
+        {/* data-[stuck='true']:md:translate-y-[-1.5rem] */}
+        <div className="w-full py-4 bg-black border-b border-white/10">
+          <div className="max-w-[108rem] w-full mx-auto flex justify-between gap-x-4 items-center px-4 md:px-12">
+            <Link to="/" className="flex gap-1 items-center justify-center">
+              <Icon name="sequence-logo" alt="Sequence" width={134} />
             </Link>
-          </div>
 
-          <Drawer
-            trigger={({ handleOpen }) => (
-              <button
-                type="button"
-                className="block md:hidden border border-white/20 p-1 rounded-[8px] bg-white/10"
-                onClick={handleOpen}
-              >
-                <Icon name="menu" className="size-5" alt="Menu" />
-              </button>
-            )}
-          >
-            {" "}
-            <ul className="flex flex-col gap-1">
-              {Books.map((topic, index) => (
-                <Fragment key={topic.path}>
-                  <li>
-                    <Link
-                      to={topic.path}
-                      className="text-15 font-medium mb-2 flex items-center gap-3"
-                    >
-                      <Image name={topic.icon} width={20} />
-                      {topic.title}
-                    </Link>
-                  </li>
-                  {topic.books.map((book) => (
-                    <li key={book.info.path} className="text-14 w-full flex">
-                      <NavLink
-                        to={book.info.path}
-                        className="hover:underline text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
+            <Drawer
+              trigger={({ handleOpen }) => (
+                <button
+                  type="button"
+                  className="block md:hidden p-2 rounded-full bg-white/20"
+                  onClick={handleOpen}
+                >
+                  <Icon name="menu" className="size-5" alt="Menu" />
+                </button>
+              )}
+            >
+              <ul className="flex flex-col gap-1">
+                {Books.map((topic, index) => (
+                  <Fragment key={topic.path}>
+                    <li>
+                      <Link
+                        to={topic.path}
+                        className="text-15 font-medium mb-2 flex items-center gap-3"
                       >
-                        {book.info.shortname || book.info.title}
-                      </NavLink>
+                        <Icon name={topic.icon} className="size-5" />
+                        {topic.title}
+                      </Link>
                     </li>
-                  ))}
-                  {index < Books.length - 1 ? (
-                    <hr className="w-full border-white/10 my-3" />
-                  ) : null}
-                </Fragment>
-              ))}
-            </ul>
-          </Drawer>
+                    {topic.books.map((book) => (
+                      <li key={book.info.path} className="text-14 w-full flex">
+                        <NavLink
+                          to={book.info.path}
+                          className="hover:underline text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 rounded-[5px] flex-1 px-3 py-1.5"
+                        >
+                          {book.info.shortname || book.info.title}
+                        </NavLink>
+                      </li>
+                    ))}
+                    {index < Books.length - 1 ? (
+                      <hr className="w-full border-white/10 my-3" />
+                    ) : null}
+                  </Fragment>
+                ))}
+              </ul>
+            </Drawer>
 
-          <div
-            data-stuck={isStuck}
-            className={`hidden md:flex items-center gap-4 data-[stuck='true']:md:scale-90 transition-transform duration-200 ease-in-out`}
-          >
-            <Wallet />
+            <div className={`hidden md:flex items-center gap-4 `}>
+              <Wallet />
+            </div>
           </div>
         </div>
       </header>
-      <div className="bg-gradient-to-br from-white/5 to-white/[2%] w-full flex md:hidden justify-between gap-2 py-4 border-y border-white/10 mb-8 items-center px-4 relative isolate z-[10]">
+      <div className="bg-black/50 w-full flex border-b border-white/10 md:hidden justify-between gap-2 py-4 mb-8 items-center px-4 relative isolate z-[10]">
         <Wallet />
       </div>
       <div className="max-w-[108rem] w-full mx-auto relative flex-1 flex flex-col">
@@ -143,15 +128,18 @@ export default function SiteLayout() {
                       to={topic.path}
                       className="text-15 font-medium mb-2 flex items-center gap-3"
                     >
-                      <Image name={topic.icon} width={20} />
+                      <Icon name={topic.icon} className="size-5" />
                       {topic.title}
                     </Link>
                   </li>
                   {topic.books.map((book) => (
-                    <li key={book.info.path} className="text-14 w-full flex">
+                    <li
+                      key={book.info.path}
+                      className="text-14 w-full flex pl-5"
+                    >
                       <NavLink
                         to={book.info.path}
-                        className="hover:border-white/10 hover:bg-white/[1%] hover:text-white focus:border-white/10 focus:bg-white/[1%] focus:text-white border border-transparent text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/10 aria-[current='page']:border-white/10 rounded-[5px] flex-1 px-3 py-1.5"
+                        className="hover:bg-white/[1%] hover:text-white  focus:bg-white/[1%] focus:text-white  text-white/70 aria-[current='page']:text-white aria-[current='page']:bg-white/20  rounded-[5px] flex-1 px-3 py-1.5"
                       >
                         {book.info.shortname || book.info.title}
                       </NavLink>
@@ -164,7 +152,9 @@ export default function SiteLayout() {
               ))}
             </ul>
           </nav>
-          <Outlet />
+          <div className="md:pt-[4rem]">
+            <Outlet />
+          </div>
         </div>
       </div>
 
