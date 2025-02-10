@@ -24,7 +24,9 @@ export function Icon({
   className?: string;
   alt?: string;
 }) {
-  const SvgComponent = SvgComponents?.[kebabToPascalCase(name)];
+  const SvgComponent = SvgComponents?.[kebabToPascalCase(name)] || null;
+
+  if (!SvgComponent) return null;
 
   return (
     <Slot

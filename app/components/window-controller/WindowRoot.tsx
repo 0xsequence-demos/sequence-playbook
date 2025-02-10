@@ -37,7 +37,7 @@ export const WindowRoot = ({
   const ref = useInertableWindow();
   const classList = isPortalMode
     ? "fixed w-full overflow-clip"
-    : "min-h-full flex flex-col";
+    : "min-h-full flex flex-col flex-1";
 
   return (
     <div
