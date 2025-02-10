@@ -24,7 +24,7 @@ export function BackgroundIconGrid() {
 
   return (
     <div
-      className="w-full h-full absolute inset-0 grid bg-chessboard"
+      className="w-full h-full absolute inset-0 grid"
       style={{
         gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
         gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,

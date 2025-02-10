@@ -77,7 +77,7 @@ function Resource(props: { item: ResourceItemProps }) {
               ))}
             </div>
           </div>
-          <div className="absolute size-full inset-0 border group-hover:border-white/30 border-white/10 transition-all duration-300 rounded-[0.75rem] pointer-events-none"></div>
+          <div className="absolute size-full inset-0  transition-all duration-300 rounded-[0.75rem] pointer-events-none"></div>
           <div className="flex flex-col px-4 p-4 bg-gradient-to-b from-0% to-40% from-deep-purple-600/0 to-deep-purple-600/95">
             <span className="text-[9px] uppercase font-bold">{item.type}</span>
             <span className="text-14">{item.title}</span>
@@ -88,7 +88,7 @@ function Resource(props: { item: ResourceItemProps }) {
                   href={link.href}
                   key={link.label}
                   target="_blank"
-                  className="last:rounded-r-[0.375rem] first:rounded-l-[0.375rem] rounded-[0.25rem] border-white/35 border bg-gradient-to-b from-deep-purple-400/30 to-deep-purple-400/35 text-white text-12 px-2 py-0.5 font-medium"
+                  className="last:rounded-r-[0.375rem] first:rounded-l-[0.375rem] rounded-[0.25rem]  bg-gradient-to-b from-deep-purple-400/30 to-deep-purple-400/35 text-white text-12 px-2 py-0.5 font-medium"
                   rel="noopener noreferrer"
                 >
                   {link.label}

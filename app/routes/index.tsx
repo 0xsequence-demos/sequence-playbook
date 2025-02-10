@@ -5,6 +5,7 @@ import Books from "~/content/books";
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Mask } from "~/components/mask/Mask";
 import { Image } from "~/components/image/Image";
+import { Icon } from "../components/icon/Icon";
 
 export const meta: MetaFunction = (args) => {
   return routeMeta(
@@ -48,17 +49,17 @@ export default function IndexRoute() {
             Playbook
           </h1>
           <p className="mt-4">
-            Follow our Playbook to get an overview on Sequence features to onboard users, unlock new
-            monetization opportunities, and supercharge your app with seamless
-            Web3 integrations.
+            Follow our Playbook to get an overview on Sequence features to
+            onboard users, unlock new monetization opportunities, and
+            supercharge your app with seamless Web3 integrations.
           </p>
         </div>
 
         <div className="w-full grid grid-cols-1 mx-auto sm:mx-none sm:max-w-none sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
           {topics.map((topic) => (
             <InheritLinkFromChild asChild key={topic.path}>
-              <div className="aspect-video bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center backdrop-blur-sm">
-                <Image name={topic.icon} className="mb-2" />
+              <div className="aspect-video bg-white/5  hover:bg-white/10 text-white p-4 rounded-[1rem] flex flex-col items-center justify-center backdrop-blur-sm">
+                <Icon name={topic.icon} className="size-8 mb-2" />
 
                 <h2 className="text-18 font-semibold text-left inline-flex items-center leading-tight px-3 mb-2">
                   <Link to={topic.path}>{topic.title}</Link>

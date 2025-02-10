@@ -76,15 +76,13 @@ export const BuyWithCryptoCardWidget = ({
       userPaymentCurrencyBalance < totalPrice);
 
   return (
-    <>
-      <button
-        data-nsf={hasNsf}
-        className="rounded-[0.5rem] w-full font-bold text-14 data-[nsf=true]:opacity-50"
-        onClick={onClickBuy}
-      >
-        {hasNsf ? "Insufficient funds" : "Buy"}
-      </button>
-    </>
+    <button
+      data-nsf={hasNsf}
+      className="rounded-[0.5rem] font-bold text-14 data-[nsf=true]:opacity-50 min-h-[2.5rem] !m-0"
+      onClick={onClickBuy}
+    >
+      {hasNsf ? "Insufficient funds" : "Buy"}
+    </button>
   );
   /* starthide */
 };

@@ -57,7 +57,7 @@ export const ItemsForSale = ({
     tokenMetadatasLoading || collectionBalanceIsLoading || currencyIsLoading;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-4 justify-center px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-4 justify-center px-4 pb-8">
       {isLoading ? (
         <>
           <CollectableSkeleton />
@@ -65,7 +65,7 @@ export const ItemsForSale = ({
         </>
       ) : (
         <>
-          {/* @ts-ignore */}
+          {/* @ts-expect-error TokenMetadata unknown */}
           {tokenMetadatas?.map((tokenMetadata: TokenMetadata) => {
             const collectibleBalance = collectionBalanceData?.find(
               (balance) => balance?.tokenID === tokenMetadata.tokenId,

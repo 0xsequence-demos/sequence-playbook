@@ -31,7 +31,7 @@
     "@reactuses/core": "^6.0.1",
     "@rive-app/react-canvas": "^4.17.5",
     "@tanstack/react-query": "^5.64.1",
-    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#8bd5689",
+    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#1ec732cbb08c72e26b99f9739aafb67aa2f09a12",
     "clsx": "^2.1.1",
     "ethers": "^6.13.5",
     "isbot": "^5.1.21",

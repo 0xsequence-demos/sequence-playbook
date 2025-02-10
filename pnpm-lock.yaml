@@ -56,8 +56,8 @@ importers:
         specifier: ^5.64.1
         version: 5.66.0(react@18.3.1)
       boilerplate-design-system:
-        specifier: github:0xsequence-demos/boilerplate-design-system#8bd5689
-        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/8bd5689(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
+        specifier: github:0xsequence-demos/boilerplate-design-system#1ec732cbb08c72e26b99f9739aafb67aa2f09a12
+        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/1ec732cbb08c72e26b99f9739aafb67aa2f09a12(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -3949,8 +3949,8 @@ packages:
     resolution: {integrity: sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/8bd5689:
-    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/8bd5689}
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/1ec732cbb08c72e26b99f9739aafb67aa2f09a12:
+    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/1ec732cbb08c72e26b99f9739aafb67aa2f09a12}
     version: 0.0.0
     peerDependencies:
       react: ^18
@@ -5043,8 +5043,8 @@ packages:
     resolution: {integrity: sha512-GMBAbW9antB8iZRHLoGw0b3HANt57diZYFO/HL1JGIC1MjKrdmhxvrJbupnVvpys0zsz7yBApXdQyfepKly2kA==}
     engines: {node: '>=0.10.0'}
 
-  framer-motion@12.4.1:
-    resolution: {integrity: sha512-5Ijbea3topSZjadQ0hgc/TcWj2ldMZmNREM7RvAhvsThYOA1HHOA8TT1yKvMu1YXP3jWaFwoZ6Vo9Nw+DUZrzA==}
+  framer-motion@12.4.2:
+    resolution: {integrity: sha512-pW307cQKjDqEuO1flEoIFf6TkuJRfKr+c7qsHAJhDo4368N/5U8/7WU8J+xhd9+gjmOgJfgp+46evxRRFM39dA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6226,8 +6226,8 @@ packages:
   motion@10.16.2:
     resolution: {integrity: sha512-p+PurYqfUdcJZvtnmAqu5fJgV2kR0uLFQuBKtLeFVTrYEVllI99tiOTSefVNYuip9ELTEkepIIDftNdze76NAQ==}
 
-  motion@12.4.1:
-    resolution: {integrity: sha512-TBnf5NyZVZFOHOc87fyC6qTSU+6LUe09LwxA1Sna35YL7qgOv1EZv96mu6o7uQ2Rl1GvTSQLeyfrQAEG+zlh+w==}
+  motion@12.4.2:
+    resolution: {integrity: sha512-NGocC1zic2hGDEasxS76W5/7JIJ5loKIxawkFoEqk7yTu8yXI+6l6IlEj9u8aPp6tM04DwvuiQcobpw9i0hhiw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -13854,7 +13854,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/8bd5689(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)):
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/1ec732cbb08c72e26b99f9739aafb67aa2f09a12(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)):
     dependencies:
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/indexer': 2.2.11
@@ -13874,7 +13874,7 @@ snapshots:
       eslint-plugin-react-refresh: 0.4.18(eslint@9.19.0(jiti@1.21.7))
       glob: 11.0.1
       globals: 15.14.0
-      motion: 12.4.1(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      motion: 12.4.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       postcss: 8.5.1
       react: 18.3.1
       react-aria-components: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -15297,7 +15297,7 @@ snapshots:
     dependencies:
       map-cache: 0.2.2
 
-  framer-motion@12.4.1(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@12.4.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       motion-dom: 12.0.0
       motion-utils: 12.0.0
@@ -16697,9 +16697,9 @@ snapshots:
       '@motionone/utils': 10.18.0
       '@motionone/vue': 10.16.4
 
-  motion@12.4.1(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  motion@12.4.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      framer-motion: 12.4.1(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 12.4.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8

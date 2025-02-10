@@ -1,21 +1,14 @@
 import type { Config } from "tailwindcss";
+import boilerplateConfig from "boilerplate-design-system/tailwind-config";
 
 export default {
-  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/boilerplate-design-system/dist/*.js",
+  ],
+  presets: [boilerplateConfig],
   theme: {
     extend: {
-      fontFamily: {
-        sans: [
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
-        ],
-      },
       backgroundImage: {
         /** Gradients */
         gradientBackdrop: `linear-gradient(
@@ -214,24 +207,6 @@ export default {
           950: "#270A6B",
         },
       },
-      fontSize: [
-        10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 24, 26, 28, 30, 32, 34,
-        36, 38, 40, 42, 44, 46, 48,
-      ].reduce(
-        (
-          acc: Record<number, [string, Record<string, string>]>,
-          key: number
-        ) => {
-          acc[key] = [
-            `calc(${key / 16}rem * var(--font-size-multiplier, 1))`,
-            {
-              letterSpacing: "1%",
-            },
-          ];
-          return acc;
-        },
-        {}
-      ),
     },
   },
   plugins: [],

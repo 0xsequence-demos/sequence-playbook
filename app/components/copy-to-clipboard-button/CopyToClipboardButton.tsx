@@ -38,7 +38,7 @@ export function CopyToClipboardButton({
 export function CopyExampleCode({ value }: { value: string }) {
   return (
     <CopyToClipboardButton value={value} asChild>
-      <button className=" h-8  px-3 gap-2 rounded-[7px] bg-black/20 flex items-center justify-center border border-white/15">
+      <button className=" h-8  px-3 gap-2 rounded-[7px] bg-black/20 flex items-center justify-center">
         <Icon name="copy" className="size-4" alt="Copy code to clipboard" />
         Copy
       </button>
