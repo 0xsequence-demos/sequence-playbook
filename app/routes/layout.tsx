@@ -60,7 +60,11 @@ export default function SiteLayout() {
         <div className="w-full py-4 bg-black border-b border-white/10">
           <div className="max-w-[108rem] w-full mx-auto flex justify-between gap-x-4 items-center px-4 md:px-12">
             <Link to="/" className="flex gap-1 items-center justify-center">
-              <Icon name="sequence-logo" alt="Sequence" width={134} />
+              <Icon
+                name="sequence-playbook"
+                alt="Sequence Playbook"
+                width={228}
+              />
             </Link>
 
             <Drawer

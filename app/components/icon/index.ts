@@ -23,6 +23,7 @@ export { default as React } from "./React";
 export { default as Ruler } from "./Ruler";
 export { default as SequenceIcon } from "./SequenceIcon";
 export { default as SequenceLogo } from "./SequenceLogo";
+export { default as SequencePlaybook } from "./SequencePlaybook";
 export { default as SequenceWordmark } from "./SequenceWordmark";
 export { default as Telegram } from "./Telegram";
 export { default as Unity } from "./Unity";
