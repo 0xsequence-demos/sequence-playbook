@@ -15,7 +15,9 @@ export const BrowserWindow = ({ botMood = "neutral", children }: Props) => {
         <div className="size-[0.625rem] bg-gradient-to-b to-white/10 from-white/5 rounded-full "></div>
         <div className="size-[0.625rem] bg-gradient-to-b to-white/10 from-white/5 rounded-full "></div>
       </div>
-      <div className="flex-1 self-stretch z-1 relative">{children}</div>
+      <div className="flex-1 flex-col flex items-center self-stretch z-1 relative">
+        {children}
+      </div>
       <Bot mood={botMood} />
     </div>
   );

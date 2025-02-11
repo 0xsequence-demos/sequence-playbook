@@ -1,3 +1,4 @@
+/* starthide */
 import { useAccount } from "wagmi";
 import { useState } from "react";
 import { decodeEventLog, formatUnits } from "viem";
@@ -19,8 +20,9 @@ type DecodedEvent = {
     txHash: string;
   };
 };
-
+/* endhide */
 export const Web3EventsWidget = () => {
+  /* starthide */
   const { address } = useAccount();
   const [events, setEvents] = useState<DecodedEvent[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +38,7 @@ export const Web3EventsWidget = () => {
       contractAddresses: ["0xaf88d065e77c8cC2239327C5EDb3A432268e5831"],
     },
   };
+  /* endhide */
 
   const subscribe = async () => {
     try {
@@ -75,19 +78,17 @@ export const Web3EventsWidget = () => {
       setIsLoading(false);
     }
   };
+  /* starthide */
 
   return address ? (
     <div className="m-4 space-y-4">
-      <div className="flex items-center justify-between gap-4 border rounded-lg bg-white/5 border-white/10 p-2">
-        <span className="text-sm">Listen to USDC transfers on Arbitrum</span>
+      <div className="flex items-center flex-col gap-4">
+        {/* endhide */}
+        <span>Listen to USDC transfers on Arbitrum</span>
         <button
           onClick={subscribe}
           disabled={isLoading}
-          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-            isLoading
-              ? "bg-gray-500/50 cursor-not-allowed"
-              : "bg-green-500/10 text-green-400 hover:bg-green-500/20"
-          }`}
+          className="disabled:bg-gray-500/50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <span className="flex items-center gap-2">
@@ -98,35 +99,32 @@ export const Web3EventsWidget = () => {
             "Start Listening"
           )}
         </button>
+        {/* starthide */}
       </div>
 
       <div className="max-h-[400px] overflow-y-auto space-y-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {events.map((event) => (
           <div
             key={event.eventData.txHash}
-            className={`m-2 p-4 border rounded-lg transition-colors ${
-              event.eventData.args.from.toLowerCase() === address.toLowerCase()
-                ? "bg-red-500/5 border-red-500/10 hover:border-red-500/20"
-                : "bg-green-500/5 border-green-500/10 hover:border-green-500/20"
-            }`}
+            className="m-2 p-4 bg-white/10 rounded-lg"
           >
             <div className="grid gap-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-400">From</span>
-                <span className="font-mono text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-12 text-gray-400">From</span>
+                <span className="font-mono text-12">
                   {event.eventData.args.from}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-400">To</span>
-                <span className="font-mono text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-12 text-gray-400">To</span>
+                <span className="font-mono text-12">
                   {event.eventData.args.from}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-400">Amount</span>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-12 text-gray-400">Amount</span>
                 <span
-                  className={`font-mono text-sm font-medium ${
+                  className={`font-mono text-12 font-medium ${
                     event.eventData.args.from.toLowerCase() ===
                     address.toLowerCase()
                       ? "text-red-400"
@@ -141,17 +139,18 @@ export const Web3EventsWidget = () => {
               href={`https://arbiscan.io/tx/${event.eventData.txHash}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-500 hover:text-gray-300 transition-colors truncate"
+              className="text-12 underline self-start"
             >
-              View on Arbiscan →
+              View on Arbiscan
             </a>
           </div>
         ))}
       </div>
     </div>
   ) : (
-    <p className="text-sm text-gray-400">
+    <p className="text-12 text-gray-400">
       Connect wallet to view USDC transfers
     </p>
   );
 };
+/* endhide */

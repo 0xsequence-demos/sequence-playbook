@@ -17,13 +17,6 @@ import { useWidgetActionData } from "~/hooks/useWidgetActionData";
 
 export type MintStatus = "notStarted" | "pending" | "successs" | "failed";
 
-export const loader = serverOnly$(async (req) => {
-  void req;
-  console.log("Mint Token loader!!");
-  return {
-    name: "Mint Token Widget is my name!",
-  };
-});
 /* endhide */
 export const action = serverOnly$(async (req) => {
   const env = req.context.cloudflare.env;
@@ -66,6 +59,7 @@ export const action = serverOnly$(async (req) => {
     data,
   });
 });
+
 /* starthide */
 export const MintTokenWidget = (props: {
   mintStatus: MintStatus;

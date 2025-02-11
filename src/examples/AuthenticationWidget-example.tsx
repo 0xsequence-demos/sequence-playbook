@@ -1,7 +1,7 @@
 /* starthide */
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { useAccount, useDisconnect } from "wagmi";
-
+import { WalletConnectionDetail } from "~/components/wallet-connection-detail/WalletConnectionDetail";
 export const AuthenticationWidget = () => {
   const { disconnect } = useDisconnect();
   const { address } = useAccount();
@@ -11,7 +11,7 @@ export const AuthenticationWidget = () => {
   return address ? (
     <>
       {/* endhide */}
-      <p>Connected as {address}</p>
+      <WalletConnectionDetail address={address} />
       <button onClick={() => disconnect()}>Disconnect</button>
       {/* starthide */}
     </>

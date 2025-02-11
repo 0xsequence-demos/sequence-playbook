@@ -2,6 +2,7 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { useAddFundsModal } from "@0xsequence/kit-checkout";
 import { useAccount } from "wagmi";
+import { WalletConnectionDetail } from "~/components/wallet-connection-detail/WalletConnectionDetail";
 
 export const BuyCryptoWidget = () => {
   const { address } = useAccount();
@@ -32,7 +33,7 @@ export const BuyCryptoWidget = () => {
 
   return address ? (
     <>
-      <p>Connected as {address}</p>
+      <WalletConnectionDetail address={address} />
       <button onClick={() => handleAddFunds()}>Add Funds</button>
       {/* starthide */}
     </>

@@ -2,17 +2,35 @@ import { Outlet, Link, NavLink } from "react-router";
 import Books from "~/content/books";
 import { Icon } from "../components/icon/Icon";
 import Drawer from "~/components/drawer/Drawer";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useAccount, useDisconnect } from "wagmi";
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { Button } from "~/components/button/Button";
 import { useSticky } from "~/components/sticky/useSticky";
-import { Image } from "~/components/image/Image";
-import { AccountPopup, Svg } from "boilerplate-design-system";
+import { AccountPopup } from "boilerplate-design-system";
+import { useOpenWalletModal } from "@0xsequence/kit-wallet";
+
+function patchFocusToHandleRecursionError() {
+  // handle focus recursion issue with opening wallet inventory
+
+  const originalFocus = window.HTMLElement.prototype.focus;
+  window.HTMLElement.prototype.focus = function (...args) {
+    if (this.__focusCalled) return; // Prevent infinite recursion
+    this.__focusCalled = true;
+    try {
+      originalFocus.apply(this, args);
+    } finally {
+      delete this.__focusCalled; // Cleanup
+    }
+  };
+}
+
 function Wallet() {
   const { chain, address } = useAccount();
   const { disconnectAsync } = useDisconnect();
   const { setOpenConnectModal } = useOpenConnectModal();
+
+  const { setOpenWalletModal } = useOpenWalletModal();
 
   return (
     <>
@@ -22,6 +40,10 @@ function Wallet() {
             address={address}
             chain={chain}
             disconnect={disconnectAsync}
+            walletCallback={() => {
+              patchFocusToHandleRecursionError();
+              setOpenWalletModal(true);
+            }}
           />
         </>
       ) : (
