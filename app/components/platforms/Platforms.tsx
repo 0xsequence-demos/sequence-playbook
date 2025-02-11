@@ -3,7 +3,7 @@ import { Icon } from "~/components/icon/Icon";
 const availablePlatforms = [
   {
     icon: "React",
-    label: "React Dom",
+    label: "React",
     key: "web",
   },
   {

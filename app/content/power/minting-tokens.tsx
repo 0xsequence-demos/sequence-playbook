@@ -27,7 +27,8 @@ const info = {
     // height: 122,
     // className: "right-[-20px] top-[-10px]",
   },
-  description: "Batch, parallelize, and mint at scale your own ERC20, ERC721 or ERC1155 tokens with our Transactions API.",
+  description:
+    "Batch, parallelize, and mint at scale your own ERC20, ERC721 or ERC1155 tokens with our Transactions API.",
 } as const;
 
 const dependencies = [MintTokenWidget];
@@ -40,38 +41,39 @@ function component() {
   return (
     <>
       <h2>Minting at Scale</h2>
-      Create an admin wallet on your backend with access control to precisely manage your mints securely.
+      Create an admin wallet on your backend with access control to precisely
+      manage your mints securely.
       <PlayCard>
         <PlayCard.Preview
           botMood={
             !address ? "dead" : mintStatus === "successs" ? "happy" : "neutral"
           }
         >
-          <div className="flex flex-1 items-center justify-center">
-            <div className="overflow-clip rounded-[1rem]">
-              <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center">
-                <Image
-                  name={
-                    mintStatus === "successs"
-                      ? "mallet-crude"
-                      : "mallet-crude-wireframe"
-                  }
+          <div className="rounded-[0.5rem] overflow-clip flex flex-col bg-deep-purple-900 items-start">
+            <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center overflow-clip aspect-square max-w-[24rem] w-full">
+              <Image
+                name={
+                  mintStatus === "successs"
+                    ? "mallet-crude"
+                    : "mallet-crude-wireframe"
+                }
+              />
+              <Image
+                className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
+                name={"mallet-crude-minting"}
+              />
+            </div>
+            <div className="p-4">
+              {address ? (
+                <MintTokenWidget
+                  mintStatus={mintStatus}
+                  setMintStatus={setMintStatus}
                 />
-                <Image
-                  className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
-                  name={"mallet-crude-minting"}
-                />
-              </div>
+              ) : (
+                <RequireWalletButton title="Connect to mint!" />
+              )}
             </div>
           </div>
-          {address ? (
-            <MintTokenWidget
-              mintStatus={mintStatus}
-              setMintStatus={setMintStatus}
-            />
-          ) : (
-            <RequireWalletButton title="Connect to mint!" />
-          )}
         </PlayCard.Preview>
 
         <PlayCard.Code

@@ -1,9 +1,7 @@
 @layer components {
   .browser-window button {
     background: linear-gradient(270deg, #7537f9 0%, #5826ff 100%);
-    margin: 10px;
-    border-radius: 20px;
-    padding: 2px 8px;
+    @apply px-5 py-3 rounded-full;
   }
 
   @keyframes slide {

@@ -168,7 +168,7 @@ export const Collectible = ({
             href={txExplorerUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-12 text-grey-50 inline-flex items-center gap-1"
+            className="text-12 text-grey-50 flex items-center gap-1"
           >
             <Svg name="ExternalLink" className="size-4" />
             <span className="underline">View latest transaction</span>

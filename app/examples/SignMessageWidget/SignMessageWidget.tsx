@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useAccount, useSignMessage } from "wagmi";
+import { WalletConnectionDetail } from "~/components/wallet-connection-detail/WalletConnectionDetail";
+
 interface Props {
   setData: (data: `0x${string}` | undefined) => void;
 }
@@ -11,7 +13,7 @@ export const SignMessageWidget = (props: Props) => {
 
   return address ? (
     <>
-      <p>Connected as {address}</p>
+      <WalletConnectionDetail address={address} />
       {isPending ? (
         <button className="ghost">Pending...</button>
       ) : (
@@ -19,7 +21,12 @@ export const SignMessageWidget = (props: Props) => {
           Sign "hello"
         </button>
       )}
-      {data && <p className="breakword">Signature: {data}</p>}
+      {data ? (
+        <div className="flex flex-col gap-1 items-start px-12 py-1 mt-8">
+          <span className="text-14 opacity-75">Signature</span>
+          <p className="break-all font-mono text-12"> {data}</p>
+        </div>
+      ) : null}
     </>
   ) : (
     <>

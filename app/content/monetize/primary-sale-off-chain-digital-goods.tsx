@@ -1,12 +1,8 @@
-import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
-import { SignMessageWidget } from "~/examples/SignMessageWidget";
 import { useAccount } from "wagmi";
 import { useState } from "react";
 import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
-import { Divide } from "~/components/divide/Divide";
-import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
 
 const info = {
   name: "primary-sale-off-chain-digital-goods",

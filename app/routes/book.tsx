@@ -3,6 +3,7 @@ import {
   useLoaderData,
   MetaFunction,
   ActionFunctionArgs,
+  Link,
 } from "react-router";
 
 import { Main } from "~/components/main/Main";
@@ -13,6 +14,7 @@ import { NoBookContent } from "~/content/no-book-content";
 import { Mask } from "~/components/mask/Mask";
 import { Image } from "~/components/image/Image";
 import { Platforms } from "~/components/platforms/Platforms";
+import { Icon } from "~/components/icon/Icon";
 
 export async function action(context: ActionFunctionArgs) {
   const { topic, book } = context.params;
@@ -22,8 +24,8 @@ export async function action(context: ActionFunctionArgs) {
   }
 
   try {
-    const parentTopic = Books.find((d) => d.name === topic);
-    const data = parentTopic?.books?.find((b) => b?.info?.name === book);
+    const currentTopic = Books.find((d) => d.name === topic);
+    const data = currentTopic?.books?.find((b) => b?.info?.name === book);
 
     let widgets = {};
 
@@ -60,9 +62,21 @@ export async function loader(context: LoaderFunctionArgs) {
   }
 
   try {
-    const parentTopic = Books.find((d) => d.name === topic);
+    const currentIndex = Books.findIndex((d) => d.name === topic);
+    const currentTopic = Books[currentIndex];
 
-    const data = parentTopic?.books?.find((b) => b?.info?.name === book);
+    const nextTopic = Books[currentIndex + 1] || Books[0];
+    const prevTopic = Books[currentIndex - 1] || Books[Books.length - 1];
+
+    const bookIndex = currentTopic?.books?.findIndex(
+      (b) => b?.info?.name === book,
+    );
+
+    const data = currentTopic?.books[bookIndex];
+    const nextBook = currentTopic?.books[bookIndex + 1] || nextTopic?.books[0];
+    const prevBook =
+      currentTopic?.books[bookIndex - 1] ||
+      prevTopic?.books[prevTopic.books.length - 1];
 
     let widgets = {};
 
@@ -83,14 +97,18 @@ export async function loader(context: LoaderFunctionArgs) {
       local = await data?.loader(context);
     }
 
-    if (!data || !parentTopic) {
+    if (!data || !currentTopic) {
       throw new Error();
     }
 
     return {
       book: { ...data.info, data: local },
       widgets,
-      topic: parentTopic,
+      topic: currentTopic,
+      nav: {
+        next: nextBook,
+        prev: prevBook,
+      },
     };
   } catch {
     throw new Response("Not Found", { status: 404 });
@@ -109,7 +127,7 @@ export const meta: MetaFunction<typeof loader> = (args) => {
 };
 
 export default function BookCatchall() {
-  const { book, widgets, topic } = useLoaderData<typeof loader>();
+  const { book, widgets, topic, nav } = useLoaderData<typeof loader>();
   const bookTopic = Object.values(Books).find((d) => d.name === topic.name);
 
   const Book = bookTopic
@@ -131,6 +149,26 @@ export default function BookCatchall() {
         <Platforms platforms={book?.platforms} />
         <div className=" w-full gap-4 flex flex-col isolate book-content">
           <Book book={book} widgets={widgets} topic={topic} />
+        </div>
+
+        <div className="border-t border-white/10 py-8">
+          {/* <pre>{JSON.stringify(nav, null, 2)}</pre> */}
+          <Link to={nav.next?.info?.path} className="inline-flex gap-4">
+            <Image
+              name={nav?.next?.info?.image?.src}
+              width={128}
+              className="aspect-video object-cover rounded-[0.5rem]"
+            />
+            <span className="flex flex-col gap-1 justify-center">
+              <span className="text-17 font-bold">
+                <span className="font-normal">Continue to</span>{" "}
+                {nav?.next?.info?.shortname}
+              </span>
+              <p className="text-14 opacity-75">
+                {nav?.next?.info?.description}
+              </p>
+            </span>
+          </Link>
         </div>
       </div>
     </Main>
