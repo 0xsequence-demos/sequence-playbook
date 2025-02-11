@@ -36,8 +36,13 @@ export const formatPriceWithDecimals = (
 const info = {
   name: "primary-sale-nft",
   path: "/monetize/primary-sale-nft",
-  title: "Primary sale for NFTs",
-  shortname: "Primary sale for NFTs",
+  title: "Primary Sale for NFTs",
+  shortname: "Primary Sale for NFTs",
+  platforms: {
+    unreal: "https://docs.sequence.xyz/sdk/unreal/introduction",
+    unity: "https://docs.sequence.xyz/sdk/unity/overview",
+    web: "https://docs.sequence.xyz/solutions/wallets/sequence-kit/getting-started",
+  },
   image: {
     src: "primary-sale-nft",
   },
@@ -109,7 +114,6 @@ function component() {
 
   return (
     <>
-      <Divider />
       <div className="py-8 prose">
         <h2>Buy an NFT from a primary sale</h2>
         <p>
@@ -168,8 +172,8 @@ function component() {
       </PlayCard>
       <Resources
         items={[
-          "primary-drop-sale-721-boilerplate",
           "primary-sale-1155-boilerplate",
+          "primary-drop-sale-721-boilerplate"
         ]}
       />
     </>
