@@ -354,21 +354,49 @@ export const resources: {
   },
   "primary-drop-sale-721-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Primary Drop Sale - ERC721",
+    links: [
+      {
+        label: "Demo",
+        href: "https://primary-drop-sale-721-boilerplate.sequence-demos.xyz/",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/primary-drop-sale-721-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "primary-sale-1155-boilerplate": {
     image: {
-      src: "",
+      src: "bg-blue",
       alt: undefined,
     },
     type: "boilerplate",
-    title: "",
-    links: [],
+    title: "Webshop Sale - ERC1155",
+    links: [
+      {
+        label: "Demo",
+        href: "https://primary-sale-1155-boilerplate.sequence-demos.xyz/",
+      },
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence-demos/primary-sale-1155-boilerplate",
+      },
+    ],
+    icons: {
+      topLeft: "kit",
+      topRight: "react",
+    },
   },
   "offchain-sales-boilerplate": {
     image: {
