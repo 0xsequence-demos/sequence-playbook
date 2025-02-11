@@ -3,18 +3,11 @@ import { Session, SessionSettings } from "@0xsequence/auth";
 import { ethers } from "ethers";
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { findSupportedNetwork, networks } from "@0xsequence/network";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Form } from "react-router";
 import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount } from "wagmi";
 import { useWidgetActionData } from "~/hooks/useWidgetActionData";
-// import { SequenceIndexer } from "0xsequence/indexer";
-
-// const indexerClient = new SequenceIndexer(
-//   `https://${import.meta.env.VITE_CHAIN_HANDLE}-indexer.sequence.app`,
-//   import.meta.env.VITE_SEQUENCE_PROJECT_ACCESS_KEY,
-// );
-
 export type MintStatus = "notStarted" | "pending" | "successs" | "failed";
 
 /* endhide */

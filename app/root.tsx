@@ -1,7 +1,6 @@
 import {
   Links,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -139,6 +138,7 @@ export function useConfig() {
     appleClientId,
     appleRedirectURI,
     walletConnectProjectId,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useRouteLoaderData<any>("root");
 
   const connectors = getDefaultWaasConnectors({

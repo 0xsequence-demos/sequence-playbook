@@ -9,7 +9,6 @@ import { BackgroundImage, Image } from "~/components/image/Image";
 
 import { InheritLinkFromChild } from "~/components/inherit-link-from-child/InheritLinkFromChild";
 import { Main } from "~/components/main/Main";
-import { Mask } from "~/components/mask/Mask";
 import Books from "~/content/books";
 
 import { routeMeta } from "~/utils/route-meta";

@@ -11,14 +11,16 @@ import { NFT_TOKEN_CONTRACT_ABI } from "~/utils/primary-sales/abis/nftTokenContr
 import { ItemsForSale } from "~/components/items-for-sale/ItemsForSale";
 import { Link } from "react-router";
 import { useState } from "react";
-import { Card, Divider } from "boilerplate-design-system";
+import { Divider } from "boilerplate-design-system";
 import { CopyToClipboardButton } from "../../components/copy-to-clipboard-button/CopyToClipboardButton";
 
 export const formatPriceWithDecimals = (
   price: bigint,
   tokenDecimals: number,
 ): string => {
-  if (!price) return null;
+  if (!price) {
+    return "";
+  }
   const divisor = BigInt(10 ** tokenDecimals);
 
   const integerPart = price / divisor;
@@ -95,7 +97,6 @@ function component() {
 
   // Fetch the total minted NFTs
   const {
-    data: nftsMinted,
     // isLoading: nftsMintedIsLoading,
     refetch: refetchTotalMinted,
   } = useReadContract({
@@ -121,24 +122,28 @@ function component() {
           from your community, while securely minting NFTs in return.
         </p>
         <p>When your NFT sale opens, your users can buy your NFTs</p>
+        <span>
+          <Link
+            className="underline"
+            to="https://faucet.circle.com/"
+            target="_blank"
+            referrerPolicy="no-referrer"
+          >
+            Get some USDC on arbitrum sepolia to try the demo 👈
+          </Link>
+          {userAddress ? (
+            <>
+              {" - "}
+              <CopyToClipboardButton
+                value={userAddress.toString()}
+                className="inline underline"
+              >
+                Copy wallet address
+              </CopyToClipboardButton>
+            </>
+          ) : null}
+        </span>
       </div>
-      <span>
-        <Link
-          className="underline"
-          to="https://faucet.circle.com/"
-          target="_blank"
-          referrerPolicy="no-referrer"
-        >
-          Get some USDC on arbitrum sepolia to play 👈
-        </Link>
-        {" - "}
-        <CopyToClipboardButton
-          value={userAddress?.toString()}
-          className="inline underline"
-        >
-          Copy wallet address
-        </CopyToClipboardButton>
-      </span>
 
       <PlayCard>
         <PlayCard.Preview
