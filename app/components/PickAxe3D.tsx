@@ -6,7 +6,7 @@ import { BufferGeometry, Group, Material, Mesh } from "three";
 import { useSpring, animated } from "@react-spring/three";
 function PickAxe3D(props: { mintStatus: MintStatus }) {
   const { mintStatus } = props;
-  const { nodes, materials } = useGLTF("/pickaxe-iron.glb");
+  const { nodes } = useGLTF("/pickaxe-iron.glb");
   const glowMesh = nodes["glow"] as Mesh<BufferGeometry, Material>;
   const myGroup = useRef<Group>();
   const myGlow = useRef<Mesh<BufferGeometry, Material>>();
@@ -19,7 +19,6 @@ function PickAxe3D(props: { mintStatus: MintStatus }) {
     myGroup.current.rotation.y = now;
     myGroup.current.rotation.x = Math.sin(now * 4) * 0.1;
   });
-  console.log(nodes, materials);
   return (
     <group ref={myGroup}>
       {mintStatus === "successs" ? (
