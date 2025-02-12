@@ -5,9 +5,10 @@ import { RequireWalletButton } from "~/components/require-wallet-button/RequireW
 import { useState } from "react";
 import { Divide } from "~/components/divide/Divide";
 import { MintTokenWidget } from "~/examples/MintTokenWidget";
-import { Image } from "~/components/image/Image";
 import "./minting-tokens.css";
 import { MintStatus } from "~/examples/MintTokenWidget/MintTokenWidget";
+import ItemViewer3D from "~/components/ItemViewer3D";
+import PickAxe3D from "~/components/PickAxe3D";
 
 const info = {
   name: "minting-tokens",
@@ -51,7 +52,7 @@ function component() {
         >
           <div className="rounded-[0.5rem] overflow-clip flex flex-col bg-deep-purple-900 items-start">
             <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center overflow-clip aspect-square max-w-[24rem] w-full">
-              <Image
+              {/* <Image
                 name={
                   mintStatus === "successs"
                     ? "mallet-crude"
@@ -61,7 +62,10 @@ function component() {
               <Image
                 className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
                 name={"mallet-crude-minting"}
-              />
+              /> */}
+              <ItemViewer3D>
+                <PickAxe3D mintStatus={mintStatus} />
+              </ItemViewer3D>
             </div>
             <div className="p-4">
               {address ? (
