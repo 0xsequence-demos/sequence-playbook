@@ -20,37 +20,39 @@ function PickAxe3D(props: { mintStatus: MintStatus }) {
     myGroup.current.rotation.x = Math.sin(now * 4) * 0.1;
   });
   return (
-    <group ref={myGroup}>
-      {mintStatus === "successs" ? (
-        <Clone
+    <group rotation={[0.5, 0, -0.25]}>
+      <group ref={myGroup}>
+        {mintStatus === "successs" ? (
+          <Clone
+            scale={[5, 5, 5]}
+            position={[0, -1.75, 0]}
+            object={nodes["iron-pickaxe"]}
+          />
+        ) : (
+          <>
+            <Clone
+              scale={[5, 5, 5]}
+              position={[0, -1.75, 0]}
+              object={nodes["wire"]}
+            />
+            <Clone
+              renderOrder={9}
+              scale={[5, 5, 5]}
+              position={[0, -1.75, 0]}
+              object={nodes["black"]}
+            />
+          </>
+        )}
+        <mesh
+          ref={myGlow}
+          renderOrder={10}
           scale={[5, 5, 5]}
           position={[0, -1.75, 0]}
-          object={nodes["iron-pickaxe"]}
-        />
-      ) : (
-        <>
-          <Clone
-            scale={[5, 5, 5]}
-            position={[0, -1.75, 0]}
-            object={nodes["wire"]}
-          />
-          <Clone
-            renderOrder={9}
-            scale={[5, 5, 5]}
-            position={[0, -1.75, 0]}
-            object={nodes["black"]}
-          />
-        </>
-      )}
-      <mesh
-        ref={myGlow}
-        renderOrder={10}
-        scale={[5, 5, 5]}
-        position={[0, -1.75, 0]}
-        geometry={glowMesh.geometry}
-      >
-        <animated.material {...glowMesh.material} opacity={opacity} />
-      </mesh>
+          geometry={glowMesh.geometry}
+        >
+          <animated.material {...glowMesh.material} opacity={opacity} />
+        </mesh>
+      </group>
     </group>
   );
 }

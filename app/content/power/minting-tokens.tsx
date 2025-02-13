@@ -2,13 +2,15 @@ import { useAccount } from "wagmi";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Divide } from "~/components/divide/Divide";
 import { MintTokenWidget } from "~/examples/MintTokenWidget";
 import "./minting-tokens.css";
 import { MintStatus } from "~/examples/MintTokenWidget/MintTokenWidget";
-import ItemViewer3D from "~/components/ItemViewer3D";
+import View3D from "~/components/View3D";
 import PickAxe3D from "~/components/PickAxe3D";
+import MiningGame from "~/components/MiningGame";
+import ItemViewer3D from "~/components/ItemViewer3D";
 
 const info = {
   name: "minting-tokens",
@@ -38,6 +40,14 @@ function component() {
   const { address } = useAccount();
 
   const [mintStatus, setMintStatus] = useState<MintStatus>("notStarted");
+  const [demoMode, setDemoMode] = useState<"mint" | "play">("mint");
+  useEffect(() => {
+    if (mintStatus === "successs") {
+      setTimeout(() => {
+        setDemoMode("play");
+      }, 1500);
+    }
+  }, [mintStatus]);
 
   return (
     <>
@@ -63,9 +73,16 @@ function component() {
                 className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
                 name={"mallet-crude-minting"}
               /> */}
-              <ItemViewer3D>
-                <PickAxe3D mintStatus={mintStatus} />
-              </ItemViewer3D>
+              <View3D env={demoMode === "play" ? "mine" : "item"}>
+                {/* <MiningGame /> */}
+                {demoMode === "play" ? (
+                  <MiningGame />
+                ) : (
+                  <ItemViewer3D>
+                    <PickAxe3D mintStatus={mintStatus} />
+                  </ItemViewer3D>
+                )}
+              </View3D>
             </div>
             <div className="p-4">
               {address ? (

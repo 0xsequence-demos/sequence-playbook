@@ -60,6 +60,7 @@
     "@cloudflare/workers-types": "^4.20250109.0",
     "@eslint/js": "^9.15.0",
     "@react-router/dev": "^7.1.5",
+    "@react-three/eslint-plugin": "^0.1.2",
     "@shikijs/twoslash": "^1.26.2",
     "@svgr/cli": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
