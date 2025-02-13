@@ -1,6 +1,6 @@
 import { Clone, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Euler,
   Group,
@@ -36,7 +36,6 @@ function MiningGame() {
   const myRailTie2 = useRef<Object3D>();
   const myGroup = useRef<Group>();
 
-  const [flashPos, setFlashPos] = useState(new Vector3());
   useFrame((_state, delta) => {
     if (!myGroup.current) {
       return;
@@ -95,37 +94,50 @@ function MiningGame() {
   );
 
   const [ray, setRay] = useState<Ray>();
+  const getInteractionInfo = useCallback(
+    (ray: Ray) => {
+      if (!myGroup.current) {
+        return undefined;
+      }
+      const candidates: number[] = [];
+      const tempFlashPos = new Vector3();
+      for (let i = 0; i < rockDepths.length; i++) {
+        tempSphere.center.x = (~~(i / 4) - 1.5) * spacingRock;
+        tempSphere.center.y = ((i % 4) - 1.5) * spacingRock;
+        tempSphere.center.z = myGroup.current.position.z - rockDepths[i];
+        if (
+          ray.intersectSphere(tempSphere, tempVec3) &&
+          Math.abs(tempVec3.x) < 2.4 &&
+          Math.abs(tempVec3.y) < 2.6 &&
+          tempSphere.center.z > -1.5
+        ) {
+          candidates.push(i);
+          tempFlashPos.add(tempVec3);
+        }
+      }
+      tempFlashPos.divideScalar(candidates.length);
+      tempFlashPos.z -= 5;
+      tempFlashPos.multiplyScalar(0.9);
+      tempFlashPos.z += 5;
+      return {
+        candidates,
+        flashPos: tempFlashPos,
+      };
+    },
+    [rockDepths],
+  );
 
   useEffect(() => {
     if (!myGroup.current || !ray) {
       return;
     }
-    // let bestHitIndex = -1;
-    // let bestHitDepth = Infinity;
-    const candidates: number[] = [];
-    const newRockHighlights = rockHighlights.slice();
-    const flashPos = new Vector3();
-    for (let i = 0; i < rockDepths.length; i++) {
-      tempSphere.center.x = (~~(i / 4) - 1.5) * spacingRock;
-      tempSphere.center.y = ((i % 4) - 1.5) * spacingRock;
-      tempSphere.center.z = myGroup.current.position.z - rockDepths[i];
-      if (
-        ray.intersectSphere(tempSphere, tempVec3) &&
-        Math.abs(tempVec3.x) < 2.4 &&
-        Math.abs(tempVec3.y) < 2.6 &&
-        tempSphere.center.z > -1.5
-      ) {
-        candidates.push(i);
-        flashPos.add(tempVec3);
-      }
+    const info = getInteractionInfo(ray);
+    if (!info) {
+      return;
     }
-    flashPos.divideScalar(candidates.length);
-    flashPos.z -= 5;
-    flashPos.multiplyScalar(0.9);
-    flashPos.z += 5;
-    setFlashPos(flashPos.clone());
+    const newRockHighlights = rockHighlights.slice();
     for (let i = 0; i < rockHighlights.length; i++) {
-      newRockHighlights[i] = candidates.includes(i);
+      newRockHighlights[i] = info.candidates.includes(i);
     }
     // rockHighlights[i] = !!ray.intersectSphere(tempSphere, tempVec3);
     let changed = false;
@@ -138,7 +150,8 @@ function MiningGame() {
     if (changed) {
       setRockHighlights(newRockHighlights);
     }
-  }, [ray, rockDepths, rockHighlights]);
+  }, [getInteractionInfo, ray, rockHighlights]);
+
   return (
     <>
       <mesh
@@ -153,28 +166,28 @@ function MiningGame() {
           if (!myGroup.current) {
             return;
           }
-          let changed = false;
-          for (let i = 0; i < rockHighlights.length; i++) {
-            if (rockHighlights[i]) {
-              if (rockHealths[i] > 1) {
-                rockHealths[i]--;
-              } else {
-                rockDepths[i]++;
-                rockHealths[i] = 3;
-              }
-              changed = true;
+          const info = getInteractionInfo(ev.ray);
+          if (!info) {
+            return;
+          }
+          for (const i of info.candidates) {
+            if (rockHealths[i] > 1) {
+              rockHealths[i]--;
+            } else {
+              rockDepths[i]++;
+              rockHealths[i] = 3;
             }
           }
-          if (changed) {
+          if (info.candidates.length > 0) {
             if (myFlash.current) {
               myFlash.current.scale.setScalar(0.5);
-              myFlash.current.position.copy(flashPos);
+              myFlash.current.position.copy(info.flashPos);
             }
             setRockHealths(rockHealths.slice());
             setRockDepths(rockDepths.slice());
             const mpa = myPickaxe.current;
             if (mpa) {
-              mpa.position.copy(flashPos);
+              mpa.position.copy(info.flashPos);
               mpa.lookAt(new Vector3(0, 0, 3));
               mpa.rotateY(Math.PI * -0.5);
               mpa.translateY(-1);
