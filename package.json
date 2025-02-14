@@ -51,6 +51,7 @@
     "shiki-magic-move": "^0.5.2",
     "sonner": "^1.7.0",
     "three": "^0.173.0",
+    "use-sound": "^4.0.3",
     "vaul": "^1.1.1",
     "viem": "^2.22.21",
     "vite-tsconfig-paths": "^4.2.1",

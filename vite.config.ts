@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
         "@0xsequence/kit",
         "@0xsequence/kit-wallet",
         "@0xsequence/kit-checkout",
+        "use-sound",
       ],
       resolve: {
         conditions: ["workerd", "worker", "browser"],

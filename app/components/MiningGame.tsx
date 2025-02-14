@@ -1,5 +1,6 @@
 import { Clone, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import useSound from "use-sound";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Euler,
@@ -151,7 +152,18 @@ function MiningGame() {
       setRockHighlights(newRockHighlights);
     }
   }, [getInteractionInfo, ray, rockHighlights]);
-
+  const [sfxLight1] = useSound("/audio/pickaxe-light1.mp3");
+  const [sfxLight2] = useSound("/audio/pickaxe-light2.mp3");
+  const [sfxLight3] = useSound("/audio/pickaxe-light3.mp3");
+  const [sfxLight4] = useSound("/audio/pickaxe-light4.mp3");
+  const [sfxMedium1] = useSound("/audio/pickaxe-medium1.mp3");
+  const [sfxMedium2] = useSound("/audio/pickaxe-medium2.mp3");
+  const [sfxMedium3] = useSound("/audio/pickaxe-medium3.mp3");
+  const [sfxMedium4] = useSound("/audio/pickaxe-medium4.mp3");
+  const [sfxMedium5] = useSound("/audio/pickaxe-medium5.mp3");
+  const [sfxMedium6] = useSound("/audio/pickaxe-medium6.mp3");
+  const [sfxHeavy1] = useSound("/audio/pickaxe-heavy1.mp3");
+  const [sfxHeavy2] = useSound("/audio/pickaxe-heavy2.mp3");
   return (
     <>
       <mesh
@@ -170,15 +182,33 @@ function MiningGame() {
           if (!info) {
             return;
           }
+          let cracked = false;
           for (const i of info.candidates) {
             if (rockHealths[i] > 1) {
               rockHealths[i]--;
             } else {
               rockDepths[i]++;
               rockHealths[i] = 3;
+              cracked = true;
             }
           }
           if (info.candidates.length > 0) {
+            if (cracked) {
+              [sfxHeavy1, sfxHeavy2][~~(Math.random() * 2)]();
+            } else if (info.candidates.length === 1) {
+              [sfxLight1, sfxLight2, sfxLight3, sfxLight4][
+                ~~(Math.random() * 4)
+              ]();
+            } else {
+              [
+                sfxMedium1,
+                sfxMedium2,
+                sfxMedium3,
+                sfxMedium4,
+                sfxMedium5,
+                sfxMedium6,
+              ][~~(Math.random() * 6)]();
+            }
             if (myFlash.current) {
               myFlash.current.scale.setScalar(0.5);
               myFlash.current.position.copy(info.flashPos);
