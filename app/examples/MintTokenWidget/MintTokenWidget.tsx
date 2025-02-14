@@ -87,7 +87,7 @@ export const MintTokenWidget = (props: {
             }}
           >
             <input type="hidden" name="walletAddress" value={address} />
-            <button type="submit">MINT</button>
+            <button type="submit">Mint</button>
           </Form>
           {/* starthide */}
         </>
