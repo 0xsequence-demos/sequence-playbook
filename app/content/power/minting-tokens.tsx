@@ -2,12 +2,15 @@ import { useAccount } from "wagmi";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Divide } from "~/components/divide/Divide";
 import { MintTokenWidget } from "~/examples/MintTokenWidget";
-import { Image } from "~/components/image/Image";
 import "./minting-tokens.css";
 import { MintStatus } from "~/examples/MintTokenWidget/MintTokenWidget";
+import View3D from "~/components/View3D";
+import PickAxe3D from "~/components/PickAxe3D";
+import MiningGame from "~/components/MiningGame";
+import ItemViewer3D from "~/components/ItemViewer3D";
 
 const info = {
   name: "minting-tokens",
@@ -37,6 +40,14 @@ function component() {
   const { address } = useAccount();
 
   const [mintStatus, setMintStatus] = useState<MintStatus>("notStarted");
+  const [demoMode, setDemoMode] = useState<"mint" | "play">("mint");
+  useEffect(() => {
+    if (mintStatus === "successs") {
+      setTimeout(() => {
+        setDemoMode("play");
+      }, 1500);
+    }
+  }, [mintStatus]);
 
   return (
     <>
@@ -51,7 +62,7 @@ function component() {
         >
           <div className="rounded-[0.5rem] overflow-clip flex flex-col bg-deep-purple-900 items-start">
             <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center overflow-clip aspect-square max-w-[24rem] w-full">
-              <Image
+              {/* <Image
                 name={
                   mintStatus === "successs"
                     ? "mallet-crude"
@@ -61,7 +72,17 @@ function component() {
               <Image
                 className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
                 name={"mallet-crude-minting"}
-              />
+              /> */}
+              <View3D env={demoMode === "play" ? "mine" : "item"}>
+                {/* <MiningGame /> */}
+                {demoMode === "play" ? (
+                  <MiningGame />
+                ) : (
+                  <ItemViewer3D>
+                    <PickAxe3D mintStatus={mintStatus} />
+                  </ItemViewer3D>
+                )}
+              </View3D>
             </div>
             <div className="p-4">
               {address ? (

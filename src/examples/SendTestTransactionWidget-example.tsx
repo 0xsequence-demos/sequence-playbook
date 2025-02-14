@@ -10,7 +10,7 @@ export const SendTestTransactionWidget = (props: Props) => {
   const { address } = useAccount();
 
   const { data, sendTransaction, isPending, error } = useSendTransaction();
-  useEffect(() => setData(data), []);
+  useEffect(() => setData(data), [data, setData]);
 
   return address ? (
     <>

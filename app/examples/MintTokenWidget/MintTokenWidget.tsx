@@ -45,7 +45,7 @@ export const action = serverOnly$(async (req) => {
   const collectibleInterface = new ethers.Interface([
     "function mint(address to, uint256 tokenId, uint256 amount, bytes data)",
   ]);
-  const dataArgs = [walletAddress, 3, 1, "0x00"];
+  const dataArgs = [walletAddress, 7, 1, "0x00"];
   const data = collectibleInterface.encodeFunctionData("mint", dataArgs);
   return await signer.sendTransaction({
     to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
@@ -95,7 +95,7 @@ export const MintTokenWidget = (props: {
         <div>Please wait...</div>
       ) : (
         <div>
-          A crude mallet{" "}
+          An Iron PickAxe{" "}
           <a
             href={`https://sepolia.arbiscan.io/tx/${txHash}`}
             target="_blank"
