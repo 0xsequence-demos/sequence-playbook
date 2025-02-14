@@ -3,8 +3,11 @@ import { useFrame } from "@react-three/fiber";
 import useSound from "use-sound";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  BufferGeometry,
   Euler,
   Group,
+  Material,
+  Mesh,
   Object3D,
   Quaternion,
   Ray,
@@ -13,9 +16,23 @@ import {
 } from "three";
 import Rock from "./three/Rock";
 
+const chunkNames = ["xs", "s", "m", "l"];
+
+function lerp(a: number, b: number, mix: number) {
+  return (1 - mix) * a + mix * b;
+}
+
+let sharedNow = Date.now() * 0.001;
+
 const spacingRock = 1.6;
 const tempSphere = new Sphere(undefined, 1.5);
 const tempVec3 = new Vector3();
+
+function indexToCoord(i: number) {
+  const x = (~~(i / 4) - 1.5) * spacingRock;
+  const y = ((i % 4) - 1.5) * spacingRock;
+  return { x, y };
+}
 
 const pickaxeHomePosition = new Vector3(0.75, -1.25, 2);
 const pickaxeHomeRotation = new Euler(0, -1.25, -0.75);
@@ -38,6 +55,7 @@ function MiningGame() {
   const myGroup = useRef<Group>();
 
   useFrame((_state, delta) => {
+    sharedNow = Date.now() * 0.001;
     if (!myGroup.current) {
       return;
     }
@@ -103,8 +121,9 @@ function MiningGame() {
       const candidates: number[] = [];
       const tempFlashPos = new Vector3();
       for (let i = 0; i < rockDepths.length; i++) {
-        tempSphere.center.x = (~~(i / 4) - 1.5) * spacingRock;
-        tempSphere.center.y = ((i % 4) - 1.5) * spacingRock;
+        const { x, y } = indexToCoord(i);
+        tempSphere.center.x = x;
+        tempSphere.center.y = y;
         tempSphere.center.z = myGroup.current.position.z - rockDepths[i];
         if (
           ray.intersectSphere(tempSphere, tempVec3) &&
@@ -126,6 +145,75 @@ function MiningGame() {
       };
     },
     [rockDepths],
+  );
+
+  const makeChunks = useCallback(
+    (i: number, depth: number, num: number) => {
+      if (!myGroup.current) {
+        return;
+      }
+      const { x, y } = indexToCoord(i);
+      for (let i = 0; i < num; i++) {
+        const m = nodesMine[
+          `chunk-${chunkNames[~~(Math.random() * Math.random() * 4)]}`
+        ] as Mesh<BufferGeometry, Material>;
+        const meshPrize = new Mesh(m.geometry, m.material);
+        myGroup.current.add(meshPrize);
+        meshPrize.scale.setScalar(4);
+        meshPrize.rotation.set(
+          Math.random() * 7,
+          Math.random() * 7,
+          Math.random() * 7,
+        );
+        meshPrize.userData.origRot = meshPrize.rotation.clone();
+        meshPrize.userData.spin = new Vector3(
+          Math.random() - 0.5,
+          Math.random() - 0.5,
+          Math.random() - 0.5,
+        );
+        meshPrize.position.set(x, y, depth);
+        meshPrize.userData.origPos = meshPrize.position.clone();
+        meshPrize.userData.startTime = sharedNow;
+        const a = Math.random() * Math.PI * 2;
+        meshPrize.userData.spreadVecX = Math.cos(a) * 4;
+        meshPrize.userData.spreadVecY = Math.sin(a) * 4;
+        meshPrize.onBeforeRender = () => {
+          meshPrize.position.z = meshPrize.userData.origPos.z;
+          const elapsed = sharedNow - meshPrize.userData.startTime;
+          meshPrize.position.z += elapsed * elapsed * 25;
+          meshPrize.position.x = lerp(
+            meshPrize.userData.origPos.x,
+            meshPrize.userData.spreadVecX,
+            elapsed,
+          );
+          meshPrize.position.y = lerp(
+            meshPrize.userData.origPos.y,
+            meshPrize.userData.spreadVecY,
+            elapsed,
+          );
+          meshPrize.position.y = lerp(
+            meshPrize.position.y,
+            -meshPrize.userData.origPos.y * 4 - 16,
+            elapsed * elapsed,
+          );
+          meshPrize.position.x = lerp(
+            meshPrize.position.x,
+            0,
+            elapsed * elapsed,
+          );
+          meshPrize.rotation.copy(meshPrize.userData.origRot);
+          meshPrize.rotation.x += meshPrize.userData.spin.x * elapsed * 30;
+          meshPrize.rotation.y += meshPrize.userData.spin.y * elapsed * 30;
+          meshPrize.rotation.z += meshPrize.userData.spin.z * elapsed * 30;
+        };
+        setTimeout(() => {
+          if (meshPrize.parent) {
+            meshPrize.parent.remove(meshPrize);
+          }
+        }, 500);
+      }
+    },
+    [nodesMine, rockDepths],
   );
 
   useEffect(() => {
@@ -186,7 +274,9 @@ function MiningGame() {
           for (const i of info.candidates) {
             if (rockHealths[i] > 1) {
               rockHealths[i]--;
+              makeChunks(i, -rockDepths[i], 1);
             } else {
+              makeChunks(i, -rockDepths[i], 5);
               rockDepths[i]++;
               rockHealths[i] = 3;
               cracked = true;
