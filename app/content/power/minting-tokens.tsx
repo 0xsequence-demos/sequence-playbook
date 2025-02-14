@@ -11,6 +11,7 @@ import View3D from "~/components/View3D";
 import PickAxe3D from "~/components/PickAxe3D";
 import MiningGame from "~/components/MiningGame";
 import ItemViewer3D from "~/components/ItemViewer3D";
+import { toast } from "sonner";
 
 const info = {
   name: "minting-tokens",
@@ -43,6 +44,7 @@ function component() {
   const [demoMode, setDemoMode] = useState<"mint" | "play">("mint");
   useEffect(() => {
     if (mintStatus === "successs") {
+      toast("Iron Pickaxe minted to your wallet!");
       setTimeout(() => {
         setDemoMode("play");
       }, 1500);

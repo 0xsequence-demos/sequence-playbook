@@ -72,7 +72,7 @@ export const MintTokenWidget = (props: {
       setMintStatus("successs");
       setTxHash(ad?.hash);
     }
-  }, [ad]);
+  }, [ad, setMintStatus]);
 
   return address ? (
     <>
