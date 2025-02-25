@@ -43,7 +43,7 @@ export default function IndexRoute() {
           </Mask.BoxFade>
         </div>
 
-        <div className="-mt-32 md:mt-[-256px] z-10 flex flex-col gap-3 mb-12 max-w-[640px] w-full ">
+        <div className="-mt-32 md:-mt-96 z-10 flex flex-col gap-3 mb-12 max-w-[640px] w-full ">
           <Image name="sequence-logo" alt="Sequence" width={96} />
           <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
             Blueprints
