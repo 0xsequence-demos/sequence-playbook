@@ -6,6 +6,7 @@ import WalletInventoryBook from "~/content/onboard/wallet-inventory";
 import CryptoOnrampCreditCardBook from "~/content/monetize/crypto-onramp-credit-card";
 // import IngameWeb3MarketplaceBook from "~/content/monetize/ingame-web3-marketplace";
 import PrimarySaleNftBook from "~/content/monetize/primary-sale-nft";
+import SwapAndPayBook from "~/content/monetize/swap-and-pay";
 // import PrimarySaleOffChainDigitalGoodsBook from "~/content/monetize/primary-sale-off-chain-digital-goods";
 
 import ContractInventoryBook from "~/content/power/contract-inventory";
@@ -41,8 +42,9 @@ export default [
     description: "Purchasing & payments",
     books: [
       CryptoOnrampCreditCardBook,
-      // IngameWeb3MarketplaceBook,
       PrimarySaleNftBook,
+      SwapAndPayBook,
+      // IngameWeb3MarketplaceBook,
       // PrimarySaleOffChainDigitalGoodsBook,
     ],
   },
