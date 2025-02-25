@@ -1,6 +1,6 @@
 {
-  "name": "Playbook",
-  "short_name": "Playbook",
+  "name": "Blueprints",
+  "short_name": "Blueprints",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -19,3 +19,4 @@
   "background_color": "#ffffff",
   "display": "standalone"
 }
+

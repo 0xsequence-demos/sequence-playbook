@@ -83,8 +83,8 @@ export default function SiteLayout() {
           <div className="max-w-[108rem] w-full mx-auto flex justify-between gap-x-4 items-center px-4 md:px-12">
             <Link to="/" className="flex gap-1 items-center justify-center">
               <Icon
-                name="sequence-playbook"
-                alt="Sequence Playbook"
+                name="sequence-blueprints"
+                alt="Sequence Blueprints"
                 width={228}
               />
             </Link>

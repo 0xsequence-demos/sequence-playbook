@@ -71,9 +71,9 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
   // Define base meta
   const base_path = url.origin;
-  const base_title = "Sequence Playbook";
+  const base_title = "Sequence Blueprints";
   const default_description =
-    "The Sequence Playbook is a collection of examples, guides, and tutorials to help you build with the Sequence SDK.";
+    "The Sequence BluePrints is a collection of examples, guides, and tutorials to help you build with the Sequence SDK.";
   const base_image = "";
 
   // // Wagmi cookie to initial state adapted for React Router 7 (Remix)
@@ -138,7 +138,7 @@ export function useConfig() {
     appleClientId,
     appleRedirectURI,
     walletConnectProjectId,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useRouteLoaderData<any>("root");
 
   const connectors = getDefaultWaasConnectors({
