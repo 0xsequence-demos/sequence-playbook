@@ -14,7 +14,7 @@ export function Favicon() {
         sizes="180x180"
         href="/apple-touch-icon.png"
       />
-      <meta name="apple-mobile-web-app-title" content="Playbook" />
+      <meta name="apple-mobile-web-app-title" content="Blueprints" />
       <link rel="manifest" href="/site.webmanifest" />
     </>
   );

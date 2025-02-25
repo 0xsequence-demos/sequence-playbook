@@ -10,7 +10,7 @@ import { Icon } from "../components/icon/Icon";
 export const meta: MetaFunction = (args) => {
   return routeMeta(
     {
-      title: "Sequence Playbook",
+      title: "Sequence Blueprints",
       description: "",
       image: "",
     },
@@ -46,10 +46,10 @@ export default function IndexRoute() {
         <div className="-mt-32 md:mt-[-256px] z-10 flex flex-col gap-3 mb-12 max-w-[640px] w-full ">
           <Image name="sequence-logo" alt="Sequence" width={96} />
           <h1 className="text-32 sm:text-40 font-bold sm:leading-[1.05em] leading-tight">
-            Playbook
+            Blueprints
           </h1>
           <p className="mt-4">
-            Follow our Playbook to get an overview on Sequence features to
+            Follow our Blueprints to get an overview on Sequence features to
             onboard users, unlock new monetization opportunities, and
             supercharge your app with seamless Web3 integrations.
           </p>
