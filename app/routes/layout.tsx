@@ -2,7 +2,7 @@ import { Outlet, Link, NavLink } from "react-router";
 import Books from "~/content/books";
 import { Icon } from "../components/icon/Icon";
 import Drawer from "~/components/drawer/Drawer";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { useAccount, useDisconnect } from "wagmi";
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { Button } from "~/components/button/Button";
@@ -54,7 +54,7 @@ function Wallet() {
 }
 
 export default function SiteLayout() {
-  const [ref, isStuck] = useSticky();
+  const [ref] = useSticky();
   return (
     <div className="flex flex-col flex-1 pb-12">
       <div

@@ -17,11 +17,11 @@ importers:
   .:
     dependencies:
       0xsequence:
-        specifier: ^2.2.10
-        version: 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        specifier: ^2.2.11
+        version: 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/auth':
         specifier: ^2.2.10
-        version: 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        version: 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/design-system':
         specifier: ^1.9.0
         version: 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -29,20 +29,20 @@ importers:
         specifier: ^2.2.10
         version: 2.2.11
       '@0xsequence/kit':
-        specifier: 4.5.9
-        version: 4.5.9(0xsequence@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
+        specifier: 4.6.3
+        version: 4.6.3(0xsequence@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@databeat/tracker@0.9.3)(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
       '@0xsequence/kit-checkout':
         specifier: 4.5.9
-        version: 4.5.9(patch_hash=3h4bpwimls2bxtff3s2m6mhfxa)(3t35if74bqj7wpvn37ymtqa3ge)
+        version: 4.5.9(patch_hash=3h4bpwimls2bxtff3s2m6mhfxa)(g4ufl5fngcqftu3dvbq7dxzahy)
       '@0xsequence/kit-wallet':
         specifier: 4.5.9
-        version: 4.5.9(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(cqtyjh4jc7qgkdxk7ebeb4bp6i)
+        version: 4.5.9(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(rf5zvvbg6ovkayfliart2i5ur4)
       '@0xsequence/metadata':
         specifier: ^2.2.11
         version: 2.2.11
       '@0xsequence/network':
         specifier: ^2.2.10
-        version: 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        version: 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@react-router/cloudflare':
         specifier: ^7.1.1
         version: 7.1.5(@cloudflare/workers-types@4.20250204.0)(react-router@7.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(tsup@8.3.6(@microsoft/api-extractor@7.49.2(@types/node@22.13.1))(jiti@1.21.7)(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0))(typescript@5.7.3)
@@ -65,17 +65,17 @@ importers:
         specifier: ^4.17.5
         version: 4.17.10(react@18.3.1)
       '@tanstack/react-query':
-        specifier: ^5.64.1
+        specifier: ^5.66.0
         version: 5.66.0(react@18.3.1)
       boilerplate-design-system:
         specifier: github:0xsequence-demos/boilerplate-design-system#e6cc6890b0206eb67af2e159f2b6e615f266b67a
-        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/e6cc6890b0206eb67af2e159f2b6e615f266b67a(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
+        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/e6cc6890b0206eb67af2e159f2b6e615f266b67a(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
       ethers:
-        specifier: ^6.13.5
-        version: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^6.13.0
+        version: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       isbot:
         specifier: ^5.1.21
         version: 5.1.22
@@ -122,13 +122,13 @@ importers:
         specifier: ^1.1.1
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       viem:
-        specifier: ^2.22.21
+        specifier: ^2.22.23
         version: 2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)
       vite-tsconfig-paths:
         specifier: ^4.2.1
         version: 4.3.2(typescript@5.7.3)(vite@5.4.14(@types/node@22.13.1))
       wagmi:
-        specifier: ^2.12.30
+        specifier: ^2.14.10
         version: 2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1)
     devDependencies:
       '@cloudflare/workers-types':
@@ -274,21 +274,42 @@ packages:
   '@0xsequence/abi@2.2.11':
     resolution: {integrity: sha512-VeniJG8alHRKY6ziKUYCqd52OlhE3BVtx5yRV77olO9ZhM+XLHBfEct5xswqzUM4AXOKpotw3CHx+qwFbORENA==}
 
+  '@0xsequence/abi@2.2.14':
+    resolution: {integrity: sha512-ujnpjF338Ba976nyhBNWJjqn5DxIsW0IZnmDOTYs80BK2oxQirwaMC9dh0HrOUA6jWomMV1vPypGfZmGopzO0g==}
+
   '@0xsequence/account@2.2.11':
     resolution: {integrity: sha512-8q9kQeQkzvMGREnKnFXAPt4ILpJp3nVglbU6mjpoVfPCXeLIUVdcRPs87Yoo+EgMSxsjQEuWzdY3kNJRhz33ow==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/account@2.2.14':
+    resolution: {integrity: sha512-Ak2vAnRiU8eCRNX9Zs5glXhH3/CyYpn24vROJuWyluH6E1oXwz8yR4qq60J/TnTjVyBlx9P8zwDWkOgJmf4WUw==}
     peerDependencies:
       ethers: '>=6'
 
   '@0xsequence/api@2.2.11':
     resolution: {integrity: sha512-QAOyDwingdKBMm6DbW1eiLX6AdHaLIc4v/V/Nq8pnaSod8C/j5fo30R6/P9Js7ep9Wo1P5pd/CRZNaOPWpt7Sw==}
 
+  '@0xsequence/api@2.2.14':
+    resolution: {integrity: sha512-gdAdDCgnD5qtSkBKUg5oNWQN6LsKlHcngPpP6imHB2Tr1GJYB+qWb6si9AUfVKbfNezj4vWIjzFOF3EVASNZaA==}
+
   '@0xsequence/auth@2.2.11':
     resolution: {integrity: sha512-DT1vlj2nYXNsXhS2cKUYtEPW2H/lCVheo0ohDQb+CdYiBVGJlzlSZyAfp74Yb354hygSa6p4EPT9cyITxFB1vA==}
     peerDependencies:
       ethers: '>=6'
 
+  '@0xsequence/auth@2.2.14':
+    resolution: {integrity: sha512-wZ+6DHjWaU8iDLAHUHaOxQVM7FZVwo5e0Y9oHtlgMujme3unXaSFwGGNlish3qL/A64krrwVy0DiCNF926knVQ==}
+    peerDependencies:
+      ethers: '>=6'
+
   '@0xsequence/core@2.2.11':
     resolution: {integrity: sha512-b0BDwwH1v+bKv9ARpmi8/0JfvkjkgB3RqiFfUV+Fu3FG0ROkBgGHzlJnrZlZjO+vOMV2vCYFMUOP+x3Y8+WylQ==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/core@2.2.14':
+    resolution: {integrity: sha512-STAmr3BiCwuKhielLWsEDmy0Pk29CIL0lkkRQRAtnX1xvo4lFO0So66/TaqJf1vLX4CKzxS003dZIMMgn10dtA==}
     peerDependencies:
       ethers: '>=6'
 
@@ -311,6 +332,9 @@ packages:
 
   '@0xsequence/indexer@2.2.11':
     resolution: {integrity: sha512-1w7s+Vu6BhGsm2rLXs0s3v3jRVr9jH8qvHQuJblUwRY6YyGVlgW1E8e6/eCvNEpyVy2VN2q6FwavRih/gXtZqw==}
+
+  '@0xsequence/indexer@2.2.14':
+    resolution: {integrity: sha512-Gh41X2/1Sh+vflmDfuH6FQ/IvIXX/KW39GF11RYcSR2khChRUhaZYI/PN+isqkWTfvF+qHd0k9qk3K5oCeyE8Q==}
 
   '@0xsequence/kit-checkout@4.5.9':
     resolution: {integrity: sha512-k8vUdIZeaTu3VFhJhJkBiHb9e0MGpkUaImtzt4MgFNbvMIfECGAw+Zzs/P+oyG4y9XF8NJzC8NkCZWUMFfmksw==}
@@ -348,18 +372,19 @@ packages:
       viem: '>= 2.0.0'
       wagmi: ^2.13.3
 
-  '@0xsequence/kit@4.5.9':
-    resolution: {integrity: sha512-Hj1Q4JVXfMMyoSIaj52UrOdVV2bHSuoUMuS8jG+hr+cwxpt1JErZM4PylnCuaFGcMjYVsqjp5W4lJJjTuTgaww==}
+  '@0xsequence/kit@4.6.3':
+    resolution: {integrity: sha512-HkCp/E7zI62qIGjoxw+0Eb0n1SeoatzS5WimK9s5oFtW7zSlrcAL2ftFADbRYQiPOR1QdvSICLtJvZRprzbrOQ==}
     peerDependencies:
-      0xsequence: '>= 2.2.4'
-      '@react-oauth/google': '>= 0.11.1'
-      '@tanstack/react-query': '>= 5.0.0'
-      ethers: '>= 6.13.0'
-      react: '>= 17'
-      react-apple-signin-auth: '>= 1.1.0'
-      react-dom: '>= 17'
-      viem: '>= 2.0.0'
-      wagmi: ^2.13.3
+      0xsequence: ^2.2.13
+      '@databeat/tracker': ^0.9.3
+      '@react-oauth/google': ^0.11.1
+      '@tanstack/react-query': ^5.0.0
+      ethers: ^6.13.0
+      react: '>= 17 < 19'
+      react-apple-signin-auth: ^1.1.0
+      react-dom: '>= 17 < 19'
+      viem: ^2.0.0
+      wagmi: ^2.14.11
 
   '@0xsequence/marketplace@2.2.11':
     resolution: {integrity: sha512-3ngRfxx8TfPNaroh+pW3sljvRKE9sJPyIrU03NU2aBMslKTWjqwwIpuSF6gqapr+spU9rxputYKkG/5U/3CyDQ==}
@@ -367,8 +392,16 @@ packages:
   '@0xsequence/metadata@2.2.11':
     resolution: {integrity: sha512-+95r0A1exSMVS22tqoB3nZHMnPW7LK75IPwOtbEE9PujsbIEb45FwvNTGN0+s5Pq1fTAm/7fb30VpdREH2SLfg==}
 
+  '@0xsequence/metadata@2.2.14':
+    resolution: {integrity: sha512-iL6MGxHXzr+MzvyRcA+CQoUSOt/iaMAw513IAfGK1Qc5vI4cxSnJS7ngDRlYFKXAqme3a+UDrXV0Y2wEU3mUVQ==}
+
   '@0xsequence/migration@2.2.11':
     resolution: {integrity: sha512-WbtGI9KhnP4lTxrJdqpQX0fT/O1R8LOd3PVfD3yVQvbIlH6LwdrPghEC/d7A6k/lRBnVznEvW+6o2dUhmv+GmQ==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/migration@2.2.14':
+    resolution: {integrity: sha512-Lha+Thl7RII3iQu2VmBnZW1fHW24LkXvqvJ0npUHJt4KV72tL6eY/CVTq+2oLDauV/6VL28bJ03o4dQNA+vI/Q==}
     peerDependencies:
       ethers: '>=6'
 
@@ -377,8 +410,18 @@ packages:
     peerDependencies:
       ethers: '>=6'
 
+  '@0xsequence/network@2.2.14':
+    resolution: {integrity: sha512-YsGOVfrrBt8EZyRjECcaoo9Vm3YUvWvLTYJqlePkd/4t6agk3vz+5h+d2SIlUji7TI8rB9nh+Sbo/RWebScQnA==}
+    peerDependencies:
+      ethers: '>=6'
+
   '@0xsequence/provider@2.2.11':
     resolution: {integrity: sha512-m0Rr0xR2sc6ILncjU2cx87WakWpYys9KbC7p1TCsKswZIVfMjhjSv8HY1ztiT6ucrFZ0RDm2Z60i6bdjkWs9gA==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/provider@2.2.14':
+    resolution: {integrity: sha512-SdCavGL9BUl6tuGKCcnWFDUdTUlM5WBOP4sLzxRSIYtQbPuBKV93utCX6x1Zq2XBZkvYh4CzzUcVHARvkX/v/w==}
     peerDependencies:
       ethers: '>=6'
 
@@ -387,8 +430,18 @@ packages:
     peerDependencies:
       ethers: '>=6'
 
+  '@0xsequence/relayer@2.2.14':
+    resolution: {integrity: sha512-9bvdFY0oMic2dHtRoFgTK3frmoe1K6ZiWBLZBFbw789slnRx3Bq8oP0N8fcMD+2vQDwUzrvEsaQu5ErYPy+4XQ==}
+    peerDependencies:
+      ethers: '>=6'
+
   '@0xsequence/replacer@2.2.11':
     resolution: {integrity: sha512-GODYxQ3VavR3TXV6VuBM1ZH7K/jVXv+kGH55nTjle2ApXqlAPQseIUWm6Dj7bzYq91j2q4BBo2WlnhK23j7pTA==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/replacer@2.2.14':
+    resolution: {integrity: sha512-5xsSJWUhMeWH8nYuSr2nNlG/4bFaCGq46iOnAaSOUThGkWmSCHN8l9EP4rI4ryMz0o+oRNDaKjpsG8TW0KCjag==}
     peerDependencies:
       ethers: '>=6'
 
@@ -397,8 +450,18 @@ packages:
     peerDependencies:
       ethers: '>=6'
 
+  '@0xsequence/sessions@2.2.14':
+    resolution: {integrity: sha512-wMu9s7NLAwWW8k765cwM/vL7tCxkhA2JIrG33dYzysq+/ERtPSmLqzNEgLqAjfV5GJtsGBeAKhAtXbcBOq8IZg==}
+    peerDependencies:
+      ethers: '>=6'
+
   '@0xsequence/signhub@2.2.11':
     resolution: {integrity: sha512-MxkbPSd9G6GnWlHGqzZy7C5hION3J7ZZgdrYviDzHLtBn32GrjibPc/XZstrFByIKb2ZtDM8GThHz5XN1ISVNg==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/signhub@2.2.14':
+    resolution: {integrity: sha512-uKUvCKSJTpzhBQwvKo4pZvrjAr9/cXKegKOAYOE0y/kpuYAKUHKPB1MmQIQRjcmpWTInwf3dYOF/7fzb+Kah9w==}
     peerDependencies:
       ethers: '>=6'
 
@@ -407,13 +470,23 @@ packages:
     peerDependencies:
       ethers: '>=6'
 
-  '@0xsequence/waas@2.2.11':
-    resolution: {integrity: sha512-5sycAdJZRpqgTTUNrTFMQrGLXAQGa0Q1nrwcGog2x53+6SCU0+unDzWQai15oYhDyI95un7NVZXiydlMloOsdg==}
+  '@0xsequence/utils@2.2.14':
+    resolution: {integrity: sha512-ZcxIWbxEtTSyVlISMOV0XeOG3d4gQ7DB27qAQSTFe6yca9jeGsPDmi94mIYcxpxZfoTTAa3aS6UpvaW3vNJXkQ==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/waas@2.2.14':
+    resolution: {integrity: sha512-nBiMWBfwAZpO1zvDeczsSjtiad9dh44upeZRaqfTc5H48DhSw3kmAAygaHcIKd6BwhVbcJClKYHyMfYCJtgdYg==}
     peerDependencies:
       ethers: '>=6'
 
   '@0xsequence/wallet@2.2.11':
     resolution: {integrity: sha512-rdEzMHR4Gsg9Z5qugZuhofWCkMR/2pA8A5gyf8m0njTWv/k+cPHv7RBFrgIkD4qquQTfylqS3FeWDLtbG2E4BA==}
+    peerDependencies:
+      ethers: '>=6'
+
+  '@0xsequence/wallet@2.2.14':
+    resolution: {integrity: sha512-cN4Lqu0srkH1OULJX0wV42CM2yVsq51/TApfFev1Jm246g63ko2Lyy+fNewY7SnBBYbuNxUPo4R/hkAUTd9Uzw==}
     peerDependencies:
       ethers: '>=6'
 
@@ -3558,11 +3631,11 @@ packages:
   '@types/node-forge@1.3.11':
     resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
 
+  '@types/node@18.15.13':
+    resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
+
   '@types/node@22.13.1':
     resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
-
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
   '@types/offscreencanvas@2019.7.3':
     resolution: {integrity: sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A==}
@@ -5042,8 +5115,8 @@ packages:
   ethereum-cryptography@2.2.1:
     resolution: {integrity: sha512-r/W8lkHSiTLxUxW8Rf3u4HGB0xQweG2RyETjywylKZSzLWoWAijRz8WCuOtJ6wah+avllXBqZuk29HCCvhEIRg==}
 
-  ethers@6.13.5:
-    resolution: {integrity: sha512-+knKNieu5EKRThQJWwqaJ10a6HE9sSehGeqWN65//wE7j47ZpFhKAnHB/JJFibwwg61I/koxaPsXbXpD/skNOQ==}
+  ethers@6.13.0:
+    resolution: {integrity: sha512-+yyQQQWEntY5UVbCv++guA14RRVFm1rSnO1GoLFdrK7/XRWMoktNgyG9UjwxrQqGBfGyFKknNZ81YpUS2emCgg==}
     engines: {node: '>=14.0.0'}
 
   eval@0.1.8:
@@ -8120,8 +8193,8 @@ packages:
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
-  tslib@2.7.0:
-    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
+  tslib@2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -8228,9 +8301,6 @@ packages:
 
   undefsafe@2.0.5:
     resolution: {integrity: sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==}
-
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
@@ -8746,6 +8816,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.5.0:
+    resolution: {integrity: sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   xmlhttprequest-ssl@2.1.2:
     resolution: {integrity: sha512-TEU+nJVUUnA4CYJFLvK5X9AOeH4KvDvhIfm0vV1GaQRtchnG0hgK5p8hw/xjv8cunWYCsiPCSDzObPyhEwq3KQ==}
     engines: {node: '>=0.4.0'}
@@ -8854,64 +8936,103 @@ packages:
 
 snapshots:
 
-  0xsequence@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
+  0xsequence@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/account': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/account': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/api': 2.2.11
-      '@0xsequence/auth': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/guard': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/auth': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/guard': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/indexer': 2.2.11
       '@0xsequence/metadata': 2.2.11
-      '@0xsequence/migration': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/provider': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/relayer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/sessions': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/signhub': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/wallet': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/migration': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/provider': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/sessions': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   '@0xsequence/abi@2.2.11': {}
 
-  '@0xsequence/account@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/abi@2.2.14': {}
+
+  '@0xsequence/account@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/migration': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/relayer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/sessions': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/wallet': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/sessions': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/account@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/sessions': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   '@0xsequence/api@2.2.11': {}
 
-  '@0xsequence/auth@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/api@2.2.14': {}
+
+  '@0xsequence/auth@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/account': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/account': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/api': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/ethauth': 1.0.0(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/ethauth': 1.0.0(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/indexer': 2.2.11
       '@0xsequence/metadata': 2.2.11
-      '@0xsequence/migration': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/sessions': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/signhub': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/wallet': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/migration': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/sessions': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  '@0xsequence/core@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/auth@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/account': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/api': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/ethauth': 1.0.0(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/indexer': 2.2.14
+      '@0xsequence/metadata': 2.2.14
+      '@0xsequence/migration': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/sessions': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/core@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/core@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   '@0xsequence/design-system@1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -8937,34 +9058,36 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@0xsequence/ethauth@1.0.0(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/ethauth@1.0.0(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       js-base64: 3.7.7
 
-  '@0xsequence/guard@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/guard@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      '@0xsequence/account': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/signhub': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/account': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   '@0xsequence/indexer@2.2.11': {}
 
-  '@0xsequence/kit-checkout@4.5.9(patch_hash=3h4bpwimls2bxtff3s2m6mhfxa)(3t35if74bqj7wpvn37ymtqa3ge)':
+  '@0xsequence/indexer@2.2.14': {}
+
+  '@0xsequence/kit-checkout@4.5.9(patch_hash=3h4bpwimls2bxtff3s2m6mhfxa)(g4ufl5fngcqftu3dvbq7dxzahy)':
     dependencies:
-      0xsequence: 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/api': 2.2.11
+      0xsequence: 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/api': 2.2.14
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/indexer': 2.2.11
-      '@0xsequence/kit': 4.5.9(0xsequence@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
+      '@0xsequence/kit': 4.6.3(0xsequence@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@databeat/tracker@0.9.3)(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
       '@0xsequence/marketplace': 2.2.11
       '@0xsequence/metadata': 2.2.11
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/waas': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/waas': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@tanstack/react-query': 5.66.0(react@18.3.1)
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       framer-motion: 8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       pako: 2.1.0
       qrcode.react: 4.2.0(react@18.3.1)
@@ -8975,18 +9098,18 @@ snapshots:
       viem: 2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)
       wagmi: 2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1)
 
-  '@0xsequence/kit-wallet@4.5.9(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(cqtyjh4jc7qgkdxk7ebeb4bp6i)':
+  '@0xsequence/kit-wallet@4.5.9(patch_hash=vc6m5ruqto7ufwmh3xx3e22tem)(rf5zvvbg6ovkayfliart2i5ur4)':
     dependencies:
-      '@0xsequence/api': 2.2.11
+      '@0xsequence/api': 2.2.14
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/indexer': 2.2.11
-      '@0xsequence/kit': 4.5.9(0xsequence@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
+      '@0xsequence/kit': 4.6.3(0xsequence@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@databeat/tracker@0.9.3)(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))
       '@0xsequence/metadata': 2.2.11
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@radix-ui/react-popover': 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query': 5.66.0(react@18.3.1)
       dayjs: 1.11.13
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       framer-motion: 8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       fuse.js: 6.6.2
       qrcode.react: 4.2.0(react@18.3.1)
@@ -8999,24 +9122,26 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@0xsequence/kit@4.5.9(0xsequence@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))':
+  '@0xsequence/kit@4.6.3(0xsequence@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@databeat/tracker@0.9.3)(@react-oauth/google@0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react-apple-signin-auth@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(wagmi@2.14.10(@tanstack/query-core@5.66.0)(@tanstack/react-query@5.66.0(react@18.3.1))(@types/react@18.3.18)(bufferutil@4.0.9)(react@18.3.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))(zod@3.24.1))':
     dependencies:
-      0xsequence: 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/api': 2.2.11
-      '@0xsequence/auth': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      0xsequence: 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/api': 2.2.14
+      '@0xsequence/auth': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@0xsequence/ethauth': 1.0.0(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/indexer': 2.2.11
-      '@0xsequence/metadata': 2.2.11
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/provider': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/waas': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/ethauth': 1.0.0(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/indexer': 2.2.14
+      '@0xsequence/metadata': 2.2.14
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/provider': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/waas': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@databeat/tracker': 0.9.3
       '@react-oauth/google': 0.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query': 5.66.0(react@18.3.1)
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       framer-motion: 8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      fuse.js: 6.6.2
       react: 18.3.1
       react-apple-signin-auth: 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
@@ -9032,91 +9157,166 @@ snapshots:
 
   '@0xsequence/metadata@2.2.11': {}
 
-  '@0xsequence/migration@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/metadata@2.2.14': {}
+
+  '@0xsequence/migration@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/wallet': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  '@0xsequence/network@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/migration@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/network@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/indexer': 2.2.11
-      '@0xsequence/relayer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/relayer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  '@0xsequence/provider@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/network@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/indexer': 2.2.14
+      '@0xsequence/relayer': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/provider@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/account': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/auth': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/migration': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/relayer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/wallet': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/account': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/auth': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@databeat/tracker': 0.9.3
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       eventemitter2: 6.4.9
       webextension-polyfill: 0.10.0
 
-  '@0xsequence/relayer@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/provider@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/account': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/auth': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/wallet': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@databeat/tracker': 0.9.3
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      eventemitter2: 6.4.9
+      webextension-polyfill: 0.10.0
+
+  '@0xsequence/relayer@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  '@0xsequence/replacer@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/relayer@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/replacer@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
-  '@0xsequence/sessions@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/replacer@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/migration': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/replacer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/sessions@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/replacer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       idb: 7.1.1
 
-  '@0xsequence/signhub@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/sessions@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/migration': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/replacer': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      idb: 7.1.1
 
-  '@0xsequence/utils@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/signhub@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/signhub@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/utils@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       js-base64: 3.7.7
 
-  '@0xsequence/waas@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/utils@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      js-base64: 3.7.7
+
+  '@0xsequence/waas@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@aws-sdk/client-cognito-identity-provider': 3.744.0
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       idb: 7.1.1
       json-canonicalize: 1.0.6
       jwt-decode: 4.0.0
     transitivePeerDependencies:
       - aws-crt
 
-  '@0xsequence/wallet@2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+  '@0xsequence/wallet@2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
     dependencies:
       '@0xsequence/abi': 2.2.11
-      '@0xsequence/core': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/relayer': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/signhub': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      '@0xsequence/utils': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@0xsequence/core': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
+  '@0xsequence/wallet@2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))':
+    dependencies:
+      '@0xsequence/abi': 2.2.14
+      '@0xsequence/core': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/relayer': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/signhub': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/utils': 2.2.14(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ethers: 6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   '@adraffy/ens-normalize@1.10.1': {}
 
@@ -13422,13 +13622,11 @@ snapshots:
     dependencies:
       '@types/node': 22.13.1
 
+  '@types/node@18.15.13': {}
+
   '@types/node@22.13.1':
     dependencies:
       undici-types: 6.20.0
-
-  '@types/node@22.7.5':
-    dependencies:
-      undici-types: 6.19.8
 
   '@types/offscreencanvas@2019.7.3': {}
 
@@ -14446,11 +14644,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/e6cc6890b0206eb67af2e159f2b6e615f266b67a(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)):
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/e6cc6890b0206eb67af2e159f2b6e615f266b67a(@emotion/is-prop-valid@0.8.8)(@types/node@22.13.1)(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.6)(sonner@1.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(viem@2.22.23(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1)):
     dependencies:
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@0xsequence/indexer': 2.2.11
-      '@0xsequence/network': 2.2.11(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      '@0xsequence/network': 2.2.11(ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@eslint/js': 9.19.0
       '@radix-ui/react-select': 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.8(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -15701,15 +15899,15 @@ snapshots:
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.3.0
 
-  ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+  ethers@6.13.0(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
       '@noble/curves': 1.2.0
       '@noble/hashes': 1.3.2
-      '@types/node': 22.7.5
+      '@types/node': 18.15.13
       aes-js: 4.0.0-beta.5
-      tslib: 2.7.0
-      ws: 8.17.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      tslib: 2.4.0
+      ws: 8.5.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -19269,7 +19467,7 @@ snapshots:
 
   tslib@1.14.1: {}
 
-  tslib@2.7.0: {}
+  tslib@2.4.0: {}
 
   tslib@2.8.1: {}
 
@@ -19409,8 +19607,6 @@ snapshots:
   uncrypto@0.1.3: {}
 
   undefsafe@2.0.5: {}
-
-  undici-types@6.19.8: {}
 
   undici-types@6.20.0: {}
 
@@ -19982,6 +20178,11 @@ snapshots:
       utf-8-validate: 5.0.10
 
   ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+    optionalDependencies:
+      bufferutil: 4.0.9
+      utf-8-validate: 5.0.10
+
+  ws@8.5.0(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     optionalDependencies:
       bufferutil: 4.0.9
       utf-8-validate: 5.0.10
