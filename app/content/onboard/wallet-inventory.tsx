@@ -1,8 +1,7 @@
 import { useAccount } from "wagmi";
-import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
-import { Resources } from "~/components/resources/Resources";
 import { Divide } from "~/components/divide/Divide";
+import { WalletInventoryWidget } from "~/examples/WalletInventoryWidget";
 
 const info = {
   name: "wallet-inventory",
@@ -17,8 +16,7 @@ const info = {
   image: {
     src: "wallet-inventory",
   },
-  description:
-    "A simple and elegant way for your users to manage their assets",
+  description: "A simple and elegant way for your users to manage their assets",
 } as const;
 
 function component() {
@@ -39,7 +37,6 @@ function component() {
       </PlayCard>
 
       <Divide />
-
     </>
   );
 }

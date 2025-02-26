@@ -1,13 +1,7 @@
-import { SendTestTransactionWidget } from "~/examples/SendTestTransactionWidget";
-import { SignMessageWidget } from "~/examples/SignMessageWidget";
-import { useAccount } from "wagmi";
-import { useState } from "react";
-import { AuthenticationWidget } from "~/examples/AuthenticationWidget";
 import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
-import { Divide } from "~/components/divide/Divide";
-import { RequireWalletButton } from "~/components/require-wallet-button/RequireWalletButton";
-import { useOpenConnectModal } from "@0xsequence/kit";
+import { MultipleWalletConnectWidget } from "~/examples/MultipleWalletConnectWidget";
+import { useAccount } from "wagmi";
 
 const info = {
   name: "multiple-wallets",
@@ -22,27 +16,23 @@ const info = {
 
 const resources = ["wallet-linking-boilerplate"];
 
+const dependencies = [MultipleWalletConnectWidget];
+
 function component() {
   const { address } = useAccount();
-  const { setOpenConnectModal } = useOpenConnectModal();
-  const [transaction, setTransaction] = useState<`0x${string}` | undefined>();
-  const [signedData, setSignedData] = useState<`0x${string}` | undefined>();
-
-  const onClickConnect = () => {
-    setOpenConnectModal(true);
-  };
-
   return (
     <>
       <h2>Nobody has just one wallet anymore</h2>
       Make life easier for your users, by letting them link wallets together and
       stop shuffling assets back and forth
       <PlayCard>
-        <button onClick={onClickConnect}>Connect another wallet</button>
+        <PlayCard.Preview botMood={!address ? "dead" : "happy"}>
+          <MultipleWalletConnectWidget />
+        </PlayCard.Preview>
 
         <PlayCard.Code
-          copy={AuthenticationWidget.String}
-          steps={AuthenticationWidget.steps}
+          copy={MultipleWalletConnectWidget.String}
+          steps={MultipleWalletConnectWidget.steps}
         />
       </PlayCard>
       {/* <Divide /> */}
@@ -64,7 +54,7 @@ function component() {
       {/*     steps={SignMessageWidget.steps} */}
       {/*   /> */}
       {/* </PlayCard> */}
-      <Resources items={resources} />
+      {/* <Resources items={resources} /> */}
     </>
   );
 }
