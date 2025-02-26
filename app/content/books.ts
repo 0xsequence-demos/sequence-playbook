@@ -1,6 +1,6 @@
 import { Topic } from "~/content/types";
 import UserAuthenticationBook from "~/content/onboard/user-authentication";
-// import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
+import MultipleWalletsBook from "~/content/onboard/multiple-wallets";
 import WalletInventoryBook from "~/content/onboard/wallet-inventory";
 
 import CryptoOnrampCreditCardBook from "~/content/monetize/crypto-onramp-credit-card";
@@ -24,11 +24,7 @@ export default [
       bookColor: "text-blue-400",
     },
     description: "Authentication & wallets",
-    books: [
-      UserAuthenticationBook,
-      // MultipleWalletsBook,
-      WalletInventoryBook,
-    ],
+    books: [UserAuthenticationBook, MultipleWalletsBook, WalletInventoryBook],
   },
   {
     name: "monetize",
