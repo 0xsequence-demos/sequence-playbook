@@ -36,6 +36,7 @@ import { WindowController } from "~/components/window-controller/WindowControlle
 import { WindowRoot } from "~/components/window-controller/WindowRoot";
 import { WindowPortal } from "~/components/window-controller/WindowPortal";
 import dsbStyles from "boilerplate-design-system/styles/index.css?url";
+import { ChainId } from "@0xsequence/network";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -148,8 +149,7 @@ export function useConfig() {
     // Notice: Apple Login only works if deployed on https (to support Apple redirects)
     appleClientId,
     appleRedirectURI,
-    /* Arbitrum sepolia chainId */
-    defaultChainId: 421614,
+    defaultChainId: ChainId.ARBITRUM_SEPOLIA,
     appName: "Kit Starter",
     projectAccessKey,
   });
