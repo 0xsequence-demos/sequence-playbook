@@ -59,7 +59,8 @@ function component(data: {
   return (
     <>
       <h2>Authentication made easy.</h2>
-      Sequence provides a wide variety of authentication options, from web2 to web3. All easily configurable and customizable for your brand.
+      Sequence provides a wide variety of authentication options, from web2 to
+      web3. All easily configurable and customizable for your brand.
       <PlayCard>
         <PlayCard.Code
           copy={AuthenticationWidget.String}
@@ -75,20 +76,21 @@ function component(data: {
         <>Go ahead, test out your wallet.</>
       ) : (
         <p>
-          Go ahead, try {" "}
+          Go ahead, try{" "}
           <button
             onClick={() => setOpenConnectModal(true)}
             className="inline-flex underline"
           >
             connecting
           </button>{" "}
-          with your email or social to see the power of Sequence embedded wallets.
+          with your email or social to see the power of Sequence embedded
+          wallets.
         </p>
       )}
       <Divide />
-      
       <h2>Sign a message</h2>
-      No popups, no modals. Seamless UX with a cross-platform, non-custodial wallet.
+      No popups, no modals. Seamless UX with a cross-platform, non-custodial
+      wallet.
       <PlayCard>
         <PlayCard.Code
           copy={SignMessageWidget.String}
@@ -124,10 +126,11 @@ function component(data: {
         </PlayCard.Preview>
       </PlayCard>
       <br />
-      Onboarding is only the beginning.<br />
-
+      Onboarding is only the beginning.
+      <br />
       <Divide />
-      Check out the rest of the Sequence playbook to see how we enable everything from monetization to your backend.
+      Check out the rest of the Sequence BluePrints to see how we enable
+      everything from monetization to your backend.
       <Resources
         title="Get started quickly with our range of boilerplates covering a range of frameworks, platforms, and login methods."
         items={[
