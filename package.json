@@ -1,5 +1,5 @@
 {
-  "name": "sequence-playbook-ssr",
+  "name": "sequence-blueprtints-ssr",
   "private": true,
   "sideEffects": false,
   "type": "module",
