@@ -2,6 +2,7 @@ import { PlayCard } from "../../components/playcard/PlayCard";
 import { Resources } from "~/components/resources/Resources";
 import { MultipleWalletConnectWidget } from "~/examples/MultipleWalletConnectWidget";
 import { useAccount } from "wagmi";
+import { ResourceName } from "../resources";
 
 const info = {
   name: "multiple-wallets",
@@ -14,12 +15,13 @@ const info = {
   description: "Link Multiple Wallets to bring your players' assets together",
 } as const;
 
-const resources = ["wallet-linking-boilerplate"];
+const resources: ResourceName[] = ["wallet-linking-boilerplate"];
 
 const dependencies = [MultipleWalletConnectWidget];
 
 function component() {
   const { address } = useAccount();
+
   return (
     <>
       <h2>Nobody has just one wallet anymore</h2>
@@ -35,26 +37,7 @@ function component() {
           steps={MultipleWalletConnectWidget.steps}
         />
       </PlayCard>
-      {/* <Divide /> */}
-      {/* Now that you linked wallets, you can: */}
-      {/* <h2>Pay for an item with funds from a linked wallet</h2> */}
-      {/* <PlayCard> */}
-      {/*   <PlayCard.Preview */}
-      {/*     botMood={!address ? "dead" : signedData ? "happy" : "neutral"} */}
-      {/*   > */}
-      {/*     {address ? ( */}
-      {/*       <SignMessageWidget setData={setSignedData} /> */}
-      {/*     ) : ( */}
-      {/*       <RequireWalletButton title="Connect a wallet test signing a message" /> */}
-      {/*     )} */}
-      {/*   </PlayCard.Preview> */}
-      {/**/}
-      {/*   <PlayCard.Code */}
-      {/*     copy={SignMessageWidget.String} */}
-      {/*     steps={SignMessageWidget.steps} */}
-      {/*   /> */}
-      {/* </PlayCard> */}
-      {/* <Resources items={resources} /> */}
+      <Resources items={resources} />
     </>
   );
 }
@@ -62,4 +45,5 @@ function component() {
 export default {
   info,
   component,
+  dependencies
 };

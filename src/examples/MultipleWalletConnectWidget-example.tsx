@@ -1,23 +1,21 @@
-import { truncateAddress } from "@0xsequence/design-system";
+/* starthide */
 import { useOpenConnectModal, useKitWallets } from "@0xsequence/kit";
 import { useMemo } from "react";
 import { useAccount } from "wagmi";
+import { WalletConnectionDetail } from "~/components/wallet-connection-detail/WalletConnectionDetail";
 
 export const MultipleWalletConnectWidget = () => {
   const { address } = useAccount();
+  /* endhide */
   const { setOpenConnectModal } = useOpenConnectModal();
 
-  const { wallets, linkedWallets, setActiveWallet, disconnectWallet } =
-    useKitWallets();
+  const { wallets, linkedWallets } = useKitWallets();
 
   const onClickConnect = () => {
     setOpenConnectModal(true);
   };
 
-  const onClickCard = (walletAddress: string) => {
-    setActiveWallet(walletAddress);
-  };
-
+  /* starthide */
   const connectedWallets = useMemo(() => {
     // Get read-only linked wallets that aren't connected
     const readOnlyLinkedWallets = (linkedWallets ?? [])
@@ -35,10 +33,6 @@ export const MultipleWalletConnectWidget = () => {
         isActive: false,
         isLinked: true,
         isReadOnly: true,
-        onDisconnect: () => {}, // No-op for read-only wallets
-        onUnlink: () => {
-          // unlinkWallet(lw.linkedWalletAddress);
-        },
       }));
 
     // Transform KitWallet to WalletListItemProps
@@ -54,8 +48,6 @@ export const MultipleWalletConnectWidget = () => {
             wallet.address.toLowerCase(),
         ) ?? false,
       isReadOnly: false,
-      onDisconnect: () => disconnectWallet(wallet.address),
-      onUnlink: () => {}, // No-op for connected wallets
     }));
 
     // Sort wallets: embedded first, then by name and address
@@ -77,46 +69,21 @@ export const MultipleWalletConnectWidget = () => {
 
     // Combine all wallets
     return [...sortedConnectedWallets, ...sortedReadOnlyWallets];
-  }, [wallets, linkedWallets, disconnectWallet]);
+  }, [wallets, linkedWallets]);
 
   return address ? (
     <>
-      <div className="p-4">
-        <button
-          className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={onClickConnect}
-        >
-          Connect another wallet
-        </button>
-        <div className="grid gap-4">
-          {connectedWallets.map((wallet) => (
-            <div
-              key={wallet.address}
-              className={`flex justify-between items-center p-4 border rounded shadow-sm cursor-pointer ${
-                wallet.isActive ? "bg-green-100 border-green-500" : "bg-white"
-              }`}
-              onClick={() => onClickCard(wallet.address)}
-            >
-              <div>
-                <div className="font-semibold">
-                  {wallet.name || wallet.address}
-                </div>
-                <div className="text-sm text-gray-500">
-                  {truncateAddress(wallets[0]?.address)}
-                </div>
-              </div>
-              <div className="flex space-x-2">
-                <button
-                  className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                  onClick={wallet.onDisconnect}
-                >
-                  Disconnect
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* endhide */}
+      <WalletConnectionDetail address={address} />
+      <button
+        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        onClick={onClickConnect}
+      >
+        {connectedWallets.length === 1
+          ? "Connect another wallet"
+          : `Manage connected wallets (${connectedWallets.length})`}
+      </button>
+      {/* starthide */}
     </>
   ) : (
     <>
