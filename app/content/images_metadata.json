@@ -295,43 +295,6 @@
       }
     ]
   },
-  "blueprints-logo": {
-    "name": "blueprints-logo",
-    "path": "/images/blueprints-logo_original.png",
-    "width": 480,
-    "height": 128,
-    "alt": null,
-    "srcset": [
-      {
-        "scale": "2x",
-        "format": "png",
-        "path": "/images/blueprints-logo@2x.png",
-        "width": 480,
-        "height": 128
-      },
-      {
-        "scale": "1x",
-        "format": "png",
-        "path": "/images/blueprints-logo.png",
-        "width": 240,
-        "height": 64
-      },
-      {
-        "scale": "2x",
-        "format": "webp",
-        "path": "/images/blueprints-logo@2x.webp",
-        "width": 480,
-        "height": 128
-      },
-      {
-        "scale": "1x",
-        "format": "webp",
-        "path": "/images/blueprints-logo.webp",
-        "width": 240,
-        "height": 64
-      }
-    ]
-  },
   "power-icon": {
     "name": "power-icon",
     "path": "/images/power-icon_original.png",
