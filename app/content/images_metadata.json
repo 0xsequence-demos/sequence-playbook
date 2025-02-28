@@ -295,43 +295,6 @@
       }
     ]
   },
-  "blueprints-logo": {
-    "name": "blueprints-logo",
-    "path": "/images/blueprints-logo_original.png",
-    "width": 480,
-    "height": 128,
-    "alt": null,
-    "srcset": [
-      {
-        "scale": "2x",
-        "format": "png",
-        "path": "/images/blueprints-logo@2x.png",
-        "width": 480,
-        "height": 128
-      },
-      {
-        "scale": "1x",
-        "format": "png",
-        "path": "/images/blueprints-logo.png",
-        "width": 240,
-        "height": 64
-      },
-      {
-        "scale": "2x",
-        "format": "webp",
-        "path": "/images/blueprints-logo@2x.webp",
-        "width": 480,
-        "height": 128
-      },
-      {
-        "scale": "1x",
-        "format": "webp",
-        "path": "/images/blueprints-logo.webp",
-        "width": 240,
-        "height": 64
-      }
-    ]
-  },
   "power-icon": {
     "name": "power-icon",
     "path": "/images/power-icon_original.png",
@@ -1220,6 +1183,43 @@
       }
     ]
   },
+  "multiple-wallets": {
+    "name": "multiple-wallets",
+    "path": "/images/resources/multiple-wallets_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/multiple-wallets@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/multiple-wallets.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/multiple-wallets@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/multiple-wallets.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
   "primary-sale-nft": {
     "name": "primary-sale-nft",
     "path": "/images/resources/primary-sale-nft_original.jpg",
@@ -1252,6 +1252,43 @@
         "scale": "1x",
         "format": "webp",
         "path": "/images/resources/primary-sale-nft.webp",
+        "width": 1000,
+        "height": 1000
+      }
+    ]
+  },
+  "swap-and-pay": {
+    "name": "swap-and-pay",
+    "path": "/images/resources/swap-and-pay_original.jpg",
+    "width": 2000,
+    "height": 2000,
+    "alt": null,
+    "srcset": [
+      {
+        "scale": "2x",
+        "format": "jpg",
+        "path": "/images/resources/swap-and-pay@2x.jpg",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "jpg",
+        "path": "/images/resources/swap-and-pay.jpg",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "scale": "2x",
+        "format": "webp",
+        "path": "/images/resources/swap-and-pay@2x.webp",
+        "width": 2000,
+        "height": 2000
+      },
+      {
+        "scale": "1x",
+        "format": "webp",
+        "path": "/images/resources/swap-and-pay.webp",
         "width": 1000,
         "height": 1000
       }
