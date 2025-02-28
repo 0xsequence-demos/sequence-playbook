@@ -1,5 +1,5 @@
 # Cloudflare pages requires a top level name attribute
-name = "sequence-playbook-wip"
+name = "sequence-blueprints"
 # Cloudflare Pages will ignore wrangler.toml without this line
 pages_build_output_dir = "./build/client"
 # Fixes "no such module 'node:events'"
