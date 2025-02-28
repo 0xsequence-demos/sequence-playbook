@@ -1,3 +1,4 @@
+/* starthide */
 import { useAccount } from "wagmi";
 import { useSwapModal, type SwapModalSettings } from "@0xsequence/kit-checkout";
 import { WalletConnectionDetail } from "~/components/wallet-connection-detail/WalletConnectionDetail";
@@ -13,7 +14,7 @@ export const SwapAndPayWidget = (props: Props) => {
   const [isPending, setPending] = useState(false);
   const [data, setData] = useState<`0x${string}` | undefined>();
   const { openSwapModal } = useSwapModal();
-
+  /* endhide */
   const onClick = () => {
     setPending(true);
     const chainId = 137;
@@ -49,7 +50,7 @@ export const SwapAndPayWidget = (props: Props) => {
 
     openSwapModal(swapModalSettings);
   };
-
+  /* starthide */
   return address ? (
     <>
       <WalletConnectionDetail address={address} />
@@ -73,3 +74,4 @@ export const SwapAndPayWidget = (props: Props) => {
     </>
   );
 };
+/* endhide */
