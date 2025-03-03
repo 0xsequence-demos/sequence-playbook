@@ -1,8 +1,6 @@
 import { PlayCard } from "../../components/playcard/PlayCard";
-import { Resources } from "~/components/resources/Resources";
 import { MultipleWalletConnectWidget } from "~/examples/MultipleWalletConnectWidget";
 import { useAccount } from "wagmi";
-import { ResourceName } from "../resources";
 
 const info = {
   name: "multiple-wallets",
@@ -14,8 +12,6 @@ const info = {
   },
   description: "Link Multiple Wallets to bring your players' assets together",
 } as const;
-
-const resources: ResourceName[] = ["wallet-linking-boilerplate"];
 
 const dependencies = [MultipleWalletConnectWidget];
 
@@ -37,7 +33,6 @@ function component() {
           steps={MultipleWalletConnectWidget.steps}
         />
       </PlayCard>
-      <Resources items={resources} />
     </>
   );
 }
@@ -45,5 +40,5 @@ function component() {
 export default {
   info,
   component,
-  dependencies
+  dependencies,
 };

@@ -21,6 +21,7 @@ export type ResourceName =
   | "primary-sale-1155-boilerplate"
   | "offchain-sales-boilerplate"
   | "web3-events-boilerplate"
+  | "ecosystem-wallet"
   | "server-side-transactions-boilerplate";
 
 export const resources: {
@@ -435,7 +436,27 @@ export const resources: {
       topRight: ["nodejs"],
     },
   },
+  "ecosystem-wallet": {
+    image: {
+      src: "bg-blue",
+      alt: undefined,
+    },
+    type: "boilerplate",
+    title: "Ecosystem Wallet",
+    links: [
+      {
+        label: "Source",
+        icon: "github",
+        href: "https://github.com/0xsequence/ecosystem-wallet",
+      },
+    ],
+    icons: {
+      topLeft: "sequencejs",
+      topRight: ["nodejs"],
+    },
+  },
 };
+
 for (const key of Object.keys(resources) as ResourceName[]) {
   resources[key].title = resources[key].title || key;
 }
