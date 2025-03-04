@@ -18,15 +18,15 @@
     "build-svg": "npx @svgr/cli --typescript --no-dimensions --svg-props role=img --out-dir app/components/icon -- src/icons"
   },
   "dependencies": {
-    "0xsequence": "^2.2.11",
-    "@0xsequence/auth": "^2.2.10",
+    "0xsequence": "^2.2.14",
+    "@0xsequence/auth": "^2.2.14",
     "@0xsequence/design-system": "^1.9.0",
-    "@0xsequence/indexer": "^2.2.10",
-    "@0xsequence/kit": "4.6.3",
-    "@0xsequence/kit-checkout": "4.5.9",
-    "@0xsequence/kit-wallet": "4.5.9",
-    "@0xsequence/metadata": "^2.2.11",
-    "@0xsequence/network": "^2.2.10",
+    "@0xsequence/indexer": "^2.2.14",
+    "@0xsequence/kit": "4.6.4",
+    "@0xsequence/kit-checkout": "4.6.4",
+    "@0xsequence/kit-wallet": "4.6.4",
+    "@0xsequence/metadata": "^2.2.14",
+    "@0xsequence/network": "^2.2.14",
     "@react-router/cloudflare": "^7.1.1",
     "@react-spring/three": "^9.7.5",
     "@react-three/drei": "^9.121.4",
@@ -55,7 +55,7 @@
     "vaul": "^1.1.1",
     "viem": "^2.22.23",
     "vite-tsconfig-paths": "^4.2.1",
-    "wagmi": "^2.14.10"
+    "wagmi": "^2.14.11"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
@@ -109,8 +109,8 @@
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
   "pnpm": {
     "patchedDependencies": {
-      "@0xsequence/kit-wallet@4.5.9": "patches/@0xsequence__kit-wallet@4.5.9.patch",
-      "@0xsequence/kit-checkout@4.5.9": "patches/@0xsequence__kit-checkout@4.5.9.patch"
+      "@0xsequence/kit-wallet@4.6.4": "patches/@0xsequence__kit-wallet@4.6.4.patch",
+      "@0xsequence/kit-checkout@4.6.4": "patches/@0xsequence__kit-checkout@4.6.4.patch"
     }
   }
 }
