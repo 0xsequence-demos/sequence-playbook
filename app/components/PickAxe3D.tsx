@@ -22,7 +22,7 @@ function PickAxe3D(props: { mintStatus: MintStatus }) {
   return (
     <group rotation={[0.5, 0, -0.25]}>
       <group ref={myGroup}>
-        {mintStatus === "successs" ? (
+        {mintStatus === "success" ? (
           <Clone
             scale={[5, 5, 5]}
             position={[0, -1.75, 0]}

@@ -29,11 +29,13 @@ export async function action(context: ActionFunctionArgs) {
 
     let widgets = {};
 
+    const formdata = await context.request.formData();
+
     // If a dependency has a loader, run it
     if (data?.dependencies) {
       widgets = await data.dependencies.reduce(async (acc, item) => {
         if (item?.action && typeof item?.action === "function") {
-          const response = await item.action(context);
+          const response = await item.action(context, formdata);
           acc[item.id] = response;
           return acc;
         }

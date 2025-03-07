@@ -8,13 +8,19 @@ import { Form } from "react-router";
 import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount } from "wagmi";
 import { useWidgetActionData } from "~/hooks/useWidgetActionData";
-export type MintStatus = "notStarted" | "pending" | "successs" | "failed";
+export type MintStatus = "notStarted" | "pending" | "success" | "failed";
 
 /* endhide */
-export const action = serverOnly$(async (req) => {
+export const action = serverOnly$(async (req, formData) => {
+  /* starthide */
+  if (formData.get("name") !== "MintTokenWidget") {
+    return {};
+  }
+  /* endhide */
   const env = req.context.cloudflare.env;
-  const formData = await req.request.formData();
+
   const walletAddress = formData.get("walletAddress");
+  const tokenId = parseInt(formData.get("tokenId"));
   const network = findSupportedNetwork(env.CHAIN_HANDLE)!;
   const relayerUrl = `https://${env.CHAIN_HANDLE}-relayer.sequence.app`;
 
@@ -45,7 +51,7 @@ export const action = serverOnly$(async (req) => {
   const collectibleInterface = new ethers.Interface([
     "function mint(address to, uint256 tokenId, uint256 amount, bytes data)",
   ]);
-  const dataArgs = [walletAddress, 7, 1, "0x00"];
+  const dataArgs = [walletAddress, tokenId, 1, "0x00"];
   const data = collectibleInterface.encodeFunctionData("mint", dataArgs);
   return await signer.sendTransaction({
     to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
@@ -69,7 +75,7 @@ export const MintTokenWidget = (props: {
 
   useEffect(() => {
     if (ad?.hash) {
-      setMintStatus("successs");
+      setMintStatus("success");
       setTxHash(ad?.hash);
     }
   }, [ad, setMintStatus]);
@@ -87,6 +93,8 @@ export const MintTokenWidget = (props: {
             }}
           >
             <input type="hidden" name="walletAddress" value={address} />
+            <input type="hidden" name="tokenId" value={7} />
+            <input type="hidden" name="name" value={"MintTokenWidget"} />
             <button type="submit">Mint</button>
           </Form>
           {/* starthide */}
