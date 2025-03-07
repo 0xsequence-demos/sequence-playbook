@@ -11,9 +11,12 @@ import { useWidgetActionData } from "~/hooks/useWidgetActionData";
 export type MintStatus = "notStarted" | "pending" | "successs" | "failed";
 
 /* endhide */
-export const action = serverOnly$(async (req) => {
+export const action = serverOnly$(async (req, formData) => {
+  if (formData.get("name") !== "MintTokenWidget") {
+    return {};
+  }
   const env = req.context.cloudflare.env;
-  const formData = await req.request.formData();
+
   const walletAddress = formData.get("walletAddress");
   const tokenId = parseInt(formData.get("tokenId"));
   const network = findSupportedNetwork(env.CHAIN_HANDLE)!;
@@ -87,6 +90,7 @@ export const MintTokenWidget = (props: {
               setMintStatus("pending");
             }}
           >
+            <input type="hidden" name="name" value="MintTokenWidget" />
             <input type="hidden" name="walletAddress" value={address} />
             <input type="hidden" name="tokenId" value={7} />
             <button type="submit">Mint</button>
