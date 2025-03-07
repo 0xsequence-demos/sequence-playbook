@@ -12,6 +12,7 @@ import PickAxe3D from "~/components/PickAxe3D";
 import MiningGame from "~/components/MiningGame";
 import ItemViewer3D from "~/components/ItemViewer3D";
 import { toast } from "sonner";
+import { AutoMintTokenWidget } from "~/examples/AutoMintTokenWidget";
 
 const info = {
   name: "minting-tokens",
@@ -35,21 +36,31 @@ const info = {
     "Batch, parallelize, and mint at scale your own ERC20, ERC721 or ERC1155 tokens with our Transactions API.",
 } as const;
 
-const dependencies = [MintTokenWidget];
+const dependencies = [MintTokenWidget, AutoMintTokenWidget];
 
 function component() {
   const { address } = useAccount();
+  const [pickaxeSecured, setPickaxeSecured] = useState(false);
 
-  const [mintStatus, setMintStatus] = useState<MintStatus>("notStarted");
+  const [pickaxeMintStatus, setPickaxeMintStatus] =
+    useState<MintStatus>("notStarted");
+
+  const [gemMintStatus, setGemMintStatus] = useState<MintStatus>("notStarted");
+
   const [demoMode, setDemoMode] = useState<"mint" | "play">("mint");
   useEffect(() => {
-    if (mintStatus === "successs") {
+    if (pickaxeMintStatus === "successs") {
       toast("Iron Pickaxe minted to your wallet!");
       setTimeout(() => {
         setDemoMode("play");
+        setPickaxeSecured(true);
       }, 1500);
     }
-  }, [mintStatus]);
+  }, [pickaxeMintStatus]);
+
+  const collectGem = (itemId: number) => {
+    console.log("collect gem", itemId);
+  };
 
   return (
     <>
@@ -59,42 +70,46 @@ function component() {
       <PlayCard>
         <PlayCard.Preview
           botMood={
-            !address ? "dead" : mintStatus === "successs" ? "happy" : "neutral"
+            !address
+              ? "dead"
+              : pickaxeMintStatus === "successs"
+                ? "happy"
+                : "neutral"
           }
         >
           <div className="rounded-[0.5rem] overflow-clip flex flex-col bg-deep-purple-900 items-start">
             <div className="grid grid-cols-1 grid-row-1 [&_>picture]:col-start-1 [&_>picture]:row-start-1 [&_>picture]:content-center overflow-clip aspect-square max-w-[24rem] w-full">
-              {/* <Image
-                name={
-                  mintStatus === "successs"
-                    ? "mallet-crude"
-                    : "mallet-crude-wireframe"
-                }
-              />
-              <Image
-                className={`glow ${mintStatus === "pending" ? "animated-fade" : "fade-out"}`}
-                name={"mallet-crude-minting"}
-              /> */}
               <View3D env={demoMode === "play" ? "mine" : "item"}>
-                {/* <MiningGame /> */}
-                {demoMode === "play" ? (
-                  <MiningGame />
+                {demoMode === "play" || true ? (
+                  <MiningGame
+                    collectGemSun={() => collectGem(13)}
+                    collectGemMoon={() => collectGem(14)}
+                  />
                 ) : (
                   <ItemViewer3D>
-                    <PickAxe3D mintStatus={mintStatus} />
+                    <PickAxe3D mintStatus={pickaxeMintStatus} />
                   </ItemViewer3D>
                 )}
               </View3D>
             </div>
             <div className="p-4">
               {address ? (
-                <MintTokenWidget
-                  mintStatus={mintStatus}
-                  setMintStatus={setMintStatus}
-                />
+                !pickaxeSecured ? (
+                  <MintTokenWidget
+                    mintStatus={pickaxeMintStatus}
+                    setMintStatus={setPickaxeMintStatus}
+                  />
+                ) : (
+                  <>Go deeper into the mines!</>
+                )
               ) : (
                 <RequireWalletButton title="Connect to mint!" />
               )}
+
+              <AutoMintTokenWidget
+                mintStatus={gemMintStatus}
+                setMintStatus={setGemMintStatus}
+              />
             </div>
           </div>
         </PlayCard.Preview>

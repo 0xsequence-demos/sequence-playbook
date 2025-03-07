@@ -15,6 +15,7 @@ export const action = serverOnly$(async (req) => {
   const env = req.context.cloudflare.env;
   const formData = await req.request.formData();
   const walletAddress = formData.get("walletAddress");
+  const tokenId = parseInt(formData.get("tokenId"));
   const network = findSupportedNetwork(env.CHAIN_HANDLE)!;
   const relayerUrl = `https://${env.CHAIN_HANDLE}-relayer.sequence.app`;
 
@@ -45,7 +46,7 @@ export const action = serverOnly$(async (req) => {
   const collectibleInterface = new ethers.Interface([
     "function mint(address to, uint256 tokenId, uint256 amount, bytes data)",
   ]);
-  const dataArgs = [walletAddress, 7, 1, "0x00"];
+  const dataArgs = [walletAddress, tokenId, 1, "0x00"];
   const data = collectibleInterface.encodeFunctionData("mint", dataArgs);
   return await signer.sendTransaction({
     to: env.DEMO_ITEMS_CONTRACT_ADDRESS,
@@ -87,6 +88,7 @@ export const MintTokenWidget = (props: {
             }}
           >
             <input type="hidden" name="walletAddress" value={address} />
+            <input type="hidden" name="tokenId" value={7} />
             <button type="submit">Mint</button>
           </Form>
           {/* starthide */}

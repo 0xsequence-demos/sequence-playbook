@@ -3,7 +3,7 @@ import { Session, SessionSettings } from "@0xsequence/auth";
 import { ethers } from "ethers";
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { findSupportedNetwork, networks } from "@0xsequence/network";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Form } from "react-router";
 import { serverOnly$ } from "vite-env-only/macros";
 import { useAccount } from "wagmi";
@@ -55,7 +55,7 @@ export const action = serverOnly$(async (req) => {
 });
 
 /* starthide */
-export const MintTokenWidget = (props: {
+export const AutoMintTokenWidget = (props: {
   mintStatus: MintStatus;
   setMintStatus: Dispatch<SetStateAction<MintStatus>>;
 }) => {
@@ -66,7 +66,7 @@ export const MintTokenWidget = (props: {
 
   const [txHash, setTxHash] = useState("");
 
-  const ad = useWidgetActionData("MintTokenWidget");
+  const ad = useWidgetActionData("AutoMintTokenWidget");
 
   useEffect(() => {
     if (ad?.hash) {
@@ -75,12 +75,21 @@ export const MintTokenWidget = (props: {
     }
   }, [ad, setMintStatus]);
 
+  const ref2 = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("hi");
+      ref2.current?.requestSubmit();
+    }, 400000);
+  }, []);
+
   return address ? (
     <>
       {mintStatus === "notStarted" ? (
         <>
           {/* endhide */}
           <Form
+            ref={ref2}
             replace
             method="post"
             onSubmit={() => {
